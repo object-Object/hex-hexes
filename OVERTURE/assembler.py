@@ -40,8 +40,9 @@ instructions: dict[str, int] = {
 
 def convert_instruction(inst: str) -> int:
     if inst.isdigit():
-        return int(inst)
-    elif inst.startswith("cp"):
+        assert 0 <= (num := int(inst)) < 64, f"Expected 0 <= n < 64, got {num}"
+        return num
+    elif inst.startswith("cp|"):
         _, src, dest = inst.split("|")
         return instructions["cp"] | instructions[src] | instructions[dest]
     else:
@@ -51,22 +52,23 @@ def convert_instruction(inst: str) -> int:
 def prepare_instuction(line: str) -> str:
     return "".join(line.split(";")[0].split())
 
-def assemble(lines: list[str]) -> list[int]:
+def assemble(lines: list[str], pad: bool) -> list[int]:
     assembly = [convert_instruction(s.lower()) for line in lines if (s := prepare_instuction(line))]
     if len(assembly) > 256:
         raise ValueError(f"File too long (max 256 lines, got {len(lines)})")
 
-    return assembly + [0 for _ in range(256 - len(assembly))]
+    return assembly + ([0 for _ in range(256 - len(assembly))] if pad else [])
 
 def generate_give_command(data: list[int]) -> str:
-    list_contents = ",".join(f"""{{"hexcasting:type": "hexcasting:double", "hexcasting:data": {x}d}}""" for x in data)
-    return f"""/give @p hexcasting:focus{{data: {{"hexcasting:type": "hexcasting:list", "hexcasting:data": [{list_contents}]}}}}"""
+    list_contents = ",".join(f"""{{"hexcasting:type":"hexcasting:double","hexcasting:data":{x}d}}""" for x in data)
+    return f"""/give @p hexcasting:focus{{data: {{"hexcasting:type":"hexcasting:list","hexcasting:data":[{list_contents}]}}}}"""
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("file", nargs="?", type=argparse.FileType("r"), default=sys.stdin)
+    parser.add_argument("-p", "--pad", action="store_true")
     args = parser.parse_args()
 
-    assembly = assemble(args.file.readlines())
+    assembly = assemble(args.file.readlines(), args.pad)
     print(assembly)
-    # print(generate_give_command(assembly))
+    print(generate_give_command(assembly))

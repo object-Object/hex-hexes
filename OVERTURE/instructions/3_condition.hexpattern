@@ -1,0 +1,64 @@
+// --
+{
+    // select R3
+    Muninn's Reflection
+    Undertaker's Gambit
+    Numerical Reflection: 1
+    Selection Distillation
+    Numerical Reflection: 3
+    Selection Distillation
+
+    // sub-instructions
+    // number, 0 -> bool
+    { // never
+        Bookkeeper's Gambit: vv
+        False Reflection
+    }
+    Single's Purification
+
+    { // eq, less, less_eq
+        Equality Distillation
+        Minimus Distillation
+        Minimus Distillation II
+    }
+    Combination Distillation
+
+    { // always
+        Bookkeeper's Gambit: vv
+        True Reflection
+    }
+    Integration Distillation
+
+    { // not_eq, greater_eq, greater
+        Inequality Distillation
+        Maximus Distillation II
+        Maximus Distillation
+    }
+    Combination Distillation
+
+    // select and execute sub-instruction
+    Rotation Gambit
+    Selection Distillation
+    Numerical Reflection: 0
+    Jester's Gambit
+    Hermes' Gambit
+
+    // conditionally set program counter
+    {
+        Surgeon's Exaltation
+        Bookkeeper's Gambit: vv
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+
+    Prospector's Gambit
+    Numerical Reflection: 1
+    Selection Distillation
+    Numerical Reflection: 0
+    Undertaker's Gambit // mildly cursed, but we need another zero below so it works
+    Selection Distillation
+
+    Rotation Gambit
+    Hermes' Gambit
+    Huginn's Gambit
+}

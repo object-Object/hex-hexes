@@ -1,0 +1,64 @@
+// -v
+{
+    // get registers
+    Muninn's Reflection
+    Undertaker's Gambit
+    Numerical Reflection: 1
+    Selection Distillation
+    Gemini Decomposition
+
+    // destination index
+    Rotation Gambit
+    Gemini Decomposition
+    Numerical Reflection: 8
+    Modulus Distillation
+    
+    // source index
+    Jester's Gambit
+    Numerical Reflection: 8
+    Division Distillation
+    Floor Purification
+    
+    // select value to copy, or 0 if index is 7
+    Rotation Gambit
+    Jester's Gambit
+    Gemini Decomposition
+    Numerical Reflection: 7
+    Equality Distillation
+    
+    {
+        // on false
+        Selection Distillation
+
+        // on true
+        Bookkeeper's Gambit: vv
+        Numerical Reflection: 0
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+    
+    // copy to destination, or send on link if index is 6 (output)
+    Prospector's Gambit
+    Numerical Reflection: 6
+    Equality Distillation
+    
+    {
+        // on false
+        Surgeon's Exaltation
+
+        // on true
+        Numerical Reflection: 0
+        Jester's Gambit
+        Send Iota
+        Bookkeeper's Gambit: v
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+
+    Numerical Reflection: 1
+    Jester's Gambit
+    Surgeon's Exaltation
+    Huginn's Gambit
+}

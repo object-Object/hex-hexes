@@ -1,0 +1,128 @@
+#define Huginn's Gambit II (NORTH_WEST eqqwawqaawaw) = any ->
+
+{
+    // enable debug mode (printing PC and registers at the start of each cycle) if sneaking
+    Mind's Reflection
+    Stadiometer's Purification
+    Numerical Reflection: 1.5
+    Maximus Distillation
+
+    Vacant Reflection
+    {
+        Muninn's Reflection
+        Reveal
+        Bookkeeper's Gambit: v
+    }
+    Augur's Exaltation
+
+    // main loop
+    Consideration: {
+        // ravenmind default: [PC, registers]
+        Numerical Reflection: 0
+        Numerical Reflection: 8
+        Gemini Gambit
+        
+        Numerical Reflection: 7
+        Flock's Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Huginn's Gambit II
+
+        // read from queue to input register
+        {
+            Muninn's Reflection
+            Flock's Disintegration
+            
+            Numerical Reflection: 6
+            Recitation Reflection
+            Surgeon's Exaltation
+            
+            Numerical Reflection: 2
+            Flock's Gambit
+            Huginn's Gambit
+        }
+        
+        Numerical Reflection: 0
+        Postmaster's Reflection
+        Gemini Gambit
+        Postmaster's Reflection
+        Flock's Gambit
+        
+        Thoth's Gambit
+        Bookkeeper's Gambit: v
+
+        // read program
+        Gemini Decomposition
+        Compass' Purification
+        Numerical Reflection: 0.5
+        Zone Distillation: Non-Living
+        Numerical Reflection: 1
+        Selection Distillation
+        Chronicler's Purification
+
+        // get PC and increment for next cycle
+        Muninn's Reflection
+        Flock's Disintegration
+        Prospector's Gambit
+        Numerical Reflection: 1
+        Additive Distillation
+
+        // wrap PC around to 0 when it exceeds 255
+        Gemini Decomposition
+        Numerical Reflection: 256
+        Minimus Distillation
+        Jester's Gambit
+        Numerical Reflection: 0
+        Augur's Exaltation
+        
+        Jester's Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Huginn's Gambit
+
+        // get current instruction
+        Selection Distillation
+        
+        // last 6 bits of instruction (parameters)
+        Gemini Decomposition
+        Numerical Reflection: 64
+        Modulus Distillation
+
+        // first two bits of instruction (category index, aka opcode)
+        Jester's Gambit
+        Numerical Reflection: 64
+        Division Distillation
+        Floor Purification
+        
+        // get and execute category
+        Vector Reflection Zero
+        { // number ->
+            Bookkeeper's Gambit: vv // v is 0, - is 1
+            Bookkeeper's Gambit: v-
+            Bookkeeper's Gambit: -v
+            Bookkeeper's Gambit: --
+        }
+        Rotation Gambit
+        Selection Distillation
+        Akasha's Distillation
+        Hermes' Gambit
+    Consideration: }
+    Combination Distillation
+    
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    
+    Dioscuri Gambit
+    Archer's Distillation
+    Rotation Gambit II
+    Architect's Distillation
+    Additive Distillation
+
+    Undertaker's Gambit
+    Numerical Reflection: 900 // any big number, we're not trying to be practical here
+    Summon Cyclic Wisp
+    Entity Purification: Wisp
+    Link
+}
