@@ -1,0 +1,56 @@
+// Uncapped Counter's Queue
+// Given a number n, returns a list containing all integers in the range [0, n).
+// number -> [number]
+
+{
+    // backup old ravenmind (can be omitted)
+    read_ravenmind
+    jester
+
+    // write n to ravenmind
+    gemini_dec
+    write_ravenmind
+
+    // starting at n-1, push to list and decrement ravenmind n times
+    {
+        read_ravenmind
+        integration
+        read_ravenmind
+        1
+        subtractive
+        write_ravenmind
+    }
+
+    // unroll above patterns n times
+    jester
+    gemini_gambit
+
+    read_ravenmind
+    1
+    subtractive
+    gemini_dec
+    write_ravenmind
+
+    {
+        combination
+    }
+    0
+    selection_dist // equivalent to consideration combination, but works at all levels of nesting
+    jester
+    gemini_gambit
+
+    read_ravenmind
+    flock_gam
+    hermes
+    // if you want to output the range [1, n] instead of [0, n), increment the ravenmind here
+
+    // build the output list
+    vacant
+    jester
+    hermes
+    retrograde // because we built it backwards
+
+    // restore old ravenmind (can be omitted)
+    jester
+    write_ravenmind
+}

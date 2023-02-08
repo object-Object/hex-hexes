@@ -1,0 +1,63 @@
+{
+    // read a
+    locate_sentinel
+    consideration consideration
+    EAST a
+    akasha_dist
+    gemini_dec
+
+    // read d
+    locate_sentinel
+    consideration consideration
+    EAST d
+    akasha_dist
+
+    // we do a bit of cloning
+    2
+    flock_gam
+    gemini_dec
+    flock_dis
+
+    conjunction
+    null
+    equality
+    {
+        charon // bail out, we read too quickly after a write
+        bookkeeper - // no-op
+    }
+    jester
+    selection_dist
+    hermes
+
+    jester
+    null
+    equality
+    {
+        EAST d
+        EAST a
+    }
+    jester
+    selection_dist // pattern to write
+
+    jester
+    flock_dis
+    disjunction // focus value (may be null)
+
+    // do something with the value read from the focus
+    // for example: increment it, starting at 0 if null
+    0
+    disjunction
+    1
+    additive
+    reveal
+    /* top of stack at this point should be:
+    value to write
+    key from earlier
+    */
+
+    // write new data
+    locate_sentinel
+    4
+    swindler
+    akasha_gam
+}

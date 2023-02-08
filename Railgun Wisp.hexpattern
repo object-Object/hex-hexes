@@ -1,0 +1,171 @@
+#define Conditional Continue (SOUTH_WEST aqdeedd) = bool ->
+#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
+#define Linear Impulse (SOUTH_WEST awqqqwaqww) = entity, vector ->
+
+// template: Hey Listen
+
+// buffer (enough to kill about five normal mobs, plus upkeep and sentinels)
+Numerical Reflection: 120
+
+// patterns
+{
+    // ravenmind default
+    Muninn's Reflection
+    Gemini Decomposition
+    Augur's Purification
+    Jester's Gambit
+    Vacant Reflection
+    Augur's Exaltation
+    Huginn's Gambit
+
+    // thoth loop
+    Consideration: {
+        /* filter for non-stuck arrows */
+
+        Numerical Reflection: 4
+        Gemini Gambit
+        Stadiometer's Purification
+        Numerical Reflection: 0.5
+        Inequality Distillation
+        Conditional Continue
+
+        Compass' Purification II
+        Undertaker's Gambit
+
+        Jester's Gambit
+        Pace Purification
+        Archer's Distillation
+
+        Dioscuri Gambit
+        Nullary Reflection
+        Inequality Distillation
+        Rotation Gambit II
+        
+        Numerical Reflection: 2
+        Additive Distillation
+        Augur's Exaltation
+
+        Subtractive Distillation
+        Length Purification
+        Numerical Reflection: 1
+        Minimus Distillation
+        Conditional Continue
+
+        Gemini Decomposition
+        Alidade's Purification
+        Vector Disintegration
+        Bookkeeper's Gambit: v-v
+        Numerical Reflection: 0
+        Equality Distillation
+        Conditional Continue
+        
+        /* get target */
+    
+        Mind's Reflection
+        Compass' Purification
+        Gemini Decomposition
+
+        Wayfind Sentinel
+        Gemini Decomposition
+        Augur's Purification
+        Jester's Gambit
+        
+        Vector Reflection Zero
+        Numerical Reflection: 1
+        Additive Distillation
+
+        Augur's Exaltation
+        Length Purification
+        Numerical Reflection: 1
+        Minimus Distillation
+        
+        {
+            Bookkeeper's Gambit: v
+            Summon Greater Sentinel
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // could use sentinel walking, but would need a delay to make it less expensive
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Scout's Distillation
+
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Charon
+
+        Compass' Purification
+        Entity Purification: Living
+
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+
+        Prospector's Gambit
+        Mind's Reflection
+        Equality Distillation
+        Disjunction Distillation
+    
+        Conditional Charon
+
+        /* railgun */
+
+        Jester's Gambit
+        Muninn's Reflection
+        Prospector's Gambit
+        Integration Distillation
+        Huginn's Gambit
+
+        Dioscuri Gambit
+        Compass' Purification II
+        Jester's Gambit
+        Compass' Purification
+        Jester's Gambit
+        Subtractive Distillation
+        
+        Gemini Decomposition
+        Length Purification
+        Division Distillation
+        
+        Rotation Gambit
+        Nurse's Purification
+        Numerical Reflection: 2
+        Division Distillation
+        Multiplicative Distillation
+
+        Prospector's Gambit
+        Pace Purification
+        Subtractive Distillation
+
+        Linear Impulse
+        Banish Sentinel
+        Charon's Gambit
+    Consideration: }
+
+    Prospector's Gambit
+    Compass' Purification
+    Numerical Reflection: 7 // ambit - 1
+    Dioscuri Gambit
+    Dioscuri Gambit
+
+    Zone Distillation: Non-Item
+    Rotation Gambit II
+    Zone Distillation: Non-Living
+    Intersection Distillation
+    Rotation Gambit II
+    Zone Distillation: Non-Wisp
+    Intersection Distillation
+
+    Muninn's Reflection
+    Undertaker's Gambit
+    Combination Distillation
+    Exclusionary Distillation
+    
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+}

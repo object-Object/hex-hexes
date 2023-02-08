@@ -1,0 +1,51 @@
+// build an akashic focus and load the list of patterns into it
+// then put a stack of slates in your offhand and use this
+
+{
+    locate_sentinel
+    consideration consideration
+    EAST a
+    akasha_dist
+    gemini_dec
+    null
+    equality
+    {
+        EAST d
+        EAST a
+    }
+    jester
+    selection_dist
+    jester
+    locate_sentinel
+    consideration consideration
+    EAST d
+    akasha_dist
+    disjunction
+
+    speaker_dec
+    scribe_gam
+
+    mind
+    compass
+    mind
+    alidade
+    archer
+    mind
+    compass
+    mind
+    alidade
+    architect
+    additive
+
+    place_block
+
+    gemini_dec
+    abacus
+    reveal
+    bookkeeper v
+
+    locate_sentinel
+    4
+    swindler
+    akasha_gam
+}

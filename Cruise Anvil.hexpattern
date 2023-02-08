@@ -1,0 +1,6 @@
+/*
+* have start and end in ravenmind
+* get distance from start
+
+* J = v - (normalized(y'(x)) * desired_speed)
+*/

@@ -1,0 +1,73 @@
+{
+    mind
+    compass
+    mind
+    alidade
+    archer
+    mind
+    compass
+    mind
+    alidade
+    architect
+    additive // starting pos
+
+    gemini_dec
+    vec_minus_x
+    5 // radius
+    multiplicative
+    additive // center
+
+    {
+        gemini_dec
+        compass
+        gemini_dec
+
+        {
+            bookkeeper - // placeholder for C
+            bookkeeper - // placeholder for t_0
+        }
+        flock_disint
+
+        timekeeper
+        jester
+        subtractive // t
+        1
+        additive
+        50 // radius*10
+        division // a
+
+        gemini_dec
+        cosine
+        5 // radius
+        multiplicative // x
+
+        jester
+        sine
+        5 // radius
+        multiplicative // z
+
+        0
+        jester
+        vector_ex
+        additive // target
+
+        jester
+        subtractive // target - position
+        50 // just a big constant
+        multiplicative // step
+
+        additive
+        pathfinder_gam
+    }
+    4
+    3
+    fisherman
+    surgeon
+    5
+    timekeeper
+    surgeon
+
+    jester
+    30
+    summon_cyclic_wisp
+}

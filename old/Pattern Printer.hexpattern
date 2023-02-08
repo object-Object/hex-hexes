@@ -1,0 +1,41 @@
+// cast with a CAD circle, focus in main hand, stack of blank slates in offhand
+
+{
+    Scribe's Reflection // read this hex from the focus in main hand
+
+    Consideration // considered consideration so the final hex has an actual consideration
+    Consideration
+    Bookkeeper's Gambit: - // placeholder, you need to use surgeon to replace this with a list of patterns (index 2)
+    Speaker's Decomposition // pop a pattern from the list of patterns which is now on the stack
+
+    Gemini Decomposition
+    Negation Purification
+    {
+        Scribe's Gambit // write the popped pattern to the slates in offhand
+        Charon's Gambit // bail out to avoid nulling the hex in the focus
+    }
+    Jester's Gambit
+    Selection Distillation
+    Hermes' Gambit
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Archer's Distillation
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Architect's Distillation
+    Additive Distillation
+    Place Block
+
+    Erase Item // erase the remaining slates in offhand
+
+    Numerical Reflection: 2
+    Jester's Gambit
+    Surgeon's Exaltation // insert the remaining list back into the hex
+
+    Scribe's Gambit // write the updated hex back to the focus in main hand
+}

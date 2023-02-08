@@ -1,0 +1,45 @@
+{
+    {
+        gemini_dec
+        compass
+        8
+        zone_dist_wisp
+        speaker_dec
+        bookkeeper v
+
+        {
+            gemini_dec
+            compass
+            3
+            fisherman
+            compass
+            subtractive // wisp -> target
+
+            gemini_dec
+            length
+            3
+            power
+            -4 // -q = -r_0*v_0^2 (strength of wisp's gravity)
+            division // -r^3/q
+
+            division // q/r^2 [target -> wisp]
+            vec_plus_y
+            20
+            division // -g for wisps to cancel earth's gravity
+            additive
+
+            impulse
+        }
+
+        jester
+        thoth
+        bookkeeper v
+    }
+    mind
+    compass
+    mind
+    alidade
+    archer
+    7300 // any really big number, to sustain all the impulses
+    summon_cyclic_wisp
+}

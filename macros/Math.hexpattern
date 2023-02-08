@@ -1,0 +1,70 @@
+#define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
+{
+    Dioscuri Gambit
+    Minimus Distillation
+    Rotation Gambit II
+    Augur's Exaltation
+}
+
+#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+{
+    Dioscuri Gambit
+    Maximus Distillation
+    Rotation Gambit II
+    Augur's Exaltation
+}
+
+#define Sign Purification (SOUTH_EAST awdda) = num -> 1 or 0 or -1
+{
+    Gemini Decomposition
+    Numerical Reflection: 0
+    Maximus Distillation
+    Numerical Reflection: 1
+    Numerical Reflection: 0
+    Augur's Exaltation
+    
+    Jester's Gambit
+    Numerical Reflection: 0
+    Minimus Distillation
+    Numerical Reflection: -1
+    Rotation Gambit
+    Augur's Exaltation
+}
+
+#define Vector Sign Purification (SOUTH_EAST awddaqqqq) = vec -> vec
+// (sign(x), sign(y), sign(z))
+{
+    Vector Disintegration
+
+    Sign Purification
+    Rotation Gambit
+    Sign Purification
+    Rotation Gambit
+    Sign Purification
+    Rotation Gambit
+
+    Vector Exaltation
+}
+
+#define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
+// (AxBx, AyBy, AzBz)
+{
+    Vector Disintegration
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Vector Disintegration
+    
+    Numerical Reflection: 50
+    Swindler's Gambit
+    
+    Multiplicative Distillation
+    Rotation Gambit II
+    Multiplicative Distillation
+    
+    Numerical Reflection: 22
+    Swindler's Gambit
+    Multiplicative Distillation
+    
+    Rotation Gambit II
+    Vector Exaltation
+}

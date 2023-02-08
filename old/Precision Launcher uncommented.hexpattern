@@ -1,0 +1,488 @@
+{
+    consideration {
+        mind
+        compass
+        mind
+        alidade
+        scout
+        compass
+        
+        gemini_dec
+        consideration consideration
+        consideration consideration
+        bookkeeper -
+        gemini_dec
+        3
+        fisherman
+        subtractive
+
+        vector_dis
+        0
+        7
+        swindler
+        vector_ex
+        length
+        jester
+
+        2
+        flock_gam
+        3
+        gemini_gambit
+
+        148
+        100
+        division
+
+        3
+        10
+        division
+
+        128
+        100
+        division
+
+        100
+        10
+        multiplicative
+        gemini_dec
+        4
+        subtractive
+        jester
+        division
+
+        5
+        fisherman
+        0
+        selection_dist
+
+        power
+        multiplicative
+        additive
+
+        2
+        flock_gam
+        gemini_dec
+        flock_dis
+        maximus
+        selection_dist
+
+        87
+        100
+        10
+        multiplicative
+        division
+        subtractive
+
+        jester
+        3
+        gemini_gambit
+        0
+        selection_dist
+        euler
+        logarithmic
+
+        8
+        10
+        division
+        multiplicative
+
+        1745
+        100
+        10
+        multiplicative
+        division
+        additive
+
+        jester
+        0
+        selection_dist
+
+        4
+        100
+        100
+        multiplicative
+        division
+        1
+        additive
+
+        jester
+        power
+        37
+        multiplicative
+        33
+        subtractive
+
+        2
+        flock_gam
+
+        jester
+        0
+        selection_dist
+        150
+        maximus_2
+        selection_dist
+
+        gemini_dec
+
+        21
+        10
+        division
+        additive
+        2
+        power
+        56
+        additive
+        ceiling
+
+        jester
+        2
+        subtractive
+
+        79
+        swindler
+        0
+        1
+        null
+        6
+        flock_gam
+        combination
+
+        consideration {
+            read_ravenmind
+            consideration consideration
+            consideration consideration
+            consideration consideration
+            consideration consideration
+            bookkeeper -
+            disjunction
+            write_ravenmind
+
+            consideration {
+                bookkeeper v
+
+                read_ravenmind
+                4
+                gemini_gambit
+                0
+                2
+                selection_ex
+                gemini_dec
+                combination
+                flock_dis
+                
+                5
+                fisherman
+                3
+                5
+                selection_ex
+                3
+                gemini_gambit
+                flock_dis
+                cosine
+                multiplicative
+                gemini_dec
+
+                50
+                multiplicative
+
+                6
+                fisherman
+                jester
+                division
+
+                1
+                jester
+                subtractive
+                
+                gemini_dec
+                0
+                maximus
+                gemini_dec
+
+                1
+                4
+                fisherman
+                2
+                flock_gam
+                jester
+                selection_dist
+                euler
+                logarithmic
+
+                99
+                100
+                10
+                multiplicative
+                multiplicative
+                3
+                subtractive
+                100
+                10
+                multiplicative
+                division
+                multiplicative
+
+                2
+                5
+                fisherman
+                flock_dis
+                sine
+                multiplicative
+                additive
+
+                8
+                fisherman
+                multiplicative
+                4
+                fisherman
+                division
+                additive
+
+                5
+                fisherman
+                10
+                additive
+
+                jester
+                2
+                flock_gam
+                jester
+                selection_dist
+
+                3
+                fisherman
+                subtractive
+                length
+                
+                3
+                gemini_gambit
+                5
+                fisherman
+                6
+                selection_dist
+                minimus_2
+                
+                {
+                    bookkeeper vv
+                    surgeon
+                }
+                jester
+                selection_dist
+                gemini_dec
+                
+                6
+                7
+                fisherman
+
+                46
+                swindler
+                hermes
+
+                7
+                40
+                swindler
+                hermes
+
+                gemini_dec
+                3
+                selection_dist
+                4
+                63
+                division
+                additive
+                3
+                jester
+                surgeon
+                write_ravenmind
+
+                0.25
+                minimus_2
+                {
+                    bookkeeper v
+                    charon
+                }
+                jester
+                selection_dist
+                hermes
+            consideration }
+
+            0
+            63
+            gemini_gambit
+            63
+            flock_gam
+
+            thoth
+            bookkeeper v
+
+            read_ravenmind
+
+            gemini_dec
+            3
+            selection_dist
+            4
+            subtractive
+            3
+            jester
+            surgeon
+
+            gemini_dec
+            4
+            selection_dist
+            972
+            10
+            6
+            power
+            division
+            additive
+            4
+            jester
+            surgeon
+            
+            gemini_dec
+            5
+            selection_dist
+            1
+            additive
+            5
+            jester
+            surgeon
+
+            gemini_dec
+            write_ravenmind
+
+            5
+            8
+            selection_ex
+            retrograde
+            flock_dis
+
+            180
+            maximus_2
+            identity
+            gemini_dec
+            2
+            conjunction
+            0
+            disjunction
+            jester
+
+            3
+            fisherman
+            0.25
+            minimus_2
+            identity
+            disjunction
+
+            3
+            fisherman
+            jester
+            conjunction
+            jester
+            disjunction
+
+            consideration {
+                bookkeeper -
+                EAST
+                consume_wisp
+            consideration }
+            1
+            consideration {
+                gemini_dec
+                compass
+                1
+                zone_dist_item
+                0
+                selection_dist
+
+                gemini_dec
+                compass
+
+                read_ravenmind
+                2
+                selection_dist
+
+                jester
+                subtractive
+
+                vector_dis
+                bookkeeper v-
+                0
+                jester
+                vector_ex
+                gemini_dec
+                length
+                division
+
+                read_ravenmind
+                7
+                selection_dist
+
+                gemini_dec
+                flock_dis
+                sine
+                multiplicative
+
+                jester
+                flock_dis
+                cosine
+                multiplicative
+
+                3
+                fisherman
+                multiplicative
+
+                vector_dis
+                bookkeeper v-
+                2
+                swindler
+                vector_ex
+                impulse
+
+                consume_wisp
+            consideration }
+            surgeon
+
+            jester
+            selection_dist
+            hermes
+        consideration }
+        jester
+        2
+        jester
+        surgeon
+
+        4
+        swindler
+        cyclic_wisp
+    consideration }
+    {
+        scribe_ref
+        10
+
+        mind
+        compass
+        mind
+        alidade
+        archer
+        mind
+        compass
+        mind
+        alidade
+        architect
+        0.5
+        multiplicative
+        additive
+
+        surgeon
+        scribe_gam
+    }
+    2
+    flock_gam
+    mind
+    stadiometer
+    1.5
+    minimus_2
+    selection_dist
+    hermes
+}

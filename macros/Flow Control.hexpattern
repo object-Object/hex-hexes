@@ -1,0 +1,23 @@
+#define Conditional Continue (SOUTH_WEST aqdeedd) = bool ->
+{
+    {
+        Introspection
+        Bookkeeper's Gambit: -
+        Retrospection
+    }
+    Flock's Disintegration
+    Bookkeeper's Gambit: v
+    Augur's Exaltation
+    Hermes' Gambit
+}
+
+#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
+{
+    {
+        Charon's Gambit
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+}

@@ -1,0 +1,126 @@
+{
+    // set up variables on stack
+    // queue, target type, visited (including null so we don't try to visit a null position)
+    Nullary Reflection
+    Single's Purification
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Archer's Distillation
+
+    Gemini Decomposition
+    Surveyor's Purification
+    Jester's Gambit
+    Single's Purification
+
+    // recursive function, part 1
+    {
+        // remove visited blocks from queue, and remove duplicates from queue and visited
+        Rotation Gambit
+        Uniqueness Purification
+
+        Undertaker's Gambit
+        Combination Distillation
+        Prospector's Gambit
+        Exclusionary Distillation
+        Uniqueness Purification
+
+        // break current block and add to list of visited blocks
+        Speaker's Decomposition
+        Rotation Gambit
+        Prospector's Gambit
+        Integration Distillation
+        
+        // inner BFS loop
+        Numerical Reflection: 20
+        Swindler's Gambit
+    }
+    // recommended: split across screens here
+
+    // pre-unroll and insert inner loop
+    {
+        // clean up the stack
+        Flock's Reflection
+        Flock's Gambit
+        Retrograde Purification
+        Numerical Reflection: 0
+        Selection Distillation
+
+        // inner loop to be unrolled
+        {
+            // get new block
+            {
+                Bookkeeper's Gambit: - // offset placeholder (automatic)
+            }
+            Flock's Disintegration
+            Prospector's Gambit
+            Additive Distillation
+            
+            // add to queue if new block is the right type
+            Gemini Decomposition
+            Surveyor's Purification
+            Numerical Reflection: 3
+            Fisherman's Gambit II
+            Equality Distillation
+
+            {
+                Integration Distillation
+                Bookkeeper's Gambit: v
+            }
+            Flock's Disintegration
+            Augur's Exaltation
+            
+            Numerical Reflection: 5
+            Fisherman's Gambit
+            Rotation Gambit II
+            Hermes' Gambit
+            
+            // reset stack for next iteration
+            Rotation Gambit II
+        }
+
+        // insert current offset
+        Numerical Reflection: 1 // index of placeholder
+        Rotation Gambit
+        Surgeon's Exaltation
+        Flock's Disintegration
+    }
+    Consideration: Consideration
+    Bookkeeper's Gambit: -- // manually insert list of offsets here
+    Thoth's Gambit
+    Combination Distillation
+    // recommended: split across screens here
+    
+    // recursive function, part 2
+    {
+        // break target
+        Break Block
+
+        // halt if queue is empty or reached block limit, otherwise recurse
+        Jester's Gambit
+        Gemini Decomposition
+        Augur's Purification
+
+        Thanatos' Reflection
+        Numerical Reflection: 357 // max recursion - block limit - number of offsets - 1 (512 - 64 - 26 - 1)
+        Subtractive Distillation
+        Augur's Purification
+
+        Conjunction Distillation
+        Muninn's Reflection
+        {
+            Bookkeeper's Gambit: v
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+    Combination Distillation
+
+    // save on stack space and iota usage by putting function in ravenmind
+    Huginn's Gambit
+    Muninn's Reflection
+    Hermes' Gambit
+}

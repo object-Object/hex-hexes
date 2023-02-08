@@ -1,0 +1,60 @@
+{
+    {
+        Mind's Reflection
+        Pace Purification
+        Length Purification
+        Numerical Reflection: 1
+        Additive Distillation
+        Speedometer's Reflection
+        Subtractive Distillation
+        Ceiling Purification
+        
+        Gemini Decomposition
+        Numerical Reflection: 0
+        Maximus Distillation
+        {
+            Gemini Decomposition
+            Gemini Gambit
+            Gemini Decomposition
+            Flock's Gambit
+
+            {
+                Speedometer's Reflection
+                Numerical Reflection: 1
+                Additive Distillation
+                Haste
+            }
+            Jester's Gambit
+            Thoth's Gambit
+        }
+        {
+            Bookkeeper's Gambit: -
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+        Bookkeeper's Gambit: v
+        
+        Mind's Reflection
+        Compass' Purification
+        Vector Reflection +Y
+        Additive Distillation
+        Pathfinder's Gambit
+
+        // rest of wisp patterns (insert second)
+        Reveal
+    }
+
+    Mind's Reflection
+    Compass' Purification
+    Vector Reflection +Y
+    Additive Distillation
+    Undertaker's Gambit
+
+    // wisp buffer (insert first)
+    Numerical Reflection: 25
+    Summon Cyclic Wisp
+    
+    Entity Purification: Wisp
+    Bind Wisp
+}

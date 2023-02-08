@@ -1,0 +1,70 @@
+{
+    // read +y
+    locate_sentinel
+    consideration consideration
+    EAST a // +y key
+    akasha_dist
+
+    // check if value is in +y or -y
+    gemini_dec
+    null
+    equality
+    jester
+
+    // read -y, get canonical focus value
+    locate_sentinel
+    consideration consideration
+    EAST d // -y key
+    akasha_dist
+    disjunction
+
+    // do something with the value read from the focus
+    reveal
+    1
+    additive
+    jester
+    /* stack at this point should be:
+    comparison result from earlier (0 if value was in +y, 1 if -y)
+    value to write
+    */
+
+    // if data in +y
+    vector_plus_y
+    consideration consideration
+    EAST d // -y key
+    2
+    flock_gam
+
+    // if data in -y
+    vector_minus_y
+    consideration consideration
+    EAST a // +y key
+    2
+    flock_gam
+
+    // select correct values for state of focus
+    2
+    flock_gam
+    jester
+    selection_dist
+    flock_disint
+    /* stack:
+    key
+    offset
+    value to write
+    */
+
+    // write new data
+    locate_sentinel
+    jester
+    4
+    fisherman // value to write
+    akasha_gam
+
+    // clear old data
+    locate_sentinel
+    additive
+    gemini_dec
+    conjure_block
+    break_block
+}

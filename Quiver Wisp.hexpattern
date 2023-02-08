@@ -1,0 +1,140 @@
+// macros
+#define Huginn's Gambit II (NORTH_WEST eqqwawqaawaw) = any ->
+#define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
+
+// template: Stuck Arrow Filter
+// use Locator's Scalpel for replacements in the order they're written
+
+// replacement for Thoth's Gambit
+{
+    Muninn's Reflection
+    Undertaker's Gambit
+    Unifying Distillation
+    Exclusionary Distillation
+    Thoth's Gambit
+}
+
+// replacement for Numerical Reflection: 31
+{
+    Numerical Reflection: 7
+}
+
+// replacement for Mind's Reflection
+{
+    Prospector's Gambit
+}
+
+// replacement for Reveal
+{
+    // -1/5 r^ if |r| > 0.25
+    Dioscuri Gambit
+    Compass' Purification II
+    Jester's Gambit
+    Compass' Purification II
+    Subtractive Distillation
+    
+    Gemini Decomposition
+    Length Purification
+    Gemini Decomposition
+    Numerical Reflection: 0.25
+    Maximus Distillation
+    Rotation Gambit II
+
+    Division Distillation
+    Numerical Reflection: -5
+    Division Distillation
+    Vector Reflection Zero
+    Augur's Exaltation
+    
+    // -v
+    Prospector's Gambit
+    Pace Purification
+    Gemini Decomposition
+    Length Purification
+    Undertaker's Gambit
+    Division Distillation
+
+    Jester's Gambit
+    Numerical Reflection: 1
+    Minimization Distillation
+    Multiplicative Distillation
+    Subtractive Distillation
+    
+    Impulse
+}
+
+// main hex (insert the filled template into this, not the other way around)
+{
+    {
+        Vacant Reflection
+        Huginn's Gambit II
+
+        {
+            Postmaster's Reflection
+            Augur's Purification
+
+            {
+                Muninn's Reflection
+                Recitation Reflection
+                Integration Distillation
+                Uniqueness Purification
+                Huginn's Gambit
+            }
+            Numerical Reflection: 2
+            Fisherman's Gambit II
+            Combination Distillation
+
+            {
+                Bookkeeper's Gambit: v
+            }
+            Flock's Disintegration
+            
+            Augur's Exaltation
+            Hermes' Gambit
+        }
+        Gemini Decomposition
+        Hermes' Gambit
+        
+        // placeholder for filled Stuck Arrow Filter patterns
+        Reveal
+    }
+
+    Mind's Reflection
+    Compass' Purification
+    Vector Reflection +Y
+    Dioscuri Gambit
+    Archer's Distillation
+
+    Gemini Decomposition
+    Nullary Reflection
+    Equality Distillation
+    {
+        Bookkeeper's Gambit: v
+        Numerical Reflection: 5
+    }
+    {
+        Mind's Reflection
+        Compass' Purification
+        Subtractive Distillation
+        Length Purification
+
+        Numerical Reflection: 1
+        Subtractive Distillation
+        Numerical Reflection: 5
+        Minimization Distillation
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+
+    Multiplicative Distillation
+    Additive Distillation
+    Undertaker's Gambit
+    
+    Numerical Reflection: 50
+    Summon Cyclic Wisp
+
+    Entity Purification: Wisp
+    Gemini Decomposition
+    Bind Wisp // optional, i'm not sure if the cost (50 dust!) is worth it for this application
+    Link
+}

@@ -1,0 +1,32 @@
+// ./macros/Flow Control.hexpattern
+#define Conditional Continue (SOUTH_WEST aqdeedd) = bool -> 
+
+{
+    Numerical Reflection: 0
+    Huginn's Gambit
+    
+    {
+        Muninn's Reflection
+        Reveal
+        Gemini Decomposition
+        Numerical Reflection: 2
+        Maximus Distillation
+        Conditional Continue // if i > 2: continue
+
+        Numerical Reflection: -1
+        Reveal
+        Bookkeeper's Gambit: v
+
+        Additive Distillation
+        Huginn's Gambit
+    }
+
+    Numerical Reflection: 1
+    Numerical Reflection: 10
+    Gemini Gambit
+    Numerical Reflection: 10
+    Flock's Gambit
+    
+    Thoth's Gambit
+    Reveal
+}

@@ -1,0 +1,100 @@
+{
+    gemini_dec
+    compass
+    8
+    zone_dist_item
+
+    read_ravenmind
+    vacant
+    disjunction
+    gemini_dec
+    3
+    fisherman
+    unifying
+    exclusionary
+
+    retrograde
+    0
+    32
+    selection_ex
+
+    consideration {
+        gemini_dec
+        pace
+        gemini_dec
+        3
+        fisherman
+
+        gemini_dec
+        compass
+        5
+        fisherman
+        compass
+        subtractive
+
+        gemini_dec
+        length
+        gemini_dec
+        1
+        maximus
+        identity
+        consideration {
+            -20
+            multiplicative
+            -1
+            power // magnet acceleration (1/20 m/t^2 [-r])
+
+            jester
+            5
+            gemini_gambit
+            multiplicative
+            division
+
+            jester
+            6
+            fisherman
+            multiplicative
+            multiplicative
+
+            5
+            fisherman
+            subtractive
+
+            jester
+            3
+            fisherman
+            multiplicative
+            additive
+
+            vec_plus_y
+            25
+            division // -gravity (1/25 m/t^2 [+y])
+            additive
+        consideration }
+        conjunction
+        consideration {
+            bookkeeper v-vv
+
+            gemini_dec
+            read_ravenmind
+            vacant
+            disjunction
+            jester
+            integration
+            uniqueness
+            write_ravenmind
+
+            jester
+            -1
+            multiplicative
+        consideration }
+        disjunction
+        hermes
+        
+        impulse
+    consideration }
+
+    jester
+    thoth
+    bookkeeper v
+}

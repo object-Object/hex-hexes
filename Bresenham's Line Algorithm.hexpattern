@@ -1,0 +1,129 @@
+// ./macros/Math.hexpattern
+#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+#define Sign Purification (SOUTH_EAST awdda) = num -> 1 or 0 or -1
+#define Vector Sign Purification (SOUTH_EAST awddaqqqq) = vec -> vec
+#define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
+
+// Bresenham's Line Algorithm
+// http://members.chello.at/easyfilter/bresenham.html
+{
+    // preamble to make this draw lines as a CAD hex
+    {
+        Bookkeeper's Gambit: - // previous block placeholder
+    }
+    Flock's Disintegration
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Archer's Distillation
+
+    Gemini Decomposition
+    Scribe's Reflection
+    Numerical Reflection: 1
+    Rotation Gambit
+    Surgeon's Exaltation
+    Scribe's Gambit
+
+    Mind's Reflection
+    Stadiometer's Purification
+    Numerical Reflection: 1.5
+    Maximus Distillation
+    {
+        Bookkeeper's Gambit: -
+        Charon's Gambit
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // the actual algorithm starts here
+    // p0, p1 ->
+    Prospector's Gambit
+    Subtractive Distillation
+    
+    Gemini Decomposition
+    Vector Sign Purification
+
+    Undertaker's Gambit
+    Hadamard's Distillation
+    
+    Gemini Decomposition
+    Vector Disintegration
+    Maximization Distillation
+    Maximization Distillation
+
+    Numerical Reflection: 4
+    Fisherman's Gambit
+
+    Prospector's Gambit
+    Numerical Reflection: 2
+    Division Distillation
+    Gemini Decomposition
+    Gemini Decomposition
+    Vector Exaltation
+    
+    Numerical Reflection: 2
+    Flock's Gambit
+    Rotation Gambit II
+    
+    Undertaker's Gambit
+    Numerical Reflection: 1
+    Additive Distillation
+    Gemini Decomposition
+    Huginn's Gambit
+    
+    Gemini Gambit
+    Muninn's Reflection
+    Flock's Gambit
+    
+    Rotation Gambit
+    Huginn's Gambit
+    
+    Consideration: {
+        Muninn's Reflection
+        Flock's Disintegration
+        Rotation Gambit
+        Subtractive Distillation
+        
+        Gemini Decomposition
+        Vector Sign Purification
+        Numerical Reflection: 1
+        Subtractive Distillation
+        
+        Gemini Decomposition
+        Vector Sign Purification
+        Subtractive Distillation
+        
+        Undertaker's Gambit
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Multiplicative Distillation
+        Subtractive Distillation
+        
+        Rotation Gambit
+        Gemini Decomposition
+
+        // do something with the current point on the line
+        // here I just place a block to show off the algorithm
+        Gemini Decomposition
+        Break Block
+        Place Block
+
+        Rotation Gambit
+        Numerical Reflection: 4
+        Fisherman's Gambit
+        Hadamard's Distillation
+        Subtractive Distillation
+        
+        Jester's Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Huginn's Gambit
+    Consideration: }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvv
+}
+

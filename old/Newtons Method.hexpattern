@@ -1,0 +1,185 @@
+Newtons Method
+f: [num -> num], x0: num, df: [num -> num], epsilon: num, iterations: num -> num/null
+
+{
+    5
+    flock_gam
+    muninn
+    integration
+    muninn
+    jester
+    \{
+        /* stack:
+        loop spell
+        args
+        prev ravenmind
+        */
+        jester
+        gemini
+        gemini
+        huginn
+        1
+        select_dist
+        jester
+        0
+        3
+        select_exalt
+        flock_dis
+        hermes
+        gemini
+        4
+        fisherman
+        4 
+        fisherman
+        hermes
+        /* stack:
+        f(x)
+        df(x)
+        df(x)
+        loop spell
+        prev ravenmind
+        */
+        gemini
+        length
+        muninn
+        3
+        select_dist
+        minimus
+        gemini *
+        additive *
+        identity
+        0
+        conjunction
+        /* stack:
+        a = |f(x)| < epsilon ? 0 : null
+        f(x)
+        df(x)
+        df(x)
+        loop spell
+        prev ravenmind
+        */
+        muninn
+        4
+        select_dist
+        1
+        inequality
+        1
+        additive
+        jester
+        /* stack:
+        a = |f(x)| < epsilon  ? 0 : null
+        c = iteration == 1    ? 1 : 2
+        f(x)
+        df(x)
+        df(x)
+        loop spell
+        prev ravenmind
+        */
+        4
+        fisherman
+        negation
+        gemini *
+        additive *
+        identity
+        1 *
+        conjunction *
+        /* stack:
+        b = df(x) == 0       ? 1 : null
+        a = |f(x)| < epsilon ? 0 : null
+        c = iteration == 1   ? 1 : 2
+        f(x)
+        df(x)
+        loop spell
+        prev ravenmind
+        */
+        disjunction
+        jester
+        disjunction
+        \{ // if |f(x)| < epsilon: return x
+            /* stack:
+            f(x)
+            df(x)
+            loop spell
+            prev ravenmind
+            */
+            bookkeeper vvv
+            muninn
+            1
+            select_dist
+        \}
+        \{ // elseif df(x) == 0 or iteration == 1: return null
+            bookkeeper vvv
+            null
+        \}
+        \{ // else: update x, decrement iteration, continue looping
+            jester
+            division
+            muninn
+            gemini
+            1
+            select_dist
+            /* stack:
+            x
+            args
+            f(x) / df(x)
+            loop spell
+            prev ravenmind
+            */
+            3
+            fisherman
+            subtractive
+            1
+            jester
+            surgeon
+            /* stack:
+            args
+            loop spell
+            prev ravenmind
+            */
+            gemini
+            4
+            select_dist
+            1
+            subtractive
+            4
+            jester
+            surgeon
+            /* stack:
+            args
+            loop spell
+            prev ravenmind
+            */
+            jester
+            gemini
+            hermes
+        \}
+        /* stack:
+        spell for 2
+        spell for 1
+        spell for 0
+        0 if |f(x)| < epsilon; 1 if df(x) == 0 or iterations == 1; 2 otherwise
+        f(x)
+        df(x)
+        loop spell
+        prev ravenmind
+        */
+        3
+        flock_gam
+        jester
+        select_dist
+        hermes
+    \}
+    /* stack:
+    loop spell
+    args
+    prev ravenmind
+    */
+    gemini
+    hermes
+    /* stack:
+    result
+    prev ravenmind
+    */
+    jester
+    huginn
+}

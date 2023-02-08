@@ -1,0 +1,105 @@
+// thoth to convert hex to dec
+{
+    flock_dis
+
+    // 16^4 place
+    16
+    4
+    power
+    multiplicative
+    
+    // 16^3 place
+    jester
+    16
+    3
+    power
+    multiplicative
+    additive
+
+    // 16^2 place
+    jester
+    16
+    2
+    power
+    multiplicative
+    additive
+
+    // 16^1 place
+    jester
+    16
+    multiplicative
+    additive
+
+    // 16^0 place
+    jester
+    additive
+
+    // 16^-1 place
+    jester
+    16
+    -1
+    power
+    multiplicative
+    additive
+
+    // sign
+    multiplicative
+}
+
+1 // x_sign
+0 // x_-1
+0 // x_0
+0 // x_1
+0 // x_2
+0 // x_3
+0 // x_4
+7
+flock_gam
+
+1 // y_sign
+0 // y_-1
+0 // y_0
+0 // y_1
+0 // y_2
+0 // y_3
+0 // y_4
+7
+flock_gam
+
+1 // z_sign
+0 // z_-1
+0 // z_0
+0 // z_1
+0 // z_2
+0 // z_3
+0 // z_4
+7
+flock_gam
+
+// convert the coordinates into an absolute vector
+3
+flock_gam
+thoth
+flock_dis
+vector_exalt
+
+// get the boat i'm sitting in
+mind
+compass
+2
+zone_non_living
+mind
+compass
+2
+zone_non_item
+intersection
+0
+select_dist
+
+// convert the coordinates to relative
+jester
+mind
+compass
+subtractive
+
+teleport

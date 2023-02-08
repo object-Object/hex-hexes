@@ -1,0 +1,672 @@
+{
+    consideration { // consideration helps break this up into chunks
+        mind
+        compass
+        mind
+        alidade
+        scout
+        compass
+        
+        gemini_dec
+        consideration consideration
+        consideration consideration
+        bookkeeper - // placeholder for target position
+        gemini_dec
+        3
+        fisherman
+        subtractive
+        /* stack:
+        vec from item to target
+        target position
+        item position
+        */
+
+        vector_dis
+        0
+        7
+        swindler
+        vector_ex
+        length
+        jester
+        /* stack:
+        dy
+        dx
+        target position
+        item position
+        */
+
+        2
+        flock_gam
+        3
+        gemini_gambit
+        /* stack:
+        [dx, dy] × 3
+        target position
+        item position
+        */
+
+        148
+        100
+        division // 1.48
+
+        3
+        10
+        division // 0.3
+
+        128
+        100
+        division // 1.28
+
+        100
+        10
+        multiplicative
+        gemini_dec
+        4
+        subtractive
+        jester
+        division // 0.996
+
+        5
+        fisherman
+        0
+        selection_dist // dx
+
+        power
+        multiplicative
+        additive // 1.28 * 0.996**dx + 0.3
+
+        2
+        flock_gam
+        gemini_dec
+        flock_dis
+        maximus
+        selection_dist // angle guess
+
+        87
+        100
+        10
+        multiplicative
+        division // 0.087
+        subtractive
+        /* stack:
+        current angle
+        [dx, dy] × 2
+        target position
+        item position
+        */
+
+        jester
+        3
+        gemini_gambit
+        0
+        selection_dist // dx
+        euler
+        logarithmic // ln(dx)
+
+        8
+        10
+        division // 0.8
+        multiplicative // 0.8 * ln(dx)
+
+        1745
+        100
+        10
+        multiplicative
+        division // 1.745
+        additive
+        /* stack:
+        speed guess if dx < 150
+        [dx, dy] × 2
+        current angle
+        [dx, dy]
+        target position
+        item position
+        */
+
+        jester
+        0
+        selection_dist // dx
+
+        4
+        100
+        100
+        multiplicative
+        division
+        1
+        additive // 1.0004
+
+        jester
+        power // 1.0004**dx
+        37
+        multiplicative
+        33
+        subtractive // speed guess if dx >= 150
+
+        2
+        flock_gam
+
+        jester
+        0
+        selection_dist // dx
+        150
+        maximus_2
+        selection_dist
+        /* stack:
+        speed guess
+        current angle
+        [dx, dy]
+        target position
+        item position
+        */
+
+        gemini_dec
+
+        21
+        10
+        division // 2.1
+        additive
+        2
+        power
+        56
+        additive
+        ceiling // buffer
+
+        jester
+        2
+        subtractive
+        /* stack:
+        current speed
+        buffer
+        current angle
+        [dx, dy]
+        target position
+        item position
+        */
+
+        79
+        swindler
+        0
+        1
+        null
+        6
+        flock_gam
+        combination
+        /* stack:
+        [
+            0: dx,
+            1: dy,
+            2: target position,
+            3: current speed,
+            4: current angle,
+            5: wisp num,
+            6: epsilon,
+            7: [final speed, final angle]
+        ]
+        buffer
+        item position
+        */
+
+        consideration {
+            read_ravenmind // i can't remember which is which. sue me
+            consideration consideration // yes. octo-consideration
+            consideration consideration
+            consideration consideration
+            consideration consideration
+            bookkeeper - // placeholder for initial data
+            disjunction
+            write_ravenmind
+
+            consideration {
+                bookkeeper v // clear the 0
+
+                read_ravenmind
+                4
+                gemini_gambit
+                0
+                2
+                selection_ex // [dx, dy]
+                gemini_dec
+                combination
+                flock_dis
+                /* stack:
+                dy
+                dx
+                dy
+                dx
+                ravenmind
+                ravenmind
+                ravenmind
+                wisp
+                */
+                
+                5
+                fisherman // ravenmind
+                3
+                5
+                selection_ex // [speed, angle]
+                3
+                gemini_gambit
+                flock_dis
+                cosine
+                multiplicative // vx
+                gemini_dec
+                /* stack:
+                vx
+                vx
+                [speed, angle]
+                [speed, angle]
+                dy
+                dx
+                dy
+                dx
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                50
+                multiplicative // vx*50
+
+                6
+                fisherman // dx
+                jester
+                division // dx/(vx*50)
+
+                1
+                jester
+                subtractive // logarg
+                
+                gemini_dec
+                0
+                maximus // logarg > 0 ? 1 : 0
+                gemini_dec
+                /* stack:
+                logarg > 0 ? 1 : 0
+                logarg > 0 ? 1 : 0
+                logarg
+                vx
+                [speed, angle]
+                [speed, angle]
+                dy
+                dy
+                dx
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                1
+                4
+                fisherman // logarg
+                2
+                flock_gam
+                jester
+                selection_dist // safe logarg
+                euler
+                logarithmic
+                /* stack:
+                log(safe logarg)
+                logarg > 0 ? 1 : 0
+                vx
+                [speed, angle]
+                [speed, angle]
+                dy
+                dy
+                dx
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                99
+                100
+                10
+                multiplicative
+                multiplicative
+                3
+                subtractive
+                100
+                10
+                multiplicative
+                division // 98.997
+                multiplicative // 98.997*log(safe logarg)
+
+                2
+                5
+                fisherman // [speed, angle]
+                flock_dis
+                sine
+                multiplicative // vy
+                additive
+                /* stack:
+                2 + vy
+                98.997*log(safe logarg)
+                logarg > 0 ? 1 : 0
+                vx
+                [speed, angle]
+                dy
+                dy
+                dx
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                8
+                fisherman // dx
+                multiplicative // (2 + vy)*dx
+                4
+                fisherman // vx
+                division // (2 + vy)*dx/vx
+                additive // y if logarg is valid
+                /* stack:
+                (2 + vy)*dx/vx + 98.997*log(safe logarg)
+                logarg > 0 ? 1 : 0
+                [speed, angle]
+                dy
+                dy
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                5
+                fisherman // dy
+                10
+                additive // y if logarg is invalid
+
+                jester
+                2
+                flock_gam
+                jester
+                selection_dist
+                /* stack:
+                y
+                [speed, angle]
+                dy
+                ravenmind
+                ravenmind
+                wisp
+                */
+
+                3
+                fisherman
+                subtractive
+                length // diff
+                
+                3
+                gemini_gambit
+                5
+                fisherman // ravenmind
+                6
+                selection_dist // epsilon
+                minimus_2 // diff <= epsilon ? 1 : 0
+                
+                {
+                    bookkeeper vv
+                    surgeon
+                }
+                jester
+                selection_dist // surgeon or fake-surgeon
+                gemini_dec
+                /* stack:
+                surgeon or fake-surgeon
+                surgeon or fake-surgeon
+                diff
+                diff
+                [speed, angle]
+                ravenmind
+                wisp
+                */
+                
+                6
+                7
+                fisherman // ravenmind
+
+                46
+                swindler
+                hermes // insert? diff
+                /* stack:
+                ravenmind
+                surgeon or fake-surgeon
+                diff
+                [speed, angle]
+                wisp
+                */
+
+                7
+                40
+                swindler
+                hermes // insert? [speed, angle]
+
+                gemini_dec
+                3
+                selection_dist
+                4
+                63
+                division
+                additive
+                3
+                jester
+                surgeon // current speed += 4/63
+                write_ravenmind
+                /* stack:
+                diff
+                wisp
+                */
+
+                0.25
+                minimus_2 // diff <= 0.25 ? 1 : 0
+                {
+                    bookkeeper v
+                    charon
+                }
+                jester
+                selection_dist
+                hermes
+            consideration }
+
+            0
+            63
+            gemini_gambit
+            63
+            flock_gam
+
+            thoth
+            bookkeeper v
+
+            read_ravenmind
+
+            gemini_dec
+            3
+            selection_dist
+            4
+            subtractive
+            3
+            jester
+            surgeon // current speed -= 4
+
+            gemini_dec
+            4
+            selection_dist
+            972
+            10
+            6
+            power
+            division
+            additive
+            4
+            jester
+            surgeon // current angle += 0.000972
+            
+            gemini_dec
+            5
+            selection_dist
+            1
+            additive
+            5
+            jester
+            surgeon // wisp num += 1
+
+            gemini_dec
+            write_ravenmind
+
+            5
+            8
+            selection_ex
+            retrograde
+            flock_dis
+            /* stack:
+            wisp num
+            epsilon
+            result
+            wisp
+            */
+
+            180
+            maximus_2
+            identity // wisp num >= 180 ? 1 : null
+            gemini_dec
+            2
+            conjunction
+            0
+            disjunction
+            jester
+            /* stack:
+            wisp num >= 180 ? 1 : null
+            wisp num >= 180 ? 2 : 0
+            epsilon
+            result
+            wisp
+            */
+
+            3
+            fisherman // epsilon
+            0.25
+            minimus_2
+            identity // epsilon <= 0.25 ? 1 : null
+            disjunction
+            /* stack:
+            epsilon <= 0.25 or wisp num >= 180 ? 1 : null
+            wisp num >= 180 ? 2 : 0
+            result
+            wisp
+            */
+
+            3
+            fisherman // result
+            jester
+            conjunction // result and (epsilon <= 0.25 or wisp num >= 180) ? 1 : null
+            jester
+            disjunction // continue=0, launch=1, break=2
+
+            consideration {
+                bookkeeper -
+                EAST // placeholder
+                consume_wisp
+            consideration }
+            1
+            consideration {
+                gemini_dec
+                compass
+                1
+                zone_dist_item
+                0
+                selection_dist // item to launch
+
+                gemini_dec
+                compass
+
+                read_ravenmind
+                2
+                selection_dist // target position
+
+                jester
+                subtractive // vec from item to target
+
+                vector_dis
+                bookkeeper v-
+                0
+                jester
+                vector_ex
+                gemini_dec
+                length
+                division // horizontal vec from item to target
+
+                read_ravenmind
+                7
+                selection_dist // [speed, angle]
+
+                gemini_dec
+                flock_dis
+                sine
+                multiplicative // vy
+
+                jester
+                flock_dis
+                cosine
+                multiplicative // vx
+
+                3
+                fisherman
+                multiplicative // horizontal launch vec
+
+                vector_dis
+                bookkeeper v-
+                2
+                swindler
+                vector_ex // launch vec
+                impulse
+
+                consume_wisp
+            consideration }
+            surgeon
+
+            jester
+            selection_dist
+            hermes
+        consideration }
+        jester
+        2
+        jester
+        surgeon
+        /* stack:
+        wisp patterns
+        buffer
+        item position
+        */
+
+        4
+        swindler
+        cyclic_wisp
+    consideration }
+    {
+        scribe_ref
+        10
+
+        mind
+        compass
+        mind
+        alidade
+        archer
+        mind
+        compass
+        mind
+        alidade
+        architect
+        0.5
+        multiplicative
+        additive
+
+        surgeon
+        scribe_gam
+    }
+    2
+    flock_gam
+    mind
+    stadiometer
+    1.5
+    minimus_2
+    selection_dist
+    hermes
+}

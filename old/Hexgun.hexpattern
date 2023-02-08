@@ -1,0 +1,42 @@
+{
+    mind
+    compass
+    mind
+    alidade
+    scout
+
+    gemini
+    vacant
+    conjunction
+    {
+        mind
+        compass
+        mind
+        alidade
+        archer
+
+        5
+        zone_living
+
+        mind
+        integration
+        mind
+        single
+        exclusionary
+
+        0
+        select_dist
+    }
+    disjunction
+    hermes
+
+    compass
+    5
+    gemini_gam
+    break_block
+    create_water
+    4
+    explosion
+    conjure_block
+    break_block
+}

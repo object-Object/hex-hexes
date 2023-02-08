@@ -1,0 +1,64 @@
+#define Scout's Exaltation (EAST weaqaa) = vector, vector, number -> entity or null
+// position, direction, range
+{
+    Rotation Gambit II
+    Muninn's Reflection
+    Rotation Gambit II
+
+    Prospector's Gambit
+    Summon Greater Sentinel
+    Dioscuri Gambit
+    Scout's Distillation
+    
+    Gemini Decomposition
+    Huginn's Gambit
+    Augur's Purification
+
+    Vacant Reflection
+    
+    Numerical Reflection: 6
+    Fisherman's Gambit
+    Numerical Reflection: 15.5 // step
+    Division Distillation
+    Ceiling Purification
+    
+    Gemini Decomposition
+    Gemini Gambit
+    Gemini Decomposition
+    Flock's Gambit
+    
+    Augur's Exaltation
+    Consideration: {
+        Bookkeeper's Gambit: v
+        
+        Gemini Decomposition
+        Numerical Reflection: 15.5
+        Multiplicative Distillation
+        Locate Sentinel
+        Additive Distillation
+
+        Gemini Decomposition
+        Summon Greater Sentinel
+        
+        Jester's Gambit
+        Scout's Distillation
+        Gemini Decomposition
+        Huginn's Gambit
+        
+        Augur's Purification
+        {
+            Charon's Gambit
+            Bookkeeper's Gambit: -
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+    Consideration: }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvv
+    
+    Muninn's Reflection
+    Jester's Gambit
+    Huginn's Gambit
+}

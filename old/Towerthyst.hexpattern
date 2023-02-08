@@ -1,0 +1,177 @@
+// Circle
+{
+    8
+    gemini_gambit
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+    
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+
+    flock_disint
+    archer
+    gemini_decomp
+    negation
+    {
+        break_block
+        bookkeeper v
+    }
+    jester
+    selection_distill
+    hermes
+}
+greater_fold
+consideration
+EAST
+akasha_distill
+thoth
+
+// Combine the following three spells with Advanced Knitting Needle and put the result in a trinket
+// Load an empty list into a focus and put it in offhand
+
+// Crawl
+// Put the targets below all of the amethyst to break
+// Summon sentinel on the same level as the targets, in the middle of the chamber
+[
+    scribe_reflect
+
+    mind
+    compass
+    mind
+    alidade
+    archer
+
+    gemini_decomp
+    break_block
+
+    gemini_decomp
+    wayfind_sentinel
+    axial
+    1
+    10
+    division
+    multiplicative
+
+    additive
+
+    vector_plus_y
+
+    2
+    flock_gambit
+
+    integration
+    scribe_gambit
+]
+
+// Sneak/Stand
+// Write this spell twice, including only the matching commented vector constant (index for surgeon is 8)
+// Put the targets on the north wall of the chamber, on the same level as the amethyst to break
+// Sneak for the bottom side, stand for the top side
+[
+    scribe_reflect
+
+    mind
+    compass
+    mind
+    alidade
+    archer
+
+    gemini_decomp
+    break_block
+
+    vector_plus_y // sneak
+    vector_minus_y // stand
+    1
+    10
+    division
+    multiplicative
+
+    additive
+
+    vector_plus_z
+
+    2
+    flock_gambit
+
+    integration
+    scribe_gambit
+]

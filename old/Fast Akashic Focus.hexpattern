@@ -1,0 +1,113 @@
+{
+    locate_sentinel // used for the write part
+
+    // main loop
+    {
+        speaker_dec
+        gemini_dec
+        locate_sentinel
+        jester
+        akasha_dist
+
+        gemini_dec
+        6
+        fisherman
+        conjunction
+        3
+        fisherman
+        disjunction
+
+        jester
+        null
+        -1
+        2
+        flock_gam
+        disjunction
+
+        gemini_dec
+        1
+        selection_dist
+        5
+        fisherman
+        gemini_dec
+        1
+        selection_dist
+
+        3
+        fisherman
+        maximus_2
+        1
+        additive
+        fisherman
+        bookkeeper v
+        3
+        fisherman
+    }
+
+    // unroll above patterns x14
+    14
+    gemini_gambit
+    {
+        combination
+    }
+    0
+    selection_dist
+    13
+    gemini_gambit
+    13
+    flock_gam
+    hermes
+
+    // put initial state on stack
+    null
+    null
+    -1
+    2
+    flock_gam
+    {
+        // draw 14 unique patterns here
+    }
+
+    // execute unrolled patterns
+    4
+    fisherman
+    hermes
+    bookkeeper v // keys
+
+    // bail out if there is no open key (may be able to omit this)
+    jester
+    gemini_dec
+    negation
+    {
+        jester
+        charon
+    }
+    jester
+    selection_dist
+    hermes
+
+    // increment id
+    flock_dis
+    1
+    additive
+    jester
+
+    // do something with value, eg. upsert +1
+    0
+    disjunction
+    1
+    additive
+    reveal
+    /* top of stack at this point should be:
+    value to write
+    id
+    key
+    sentinel location
+    */
+
+    // write new value
+    jester
+    2
+    flock_gam
+    akasha_gam
+}

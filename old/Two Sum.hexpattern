@@ -1,0 +1,51 @@
+// values: [int], target: int -> [int, int]
+{
+    0
+    write_ravenmind
+
+    jester
+    undertaker
+    {
+        subtractive
+
+        jester
+        read_ravenmind
+        undertaker
+        excisor
+        rotation
+        locator
+        1
+        additive
+
+        prospector
+        1
+        additive
+        rotation_ii
+        gemini_dec
+        0
+        maximus
+        rotation_ii
+
+        2
+        flock_gam
+        null
+        augur_ex
+
+        gemini_dec
+        write_ravenmind
+        null
+        equality
+        {
+            write_ravenmind
+            charon
+        }
+        flock_dis
+        augur_ex
+        hermes
+    }
+    jester
+    thoth
+
+    bookkeeper vvv
+    read_ravenmind
+}
