@@ -81,9 +81,11 @@ def get_launch_params_hex(x_dist: float, y_dist: float) -> tuple[float, float]:
     return x_dist*(A**4 + A**3 + A**2 + A + 1)/50, v_0y
 
 
-x, y = get_launch_params_hex(1000, 0)
+# x, y = get_launch_params_hex(1000, 0)
+x = 1.063287068875*g*5/v_t
+y = 2*v_t
 print(x, y)
-print(math.sqrt(x**2 + y**2))
+# print(math.sqrt(x**2 + y**2))
 print(f"""/give @p hexcasting:focus{{data: {{"hexcasting:type": "hexcasting:list", "hexcasting:data": [{{"hexcasting:type": "hexcasting:double", "hexcasting:data": {x}d}}, {{"hexcasting:type": "hexcasting:double", "hexcasting:data": {y:.2f}d}}]}}}}""")
 
 # check for gaps
