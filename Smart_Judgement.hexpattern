@@ -1,0 +1,99 @@
+// macros
+#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
+#define Linear Impulse (SOUTH_WEST awqqqwaqww) = entity, vector ->
+#define Armor Compensator (NORTH_WEST wqqqqwwdd) = entity, num -> num
+
+{
+    // get target
+    // could replace this with sentinel walking to get MUCH longer range
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+
+    // get living entity at target, make sure it's not me or null
+    // this ensures we're shooting something that's worth shooting
+    Compass' Purification
+    Entity Purification: Living
+    Gemini Decomposition
+    Nullary Reflection
+    Equality Distillation
+
+    Prospector's Gambit
+    Mind's Reflection
+    Equality Distillation
+    Disjunction Distillation
+    Conditional Charon
+
+    // get desired arrow position
+    Gemini Decomposition
+    Compass' Purification II
+    Prospector's Gambit
+    Stadiometer's Purification
+    Numerical Reflection: 0.5
+    Additive Distillation
+
+    Vector Reflection +Y
+    Multiplicative Distillation
+    Additive Distillation
+
+    // break the block if it would hit something
+    Numerical Reflection: 4
+    Gemini Gambit
+    Vector Reflection -Y
+    Archer's Distillation
+
+    Jester's Gambit
+    Floor Purification
+    Numerical Reflection: 0.5
+    Additive Distillation
+    Equality Distillation
+
+    {
+        Break Block
+        Bookkeeper's Gambit: v
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // get all non-living entities currently where the arrow will show up
+    Numerical Reflection: 1
+    Dioscuri Gambit
+    Zone Distillation: Non-Living
+    Rotation Gambit II
+    
+    // summon the arrow from the holding chamber
+    Prospector's Gambit
+    {
+        Bookkeeper's Gambit: -- // gate iota placeholder
+    }
+    Flock's Disintegration
+    Jester's Gambit
+    Gate's Closing
+    
+    // select the arrow
+    // should be the only entity in this zone and not the other
+    // but only select the first one in case multiple arrows got marked somehow
+    Zone Distillation: Non-Living
+    Exclusionary Distillation
+    Numerical Reflection: 0
+    Selection Distillation
+    
+    // get the speed to kill the target
+    Jester's Gambit
+    Gemini Decomposition // optional: compensate for armor
+    Nurse's Purification
+    Numerical Reflection: 2 // with Power I: 3, II: 3.5, III: 4, IV: 4.5, V: 5
+    Division Distillation
+    Armor Compensator // optional: compensate for armor
+
+    // cancel existing arrow velocity and shoot it real good
+    Vector Reflection -Y
+    Multiplicative Distillation
+    Prospector's Gambit
+    Pace Purification
+    Subtractive Distillation
+    Linear Impulse
+}

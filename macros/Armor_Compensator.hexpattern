@@ -1,0 +1,63 @@
+// macros
+#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+
+#define Armor Compensator (NORTH_WEST wqqqqwwdd) = entity, num -> num
+// args: an entity and a desired damage
+// returns: the required initial damage, taking armour into account
+{
+    // get d and t
+    Prospector's Gambit
+    Boxer's Purification
+    Rotation Gambit
+    Squire's Purification
+    
+    // find D_0A
+    Numerical Reflection: 1
+    Prospector's Gambit
+    Numerical Reflection: 125
+    Division Distillation
+    Subtractive Distillation
+    
+    Numerical Reflection: 3
+    Fisherman's Gambit II
+    Jester's Gambit
+    Division Distillation
+    
+    // find D_0B
+    Rotation Gambit II
+    Numerical Reflection: 25
+    Subtractive Distillation
+    Jester's Gambit
+    Numerical Reflection: 8
+    Additive Distillation
+    
+    Dioscuri Gambit
+    Multiplicative Distillation
+    Rotation Gambit II
+    
+    Undertaker's Gambit
+    Numerical Reflection: 0.5
+    Power Distillation
+    Rotation Gambit II
+    
+    Numerical Reflection: 2
+    Power Distillation
+    Multiplicative Distillation
+    
+    Numerical Reflection: 5
+    Fisherman's Gambit
+    Numerical Reflection: 400
+    Multiplicative Distillation
+    Additive Distillation
+    
+    Numerical Reflection: 0.5
+    Power Distillation
+    Multiplicative Distillation
+    Additive Distillation
+
+    Numerical Reflection: 8
+    Division Distillation
+
+    // return whichever one is correct
+    Maximization Distillation
+}

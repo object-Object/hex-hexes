@@ -1,0 +1,82 @@
+// template
+{
+    {
+        // if there's a wisp one block below, consume it
+        Gemini Decomposition
+        Compass' Purification
+        Vector Reflection -Y
+        Additive Distillation
+        Entity Purification: Wisp
+        
+        Gemini Decomposition
+        Augur's Purification
+        {
+            // on null
+            Bookkeeper's Gambit: v
+
+            // on non-null
+            Consume Wisp
+            Bookkeeper's Gambit: v- // remove filler iota
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // if we're low on media and haven't already triggered the circle, trigger it
+        Flock's Reflection
+        Numerical Reflection: 2 // iotas on stack: wisp and filler
+        Inequality Distillation
+        
+        Reservoir Reflection
+        Numerical Reflection: 10 // refuel threshold
+        Minimus Distillation
+        Conjunction Distillation
+        
+        {
+            // on false
+            Bookkeeper's Gambit: -
+            
+            // on true
+            // push filler iota to signify we've triggered the circle
+            Nullary Reflection
+            Jester's Gambit
+            
+            // trigger the circle
+            Gemini Decomposition
+            Compass' Purification
+            Gemini Decomposition
+            Conjure Block
+            Break Block
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // placeholder for rest of wisp patterns
+        Reveal
+    }
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Dioscuri Gambit
+    Archer's Distillation
+    Rotation Gambit II
+    Architect's Distillation
+    Additive Distillation
+    
+    Undertaker's Gambit // for binding the wisp
+    Numerical Reflection: 50 // initial wisp buffer
+    Summon Cyclic Wisp
+
+    // optional: bind the wisp for reduced media consumption
+    Entity Purification: Wisp
+    Bind Wisp
+}
+
+// circle
+Vacant Reflection
+Greater Fold Reflection
+Numerical Reflection: 100 // amount to refuel (keep in mind 10% losses + cost to conjure/break)
+Summon Cyclic Wisp

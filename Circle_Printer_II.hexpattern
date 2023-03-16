@@ -1,9 +1,12 @@
 {
+    // read list of patterns
     Locate Sentinel
     Entity Purification
     Gemini Decomposition
     Chronicler's Purification
 
+    // pop the last one and write it to slate in offhand
+    // or exit early if the list is empty
     Speaker's Decomposition
     Gemini Decomposition
     Augur's Purification
@@ -15,6 +18,7 @@
     Augur's Exaltation
     Hermes' Gambit
 
+    // place block where the caster is looking
     Mind's Reflection
     Compass' Purification
     Mind's Reflection
@@ -26,10 +30,13 @@
     Additive Distillation
     Place Block
 
+    // display number of remaining patterns in list
     Gemini Decomposition
     Abacus Purification
     Reveal
     Bookkeeper's Gambit: v
 
+    // write updated list of patterns and clear the slate
     Chronicler's Gambit
+    Erase Item
 }
