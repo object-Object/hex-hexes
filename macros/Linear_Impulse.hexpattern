@@ -1,8 +1,11 @@
 #define Linear Impulse (SOUTH_WEST awqqqwaqww) = entity, vector ->
 {
+    // save previous ravenmind
     Muninn's Reflection
     Rotation Gambit II
 
+    // on the first iteration, normalize the impulse vector and get its length
+    // or just push 0 if it's the zero vector to avoid dividing by zero
     Gemini Decomposition
     Vector Reflection Zero
     Inequality Distillation
@@ -18,11 +21,15 @@
     }
     Augur's Exaltation
     
+    // recursive function to actually do the impulse
     {
+        // is the remaining speed greater than 1?
         Gemini Decomposition
         Numerical Reflection: 1
         Maximus Distillation
         
+        // if so, impulse by the unit vector (length 1) and decrement the speed
+        // then do the recursive function again
         {
             Rotation Gambit II
             Dioscuri Gambit
@@ -34,6 +41,7 @@
         Muninn's Reflection
         Combination Distillation
         
+        // otherwise, impulse by the remaining speed and don't recurse
         {
             Multiplicative Distillation
             Impulse
@@ -47,5 +55,6 @@
     Combination Distillation
     Hermes' Gambit
 
+    // restore previous ravenmind
     Huginn's Gambit
 }
