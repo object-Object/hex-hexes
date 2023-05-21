@@ -22,3 +22,99 @@
     Combination Distillation
     Combination Distillation
 }
+
+#define Perfect Counter's Queue (NORTH_EAST wwaadada) = num -> [num]
+// 0..n
+{
+    Muninn's Reflection
+    Jester's Gambit
+    Gemini Decomposition
+    Huginn's Gambit
+    
+    Numerical Reflection: 1
+    Jester's Gambit
+    Gemini Gambit
+    Muninn's Reflection
+    Flock's Gambit
+    
+    Numerical Reflection: 0
+    Numerical Reflection: 0
+    Surgeon's Exaltation
+    
+    Running Sum Purification
+    Jester's Gambit
+    Huginn's Gambit
+}
+
+#define Perfect Counter's Queue II (NORTH_EAST dadaddww) = num -> [num]
+// 1..=n
+{
+    Muninn's Reflection
+    Jester's Gambit
+    Gemini Decomposition
+    Huginn's Gambit
+    
+    Numerical Reflection: 1
+    Jester's Gambit
+    Gemini Gambit
+    Muninn's Reflection
+    Flock's Gambit
+    
+    Running Sum Purification
+    Jester's Gambit
+    Huginn's Gambit
+}
+
+#define Numerical Zipper Distillation (SOUTH_EAST dawaqawad) = [num/vec], [num/vec] -> [[num]]
+// A=[num], B=[num] -> [[A1, B1], [A2, B2], ...]
+// A=[vec], B=[num] -> [[A1x, A1y, A1z, B1], [A2x, A2y, A2z, B2], ...]
+// A=[num], B=[vec] -> [[A1, B1x, B1y, B1z], [A2, B2x, B2y, B2z], ...]
+// A=[vec], B=[vec] -> [[A1x, A1y, A1z, B1x, B1y, B1z], [A2x, A2y, A2z, B2x, B2y, B2z], ...]
+// mishaps if the corresponding matrix wouldn't be rectangular
+{
+    // check if the lists are 3 items long
+    Gemini Decomposition
+    Abacus Purification
+    Numerical Reflection: 3
+    Equality Distillation
+    Rotation Gambit II
+
+    // zip the lists
+    Transformation Purification
+    Jester's Gambit
+    Transformation Purification
+    Jester's Gambit
+    Tower Distillation
+
+    // if n==3, add an extra column at the start so it doesn't convert to a list of vectors
+    // talia why do i have to do this :(
+    Prospector's Gambit
+    {
+        Sprawling Distillation
+        Bookkeeper's Gambit: v-
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+
+    // make the column 1xN - we don't know N statically because there could be 0, 1, or 2 vectors
+    Prospector's Gambit
+    Restoration Purification
+    Abacus Purification
+    Numerical Reflection: 1
+
+    Zero Distillation
+    Rotation Gambit II
+    Hermes' Gambit
+    
+    // convert back to a list, and remove the extra entry if n==3
+    Restoration Purification
+    Jester's Gambit
+    {
+        Speaker's Decomposition
+        Nullary Reflection
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+    Bookkeeper's Gambit: v
+}

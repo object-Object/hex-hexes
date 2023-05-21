@@ -1,3 +1,9 @@
+// macros used
+#define Perfect Counter's Queue (NORTH_EAST dadaddwq) = num -> [num]
+#define Numerical Zipper Distillation (SOUTH_EAST dawaqawad) = [num/vec], [num/vec] -> [[num]]
+#define Muninn's Purification (NORTH_EAST qeewdweddwdw) = any -> any
+
+
 #define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
 {
     Dioscuri Gambit
@@ -67,4 +73,114 @@
     
     Rotation Gambit II
     Vector Exaltation
+}
+
+#define Power Distillation II (NORTH_WEST wedewa) = num, num -> num
+// b, x -> b^x, where 0^0 = 1
+{
+    Dioscuri Gambit
+    Equality Distillation
+    
+    Prospector's Gambit
+    Numerical Reflection: 0
+    Equality Distillation
+    
+    Conjunction Distillation
+    Negation Purification
+    Rotation Gambit
+    Numerical Reflection: 1
+    Augur's Exaltation
+    
+    Jester's Gambit
+    Power Distillation
+}
+
+#define Binomial Distillation (NORTH_EAST wdwaqawdw) = num, num -> num
+// n, i -> nCi
+{
+    Dioscuri Gambit
+    Subtractive Distillation
+    Factorial Purification
+    
+    Jester's Gambit
+    Factorial Purification
+    Multiplicative Distillation
+    
+    Jester's Gambit
+    Factorial Purification
+    Jester's Gambit
+    Division Distillation
+}
+
+#define Bezier's Distillation (NORTH_EAST eeeqqq) = [vec], num -> vec
+// P, t -> B(t), where 0 <= t <= 1
+// meta-eval: len(P)
+{
+    Muninn's Reflection
+    Rotation Gambit II
+
+    // find n and n+1
+    Jester's Gambit
+    Gemini Decomposition
+    Abacus Purification
+
+    Gemini Decomposition
+    Numerical Reflection: 1
+    Subtractive Distillation // P contains n+1 vectors, so subtract 1 from len(P)
+    Rotation Gambit II
+    
+    // zip indices and control points
+    Perfect Counter's Queue
+    Jester's Gambit
+    Numerical Zipper Distillation
+
+    // calculate the summation
+    {
+        // unzip index and control point
+        Flock's Disintegration
+        Vector Exaltation
+
+        // n-i
+        Rotation Gambit II
+        Dioscuri Gambit
+        Subtractive Distillation
+
+        // nCi
+        Rotation Gambit II
+        Undertaker's Gambit
+        Binomial Distillation
+        
+        // t^i
+        Rotation Gambit II
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Undertaker's Gambit
+        Jester's Gambit
+        Power Distillation II
+        
+        // (1-t)^(n-i)
+        Rotation Gambit II
+        Numerical Reflection: 1
+        Jester's Gambit
+        Subtractive Distillation
+        Jester's Gambit
+        Power Distillation II
+        
+        // add (nCi * t^i * (1-t)^(n-i) * P) to the running total
+        Multiplicative Distillation
+        Multiplicative Distillation
+        Multiplicative Distillation
+        
+        Vector Reflection Zero
+        Muninn's Purification
+        Additive Distillation
+        Huginn's Gambit
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvv
+    Muninn's Reflection
+
+    Jester's Gambit
+    Huginn's Gambit
 }

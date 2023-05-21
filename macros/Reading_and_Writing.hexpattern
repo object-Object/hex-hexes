@@ -1,4 +1,4 @@
-#define Muninn's Gambit II (NORTH_EAST qeewdweddwdw) = any -> any
+#define Muninn's Purification (NORTH_EAST qeewdweddwdw) = any -> any
 // reads the ravenmind or a default value
 {
     Muninn's Reflection
@@ -12,6 +12,32 @@
 #define Huginn's Gambit II (NORTH_WEST eqqwawqaawaw) = any ->
 // sets a default value for the ravenmind
 {
-    Muninn's Gambit II
+    Muninn's Purification
+    Huginn's Gambit
+}
+
+#define Increment Ravenmind (e) = -> num
+// x = ravenmind++ (return then increment)
+// if ravenmind is null, first return is 0
+{
+    Numerical Reflection: 0
+    Muninn's Purification
+
+    Gemini Decomposition
+    Numerical Reflection: 1
+    Additive Distillation
+    Huginn's Gambit
+}
+
+#define Increment Ravenmind II (e) = -> num
+// x = ++ravenmind (increment then return)
+// if ravenmind is null, first return is 1
+{
+    Numerical Reflection: 0
+    Muninn's Purification
+    
+    Numerical Reflection: 1
+    Additive Distillation
+    Gemini Decomposition
     Huginn's Gambit
 }
