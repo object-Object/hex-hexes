@@ -1,0 +1,148 @@
+// stack limiter? i barely know 'er
+
+// macros used
+#define Hash Decomposition: Vector (EAST qeeeeedw) = vec -> hash, vec
+#define Set Reflection (NORTH_WEST eaaeaqq) = -> set
+#define Set Abacus Decomposition (EAST aqaeaqe) = set -> set, num
+#define Set Existential Exaltation (EAST aqaeaqe) = set, hash, any -> bool
+#define Set Integration Exaltation (SOUTH_WEST edqdeq) = set, hash, any -> set
+
+
+{
+    // root block
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Archer's Distillation
+
+    // break up front, since we only break when adding to the queue
+    Gemini Decomposition
+    Break Block
+    
+    // explored
+    Set Reflection
+    Prospector's Gambit
+    Hash Decomposition: Vector
+    Set Integration Exaltation
+    
+    // target type
+    Prospector's Gambit
+    Sorter's Purification
+    
+    // queue
+    Rotation Gambit
+    Single's Purification
+    Rotation Gambit
+
+    // main recursion, part 1
+    {
+        Rotation Gambit II
+        Speaker's Decomposition
+    }
+
+    // pre-unroll inner loop
+    {
+        Bookkeeper's Gambit: vvvv-
+
+        // inner loop to be unrolled
+        {
+            // get new block
+            {
+                Bookkeeper's Gambit: - // offset placeholder (automatic)
+            }
+            Flock's Disintegration
+            Prospector's Gambit
+            Additive Distillation
+            
+            // check if the block is the right type
+            Gemini Decomposition
+            Sorter's Purification
+            Numerical Reflection: 4
+            Fisherman's Gambit II
+            Equality Distillation
+
+            // check if we've explored it yet
+            Prospector's Gambit
+            Numerical Reflection: 7
+            Fisherman's Gambit
+
+            Jester's Gambit
+            Hash Decomposition: Vector
+            Set Existential Exaltation
+            Negation Purification
+
+            // conditional - only takes meta-eval if we're breaking a block
+            Rotation Gambit
+            Conjunction Distillation
+            {
+                // if false: skip
+                Bookkeeper's Gambit: v-
+
+                // if true: break the block and add to explored
+                Prospector's Gambit
+                Gemini Decomposition
+                Break Block
+                Hash Decomposition: Vector
+                Set Integration Exaltation
+                
+                // add to queue
+                Numerical Reflection: 4
+                Fisherman's Gambit
+                Rotation Gambit
+                Integration Distillation
+                Rotation Gambit II
+            }
+            Speaker's Decomposition
+            Augur's Exaltation
+            Hermes' Gambit
+
+            Numerical Reflection: 18
+            Swindler's Gambit
+        }
+
+        // insert current offset
+        Numerical Reflection: 1 // index of placeholder
+        Rotation Gambit
+        Surgeon's Exaltation
+        Flock's Disintegration
+    }
+    {
+        Bookkeeper's Gambit: -- <list of all 26 offsets around a block>
+    }
+    Flock's Disintegration
+    Thoth's Gambit
+    Combination Distillation
+    
+    // main recursion, part 2
+    {
+        // check how many blocks we've broken by checking the length of the explored set
+        // technically we could go up to 25 blocks over this limit, but i'm not terrbly concerned
+        Bookkeeper's Gambit: v
+        Rotation Gambit
+        Set Abacus Decomposition
+        Numerical Reflection: 100
+        Minimus Distillation
+
+        // check if there's anything left in the queue
+        Numerical Reflection: 2
+        Fisherman's Gambit II
+        Augur's Purification
+        Conjunction Distillation
+
+        // tail-call recurse or clean up the stack
+        Muninn's Reflection
+        {
+            Bookkeeper's Gambit: vvv
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+    Combination Distillation
+    
+    // store the function in the ravenmind to make the stack a bit easier to manage
+    Gemini Decomposition
+    Huginn's Gambit
+    Hermes' Gambit
+}

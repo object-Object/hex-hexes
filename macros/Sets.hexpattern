@@ -1,6 +1,9 @@
 // the stack limit is a social construct
 
-// note: the default number of buckets in the hash table (SIZE) is 128.
+// macros used
+#define Modulus Distillation II (NORTH_EAST daawdda) = num, num -> num
+
+// note: the default number of buckets in the hash table (aka SIZE) is 128.
 // this should be fine for most purposes, but if you're dealing with huge amounts of data (why???),
 // you may want to increase this (eg. 256) and/or use larger prime numbers in the hash function.
 // it may also be worth messing around with reducing this number to see if it helps with performance.
@@ -30,56 +33,43 @@
     Numerical Reflection: 7321 <SOUTH_EAST aqaaeaqaaqaeaaqqdeaaqqaaw>
     Multiplicative Distillation
 
-    // ((x * p1) ^ (y * p2) ^ (z * p3)) % SIZE
+    // ((x * p1) ^ (y * p2) ^ (z * p3)) mod SIZE + 1
     // https://stackoverflow.com/a/5929567
     Exclusionary Distillation
     Exclusionary Distillation
+
     Numerical Reflection: 128 // SIZE
-    Modulus Distillation
+    Modulus Distillation II
+    Numerical Reflection: 1 // add 1 because we're using index 0 of the set for metadata
+    Additive Distillation
+
     Jester's Gambit
 }
 
 #define Set Reflection (NORTH_WEST eaaeaqq) = -> set
 // constructor
+// structure: [size, ...buckets]
 {
+    Numerical Reflection: 0
     Vacant Reflection
     Numerical Reflection: 128 // SIZE
     Gemini Gambit
-    Numerical Reflection: 128 // SIZE
+    Numerical Reflection: 129 // SIZE + 1
     Flock's Gambit
 }
 
-#define Set Integration Exaltation (SOUTH_WEST edqdeq) = set, hash, any -> set
-// insert
+#define Set Abacus Decomposition (EAST aqaeaqe) = set -> set, num
+// length
+// returns the set as well for efficiency (so we don't need to copy the set)
 {
-    // get the bucket
-    Rotation Gambit II
-    Dioscuri Gambit
-    Selection Distillation
-    
-    // get the value's index in the bucket
-    Numerical Reflection: 4
-    Fisherman's Gambit
-    Dioscuri Gambit
-    Locator's Distillation
-
-    // if it doesn't exist, insert it
-    Numerical Reflection: 0
-    Minimus Distillation
-    {
-        Integration Distillation
-        Bookkeeper's Gambit: v
-    }
-    Flock's Disintegration
-    Augur's Exaltation
-    Hermes' Gambit
-    
-    // put the bucket back into the set
-    Surgeon's Exaltation
+    Speaker's Decomposition
+    Undertaker's Gambit
+    Speaker's Distillation
+    Jester's Gambit
 }
 
-#define Set Existential Exaltation (EAST aqaeaqe) = set, hash, any -> bool
-// contains
+#define Set Existential Exaltation (EAST dedqdeq) = set, hash, any -> bool
+// is value in set
 {
     // get the bucket
     Rotation Gambit II
@@ -92,8 +82,50 @@
     Maximus Distillation
 }
 
+#define Set Integration Exaltation (SOUTH_WEST edqdeq) = set, hash, any -> set
+// insert value
+{
+    // get the bucket
+    Rotation Gambit II
+    Dioscuri Gambit
+    Selection Distillation
+    
+    // get the value's index in the bucket
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Dioscuri Gambit
+    Locator's Distillation
+
+    // check if we should insert a value
+    Numerical Reflection: 0
+    Minimus Distillation
+    
+    // reverse fisherman to bottom of stack
+    Gemini Decomposition
+    Numerical Reflection: 480
+    Swindler's Gambit
+
+    // conditionally insert into bucket
+    {
+        Integration Distillation
+        Bookkeeper's Gambit: v
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+    
+    // put the bucket back into the set and conditionally increment length
+    Surgeon's Exaltation
+    Speaker's Decomposition
+    Rotation Gambit
+    <Numerologist's Purification> // 0.11+ or HexxyCraft
+    Additive Distillation
+    Speaker's Distillation
+}
+
 #define Set Excisor's Exaltation (SOUTH_WEST edqdewaqaa) = set, hash, any -> set
-// remove
+// remove value
+// FIXME: untested, missing length decrement
 {
     // get the bucket
     Rotation Gambit II
