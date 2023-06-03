@@ -14,8 +14,6 @@
 {
     // round the vector components
     Gemini Decomposition
-    Numerical Reflection: 0.5
-    Additive Distillation
     Floor Purification
     Vector Disintegration
     
@@ -33,7 +31,7 @@
     Numerical Reflection: 7321 <SOUTH_EAST aqaaeaqaaqaeaaqqdeaaqqaaw>
     Multiplicative Distillation
 
-    // ((x * p1) ^ (y * p2) ^ (z * p3)) mod SIZE + 1
+    // (((x * p1) ^ (y * p2) ^ (z * p3)) mod SIZE) + 1
     // https://stackoverflow.com/a/5929567
     Exclusionary Distillation
     Exclusionary Distillation
