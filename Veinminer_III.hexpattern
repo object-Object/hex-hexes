@@ -4,7 +4,7 @@
 #define Hash Decomposition: Vector (EAST qeeeeedw) = vec -> hash, vec
 #define Set Reflection (NORTH_WEST eaaeaqq) = -> set
 #define Set Abacus Decomposition (EAST aqaeaqe) = set -> set, num
-#define Set Existential Exaltation (EAST aqaeaqe) = set, hash, any -> bool
+#define Set Existential Gambit (EAST dedqdeq) = set, hash, any -> set, bool
 #define Set Integration Exaltation (SOUTH_WEST edqdeq) = set, hash, any -> set
 
 
@@ -69,7 +69,7 @@
 
             Jester's Gambit
             Hash Decomposition: Vector
-            Set Existential Exaltation
+            Set Existential Gambit
             Negation Purification
 
             // conditional - only takes meta-eval if we're breaking a block

@@ -68,15 +68,18 @@
     Jester's Gambit
 }
 
-#define Set Existential Exaltation (EAST dedqdeq) = set, hash, any -> bool
+#define Set Existential Gambit (EAST dedqdeq) = set, hash, any -> set, bool
 // is value in set
+// returns the set for consistency with abacus
 {
     // get the bucket
     Rotation Gambit II
+    Prospector's Gambit
+    Jester's Gambit
     Selection Distillation
     
     // check if the value is in the bucket
-    Jester's Gambit
+    Rotation Gambit
     Locator's Distillation
     Numerical Reflection: -1
     Maximus Distillation
