@@ -15,10 +15,6 @@
     Mind's Reflection
     Alidade's Purification
     Archer's Distillation
-
-    // break up front, since we only break when adding to the queue
-    Gemini Decomposition
-    Break Block
     
     // explored
     Set Reflection
@@ -30,8 +26,12 @@
     Prospector's Gambit
     Sorter's Purification
     
-    // queue
+    // break root here, since we only break when adding to the queue
     Rotation Gambit
+    Gemini Decomposition
+    Break Block
+
+    // queue
     Single's Purification
     Rotation Gambit
 
@@ -42,11 +42,11 @@
     }
 
     // pre-unroll inner loop
-    {
+    Consideration: {
         Bookkeeper's Gambit: vvvv-
 
         // inner loop to be unrolled
-        {
+        Consideration: {
             // get new block
             {
                 Bookkeeper's Gambit: - // offset placeholder (automatic)
@@ -99,14 +99,14 @@
 
             Numerical Reflection: 18
             Swindler's Gambit
-        }
+        Consideration: }
 
         // insert current offset
         Numerical Reflection: 1 // index of placeholder
         Rotation Gambit
         Surgeon's Exaltation
         Flock's Disintegration
-    }
+    Consideration: }
     {
         Bookkeeper's Gambit: -- <list of all 26 offsets around a block>
     }
