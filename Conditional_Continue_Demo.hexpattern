@@ -1,5 +1,4 @@
-// ./macros/Flow Control.hexpattern
-#define Conditional Continue (SOUTH_WEST aqdeedd) = bool -> 
+#include "./macros/Flow_Control.hexpattern"
 
 {
     Numerical Reflection: 0

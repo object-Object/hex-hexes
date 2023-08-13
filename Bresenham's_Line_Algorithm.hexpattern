@@ -1,8 +1,5 @@
-// ./macros/Math.hexpattern
-#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
-#define Sign Purification (SOUTH_EAST awdda) = num -> 1 or 0 or -1
-#define Vector Sign Purification (SOUTH_EAST awddaqqqq) = vec -> vec
-#define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
+#include "./macros/Math.hexpattern"
+
 
 // Bresenham's Line Algorithm
 // http://members.chello.at/easyfilter/bresenham.html

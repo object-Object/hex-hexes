@@ -1,5 +1,4 @@
-// macros
-#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
+#include "./macros/Flow_Control.hexpattern"
 
 // template: Permanent_Wisp
 

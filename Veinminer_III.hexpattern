@@ -1,12 +1,6 @@
 // stack limiter? i barely know 'er
 
-// macros used
-#define Hash Decomposition: Vector (EAST qeeeeedw) = vec -> hash, vec
-#define Set Reflection (NORTH_WEST eaaeaqq) = -> set
-#define Set Abacus Decomposition (EAST aqaeaqe) = set -> set, num
-#define Set Existential Gambit (EAST dedqdeq) = set, hash, any -> set, bool
-#define Set Integration Exaltation (SOUTH_WEST edqdeq) = set, hash, any -> set
-
+#include "./macros/Sets.hexpattern"
 
 {
     // root block

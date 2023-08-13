@@ -1,6 +1,4 @@
-// ./macros/Math.hexpattern
-#define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
-#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+#include "./macros/Math.hexpattern"
 
 // Precision Item Launcher
 {

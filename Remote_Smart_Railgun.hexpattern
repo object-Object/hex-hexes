@@ -1,7 +1,6 @@
-// macros
-#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
-#define Linear Impulse (SOUTH_WEST awqqqwaqww) = entity, vector ->
-#define Armor Compensator (NORTH_WEST wqqqqwwdd) = entity, num -> num
+#include "./macros/Linear_Impulse.hexpattern"
+#include "./macros/Armor_Compensator.hexpattern"
+#include "./macros/Flow_Control.hexpattern"
 
 {
     // get target

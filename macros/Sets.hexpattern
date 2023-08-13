@@ -1,7 +1,6 @@
 // the stack limit is a social construct
 
-// macros used
-#define Modulus Distillation II (NORTH_EAST daawdda) = num, num -> num
+#include "./Math.hexpattern"
 
 // note: the default number of buckets in the hash table (aka SIZE) is 128.
 // this should be fine for most purposes, but if you're dealing with huge amounts of data (why???),

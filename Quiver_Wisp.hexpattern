@@ -1,6 +1,5 @@
-// macros
-#define Huginn's Gambit II (NORTH_WEST eqqwawqaawaw) = any ->
-#define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
+#include "./macros/Math.hexpattern"
+#include "./macros/Reading_and_Writing.hexpattern"
 
 // template: Stuck Arrow Filter
 // use Locator's Scalpel for replacements in the order they're written

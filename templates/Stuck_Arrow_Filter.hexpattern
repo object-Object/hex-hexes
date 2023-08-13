@@ -1,5 +1,4 @@
-// macros
-#define Conditional Continue (SOUTH_WEST aqdeedd) = bool -> 
+#include "../macros/Flow_Control.hexpattern"
 
 // gets all nearby arrows that aren't stuck in blocks
 {

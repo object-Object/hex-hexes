@@ -1,8 +1,5 @@
-// macros used
-#define Perfect Counter's Queue (NORTH_EAST dadaddwq) = num -> [num]
-#define Numerical Zipper Distillation (SOUTH_EAST dawaqawad) = [num/vec], [num/vec] -> [[num]]
-#define Muninn's Purification (NORTH_EAST qeewdweddwdw) = any -> any
-
+#include "./Reading_and_Writing.hexpattern"
+#include "./List_Manipulation.hexpattern"
 
 #define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
 {

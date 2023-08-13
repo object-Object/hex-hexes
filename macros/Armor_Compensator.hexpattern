@@ -1,5 +1,4 @@
-// macros
-#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+#include "./Math.hexpattern"
 
 #define Armor Compensator (NORTH_WEST wqqqqwwdd) = entity, num -> num
 // args: an entity and a desired damage
