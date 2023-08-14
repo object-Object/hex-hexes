@@ -1,0 +1,109 @@
+#include "./macros/Flow_Control.hexpattern"
+
+// to be executed by a deployer holding a trinket
+{
+    // recharge if there's any nearby amethyst
+    {
+        Gemini Decomposition
+        Sorter's Purification
+        {
+            Bookkeeper's Gambit: -- <itemtype: amethyst shard>
+        }
+        Flock's Disintegration
+        Inequality Distillation
+        Conditional Continue
+
+        Recharge Item
+        Charon's Gambit
+    }
+    
+    Mind's Reflection
+    Compass' Purification
+    Numerical Reflection: 2
+    Zone Distillation: Item
+    
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+
+    // if there's already an arrow marked, don't do anything
+    {
+        Bookkeeper's Gambit: --- <player-bound gate>
+    }
+    Flock's Disintegration
+    
+    Gemini Decomposition
+    Marked Purification
+    Augur's Purification
+
+    {
+        Charon's Gambit
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // get all nearby arrows
+    {
+        Bookkeeper's Gambit: ---- <entitytype: arrow>
+    }
+    Flock's Disintegration
+
+    Mind's Reflection
+    Compass' Purification
+    Numerical Reflection: 1
+    Zone Exaltation: Type
+
+    // if necessary, trigger a sculk sensor to refill the quiver
+    Gemini Decomposition
+    Abacus Purification
+    Numerical Reflection: 64
+    Minimus Distillation
+    
+    // only trigger within the first 10 ticks of every 60 seconds
+    Timekeeper's Reflection
+    Numerical Reflection: 10
+    Division Distillation
+    Floor Purification
+    Numerical Reflection: 120
+    Modulus Distillation
+
+    Numerical Reflection: 0
+    Equality Distillation
+    Conjunction Distillation
+    
+    {
+        // if false
+        Bookkeeper's Gambit: -
+        
+        // if true
+        Mind's Reflection
+        Compass' Purification
+        Vector Reflection +Y
+        Numerical Reflection: 4
+        Multiplicative Distillation
+        Additive Distillation
+        
+        Numerical Reflection: 0
+        Numerical Reflection: 0
+        Make Note
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // mark the nearest non-stuck arrow
+    {
+        Gemini Decomposition
+        Pace Purification
+        Vector Reflection Zero
+        Equality Distillation
+        Conditional Continue
+        
+        Gate's Opening
+        Charon's Gambit
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+}
