@@ -1,0 +1,268 @@
+#define Conditional Continue (SOUTH_WEST aqdeedd) = bool ->
+#define Conditional Charon (SOUTH_WEST aqdeed) = bool ->
+#define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
+#define Maximization Distillation (SOUTH_EAST edd) = num, num -> num
+#define Muninn's Purification (NORTH_EAST qeewdweddwdw) = any -> any
+
+
+#define Cannoneer's Distillation (EAST wqqaqwede) = vec, vec -> vec
+// raycast, but hitting the first position with any non-air block, even if a normal raycast would miss it
+// https://github.com/cgyurgyik/fast-voxel-traversal-algorithm/blob/master/overview/FastVoxelTraversalOverview.md
+{
+    
+}
+
+#define Distributed Archer's Distillation (EAST wqaawddeqaawdd) = vec, vec -> vec
+// entity, direction -> position
+// raycasts from several points in the same direction from the player's feet, chooses the nearest result
+{
+    Muninn's Reflection
+    Rotation Gambit II
+    Nullary Reflection
+    Huginn's Gambit
+
+    Prospector's Gambit
+    Compass' Purification II
+    Jester's Gambit
+
+    // loop
+    {
+        // player hitbox is 0.6x0.6, so go 0.3 from the centre
+        Numerical Reflection: 3
+        Numerical Reflection: 10
+        Division Distillation
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Gulliver's Purification
+        Multiplicative Distillation
+        Multiplicative Distillation
+        
+        Rotation Gambit
+        Undertaker's Gambit
+        Additive Distillation
+        Rotation Gambit
+        Archer's Distillation
+        
+        // skip if we didn't hit anything
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Continue
+        
+        // overwrite the previous nearest impact
+        Muninn's Reflection
+        Prospector's Gambit
+        Huginn's Gambit
+        
+        // if the previous impact was null, continue
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Continue
+
+        // if the previous impact was nearer, put it back
+        Rotation Gambit
+        Dioscuri Gambit
+        Subtractive Distillation
+        Length Purification
+        
+        Jester's Gambit
+        Numerical Reflection: 4
+        Fisherman's Gambit
+        Subtractive Distillation
+        Length Purification
+        
+        Maximus Distillation
+        {
+            Bookkeeper's Gambit: -
+            Huginn's Gambit
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+
+    // offset vectors
+    {
+        Bookkeeper's Gambit: -- <[(0, 0, 0), (1, 0, 0), (1, 0, 1), (0, 0, 1), ...]>
+    }
+    Flock's Disintegration
+
+    // find the intersections
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvvv
+    Muninn's Reflection
+    Jester's Gambit
+    Huginn's Gambit
+}
+
+#define Weight On Wheels (EAST wadeeede) = entity -> bool
+// entity -> true if on ground
+{
+    // v.y == 0
+    Gemini Decomposition
+    Pace Purification
+    Vector Disintegration
+    Bookkeeper's Gambit: v-v
+    Numerical Reflection: 0
+    Equality Distillation
+
+    // block below feet isn't air
+    Jester's Gambit
+    Compass' Purification II
+    Vector Reflection -Y
+    Numerical Reflection: 16
+    Division Distillation
+    Additive Distillation
+    Sorter's Purification
+    Augur's Purification
+    
+    Conjunction Distillation
+}
+
+#define Distance To Impact (EAST wadeeedeqded) = entity -> num
+{
+
+}
+
+// media alert
+{
+    // current media < 50
+    Reservoir Reflection
+    Gemini Decomposition
+    Numerical Reflection: 50
+    Minimus Distillation
+    
+    // only print once per second
+    Timekeeper's Reflection
+    Numerical Reflection: 20
+    Modulus Distillation
+    Numerical Reflection: 0
+    Equality Distillation
+    
+    // print reservoir
+    Conjunction Distillation
+    {
+        Reveal
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+    Bookkeeper's Gambit: v
+
+}
+
+// Mary Poppins (y'all)
+{
+    Mind's Reflection
+    Weight On Wheels
+
+    { // if on ground:
+        // reset fall distance
+        Numerical Reflection: 0
+        Huginn's Gambit
+    }
+    
+    Consideration: { // else:
+        // distance to impact
+        Mind's Reflection
+        Mind's Reflection
+        Pace Purification
+        Distributed Archer's Distillation
+
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Charon
+        
+        Mind's Reflection
+        Compass' Purification II
+        Subtractive Distillation
+        Length Purification
+        
+        // previous fall distance
+        Numerical Reflection: 0
+        Muninn's Purification
+        
+        // v
+        Mind's Reflection
+        Pace Purification
+        Gemini Decomposition
+        Length Purification
+
+        // -v.y
+        Jester's Gambit
+        Vector Disintegration
+        Bookkeeper's Gambit: v-v
+        Numerical Reflection: -1
+        Multiplicative Distillation
+        
+        // d*v/-v.y
+        Undertaker's Gambit
+        Division Distillation
+        Numerical Reflection: 3
+        Fisherman's Gambit II
+        Multiplicative Distillation
+        
+        // fall distance += max(0, min(-v.y, (distance to impact * v / -v.y)))
+        Minimization Distillation
+        Numerical Reflection: 0
+        Maximization Distillation
+        Additive Distillation
+        Gemini Decomposition
+        Huginn's Gambit
+        
+        // fall distance > 4*scale
+        Numerical Reflection: 4
+        Mind's Reflection
+        Gulliver's Purification
+        Multiplicative Distillation
+        Maximus Distillation
+        
+        // distance to impact <= v
+        Prospector's Gambit
+        Mind's Reflection
+        Pace Purification
+        Length Purification
+        Minimus Distillation II
+        
+        Conjunction Distillation
+        { // if about to hit a block:
+            // fall distance = 0
+            Numerical Reflection: 0
+            Huginn's Gambit
+            
+            // levitate
+            Mind's Reflection
+            Numerical Reflection: 1
+            Numerical Reflection: 10
+            Division Distillation
+            Blue Sun's Nadir
+        }
+        Vacant Reflection
+        Augur's Exaltation
+        Hermes' Gambit
+        Bookkeeper's Gambit: v // distance to impact
+    Consideration: }
+
+    Augur's Exaltation
+    Hermes' Gambit
+}
+
+/*
+if dust remaining < 50 and timekeeper % 20 == 0:
+    reveal dust remaining
+    threshold -= 1
+
+if on ground:
+    fall distance = 0
+else:
+    fall distance += max(0, min(-v.y, (distance to impact * v / -v.y)))
+    
+    if distance to impact <= |v| and fall distance > 4 * scale:
+        levitate
+        fall distance = 0
+    elif |v| * 20 < distance to impact and not looking at a block and not sneaking: (TODO)
+        impulse forward a bit
+*/
