@@ -1,4 +1,4 @@
-#include "./macros/Flow_Control.hexpattern"
+#include "../macros/Flow_Control.hexpattern"
 
 // to be executed by a deployer holding a trinket
 {
