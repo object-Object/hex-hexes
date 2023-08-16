@@ -49,6 +49,19 @@
     Vector Exaltation
 }
 
+#define Perpendicular Purification (EAST waeq) = vec -> vec
+// returns a unit vector perpendicular to the input vector
+{
+    Gemini Decomposition
+    Vector Reflection +X
+    Additive Distillation
+    Division Distillation
+
+    Gemini Decomposition
+    Length Purification
+    Division Distillation
+}
+
 #define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
 // (AxBx, AyBy, AzBz)
 {

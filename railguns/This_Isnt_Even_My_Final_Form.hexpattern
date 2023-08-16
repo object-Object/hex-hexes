@@ -1,0 +1,98 @@
+#include "../macros/Dramatic_Flair.hexpattern"
+#include "../macros/Math.hexpattern"
+#include "../macros/List_Manipulation.hexpattern"
+#include "../macros/Linear_Impulse.hexpattern"
+
+{
+    // stygian read
+    Scribe's Reflection
+    Retrograde Purification
+    Speaker's Decomposition
+
+    // check if sneaking
+    Mind's Reflection
+    Stadiometer's Purification
+    Numerical Reflection: 1.5
+    Mind's Reflection
+    Gulliver's Purification
+    Multiplicative Distillation
+    Maximus Distillation
+    
+    { // if not sneaking, fire
+        // TODO: figure out how to do hexagons here without hitting the particle limit
+
+        // see macro name for description of this part
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Totally Unnecessary Laser Beam
+
+        // summon an arrow
+        {
+            Bookkeeper's Gambit: -- <entitytype: arrow>
+            Bookkeeper's Gambit: --- <quiver gate to caster head>
+        }
+        Flock's Disintegration
+        Gate's Closing
+        
+        // select the arrow
+        Mind's Reflection
+        Compass' Purification
+        Entity Distillation: Type
+
+        // calculate impulse
+        Jester's Gambit
+        Numerical Reflection: 4 // 20 divided by (unenchanted: 2, Power I: 3, II: 3.5, III: 4, IV: 4.5, V: 5)
+        Multiplicative Distillation
+        Mind's Reflection
+        Alidade's Purification
+        Multiplicative Distillation
+
+        // shoot it
+        Prospector's Gambit
+        Pace Purification
+        Subtractive Distillation
+        Linear Impulse
+
+        // reset the index
+        Numerical Reflection: 0
+    }
+    { // else, charge up
+        Numerical Reflection: 1
+        Additive Distillation
+        
+        // damage preview
+        Gemini Decomposition
+        Numerical Reflection: 20 // damage per charge
+        Multiplicative Distillation
+        Reveal
+        Bookkeeper's Gambit: v
+
+        // dramatic sound effect
+        Gemini Decomposition
+        Mind's Reflection
+        Compass' Purification II
+        Numerical Reflection: 13 // instrument
+
+        Rotation Gambit
+        Numerical Reflection: 24
+        Minimization Distillation
+        Make Note
+        
+        // I think this one is pretty self-explanatory
+        Gemini Decomposition
+        Hexagon For Dramatic Effect
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // stygian write
+    Speaker's Distillation
+    Retrograde Purification
+    Scribe's Gambit
+
+    // stygian data
+    Charon's Gambit
+    <0>
+}

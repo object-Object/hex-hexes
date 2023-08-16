@@ -1,0 +1,88 @@
+#include "../macros/Linear_Impulse.hexpattern"
+#include "../macros/Armor_Compensator.hexpattern"
+#include "../macros/Math.hexpattern"
+
+{
+    // get the target, if any
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+
+    // summon an arrow
+    {
+        Bookkeeper's Gambit: -- <entitytype: arrow>
+        Bookkeeper's Gambit: --- <quiver gate to caster head>
+    }
+    Flock's Disintegration
+    Gate's Closing
+    
+    // select the arrow
+    Mind's Reflection
+    Compass' Purification
+    Entity Distillation: Type
+
+    // check if the target exists
+    Jester's Gambit
+    Gemini Decomposition
+    Augur's Purification
+
+    // get the impulse vector
+    {
+        // check if there's something alive where the target is
+        Compass' Purification
+        Entity Purification: Living
+        Gemini Decomposition
+        Augur's Exaltation
+        {
+            // unit vector from arrow to target
+            Dioscuri Gambit
+            Compass' Purification
+            Jester's Gambit
+            Compass' Purification II
+            Subtractive Distillation
+            
+            Gemini Decomposition
+            Length Purification
+            Division Distillation
+            
+            // velocity vector to kill the target
+            Jester's Gambit
+            Gemini Decomposition
+
+            Nurse's Purification
+            Numerical Reflection: 5 // unenchanted: 2, Power I: 3, II: 3.5, III: 4, IV: 4.5, V: 5
+            Division Distillation
+            Armor Compensator
+
+            Numerical Reflection: 1
+            Maximization Distillation
+            Multiplicative Distillation
+        }
+        {
+            // just shoot a normal arrow
+            Bookkeeper's Gambit: v
+            Mind's Reflection
+            Alidade's Purification
+            Numerical Reflection: 4 // 20 divided by the above constant depending on enchantment
+            Multiplicative Distillation
+        }
+    }
+    {
+        // just shoot a normal arrow
+        Bookkeeper's Gambit: v
+        Mind's Reflection
+        Alidade's Purification
+        Numerical Reflection: 4 // 20 divided by the above constant depending on enchantment
+        Multiplicative Distillation
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // shoot it
+    Prospector's Gambit
+    Pace Purification
+    Subtractive Distillation
+    Linear Impulse
+}

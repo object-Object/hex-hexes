@@ -1,0 +1,171 @@
+#include "./Math.hexpattern"
+
+#define Hexagonal Exaltation (NORTH_WEST wqwqwqwqwqw) = vec, vec, num, num -> list
+// centre, axis, angle, radius to corner -> list of 6 vectors
+{
+    // first point
+    Rotation Gambit II
+    Prospector's Gambit
+    Perpendicular Purification
+    Transformation Purification
+
+    // 60 degree rotation matrix
+    Rotation Gambit II
+    Prospector's Gambit
+
+    Circle's Reflection
+    Numerical Reflection: 6
+    Division Distillation
+    Rotation Distillation
+
+    // original rotation
+    Rotation Gambit II
+    Rotation Distillation
+    Rotation Gambit
+    Multiplication Distillation: Matrix
+    
+    // second and third points
+    Dioscuri Gambit
+    Multiplication Distillation: Matrix
+
+    Rotation Gambit
+    Prospector's Gambit
+    Multiplication Distillation: Matrix
+
+    // west, southwest, southeast
+    Sprawling Distillation
+    Sprawling Distillation
+
+    Gemini Decomposition
+    Numerical Reflection: -1
+    Multiplication Distillation: Matrix
+    Sprawling Distillation
+
+    // radius, then translate from origin
+    Multiplication Distillation: Matrix
+    Jester's Gambit
+    
+    Numerical Reflection: 6
+    Gemini Gambit
+    Numerical Reflection: 6
+    Flock's Gambit
+
+    Transformation Purification
+    Addition Distillation: Matrix
+    Restoration Purification
+}
+
+#define Hexagon For Dramatic Effect (SOUTH_WEST wewewewewew) = num -> 
+// index ->
+{
+    // centre
+    Mind's Reflection
+    Compass' Purification II
+    Vector Reflection +Y
+    Numerical Reflection: 16
+    Division Distillation
+    Additive Distillation
+    
+    // axis
+    Vector Reflection +Y
+    
+    // angle
+    Rotation Gambit
+    
+    Gemini Decomposition
+    Numerical Reflection: 2
+    Modulus Distillation
+    Augur's Purification
+
+    Numerical Reflection: 0
+    
+    Circle's Reflection
+    Numerical Reflection: 12
+    Division Distillation
+    
+    Augur's Exaltation
+    
+    // radius
+    Jester's Gambit
+
+    Numerical Reflection: 2
+    Numerical Reflection: 3
+    Numerical Reflection: 0.5
+    Power Distillation
+    Subtractive Distillation
+
+    Multiplicative Distillation
+    Numerical Reflection: 0.5
+    Additive Distillation
+
+    // hexagon
+    Hexagonal Exaltation
+    Gemini Decomposition
+    Numerical Reflection: 0
+    Selection Distillation
+    Integration Distillation
+    Particles
+}
+
+#define Totally Unnecessary Laser Beam (SOUTH_WEST awwwqqqwwwa) = vec, vec ->
+// position, unit direction
+{
+    // unit offset vector
+    Gemini Decomposition
+    Perpendicular Purification
+    
+    // draw the laser beams
+    {
+        Bookkeeper's Gambit: v
+
+        // random theta
+        Entropy Reflection
+        Circle's Reflection
+        Multiplicative Distillation
+        
+        // rotate offset around direction by theta
+        Undertaker's Gambit
+        Sine Purification
+        Multiplicative Distillation
+
+        Rotation Gambit II
+        Cosine Purification
+        Prospector's Gambit
+        Multiplicative Distillation
+        
+        Rotation Gambit
+        Additive Distillation
+        
+        // random radius within the beam
+        Entropy Reflection
+        Numerical Reflection: 0.5
+        Power Distillation
+        Numerical Reflection: 8 // beam size: 1/4 block diameter -> 1/8 block radius
+        Division Distillation
+        Multiplicative Distillation
+        
+        // offset starting point, then draw the line
+        Rotation Gambit
+        Additive Distillation
+        
+        Jester's Gambit
+        Numerical Reflection: 30 // beam length
+        Multiplicative Distillation
+        Prospector's Gambit
+        Additive Distillation
+        
+        Numerical Reflection: 2
+        Flock's Gambit
+        Particles
+    }
+
+    // dummy data for thoth (number of lines to draw)
+    Numerical Reflection: 16
+    Gemini Decomposition
+    Gemini Gambit
+    Gemini Decomposition
+    Flock's Gambit
+
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvvv
+}
