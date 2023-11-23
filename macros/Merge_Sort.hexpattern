@@ -1,0 +1,140 @@
+// list -> list
+{
+    Muninn's Reflection
+    Jester's Gambit
+
+    Consideration: {
+        Dioscuri Gambit
+        Abacus Purification
+        Numerical Reflection: 1
+        Maximus Distillation
+
+        // split
+        {
+            Bookkeeper's Gambit: - // base case (no-op)
+            
+            Gemini Decomposition
+            Abacus Purification
+            Undertaker's Gambit
+            
+            Numerical Reflection: 2
+            Division Distillation
+            Floor Purification
+            Undertaker's Gambit
+            
+            Prospector's Gambit
+            Numerical Reflection: 0
+            Rotation Gambit
+            Selection Exaltation
+            
+            Numerical Reflection: 101
+            Swindler's Gambit
+            Selection Exaltation
+        }
+        Rotation Gambit
+        Undertaker's Gambit
+        Combination Distillation
+
+        {
+            Jester's Gambit
+            Rotation Gambit
+        }
+        Combination Distillation
+        
+        Jester's Gambit
+        Combination Distillation
+        
+        // merge
+        Consideration: {
+            Rotation Gambit
+
+            Dioscuri Gambit
+            Speaker's Distillation
+            Huginn's Gambit
+            
+            Combination Distillation
+            Consideration: {
+                Flock's Reflection
+                Flock's Gambit
+                Bookkeeper's Gambit: v
+                
+                Muninn's Reflection
+                Speaker's Decomposition
+
+                // if left is empty or right is empty: break
+
+                Dioscuri Gambit
+                Augur's Purification
+                Jester's Gambit
+                Augur's Purification
+                Conjunction Distillation
+                
+                Gemini Decomposition
+                {
+                    Bookkeeper's Gambit: -
+                    Bookkeeper's Gambit: vv-
+                }
+                Flock's Disintegration
+                Augur's Exaltation
+                Hermes' Gambit
+                
+                {
+                    Nullary Reflection
+                    Charon's Gambit
+                }
+                Flock's Disintegration
+                Augur's Exaltation
+                Hermes' Gambit
+                Bookkeeper's Gambit: v
+
+                // check the first item of both lists, and move the smaller one to the output, in the most cursed way possible
+
+                Speaker's Decomposition
+                Rotation Gambit
+                Speaker's Decomposition
+                Rotation Gambit
+                
+                Dioscuri Gambit
+                Maximus Distillation
+                
+                {
+                    Bookkeeper's Gambit: -
+                    Jester's Gambit
+                }
+                Flock's Disintegration
+                Rotation Gambit
+                
+                Numerical Reflection: 436 <aqaaeawaeaaqqa>
+                Numerical Reflection: 346 <aqaaeeaaqwawa>
+                Augur's Exaltation
+                Swindler's Gambit
+                
+                Speaker's Distillation
+                Jester's Gambit
+                Hermes' Gambit
+
+                Speaker's Distillation
+                Huginn's Gambit
+                Bookkeeper's Gambit: v
+            Consideration: }
+            Jester's Gambit
+            Thoth's Gambit
+            
+            Muninn's Reflection
+            Speaker's Decomposition
+            Combination Distillation
+            Combination Distillation
+        Consideration: }
+        Combination Distillation
+        
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+    Consideration: }
+    Undertaker's Gambit
+    Hermes' Gambit
+
+    Bookkeeper's Gambit: v-
+    Jester's Gambit
+    Huginn's Gambit
+}
