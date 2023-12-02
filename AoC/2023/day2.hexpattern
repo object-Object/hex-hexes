@@ -1,3 +1,5 @@
+#include "../../macros/Math.hexpattern"
+
 // part 1
 // ravenmind: total
 {
@@ -6,7 +8,7 @@
     False Reflection
     Huginn's Gambit
 
-    // get ["Game N", games]
+    // get ["Game N", draws]
     {
         Bookkeeper's Gambit: -- <": ">
     }
@@ -73,6 +75,84 @@
     Input Purification
 
     Augur's Exaltation
+    Additive Distillation
+    Huginn's Gambit
+}
+<templates/discrete_lines>
+Hermes' Gambit
+
+// part 2
+// ravenmind: total
+{
+    Muninn's Reflection
+    Jester's Gambit
+
+    Numerical Reflection: 0
+    Numerical Reflection: 0
+    Numerical Reflection: 0
+    Numerical Reflection: 3
+    Flock's Gambit
+    Huginn's Gambit
+
+    // get draws
+    {
+        Bookkeeper's Gambit: -- <": ">
+    }
+    Flock's Disintegration
+    Separation Distillation
+    Numerical Reflection: 1
+    Selection Distillation
+    
+    // split draws
+    {
+        Bookkeeper's Gambit: --- <"; ">
+    }
+    Flock's Disintegration
+    Separation Distillation
+
+    {
+        Comma Reflection
+        Spacing Reflection
+        Concatenation Distillation
+        Separation Distillation
+        
+        {
+            Spacing Reflection
+            Separation Distillation
+            Flock's Disintegration
+            
+            {
+                Bookkeeper's Gambit: ---- <["red", "green", "blue"]>
+            }
+            Flock's Disintegration
+            Jester's Gambit
+            Locator's Distillation
+            
+            Muninn's Reflection
+            Jester's Gambit
+            Dioscuri Gambit
+            Selection Distillation
+            
+            Numerical Reflection: 4
+            Fisherman's Gambit
+            Input Purification
+            Maximization Distillation
+            
+            Surgeon's Exaltation
+            Huginn's Gambit
+        }
+        Jester's Gambit
+        Thoth's Gambit
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+
+    Muninn's Reflection
+    Flock's Disintegration
+    Multiplicative Distillation
+    Multiplicative Distillation
+
     Additive Distillation
     Huginn's Gambit
 }
