@@ -1,0 +1,44 @@
+#include "../../../macros/List_Manipulation.hexpattern"
+
+#define templates/discrete_lines (e) = [pattern] -> [pattern]
+{
+    {
+        Bookkeeper's Gambit: --
+
+        Mind's Reflection
+        Compass' Purification II
+        Entity Purification: Item
+
+        Gemini Decomposition
+        Chronicler's Purification
+        Huginn's Gambit
+
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Scout's Distillation
+        
+        Gemini Decomposition
+        Chronicler's Purification
+        Speaker's Decomposition
+        Rotation Gambit II
+        Chronicler's Gambit
+
+        Breaking Reflection
+        Separation Distillation
+        {
+            Bookkeeper's Gambit: --
+        }
+        Jester's Gambit
+        Thoth's Gambit
+        Bookkeeper's Gambit: v
+        
+        Muninn's Reflection
+        Reveal
+        Chronicler's Gambit
+    }
+    Speaker's Decomposition
+    Rotation Gambit
+    Locator's Scalpel
+}

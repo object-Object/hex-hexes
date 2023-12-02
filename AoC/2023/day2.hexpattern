@@ -1,0 +1,80 @@
+// part 1
+// ravenmind: total
+{
+    Muninn's Reflection
+    Jester's Gambit
+    False Reflection
+    Huginn's Gambit
+
+    // get ["Game N", games]
+    {
+        Bookkeeper's Gambit: -- <": ">
+    }
+    Flock's Disintegration
+    Separation Distillation
+    Flock's Disintegration
+    
+    // split draws
+    {
+        Bookkeeper's Gambit: --- <"; ">
+    }
+    Flock's Disintegration
+    Separation Distillation
+
+    {
+        Comma Reflection
+        Spacing Reflection
+        Concatenation Distillation
+        Separation Distillation
+        
+        {
+            Spacing Reflection
+            Separation Distillation
+            Flock's Disintegration
+            
+            {
+                Bookkeeper's Gambit: ---- <["red", 12, "green", 13, "blue", 14]>
+            }
+            Flock's Disintegration
+            
+            Gemini Decomposition
+            Rotation Gambit
+            Locator's Distillation
+            
+            Numerical Reflection: 1
+            Additive Distillation
+            Selection Distillation
+            
+            Jester's Gambit
+            Input Purification
+            
+            Minimus Distillation // max_allowed < current
+            Muninn's Reflection
+            Disjunction Distillation
+            Huginn's Gambit
+        }
+        Jester's Gambit
+        Thoth's Gambit
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+
+    Muninn's Reflection // add 0 if you lost the game
+    Numerical Reflection: 0
+    
+    // "Game N" -> N
+    Rotation Gambit
+    Spacing Reflection
+    Separation Distillation
+
+    Numerical Reflection: 1
+    Selection Distillation
+    Input Purification
+
+    Augur's Exaltation
+    Additive Distillation
+    Huginn's Gambit
+}
+<templates/discrete_lines>
+Hermes' Gambit
