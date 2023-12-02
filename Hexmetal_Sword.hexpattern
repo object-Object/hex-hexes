@@ -1,0 +1,86 @@
+#include "./macros/Reading_and_Writing.hexpattern"
+#include "./macros/Flow_Control.hexpattern"
+
+
+{
+    {
+        // if holding a sword
+        Sorter's Reflection
+        {
+            Bookkeeper's Gambit: -- <sword type>
+        }
+        Flock's Disintegration
+        Inequality Distillation
+        Conditional Charon
+
+        // and looking at an entity
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Scout's Distillation
+        
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Charon
+
+        // and entity is living
+        Compass' Purification
+        Entity Purification: Living
+        
+        Gemini Decomposition
+        Nullary Reflection
+        Equality Distillation
+        Conditional Charon
+
+        // and entity is within reach (+ some margin)
+        Gemini Decomposition
+        Compass' Purification
+        Mind's Reflection
+        Compass' Purification
+
+        Subtractive Distillation
+        Length Purification
+        
+        Numerical Reflection: 4
+        Maximus Distillation
+        Conditional Charon
+        
+        // and entity's health is lower than last tick
+        // (get name+type of entity for comparison so we don't store true names by accident)
+        Gemini Decomposition
+        Scrivener's Purification
+        Prospector's Gambit
+        Physician's Purification
+
+        Numerical Reflection: 2
+        Flock's Gambit
+        
+        Prospector's Gambit
+        Nurse's Purification
+
+        Dioscuri Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+
+        Gemini Decomposition
+        Muninn's Purification
+        Jester's Gambit
+        Huginn's Gambit
+        
+        /*
+        current [[name, type], health]
+        target health
+        current [name, type]
+        target
+        */
+    }
+
+    Mind's Reflection
+    Compass' Purification
+    Vector Reflection +Y
+    Additive Distillation
+    Numerical Reflection: 100
+    Summon Cyclic Wisp
+}
