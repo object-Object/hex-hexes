@@ -1,7 +1,5 @@
 {
-    "hex-casting.enabledMods": {
-        "HexTweaks": false,
-        "HexKinetics": false,
-        "Hexbound": false
-    }
+    "Lua.workspace.library": [
+        "submodules/lua-ls-cc-tweaked",
+    ],
 }

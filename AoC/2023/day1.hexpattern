@@ -1,0 +1,311 @@
+// part 1
+{
+    Mind's Reflection
+    Compass' Purification II
+    Entity Purification: Item
+
+    Gemini Decomposition
+    Chronicler's Purification
+    Huginn's Gambit
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+    
+    Gemini Decomposition
+    Chronicler's Purification
+    Speaker's Decomposition
+    Rotation Gambit II
+    Chronicler's Gambit
+    
+    Breaking Reflection
+    Separation Distillation
+    {
+        Blank Reflection
+        Separation Distillation
+
+        Numerical Reflection: 14798 <se aqaaeeqaaeaeawawaawaeawq>
+        Scrivener's Purification
+        Numerical Reflection: 23650 <se aqaaeeaaqwaeaaqaeaaqawawew>
+        Scrivener's Purification
+        Concatenation Distillation
+        
+        Blank Reflection
+        Separation Distillation
+
+        Intersection Distillation // :)
+        
+        Gemini Decomposition
+        Numerical Reflection: 1
+        Selection Distillation
+
+        Jester's Gambit
+        Retrograde Purification
+        Numerical Reflection: 1
+        Selection Distillation
+        
+        Concatenation Distillation
+        Input Purification
+        
+        Muninn's Reflection
+        Additive Distillation
+        Huginn's Gambit
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+    
+    Muninn's Reflection
+    Reveal
+    Chronicler's Gambit
+}
+
+// part 2
+{
+    Mind's Reflection
+    Compass' Purification II
+    Entity Purification: Item
+
+    Gemini Decomposition
+    Chronicler's Purification
+    Huginn's Gambit
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+    
+    Gemini Decomposition
+    Chronicler's Purification
+    Speaker's Decomposition
+    Rotation Gambit II
+    Chronicler's Gambit
+    
+    Breaking Reflection
+    Separation Distillation
+
+    // thoth loop, part 1
+    {
+        Muninn's Reflection
+        Jester's Gambit
+
+        // default values
+        Gemini Decomposition
+        Length Distillation: Str // best_left_index
+        Blank Reflection // best_left_num
+        Numerical Reflection: 2
+        Flock's Gambit
+        
+        Numerical Reflection: -1 // best_right_index
+        Blank Reflection // best_right_num
+        Numerical Reflection: 2
+        Flock's Gambit
+
+        Numerical Reflection: 2
+        Flock's Gambit
+        Huginn's Gambit
+
+        // searches
+        {
+            Bookkeeper's Gambit: -- <["1,1", "2,2", ..., "9,9", "one,1", "two,2", ..., "nine,9"]>
+        }
+        Flock's Disintegration
+    }
+        
+    // thoth loop, part 2 (unrolled loop to find first and last number)
+    Consideration: {
+        Speaker's Decomposition
+        Rotation Gambit
+        Gemini Decomposition
+        Rotation Gambit
+
+        Comma Reflection
+        Separation Distillation // [search, num]
+        Flock's Disintegration
+        Rotation Gambit II
+
+        Dioscuri Gambit
+        Discoverer's Distillation // left_index
+        Rotation Gambit II
+        Discoverer's Distillation II // right_index
+
+        Dioscuri Gambit
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Undertaker's Gambit
+
+        // [right_index, num]
+        Numerical Reflection: 2
+        Flock's Gambit
+
+        // left_index, num
+        Rotation Gambit II
+        Numerical Reflection: 2
+        Flock's Gambit
+
+        // get both current pairs and standalone indices on the stack
+        Muninn's Reflection
+        Flock's Disintegration
+        
+        Gemini Decomposition
+        Speaker's Decomposition
+        Bookkeeper's Gambit: v-
+
+        Rotation Gambit
+        Gemini Decomposition
+        Speaker's Decomposition
+        Bookkeeper's Gambit: v-
+
+        // right_index > -1 and right_index > best_right_index
+        //   ? [right_index, num]
+        //   : [best_right_index, best_right_num]
+        Numerical Reflection: 2024 <SOUTH_EAST aqaaewedaqaaeeaaqqaa> // ebafdgc
+        Swindler's Gambit
+
+        Maximus Distillation
+        Rotation Gambit II
+        Augur's Exaltation
+
+        // left_index > -1 and left_index < best_left_index
+        //   ? [left_index, num]
+        //   : [best_left_index, best_left_num]
+        Numerical Reflection: 104 // adceb
+        Swindler's Gambit
+
+        Prospector's Gambit
+        Numerical Reflection: -1
+        Maximus Distillation
+
+        Rotation Gambit II
+        Minimus Distillation
+
+        Conjunction Distillation
+        Rotation Gambit II
+        Augur's Exaltation
+
+        // reset for next iteration
+        Jester's Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Huginn's Gambit
+
+        Jester's Gambit
+    Consideration: }
+
+    // unroll and append to part 1
+    Numerical Reflection: 18
+    Gemini Gambit
+    
+    {
+        Combination Distillation
+    }
+    Flock's Disintegration
+    
+    Numerical Reflection: 18
+    Gemini Gambit
+    Numerical Reflection: 18
+    Flock's Gambit
+
+    Hermes' Gambit
+
+    // thoth loop, part 3
+    {
+        // extract numbers and update running count
+        Muninn's Reflection
+        Flock's Disintegration
+        Flock's Disintegration
+        Rotation Gambit
+        Flock's Disintegration
+        
+        Bookkeeper's Gambit: vvv-v-
+        Jester's Gambit
+        Concatenation Distillation
+        Input Purification
+
+        Additive Distillation
+        Huginn's Gambit
+    }
+    Combination Distillation
+
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: v
+    
+    Muninn's Reflection
+    Reveal
+    Chronicler's Gambit
+}
+
+#define Separation Purification (WEST edwede) = str -> [str]
+// split a string into individual characters with the empty string stripped
+{
+    Blank Reflection
+    Separation Distillation
+    
+    Blank Reflection
+    Single's Purification
+
+    Undertaker's Gambit
+    Combination Distillation
+    Exclusionary Distillation
+}
+
+#define Scrivener's Purification II (NORTH_WEST wdwewdwdw) = list -> str
+// ["a", "b"] -> '"a", "b"'
+{
+    Scrivener's Purification
+    
+    Numerical Reflection: 1
+    
+    Prospector's Gambit
+    Length Distillation: Str
+    Numerical Reflection: 1
+    Subtractive Distillation
+    
+    Winnowing Distillation
+}
+
+#define Discoverer's Distillation II (WEST edwwedwe) = str, str -> num
+// like Discoverer's Distillation, but returns the first occurrence from the right side (ie. rfind)
+{
+    // len(string) - len(pattern)
+    Dioscuri Gambit
+    Length Distillation: Str
+    Jester's Gambit
+    Length Distillation: Str
+
+    Jester's Gambit
+    Subtractive Distillation
+    Rotation Gambit II
+
+    // rindex
+    Separation Purification
+    Retrograde Purification
+    Scrivener's Purification II
+    
+    Jester's Gambit
+    Separation Purification
+    Retrograde Purification
+    Scrivener's Purification II
+    
+    Jester's Gambit
+    Discoverer's Distillation
+
+    // discoverer >= 0 ? index : -1
+    Gemini Decomposition
+    Numerical Reflection: 0
+    Maximus Distillation II
+    Rotation Gambit II
+    
+    // len(string) - len(pattern) - rindex
+    Numerical Reflection: 5 // len('"a", ')
+    Division Distillation
+    Subtractive Distillation
+
+    Numerical Reflection: -1
+
+    Augur's Exaltation
+}
