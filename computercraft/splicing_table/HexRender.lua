@@ -3,10 +3,11 @@
 
 ---@diagnostic disable: lowercase-global
 
-local pprint = pretty.pretty_print
+local pprint = require("cc.pretty").pretty_print
 
 local focalPort = peripheral.find("focal_port") ---@type FocalPort
 local monitor = peripheral.find("monitor") ---@type Monitor
+term.redirect(monitor)
 
 local HexPatterns = {}
 
@@ -628,6 +629,7 @@ function drawFullHex(focus, noStringClear, drawScale)
     end
 end
 
+term.clear()
 focus = focalPort.readIota()
 drawFullHex(focus)
 
