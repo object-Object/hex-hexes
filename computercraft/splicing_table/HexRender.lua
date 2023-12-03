@@ -189,8 +189,8 @@ local function drawPattern(pattern, location, scale, colorOverride)
     local offset = {middleY*-1 + location[1],  middleX*-1 + location[2]}
 
     for _, point in pairs(points) do
-        point[1] = (point[1] + offset[1])-- + math.random()*1
-        point[2] = (point[2] + offset[2])-- + math.random()*1
+        point[1] = (point[1] + offset[1])
+        point[2] = (point[2] + offset[2])
     end
 
     for index, point in pairs(points) do
@@ -331,7 +331,6 @@ local function drawBuffer()
     for _, i in pairs(stringBuffer) do
         term.setCursorPos(i[1], i[2])
         print(i[3])
-        -- sleep(.5)
     end
     stringBuffer = {}
 end
@@ -482,15 +481,11 @@ local function RenderList(focus, drawScale, patternsPerLine)
         if type(pattern) == "table" then
             if pattern.angles then
                 if pattern.type == "pattern" then
-                    drawPattern(pattern, {drawX, drawY}, drawScale, nil)--, i)
+                    drawPattern(pattern, {drawX, drawY}, drawScale, nil)
                 else
-                    drawPattern(pattern, {drawX, drawY}, drawScale, pattern.color)--, i)
+                    drawPattern(pattern, {drawX, drawY}, drawScale, pattern.color)
                 end
                 table.insert(patternLocations, {drawX/2+.5, drawY/3+.5, pattern})
-                -- table.insert(stringBuffer, {drawX/2 - #pattern.type/2+.5, drawY/3+2+.5, pattern.type})
-
-                -- paintutils.drawPixel(drawX/2, drawY/3+2, colors.purple)
-                -- sleep()
             else
                 table.insert(stringBuffer, {drawX/2+.5, drawY/3+2+.5, pattern})
             end
@@ -556,26 +551,20 @@ drawFullHex(focus)
 
 local function wait_for_redstone()
     os.pullEvent("redstone")
-    -- while true do
-    --   sleep(.25)
     drawFullHex(focus)
-    --   patternMaxLength = patternMaxLength + 1
-    -- end
 end
 
 local function wait_for_focus()
     os.pullEvent("focus_inserted")
-    -- patternMaxLength = 1
 
-    local focus = focalPort.readIota()
+    focus = focalPort.readIota()
     drawFullHex(focus)
 end
 
 local function wait_for_iota()
     os.pullEvent("new_iota")
-    -- patternMaxLength = 1
 
-    local focus = focalPort.readIota()
+    focus = focalPort.readIota()
     drawFullHex(focus)
 end
 
