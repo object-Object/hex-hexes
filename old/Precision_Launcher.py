@@ -1,10 +1,6 @@
 import math
-from typing import List, Tuple, TypeVar
+from typing import List, Tuple
 import numpy as np
-from sklearn import linear_model
-from sklearn.preprocessing import PolynomialFeatures
-import matplotlib.pyplot as plt
-import multiprocessing
 
 # item / tnt
 gravity = 0.04
@@ -264,7 +260,7 @@ def hex_angle_speed_rad_simple_item(dx: float, dy: float) -> Tuple[float, float,
         current_speed -= 4 # this is fine because if we broke early the next condition will exit
         current_angle += 0.000972 # 2*0.087/179 = 2*angle_range/(angle_iters - 1)
         wisp_num += 1
-        if result != None and (epsilon <= 0.25 or wisp_num >= 180):
+        if result is not None and (epsilon <= 0.25 or wisp_num >= 180):
             return result # launch the item
         else:
             if wisp_num >= 180:
@@ -297,7 +293,7 @@ def hex_angle_speed_rad_simple_item_2_worker(dx: float, dy: float, current_speed
         current_speed -= 4 # this is fine because if we broke early the next condition will exit
         current_angle += 0.000972 # 2*0.087/179 = 2*angle_range/(angle_iters - 1)
         wisp_num += 1
-        if result != None and (epsilon <= 0.1 or wisp_num >= 18):
+        if result is not None and (epsilon <= 0.1 or wisp_num >= 18):
             return result
         elif wisp_num >= 18:
             return None
