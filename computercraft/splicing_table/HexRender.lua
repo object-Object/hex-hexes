@@ -1,8 +1,6 @@
 ---Originally written by Chloe
 ---https://pastebin.com/2deuP92f
 
----@diagnostic disable: lowercase-global
-
 local pprint = require("cc.pretty").pretty_print
 
 local focalPort = peripheral.find("focal_port") ---@type FocalPort
@@ -40,22 +38,37 @@ START_ANGLE_DIRS = {
 ---@type BufferedString[]
 local stringBuffer = {}
 
+---@class PatternLocation
+---@field [1] number
+---@field [2] number
+---@field [3] TypedPatternIota
+
+---@type PatternLocation[]
+local patternLocations = {}
+
+---@type { [integer]: integer }
+local brailleBuffer = {}
+
+---@type integer, integer, integer
+local w, h, size
+
+---@type number
+local monitorShape
+
 ---@param pattern PatternIota | TypedPatternIota
 ---@return integer height
 ---@return integer width
-function getPatternSize(pattern)--, patternIndex)
-    currentPoint = {0, 0}
-    currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
-    points = {{0, 0}}
-    angles = "w" .. pattern.angles
+local function getPatternSize(pattern)
+    local currentPoint = {0, 0} ---@type Point
+    local currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
+    local points = {{0, 0}} ---@type Point[]
+    local angles = "w" .. pattern.angles
     for i = 1, #angles do
-        -- if i < patternMaxLength - patternIndex then
         local a = angles:sub(i, i)
         currentAngle = (currentAngle + ANGLE_DIRS[a]) % 360
-        angleOffset = {math.sin(currentAngle), -math.cos(currentAngle)}
+        local angleOffset = {math.sin(currentAngle), -math.cos(currentAngle)}
         currentPoint = {currentPoint[1] + angleOffset[1], currentPoint[2] + angleOffset[2]}
         table.insert(points, currentPoint)
-        -- end
     end
 
     local farLeft = 0
@@ -73,6 +86,65 @@ function getPatternSize(pattern)--, patternIndex)
     return math.abs(farTop-farBottom), math.abs(farLeft-farRight)
 end
 
+---@param startX number
+---@param startY number
+---@param endX number
+---@param endY number
+---@param color number
+local function drawLine(startX, startY, endX, endY, color)
+    startX = math.floor(startX+.5)
+    startY = math.floor(startY+.5)
+    endX = math.floor(endX+.5)
+    endY = math.floor(endY+.5)
+
+    if startX == endX and startY == endY then
+        local offset = math.floor((math.floor(startX)-1) + ((math.floor(startY)-1) * w*2) + 1)
+        brailleBuffer[offset] = 1
+        return
+    end
+
+    local minX = math.min(startX, endX)
+    local maxX, minY, maxY
+    if minX == startX then
+        minY = startY
+        maxX = endX
+        maxY = endY
+    else
+        minY = endY
+        maxX = startX
+        maxY = startY
+    end
+
+    local xDiff = maxX - minX
+    local yDiff = maxY - minY
+
+    if xDiff > math.abs(yDiff) then
+        local y = minY
+        local dy = yDiff / xDiff
+        for x = minX, maxX do
+            local offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
+            brailleBuffer[offset] = color
+            y = y + dy
+        end
+    else
+        local x = minX
+        local dx = xDiff / yDiff
+        if maxY >= minY then
+            for y = minY, maxY do
+                local offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
+                brailleBuffer[offset] = color
+                x = x + dx
+            end
+        else
+            for y = minY, maxY, -1 do
+                local offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
+                brailleBuffer[offset] = color
+                x = x - dx
+            end
+        end
+    end
+end
+
 ---@class Point
 ---@field [1] number
 ---@field [2] number
@@ -85,23 +157,19 @@ end
 ---@return integer farRight
 ---@return integer farTop
 ---@return integer farBottom
-function drawPattern(pattern, location, scale, colorOverride)--, patternIndex)
+local function drawPattern(pattern, location, scale, colorOverride)
     scale = (scale / math.max(getPatternSize(pattern))) * .75
 
-    -- if scale < 2 then scale = 2 end
-    -- sleep(.5)
-    currentPoint = {0, 0}
-    currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
-    points = {{0, 0}}
-    angles = "w" .. pattern.angles
+    local currentPoint = {0, 0}
+    local currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
+    local points = {{0, 0}}
+    local angles = "w" .. pattern.angles
     for i = 1, #angles do
-        --if i < patternMaxLength - patternIndex then
         local a = angles:sub(i, i)
         currentAngle = (currentAngle + ANGLE_DIRS[a])
-        angleOffset = {math.sin(currentAngle)*scale, -math.cos(currentAngle)*scale}
+        local angleOffset = {math.sin(currentAngle)*scale, -math.cos(currentAngle)*scale}
         currentPoint = {currentPoint[1] + angleOffset[1], currentPoint[2] + angleOffset[2]}
         table.insert(points, currentPoint)
-        --end
     end
 
     local farLeft = 0
@@ -127,6 +195,7 @@ function drawPattern(pattern, location, scale, colorOverride)--, patternIndex)
 
     for index, point in pairs(points) do
         if index < #points then
+            local color ---@type integer
             if colorOverride then
                 color = colorOverride
             else
@@ -151,7 +220,7 @@ end
 ---@return number g
 ---@return number b
 ---@return number a
-function hslToRgb(h, s, l)
+local function hslToRgb(h, s, l)
     h = h / 360
     s = s / 100
     l = l / 100
@@ -180,98 +249,15 @@ function hslToRgb(h, s, l)
     return r, g, b, 1
 end
 
----@param startX number
----@param startY number
----@param endX number
----@param endY number
----@param color number
-function drawLine(startX, startY, endX, endY, color)
-    startX = math.floor(startX+.5)
-    startY = math.floor(startY+.5)
-    endX = math.floor(endX+.5)
-    endY = math.floor(endY+.5)
-
-    if startX == endX and startY == endY then
-        offset = math.floor((math.floor(startX)-1) + ((math.floor(startY)-1) * w*2) + 1)
-        brailleBuffer[offset] = 1
-        return
-    end
-
-    local minX = math.min(startX, endX)
-    local maxX, minY, maxY
-    if minX == startX then
-        minY = startY
-        maxX = endX
-        maxY = endY
-    else
-        minY = endY
-        maxX = startX
-        maxY = startY
-    end
-
-    local xDiff = maxX - minX
-    local yDiff = maxY - minY
-
-    if xDiff > math.abs(yDiff) then
-        local y = minY
-        local dy = yDiff / xDiff
-        for x = minX, maxX do
-            offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
-            brailleBuffer[offset] = color
-            y = y + dy
-        end
-    else
-        local x = minX
-        local dx = xDiff / yDiff
-        if maxY >= minY then
-            for y = minY, maxY do
-                offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
-                brailleBuffer[offset] = color
-                x = x + dx
-            end
-        else
-            for y = minY, maxY, -1 do
-                offset = math.floor((math.floor(x+.5)-1) + ((math.floor(y+.5)-1) * w*2) + 1)
-                brailleBuffer[offset] = color
-                x = x - dx
-            end
-        end
-    end
-end
-
-function drawBuffer()
-    for i=1, 15 do
-        r, g, b = hslToRgb(i/16*360, 50, 50)
-        term.setPaletteColor(2^(i-1), r, g, b)
-    end
-    for i = 1, (size/6) do
-        i = i - 1
-        realX = math.floor(i%w)+1
-        realY = math.floor(i/w)+1
-
-        pixBase = ((realX-1)*2 + (realY-1)*w*6)
-        charTable = {
-            brailleBuffer[pixBase+1],
-            brailleBuffer[pixBase+2],
-            brailleBuffer[pixBase+w*2+1],
-            brailleBuffer[pixBase+w*2+2],
-            brailleBuffer[pixBase+w*4+1],
-            brailleBuffer[pixBase+w*4+2]
-        }
-        drawBraille(realX, realY, charTable, colors.black)
-    end
-    term.setTextColor(colors.white)
-    for _, i in pairs(stringBuffer) do
-        term.setCursorPos(i[1], i[2])
-        print(i[3])
-        -- sleep(.5)
-    end
-    stringBuffer = {}
+---@param s number
+---@return "0" | "1"
+local function toClampedString(s)
+    if s > 0 then return "1" else return "0" end
 end
 
 ---@param colorlist integer[]
 ---@return integer
-function findColor(colorlist)
+local function findColor(colorlist)
     local commonColors = {}
     for _, color in pairs(colorlist) do
         if color ~= colors.black and color ~= 0 then
@@ -290,12 +276,6 @@ function findColor(colorlist)
     return maxcolor
 end
 
----@param s number
----@return "0" | "1"
-function toClampedString(s)
-    if s > 0 then return "1" else return "0" end
-end
-
 ---@class CharTable
 ---@field [1] number
 ---@field [2] number
@@ -308,11 +288,11 @@ end
 ---@param y number
 ---@param charTable CharTable
 ---@param colorB integer
-function drawBraille(x, y, charTable, colorB)
+local function drawBraille(x, y, charTable, colorB)
     term.setCursorPos(x, y)
-    a, b, c, d, e, f = unpack(charTable)
+    local a, b, c, d, e, f = unpack(charTable)
     local charBitString = toClampedString(a) .. toClampedString(b) .. toClampedString(c) .. toClampedString(d) .. toClampedString(e) .. toClampedString(f)
-    colorF = findColor({a, b, c, d, e, f})
+    local colorF = findColor({a, b, c, d, e, f})
     charBitString = string.reverse(charBitString)
     local charID = tonumber(charBitString, 2)
     if charID < 32 then
@@ -324,6 +304,36 @@ function drawBraille(x, y, charTable, colorB)
         term.setTextColor(colorB)
         term.write(string.char(128+63-charID))
     end
+end
+
+local function drawBuffer()
+    for i=1, 15 do
+        local r, g, b = hslToRgb(i/16*360, 50, 50)
+        term.setPaletteColor(2^(i-1), r, g, b)
+    end
+    for i = 1, (size/6) do
+        i = i - 1
+        local realX = math.floor(i%w)+1
+        local realY = math.floor(i/w)+1
+
+        local pixBase = ((realX-1)*2 + (realY-1)*w*6)
+        local charTable = {
+            brailleBuffer[pixBase+1],
+            brailleBuffer[pixBase+2],
+            brailleBuffer[pixBase+w*2+1],
+            brailleBuffer[pixBase+w*2+2],
+            brailleBuffer[pixBase+w*4+1],
+            brailleBuffer[pixBase+w*4+2]
+        }
+        drawBraille(realX, realY, charTable, colors.black)
+    end
+    term.setTextColor(colors.white)
+    for _, i in pairs(stringBuffer) do
+        term.setCursorPos(i[1], i[2])
+        print(i[3])
+        -- sleep(.5)
+    end
+    stringBuffer = {}
 end
 
 ---@class IotaColor
@@ -366,7 +376,7 @@ IOTA_TYPES = {
 
 ---@param iota Iota
 ---@return TypedPatternIota[]
-function flattenIotas(iota)
+local function flattenIotas(iota)
     local keyType = nil
 
     if type(iota) == "table" then
@@ -387,7 +397,7 @@ function flattenIotas(iota)
             return {typedIota}
         end
         if keyType == "startDir" then
-            pattern = {{angles = iota.angles, startDir = iota.startDir, color = colors.yellow, type = "pattern", data = iota}}
+            local pattern = {{angles = iota.angles, startDir = iota.startDir, color = colors.yellow, type = "pattern", data = iota}}
             if NORMALIZE_ROTATION then
                 if HexPatterns[iota.angles] ~= nil then
                     pattern[1].startDir = HexPatterns[iota.angles][2]
@@ -437,13 +447,13 @@ end
 ---@param focus Iota
 ---@param drawScale number?
 ---@param patternsPerLine integer?
-function RenderList(focus, drawScale, patternsPerLine)
-    flattenedIotas = flattenIotas(focus)
+local function RenderList(focus, drawScale, patternsPerLine)
+    local flattenedIotas = flattenIotas(focus)
 
     if drawScale == nil then drawScale = 5 end
     if patternsPerLine == nil then patternsPerLine = math.floor(math.sqrt(#flattenedIotas/monitorShape)) end
 
-    lines = math.ceil((#flattenedIotas / patternsPerLine))
+    local lines = math.ceil((#flattenedIotas / patternsPerLine))
 
     if #flattenedIotas == 1 then
         lines = 1
@@ -456,7 +466,7 @@ function RenderList(focus, drawScale, patternsPerLine)
 
     if lines * patternsPerLine < #flattenedIotas then error("Not enough room to show all patterns") end
 
-    w, h = term.getSize()
+    local w, h = term.getSize()
 
     if h*3 > w*2 then
         drawScale = w*2/patternsPerLine
@@ -465,10 +475,10 @@ function RenderList(focus, drawScale, patternsPerLine)
     end
     for i, pattern in pairs(flattenedIotas) do
         i = i - 1
-        locationX = math.floor(i % patternsPerLine)
-        locationY = math.floor(i / patternsPerLine)
-        drawX = locationX*(w/patternsPerLine)*2+w/patternsPerLine
-        drawY = locationY*(h/lines*2.5)+(h/lines*1.5)
+        local locationX = math.floor(i % patternsPerLine)
+        local locationY = math.floor(i / patternsPerLine)
+        local drawX = locationX*(w/patternsPerLine)*2+w/patternsPerLine
+        local drawY = locationY*(h/lines*2.5)+(h/lines*1.5)
         if type(pattern) == "table" then
             if pattern.angles then
                 if pattern.type == "pattern" then
@@ -493,10 +503,10 @@ end
 
 ---@param pattern TypedPatternIota | PatternIota
 ---@return string
-function getPatternName(pattern)
-    patternName = HexPatterns[pattern.angles]
+local function getPatternName(pattern)
+    local patternName = HexPatterns[pattern.angles]
     if patternName == nil then patternName = "Unknown Pattern" else patternName = patternName[1] end
-    isNumString = string.sub(pattern.angles, 1, 4)
+    local isNumString = string.sub(pattern.angles, 1, 4)
     if isNumString == "aqaa" or isNumString == "dedd" then
         NumString = string.sub(pattern.angles, 5, 1000)
         Number = 0
@@ -515,6 +525,34 @@ function getPatternName(pattern)
     return patternName
 end
 
+---@param focus Iota?
+---@param noStringClear boolean?
+---@param drawScale number?
+local function drawFullHex(focus, noStringClear, drawScale)
+    if noStringClear == nil then noStringClear = false end
+    if drawScale == nil then drawScale = .5 end
+    monitor.setTextScale(drawScale)
+    brailleBuffer = {}
+
+    patternLocations = {}
+    w, h = term.getSize()
+    monitorShape = (h*3)/(w*2)
+
+    size = w*h*6
+    for i = 1, size do
+        brailleBuffer[i] = 0
+    end
+
+    if focus == nil then
+        RenderList({null = true}, size)
+    else
+        RenderList(focus, size)
+    end
+end
+
+term.clear()
+local focus = focalPort.readIota()
+drawFullHex(focus)
 
 local function wait_for_redstone()
     os.pullEvent("redstone")
@@ -529,7 +567,7 @@ local function wait_for_focus()
     os.pullEvent("focus_inserted")
     -- patternMaxLength = 1
 
-    focus = focalPort.readIota()
+    local focus = focalPort.readIota()
     drawFullHex(focus)
 end
 
@@ -537,27 +575,26 @@ local function wait_for_iota()
     os.pullEvent("new_iota")
     -- patternMaxLength = 1
 
-    focus = focalPort.readIota()
+    local focus = focalPort.readIota()
     drawFullHex(focus)
 end
 
 local function wait_for_touch()
-    _, _, touch_x, touch_y = os.pullEvent("monitor_touch")
-    closestPattern = {}
-    closestDistance = 10000000
+    local _, _, touch_x, touch_y = os.pullEvent("monitor_touch")
+    local closestPattern = {}
+    local closestDistance = 10000000
     for _, pattern in pairs(patternLocations) do
-        pattern_x = pattern[1]
-        pattern_y = pattern[2]
-        pattern_iota = pattern[3]
-        distance = (pattern_x - touch_x)^2 + (pattern_y - touch_y)^2
+        local pattern_x = pattern[1]
+        local pattern_y = pattern[2]
+        local pattern_iota = pattern[3]
+        local distance = (pattern_x - touch_x)^2 + (pattern_y - touch_y)^2
         if distance < closestDistance then
             closestPattern = pattern_iota
             closestDistance = distance
         end
     end
-    -- term.setCursorPos(1, 1)
-    -- pprint()
 
+    local indexString ---@type string
     if closestPattern.index then
         indexString = ""
         for i = #closestPattern.index, 1, -1 do
@@ -567,7 +604,6 @@ local function wait_for_touch()
     else
         indexString = "nil"
     end
-
 
     if closestPattern.type == "pattern" then
         if closestPattern.index then
@@ -590,48 +626,14 @@ local function wait_for_touch()
     end
 
     while true do
-        e = {os.pullEvent()}
+        local e = {os.pullEvent()}
         if e[1] == "monitor_touch" then
             break
         end
     end
     term.clear()
     drawFullHex(focus)
-
-    -- pprint({touch_x, touch_y})
 end
-
----@param focus Iota?
----@param noStringClear boolean?
----@param drawScale number?
-function drawFullHex(focus, noStringClear, drawScale)
-    if noStringClear == nil then noStringClear = false end
-    if drawScale == nil then drawScale = .5 end
-    monitor.setTextScale(drawScale)
-    brailleBuffer = {}
-    -- if not noStringClear then
-
-    -- end
-    patternLocations = {}
-    w, h = term.getSize()
-    monitorShape = (h*3)/(w*2)
-    -- print(monitorShape)
-    -- sleep(5)
-    size = w*h*6
-    for i = 1, size do
-        brailleBuffer[i] = 0
-    end
-
-    if focus == nil then
-        RenderList({null = true}, size)
-    else
-        RenderList(focus, size)
-    end
-end
-
-term.clear()
-focus = focalPort.readIota()
-drawFullHex(focus)
 
 while true do
     parallel.waitForAny(wait_for_focus, wait_for_iota, wait_for_touch, wait_for_redstone)
