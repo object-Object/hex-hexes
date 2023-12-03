@@ -22,4 +22,4 @@
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
 ---@field hasFocus fun(): boolean
 
----@alias focalPortType '"focal_port"'
+---@alias focalPortType "focal_port"

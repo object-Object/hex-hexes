@@ -45,12 +45,12 @@
 ---@field angles string Should only include the characters `aqweds`.
 
 ---@alias startDir
----| '"EAST"'
----| '"SOUTH_EAST"'
----| '"SOUTH_WEST"'
----| '"WEST"'
----| '"NORTH_WEST"'
----| '"NORTH_EAST"'
+---| "EAST"
+---| "SOUTH_EAST"
+---| "SOUTH_WEST"
+---| "WEST"
+---| "NORTH_WEST"
+---| "NORTH_EAST"
 
 -- Hexal
 
