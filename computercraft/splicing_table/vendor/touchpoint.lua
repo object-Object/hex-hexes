@@ -22,12 +22,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 --]]
 
+---@class ButtonLabel: string[]
+---@field label string
+
+---@alias buttonName string|ButtonLabel
+
 ---@param buttonLen integer
 ---@param minY integer
 ---@param maxY integer
----@param name string
+---@param name buttonName
 ---@return string[]
----@return string
+---@return buttonName
 local function setupLabel(buttonLen, minY, maxY, name)
 	local labelTable = {}
 	if type(name) == "table" then
@@ -54,6 +59,8 @@ local function setupLabel(buttonLen, minY, maxY, name)
 	return labelTable, name
 end
 
+---@alias monSide computerSide|"term"
+
 ---@class Button
 ---@field func fun()
 ---@field xMin integer
@@ -66,8 +73,6 @@ end
 ---@field inactiveText integer
 ---@field activeText integer
 ---@field label string[]
-
----@alias monSide computerSide|"term"
 
 ---@class ButtonManager
 ---@field side monSide
@@ -98,7 +103,7 @@ local ButtonManager = {
 	end,
 
 	---@param self ButtonManager
-	---@param name string
+	---@param name buttonName
 	---@param func fun()
 	---@param xMin integer
 	---@param yMin integer
@@ -146,7 +151,7 @@ local ButtonManager = {
 	end,
 
 	---@param self ButtonManager
-	---@param name string
+	---@param name buttonName
 	remove = function(self, name)
 		if self.buttonList[name] then
 			local button = self.buttonList[name]
@@ -186,7 +191,7 @@ local ButtonManager = {
 	end,
 
 	---@param self ButtonManager
-	---@param name string
+	---@param name buttonName
 	---@param noDraw boolean?
 	toggleButton = function(self, name, noDraw)
 		self.buttonList[name].active = not self.buttonList[name].active
@@ -194,7 +199,7 @@ local ButtonManager = {
 	end,
 
 	---@param self ButtonManager
-	---@param name string
+	---@param name buttonName
 	---@param duration number?
 	flash = function(self, name, duration)
 		self:toggleButton(name)
@@ -203,8 +208,8 @@ local ButtonManager = {
 	end,
 
 	---@param self ButtonManager
-	---@param name string
-	---@param newName string
+	---@param name buttonName
+	---@param newName buttonName
 	rename = function(self, name, newName)
 		self.buttonList[name].label, newName = setupLabel(self.buttonList[name].xMax - self.buttonList[name].xMin + 1, self.buttonList[name].yMin, self.buttonList[name].yMax, newName)
 		if not self.buttonList[name] then error("no such button", 2) end
