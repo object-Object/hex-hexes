@@ -7,6 +7,7 @@ local FILE = "day1.txt"
 local f = fs.open(FILE, "r")
 assert(f ~= nil, "Failed to open file")
 
+---@type string[]
 local iotas = {}
 local accumulator = ""
 
@@ -34,7 +35,7 @@ end
 -- send it to the focus !
 
 local focalPort = peripheral.wrap("top")
----@cast focalPort +FocalPort
 assert(focalPort ~= nil, "No peripheral found on top of computer")
+---@cast focalPort FocalPort
 
 focalPort.writeIota(iotas)
