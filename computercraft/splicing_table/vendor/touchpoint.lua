@@ -62,23 +62,23 @@ end
 ---@alias monSide computerSide|"term"
 
 ---@class Button
----@field func fun()
----@field xMin integer
----@field yMin integer
----@field xMax integer
----@field yMax integer
----@field active boolean
----@field inactiveColor integer
----@field activeColor integer
----@field inactiveText integer
----@field activeText integer
----@field label string[]
+---@field package func fun()?
+---@field package xMin integer
+---@field package yMin integer
+---@field package xMax integer
+---@field package yMax integer
+---@field package active boolean
+---@field package inactiveColor integer
+---@field package activeColor integer
+---@field package inactiveText integer
+---@field package activeText integer
+---@field package label string[]
 
 ---@class ButtonManager
----@field side monSide
----@field mon Redirect
----@field buttonList { [string]: Button }
----@field clickMap any
+---@field package side monSide
+---@field package mon Redirect
+---@field package buttonList { [string]: Button }
+---@field package clickMap any
 local ButtonManager = {
 	---@param self ButtonManager
 	draw = function(self)
@@ -104,7 +104,7 @@ local ButtonManager = {
 
 	---@param self ButtonManager
 	---@param name buttonName
-	---@param func fun()
+	---@param func fun()?
 	---@param xMin integer
 	---@param yMin integer
 	---@param xMax integer
