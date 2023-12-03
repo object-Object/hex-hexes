@@ -2,4 +2,5 @@
     "Lua.workspace.library": [
         "submodules/lua-ls-cc-tweaked",
     ],
+    "Lua.runtime.version": "Lua 5.1",
 }

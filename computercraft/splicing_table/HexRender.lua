@@ -1,44 +1,48 @@
--- Originally written by Chloe
--- https://pastebin.com/2deuP92f
+---Originally written by Chloe
+---https://pastebin.com/2deuP92f
 
-pprint = require("cc.pretty").pretty_print
-focalPort = peripheral.find("focal_port")
-monitor = peripheral.find("monitor")
-HexPatterns = require("/HexPatterns")
-normalize_rotation = false
---patternMaxLength = 1
--- for i=1,16 do
---   term.setPaletteColor(2^(i-1),term.nativePaletteColor(2^(i-1)))
--- end
+---@diagnostic disable: lowercase-global
 
-angleDirs = {
-  w = 60*0* math.pi / 180,
-  e = 60*1* math.pi / 180,
-  d = 60*2* math.pi / 180,
-  s = 60*3* math.pi / 180,
-  a = 60*4* math.pi / 180,
-  q = 60*5* math.pi / 180,
-  j = 90*1* math.pi / 180,
-}
-startAngleDirs = {
-  EAST       = 60*0* math.pi / 180,
-  SOUTH_EAST = 60*1* math.pi / 180,
-  SOUTH_WEST = 60*2* math.pi / 180,
-  WEST       = 60*3* math.pi / 180,
-  NORTH_WEST = 60*4* math.pi / 180,
-  NORTH_EAST = 60*5* math.pi / 180,
+local pprint = pretty.pretty_print
+
+local focalPort = peripheral.find("focal_port") ---@type FocalPort
+local monitor = peripheral.find("monitor") ---@type Monitor
+
+local HexPatterns = {}
+
+NORMALIZE_ROTATION = false
+
+ANGLE_DIRS = {
+    w = 60*0* math.pi / 180,
+    e = 60*1* math.pi / 180,
+    d = 60*2* math.pi / 180,
+    s = 60*3* math.pi / 180,
+    a = 60*4* math.pi / 180,
+    q = 60*5* math.pi / 180,
+    j = 90*1* math.pi / 180,
 }
 
-stringBuffer = {}
+START_ANGLE_DIRS = {
+    EAST       = 60*0* math.pi / 180,
+    SOUTH_EAST = 60*1* math.pi / 180,
+    SOUTH_WEST = 60*2* math.pi / 180,
+    WEST       = 60*3* math.pi / 180,
+    NORTH_WEST = 60*4* math.pi / 180,
+    NORTH_EAST = 60*5* math.pi / 180,
+}
+
+---@type { [1]: number, [2]: number, [3]: string }[]
+local stringBuffer = {}
+
 function getPatternSize(pattern)--, patternIndex)
   currentPoint = {0,0}
-  currentAngle = startAngleDirs[pattern.startDir] + 90 * math.pi / 180
+  currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
   points = {{0,0}}
   angles = "w" .. pattern.angles
   for i = 1, #angles do
     -- if i < patternMaxLength - patternIndex then
       local a = angles:sub(i,i)
-      currentAngle = (currentAngle + angleDirs[a]) % 360
+      currentAngle = (currentAngle + ANGLE_DIRS[a]) % 360
       angleOffset = {math.sin(currentAngle), -math.cos(currentAngle)}
       currentPoint = {currentPoint[1] + angleOffset[1],currentPoint[2] + angleOffset[2]}
       table.insert(points,currentPoint)
@@ -72,13 +76,13 @@ function drawPattern(pattern, location, scale,colorOverride)--, patternIndex)
   -- if scale < 2 then scale = 2 end
   -- sleep(.5)
   currentPoint = {0,0}
-  currentAngle = startAngleDirs[pattern.startDir] + 90 * math.pi / 180
+  currentAngle = START_ANGLE_DIRS[pattern.startDir] + 90 * math.pi / 180
   points = {{0,0}}
   angles = "w" .. pattern.angles
   for i = 1, #angles do
     --if i < patternMaxLength - patternIndex then
       local a = angles:sub(i,i)
-      currentAngle = (currentAngle + angleDirs[a])
+      currentAngle = (currentAngle + ANGLE_DIRS[a])
       angleOffset = {math.sin(currentAngle)*scale, -math.cos(currentAngle)*scale}
       currentPoint = {currentPoint[1] + angleOffset[1],currentPoint[2] + angleOffset[2]}
       table.insert(points,currentPoint)
@@ -352,7 +356,7 @@ function flattenIotas(iota)
     end
     if keyType == "startDir" then
       pattern = {{angles = iota.angles, startDir = iota.startDir, color = colors.yellow, type = "pattern", data = iota}}
-      if normalize_rotation then
+      if NORMALIZE_ROTATION then
         if HexPatterns[iota.angles] ~= nil then
           pattern[1].startDir = HexPatterns[iota.angles][2]
         end
@@ -497,6 +501,7 @@ local function wait_for_redstone()
   --   patternMaxLength = patternMaxLength + 1
   -- end
 end
+
 local function wait_for_focus()
   os.pullEvent("focus_inserted")
     -- patternMaxLength = 1
@@ -504,6 +509,7 @@ local function wait_for_focus()
   focus = focalPort.readIota()
   drawFullHex(focus)
 end
+
 local function wait_for_iota()
   os.pullEvent("new_iota")
     -- patternMaxLength = 1
@@ -511,6 +517,7 @@ local function wait_for_iota()
   focus = focalPort.readIota()
   drawFullHex(focus)
 end
+
 local function wait_for_touch()
   _,_,touch_x,touch_y = os.pullEvent("monitor_touch")
   closestPattern = {}
