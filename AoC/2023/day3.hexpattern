@@ -1,0 +1,254 @@
+#include "../../macros/Strings.hexpattern"
+#include "../../macros/Reading_and_Writing.hexpattern"
+#include "../../macros/List_Manipulation.hexpattern"
+
+
+// part 1
+
+// preprocess
+/*
+input: [
+    "000",
+    "111",
+    "222",
+]
+output: [
+    ".......",
+    "..000..",
+    "..111..",
+    "..222..",
+    ".......",
+]
+*/
+{
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+    
+    {
+        Bookkeeper's Gambit: -- <".">
+    }
+    Flock's Disintegration
+
+    Prospector's Gambit
+    Chronicler's Purification
+
+    {
+        Jester's Gambit
+        Gemini Decomposition
+        Concatenation Distillation
+        
+        Undertaker's Gambit
+        Concatenation Distillation
+        Concatenation Distillation
+
+        Bookkeeper's Gambit: v-
+    }
+    Jester's Gambit
+    Thoth's Gambit
+
+    Jester's Gambit
+    Prospector's Gambit
+    Numerical Reflection: 0
+    Selection Distillation
+    Length Distillation: Str
+
+    Gemini Decomposition
+    Numerical Reflection: 1
+    Subtractive Distillation
+    Huginn's Gambit
+
+    Gemini Gambit
+
+    {
+        Concatenation Distillation
+    }
+    Flock's Disintegration
+    
+    Muninn's Reflection
+    Gemini Gambit
+    Muninn's Reflection
+    Flock's Gambit
+
+    Hermes' Gambit
+
+    Undertaker's Gambit
+    Speaker's Distillation
+    Jester's Gambit
+    Integration Distillation
+    
+    Chronicler's Gambit
+}
+
+// solve
+/*
+input: [
+    ".......",
+    "..000..",
+    "..111..",
+    "..222..",
+    ".......",
+]
+*/
+{
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Scout's Distillation
+    Chronicler's Purification
+    
+    Consideration: {
+        Bookkeeper's Gambit: --
+
+        Numerical Reflection: 0 // total
+        False Reflection // is_touching
+        Blank Reflection // accumulator
+        Numerical Reflection: 3
+        Flock's Gambit
+        Huginn's Gambit II
+
+        {
+            Bookkeeper's Gambit: -- <preprocessed input>
+        }
+
+        Prospector's Gambit
+        Compass' Purification
+        Chronicler's Purification // row index
+        
+        Numerical Reflection: 1
+        Additive Distillation
+        Gemini Decomposition
+        Chronicler's Gambit
+        
+        Select Adjacent
+        Flock's Disintegration
+        
+        Separation Purification
+        Rotation Gambit II
+        Separation Purification
+        Rotation Gambit II
+        Separation Purification
+        
+        Gemini Decomposition
+        Length Purification
+        Numerical Reflection: 2
+        Subtractive Distillation
+        Perfect Counter's Queue II // 1..=n-2 (ie. skip first and last)
+        
+        Consideration: {
+            Undertaker's Gambit
+            Select Adjacent
+            
+            Rotation Gambit II
+            Undertaker's Gambit
+            Select Adjacent
+
+            Rotation Gambit
+            Combination Distillation
+            
+            Rotation Gambit II
+            Dioscuri Gambit
+            Select Adjacent
+
+            Rotation Gambit II
+            Selection Distillation
+            
+            Rotation Gambit II
+            Combination Distillation
+
+            {
+                Bookkeeper's Gambit: --- <["#", "$", "%", "&", "*", "+", "-", "/", "=", "@"]>
+            }
+            Intersection Distillation
+            Augur's Purification // is touching
+            
+            {
+                Bookkeeper's Gambit: ---- <["0", "1", ..., "9"]>
+            }
+            Rotation Gambit
+            Undertaker's Gambit
+            Locator's Distillation
+            Numerical Reflection: -1
+            Maximus Distillation
+
+            { // if digit
+                Muninn's Reflection
+                Flock's Disintegration
+                
+                Numerical Reflection: 4
+                Fisherman's Gambit
+                Concatenation Distillation
+                
+                Jester's Gambit
+                Numerical Reflection: 4
+                Fisherman's Gambit
+                Disjunction Distillation
+                
+                Jester's Gambit
+                Numerical Reflection: 3
+                Flock's Gambit
+                Huginn's Gambit
+            }
+            { // else
+                Muninn's Reflection
+                Flock's Disintegration
+                
+                Gemini Decomposition
+                Vacant Reflection
+                Inequality Distillation
+                
+                Jester's Gambit
+                Numerical Reflection: 0
+                Scrivener's Purification
+
+                Augur's Exaltation
+                Input Purification
+                
+                Numerical Reflection: 0
+                Augur's Exaltation
+                Additive Distillation
+                
+                False Reflection
+                Vacant Reflection
+                Numerical Reflection: 3
+                Flock's Disintegration
+                Huginn's Gambit
+            }
+            Augur's Exaltation
+            Hermes' Gambit
+        Consideration: }
+        Jester's Gambit
+        Thoth's Gambit
+
+        Muninn's Purification
+        Reveal
+        Bookkeeper's Gambit: vvvvv
+    Consideration: }
+    Speaker's Decomposition
+    Rotation Gambit
+    Locator's Scalpel
+    
+    Mind's Reflection
+    Compass' Purification
+    Vector Reflection +Y
+    Additive Distillation
+    
+    Numerical Reflection: 900
+    Summon Cyclic Wisp
+}
+
+#define Select Adjacent (EAST adeeedew) = [any, ...], num -> [any, any, any]
+{
+    Gemini Decomposition
+    Numerical Reflection: 1
+    Subtractive Distillation
+    
+    Jester's Gambit
+    Numerical Reflection: 2
+    Additive Distillation
+    
+    Selection Exaltation
+}

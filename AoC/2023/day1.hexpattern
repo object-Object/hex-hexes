@@ -1,3 +1,5 @@
+#include "../../macros/Strings.hexpattern"
+
 // part 1
 {
     Mind's Reflection
@@ -237,75 +239,4 @@
     Muninn's Reflection
     Reveal
     Chronicler's Gambit
-}
-
-#define Separation Purification (WEST edwede) = str -> [str]
-// split a string into individual characters with the empty string stripped
-{
-    Blank Reflection
-    Separation Distillation
-    
-    Blank Reflection
-    Single's Purification
-
-    Undertaker's Gambit
-    Combination Distillation
-    Exclusionary Distillation
-}
-
-#define Scrivener's Purification II (NORTH_WEST wdwewdwdw) = list -> str
-// ["a", "b"] -> '"a", "b"'
-{
-    Scrivener's Purification
-    
-    Numerical Reflection: 1
-    
-    Prospector's Gambit
-    Length Distillation: Str
-    Numerical Reflection: 1
-    Subtractive Distillation
-    
-    Winnowing Distillation
-}
-
-#define Discoverer's Distillation II (WEST edwwedwe) = str, str -> num
-// like Discoverer's Distillation, but returns the first occurrence from the right side (ie. rfind)
-{
-    // len(string) - len(pattern)
-    Dioscuri Gambit
-    Length Distillation: Str
-    Jester's Gambit
-    Length Distillation: Str
-
-    Jester's Gambit
-    Subtractive Distillation
-    Rotation Gambit II
-
-    // rindex
-    Separation Purification
-    Retrograde Purification
-    Scrivener's Purification II
-    
-    Jester's Gambit
-    Separation Purification
-    Retrograde Purification
-    Scrivener's Purification II
-    
-    Jester's Gambit
-    Discoverer's Distillation
-
-    // discoverer >= 0 ? index : -1
-    Gemini Decomposition
-    Numerical Reflection: 0
-    Maximus Distillation II
-    Rotation Gambit II
-    
-    // len(string) - len(pattern) - rindex
-    Numerical Reflection: 5 // len('"a", ')
-    Division Distillation
-    Subtractive Distillation
-
-    Numerical Reflection: -1
-
-    Augur's Exaltation
 }

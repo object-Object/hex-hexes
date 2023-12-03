@@ -1,0 +1,6 @@
+---@class FocalPort
+---@field readIota fun(): any
+---@field writeIota fun(value: any)
+---@field canWriteIota fun(): boolean
+---@field getIotaType fun(): string
+---@field hasFocus fun(): boolean
