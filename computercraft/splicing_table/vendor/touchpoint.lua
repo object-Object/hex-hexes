@@ -22,6 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 --]]
 
+---@param buttonLen integer
+---@param minY integer
+---@param maxY integer
+---@param name string
+---@return string[]
+---@return string
 local function setupLabel(buttonLen, minY, maxY, name)
 	local labelTable = {}
 	if type(name) == "table" then
@@ -49,7 +55,27 @@ local function setupLabel(buttonLen, minY, maxY, name)
 end
 
 ---@class Button
-local Button = {
+---@field func fun()
+---@field xMin integer
+---@field yMin integer
+---@field xMax integer
+---@field yMax integer
+---@field active boolean
+---@field inactiveColor integer
+---@field activeColor integer
+---@field inactiveText integer
+---@field activeText integer
+---@field label string[]
+
+---@alias monSide computerSide|"term"
+
+---@class ButtonManager
+---@field side monSide
+---@field mon Redirect
+---@field buttonList { [string]: Button }
+---@field clickMap any
+local ButtonManager = {
+	---@param self ButtonManager
 	draw = function(self)
 		local old = term.redirect(self.mon)
 		term.setTextColor(colors.white)
@@ -70,6 +96,18 @@ local Button = {
 		end
 		term.redirect(old)
 	end,
+
+	---@param self ButtonManager
+	---@param name string
+	---@param func fun()
+	---@param xMin integer
+	---@param yMin integer
+	---@param xMax integer
+	---@param yMax integer
+	---@param inactiveColor integer?
+	---@param activeColor integer?
+	---@param inactiveText integer?
+	---@param activeText integer?
 	add = function(self, name, func, xMin, yMin, xMax, yMax, inactiveColor, activeColor, inactiveText, activeText)
 		local label, name = setupLabel(xMax - xMin + 1, yMin, yMax, name)
 		if self.buttonList[name] then error("button already exists", 2) end
@@ -106,6 +144,9 @@ local Button = {
 			end
 		end
 	end,
+
+	---@param self ButtonManager
+	---@param name string
 	remove = function(self, name)
 		if self.buttonList[name] then
 			local button = self.buttonList[name]
@@ -117,6 +158,8 @@ local Button = {
 			self.buttonList[name] = nil
 		end
 	end,
+
+	---@param self ButtonManager
 	run = function(self)
 		while true do
 			self:draw()
@@ -126,6 +169,10 @@ local Button = {
 			end
 		end
 	end,
+
+	---@param self ButtonManager
+	---@param ... event|string
+	---@return event|string ...
 	handleEvents = function(self, ...)
 		local event = {...}
 		if #event == 0 then event = {os.pullEvent()} end
@@ -137,15 +184,27 @@ local Button = {
 		end
 		return unpack(event)
 	end,
+
+	---@param self ButtonManager
+	---@param name string
+	---@param noDraw boolean?
 	toggleButton = function(self, name, noDraw)
 		self.buttonList[name].active = not self.buttonList[name].active
 		if not noDraw then self:draw() end
 	end,
+
+	---@param self ButtonManager
+	---@param name string
+	---@param duration number?
 	flash = function(self, name, duration)
 		self:toggleButton(name)
 		sleep(tonumber(duration) or 0.15)
 		self:toggleButton(name)
 	end,
+
+	---@param self ButtonManager
+	---@param name string
+	---@param newName string
 	rename = function(self, name, newName)
 		self.buttonList[name].label, newName = setupLabel(self.buttonList[name].xMax - self.buttonList[name].xMin + 1, self.buttonList[name].yMin, self.buttonList[name].yMax, newName)
 		if not self.buttonList[name] then error("no such button", 2) end
@@ -164,8 +223,8 @@ local Button = {
 
 local touchpoint = {}
 
----@param monSide computerSide | "term"
----@return Button
+---@param monSide monSide
+---@return ButtonManager
 function touchpoint.new(monSide)
 	local buttonInstance = {
 		side = monSide or "term",
@@ -177,7 +236,7 @@ function touchpoint.new(monSide)
 	for i = 1, x do
 		buttonInstance.clickMap[i] = {}
 	end
-	setmetatable(buttonInstance, {__index = Button})
+	setmetatable(buttonInstance, {__index = ButtonManager})
 	return buttonInstance
 end
 

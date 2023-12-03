@@ -55,7 +55,7 @@ local w, h, size
 ---@type number
 local monitorShape
 
----@param pattern PatternIota | TypedPatternIota
+---@param pattern PatternIota|TypedPatternIota
 ---@return integer height
 ---@return integer width
 local function getPatternSize(pattern)
@@ -250,7 +250,7 @@ local function hslToRgb(h, s, l)
 end
 
 ---@param s number
----@return "0" | "1"
+---@return "0"|"1"
 local function toClampedString(s)
     if s > 0 then return "1" else return "0" end
 end
@@ -496,7 +496,7 @@ local function RenderList(focus, drawScale, patternsPerLine)
     drawBuffer()
 end
 
----@param pattern TypedPatternIota | PatternIota
+---@param pattern TypedPatternIota|PatternIota
 ---@return string
 local function getPatternName(pattern)
     local patternName = HexPatterns[pattern.angles]
