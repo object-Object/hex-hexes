@@ -31,12 +31,15 @@ START_ANGLE_DIRS = {
     NORTH_EAST = 60*5* math.pi / 180,
 }
 
----@alias Point { [1]: number, [2]: number }
+---@class BufferedString
+---@field [1] number
+---@field [2] number
+---@field [3] string
 
----@type { [1]: number, [2]: number, [3]: string }[]
+---@type BufferedString[]
 local stringBuffer = {}
 
----@param pattern PatternIota
+---@param pattern PatternIota | TypedPatternIota
 ---@return integer height
 ---@return integer width
 function getPatternSize(pattern)--, patternIndex)
@@ -69,7 +72,11 @@ function getPatternSize(pattern)--, patternIndex)
     return math.abs(farTop-farBottom), math.abs(farLeft-farRight)
 end
 
----@param pattern PatternIota
+---@class Point
+---@field [1] number
+---@field [2] number
+
+---@param pattern TypedPatternIota
 ---@param location Point
 ---@param scale number
 ---@param colorOverride number?
@@ -261,6 +268,8 @@ function drawBuffer()
     stringBuffer = {}
 end
 
+---@param colorlist integer[]
+---@return integer
 function findColor(colorlist)
     local commonColors = {}
     for _, color in pairs(colorlist) do
@@ -280,14 +289,28 @@ function findColor(colorlist)
     return maxcolor
 end
 
-function toClamppedString(s)
+---@param s number
+---@return "0" | "1"
+function toClampedString(s)
     if s > 0 then return "1" else return "0" end
 end
 
+---@class CharTable
+---@field [1] number
+---@field [2] number
+---@field [3] number
+---@field [4] number
+---@field [5] number
+---@field [6] number
+
+---@param x number
+---@param y number
+---@param charTable CharTable
+---@param colorB integer
 function drawBraille(x, y, charTable, colorB)
     term.setCursorPos(x, y)
     a, b, c, d, e, f = unpack(charTable)
-    local charBitString = toClamppedString(a) .. toClamppedString(b) .. toClamppedString(c) .. toClamppedString(d) .. toClamppedString(e) .. toClamppedString(f)
+    local charBitString = toClampedString(a) .. toClampedString(b) .. toClampedString(c) .. toClampedString(d) .. toClampedString(e) .. toClampedString(f)
     colorF = findColor({a, b, c, d, e, f})
     charBitString = string.reverse(charBitString)
     local charID = tonumber(charBitString, 2)
@@ -302,40 +325,12 @@ function drawBraille(x, y, charTable, colorB)
     end
 end
 
-function isAuriIota(iota)
-    if #iota < 2 then return false end
-    if type(iota[1]) ~= "number" then return false end
-    if flattenIotas(iota[2])[1].type ~= "pattern" then return false end
-    if not string.find(iota[2].angles, "s") then return false end
-    return true
-end
+---@class IotaColor
+---@field color integer
+---@field type string
 
-function parseAuriIota(iota)
-    local compressedPatternCount = iota[1]
-    local embeddedIotaIndex = 1
-    local outputIotas = {}
-    table.insert(outputIotas, {angles = "qqq", startDir = "WEST", color = colors.purple, type = "listStart", data = iota})
-    for i=2, compressedPatternCount+1 do
-        for subpattern in string.gmatch(iota[i].angles:gsub("ss", "sxs"), "[^s]+") do
-            patternDir = HexPatterns[subpattern:sub(2)]
-            if patternDir == nil then patternDir = iota[i].startDir else patternDir = patternDir[2] end
-            if subpattern == "x" then
-                -- table.insert(outputIotas, {angles = "jjjj", startDir = "EAST", color = colors.gray, type = "null", data = {null=true}})
-
-                parsed = unpack(flattenIotas(iota[compressedPatternCount + embeddedIotaIndex + 1]))
-                parsed.index = iota.index
-                table.insert(outputIotas, parsed)
-                embeddedIotaIndex = embeddedIotaIndex + 1
-            else
-                table.insert(outputIotas, {angles = subpattern:sub(2), startDir = patternDir, color = colors.yellow, type = "pattern", data = {angles = subpattern:sub(2), startDir = patternDir}})
-            end
-        end
-    end
-    table.insert(outputIotas, {angles = "qqq", startDir = "EAST", color = colors.purple, type = "listEnd", data = iota})
-    return outputIotas
-end
-
-iotaTypes = {
+---@type { [string]: IotaColor }
+IOTA_TYPES = {
     matrix = {color = colors.lightBlue, type = "matrix"},
     moteUuid = {color = colors.yellow, type = "mote"},
     isPlayer = {color = colors.lightBlue, type = "player entity"},
@@ -350,8 +345,29 @@ iotaTypes = {
     location = {color = colors.purple, type = "location gate"}
 }
 
+---@class TypedPatternIota
+---@field angles string
+---@field startDir startDir
+---@field color integer
+---@field type flattenedIotaType
+---@field data Iota
+---@field index integer[]?
+
+---@alias flattenedIotaType
+---| "pattern"
+---| "listStart"
+---| "Unreadable Iota"
+---| "listEnd"
+---| "number"
+---| "string"
+---| "boolean"
+---| "boolean"
+
+---@param iota Iota
+---@return TypedPatternIota[]
 function flattenIotas(iota)
-    keyType = nil
+    local keyType = nil
+
     if type(iota) == "table" then
         for k, v in pairs(iota) do
             if k ~= "data" and k ~= "type" and k ~= "color" then
@@ -359,7 +375,7 @@ function flattenIotas(iota)
                 break
             end
         end
-        local iotaType = iotaTypes[keyType]
+        local iotaType = IOTA_TYPES[keyType]
         if iotaType ~= nil then
             local typedIota = {}
             typedIota.data = iota
@@ -378,14 +394,10 @@ function flattenIotas(iota)
             end
             return pattern
         elseif keyType == 1 or keyType == nil then -- list
-            if isAuriIota(iota) then
-                return parseAuriIota(iota)
-            end
             local outputIotas = {}
             local nildetector = 0
 
             table.insert(outputIotas, {angles = "jwj", startDir = "WEST", color = colors.purple, type = "listStart", data = iota})
-            local nildetector = 0
             for _1, v in pairs(iota) do
                 for _3 = 1, _1 - nildetector - 1 do
                     table.insert(outputIotas, {angles = "jjjj", startDir = "EAST", color = colors.gray, type = "Unreadable Iota", data = "Unreadable Iota", index = _1-1})
@@ -417,23 +429,18 @@ function flattenIotas(iota)
             return {{angles = "jjjj", startDir = "EAST", color = colors.red, type = "boolean", data = iota}}
         end
     end
+
+    error("Unhandled iota: "..pprint(iota))
 end
 
-
+---@param focus Iota
+---@param drawScale number?
+---@param patternsPerLine integer?
 function RenderList(focus, drawScale, patternsPerLine)
-    -- pprint(focus)
-    -- sleep(10)
-    -- pprint({"output", flattenIotas(focus)})
-    -- error("finished")
     flattenedIotas = flattenIotas(focus)
-
-    -- print(math.sqrt(#flattenedIotas/monitorShape))
-    -- sleep(5)
 
     if drawScale == nil then drawScale = 5 end
     if patternsPerLine == nil then patternsPerLine = math.floor(math.sqrt(#flattenedIotas/monitorShape)) end
-
-    -- patternsPerLine = #flattenedIotas
 
     lines = math.ceil((#flattenedIotas / patternsPerLine))
 
@@ -483,6 +490,8 @@ function RenderList(focus, drawScale, patternsPerLine)
     drawBuffer()
 end
 
+---@param pattern TypedPatternIota | PatternIota
+---@return string
 function getPatternName(pattern)
     patternName = HexPatterns[pattern.angles]
     if patternName == nil then patternName = "Unknown Pattern" else patternName = patternName[1] end
@@ -591,7 +600,9 @@ local function wait_for_touch()
     -- pprint({touch_x, touch_y})
 end
 
-
+---@param focus Iota?
+---@param noStringClear boolean?
+---@param drawScale number?
 function drawFullHex(focus, noStringClear, drawScale)
     if noStringClear == nil then noStringClear = false end
     if drawScale == nil then drawScale = .5 end

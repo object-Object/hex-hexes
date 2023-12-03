@@ -12,13 +12,13 @@
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
 ---@class FocalPort
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
----@field readIota fun(): Iota
+---@field readIota fun(): Iota?
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
 ---@field writeIota fun(value: Iota)
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
 ---@field canWriteIota fun(): boolean
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
----@field getIotaType fun(): string
+---@field getIotaType fun(): string?
 ---[Official Documentation](https://github.com/SamsTheNerd/ducky-periphs/wiki/Focal-Port)
 ---@field hasFocus fun(): boolean
 
