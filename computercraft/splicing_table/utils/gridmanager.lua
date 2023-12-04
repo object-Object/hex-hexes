@@ -28,7 +28,7 @@ local function getFullPadding(padding)
             top=padding,
             bottom=padding,
         }
-    elseif padding.x ~= nil then
+    elseif padding.x ~= nil or padding.y ~= nil then
         return { ---@type FullPadding
             left=padding.x or 0,
             right=padding.x or 0,
@@ -45,9 +45,17 @@ local function getFullPadding(padding)
     end
 end
 
+---@class AlignmentOptions
+---@field scaleX number?
+---@field scaleY number?
+---@field alignX "left" | "right"?
+---@field alignY "top" | "bottom"?
+
+---@class GridButtonOptions: ButtonOptions, AlignmentOptions
+
 ---@package
 ---@class PartialGridManager
----@field package mon Redirect
+---@field package t TouchPoint
 ---@field package columns integer
 ---@field package rows integer
 ---@field package padding FullPadding
@@ -64,11 +72,12 @@ local GridManager = {
     ---@param self GridManager
     ---@param x integer
     ---@param y integer
+    ---@param options AlignmentOptions
     ---@return integer xMin
 	---@return integer yMin
 	---@return integer xMax
 	---@return integer yMax
-    at = function (self, x, y)
+    pos = function (self, x, y, options)
         assert(x >= 1, "Out of bounds (expected x>=1, got "..x..")")
         assert(y >= 1, "Out of bounds (expected y>=1, got "..y..")")
         assert(x <= self.columns, "Out of bounds (expected x<="..self.columns..", got "..x..")")
@@ -80,12 +89,52 @@ local GridManager = {
         local xMax = xMin + self.buttonX - 1
         local yMax = yMin + self.buttonY - 1
 
+        if options.scaleX ~= nil then
+            local deltaX = self.buttonX * (1 - options.scaleX)
+
+            if options.alignX == "left" then
+                xMax = xMax - deltaX
+            elseif options.alignX == "right" then
+                xMin = xMin + deltaX
+            else
+                deltaX = math.floor(deltaX / 2)
+                xMin = xMin + deltaX
+                xMax = xMax - deltaX
+            end
+        end
+
+        if options.scaleY ~= nil then
+            local deltaY = self.buttonY * (1 - options.scaleY)
+
+            if options.alignY == "top" then
+                yMax = yMax - deltaY
+            elseif options.alignY == "bottom" then
+                yMin = yMin + deltaY
+            else
+                deltaY = math.floor(deltaY / 2)
+                yMin = yMin + deltaY
+                yMax = yMax - deltaY
+            end
+        end
+
         return xMin, yMin, xMax, yMax
     end,
 
     ---@param self GridManager
+	---@param name buttonName
+    ---@param x integer
+    ---@param y integer
+	---@param func fun()?
+	---@param options GridButtonOptions?
+	add = function(self, name, func, x, y, options)
+        options = options or {}
+        local xMin, yMin, xMax, yMax = self:pos(x, y, options)
+        self.t:add(name, func, xMin, yMin, xMax, yMax, options)
+    end,
+
+    ---@param self GridManager
     refresh = function(self)
-        self.termX, self.termY = self.mon.getSize()
+        self.termX, self.termY = self.t:getMonitor().getSize()
 
         local usableX = self.termX - self.margin.left - self.margin.right
         local usableY = self.termY - self.margin.top - self.margin.bottom
@@ -104,17 +153,16 @@ local gridmanager = {}
 ---@field padding padding?
 ---@field margin padding?
 
----@param monSide monSide
+---@param t TouchPoint
 ---@param columns integer
 ---@param rows integer
----@param options GridManagerOptions
+---@param options GridManagerOptions?
 ---@return GridManager
-function gridmanager.new(monSide, columns, rows, options)
-    local mon = monSide and peripheral.wrap(monSide) or term.current()
-    ---@cast mon Redirect
+function gridmanager.new(t, columns, rows, options)
+    options = options or {}
 
-	local instance = { ---@type PartialGridManager
-        mon=mon,
+    local instance = { ---@type PartialGridManager
+        t=t,
         columns=columns,
         rows=rows,
         padding=getFullPadding(options.padding),

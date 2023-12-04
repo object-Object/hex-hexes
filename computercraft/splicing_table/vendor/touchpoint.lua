@@ -61,26 +61,28 @@ end
 
 ---@alias monSide computerSide|"term"
 
----@class Button
+---@class ButtonOptions
+---@field inactiveColor integer
+---@field activeColor integer
+---@field inactiveText integer
+---@field activeText integer
+
+---@class Button: ButtonOptions
 ---@field package func fun()?
 ---@field package xMin integer
 ---@field package yMin integer
 ---@field package xMax integer
 ---@field package yMax integer
 ---@field package active boolean
----@field package inactiveColor integer
----@field package activeColor integer
----@field package inactiveText integer
----@field package activeText integer
 ---@field package label string[]
 
----@class ButtonManager
+---@class TouchPoint
 ---@field package side monSide
 ---@field package mon Redirect
 ---@field package buttonList { [string]: Button }
 ---@field package clickMap any
-local ButtonManager = {
-	---@param self ButtonManager
+local TouchPoint = {
+	---@param self TouchPoint
 	draw = function(self)
 		local old = term.redirect(self.mon)
 		term.setTextColor(colors.white)
@@ -102,18 +104,16 @@ local ButtonManager = {
 		term.redirect(old)
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param name buttonName
 	---@param func fun()?
 	---@param xMin integer
 	---@param yMin integer
 	---@param xMax integer
 	---@param yMax integer
-	---@param inactiveColor integer?
-	---@param activeColor integer?
-	---@param inactiveText integer?
-	---@param activeText integer?
-	add = function(self, name, func, xMin, yMin, xMax, yMax, inactiveColor, activeColor, inactiveText, activeText)
+	---@param options ButtonOptions?
+	add = function(self, name, func, xMin, yMin, xMax, yMax, options)
+		options = options or {}
 		local label, name = setupLabel(xMax - xMin + 1, yMin, yMax, name)
 		if self.buttonList[name] then error("button already exists", 2) end
 		local x, y = self.mon.getSize()
@@ -125,10 +125,10 @@ local ButtonManager = {
 			xMax = xMax,
 			yMax = yMax,
 			active = false,
-			inactiveColor = inactiveColor or colors.red,
-			activeColor = activeColor or colors.lime,
-			inactiveText = inactiveText or colors.white,
-			activeText = activeText or colors.white,
+			inactiveColor = options.inactiveColor or colors.red,
+			activeColor = options.activeColor or colors.lime,
+			inactiveText = options.inactiveText or colors.black,
+			activeText = options.activeText or colors.black,
 			label = label,
 		}
 		for i = xMin, xMax do
@@ -150,7 +150,7 @@ local ButtonManager = {
 		end
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param name buttonName
 	remove = function(self, name)
 		if self.buttonList[name] then
@@ -164,7 +164,7 @@ local ButtonManager = {
 		end
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	run = function(self)
 		while true do
 			self:draw()
@@ -175,7 +175,7 @@ local ButtonManager = {
 		end
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param ... event|string
 	---@return event|string ...
 	handleEvents = function(self, ...)
@@ -190,7 +190,7 @@ local ButtonManager = {
 		return unpack(event)
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param name buttonName
 	---@param noDraw boolean?
 	toggleButton = function(self, name, noDraw)
@@ -198,7 +198,7 @@ local ButtonManager = {
 		if not noDraw then self:draw() end
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param name buttonName
 	---@param duration number?
 	flash = function(self, name, duration)
@@ -207,7 +207,7 @@ local ButtonManager = {
 		self:toggleButton(name)
 	end,
 
-	---@param self ButtonManager
+	---@param self TouchPoint
 	---@param name buttonName
 	---@param newName buttonName
 	rename = function(self, name, newName)
@@ -224,12 +224,18 @@ local ButtonManager = {
 		end
 		self:draw()
 	end,
+
+	---@param self TouchPoint
+	---@return Redirect
+	getMonitor = function(self)
+		return self.mon
+	end,
 }
 
 local touchpoint = {}
 
 ---@param monSide monSide
----@return ButtonManager
+---@return TouchPoint
 function touchpoint.new(monSide)
 	local buttonInstance = {
 		side = monSide or "term",
@@ -241,7 +247,7 @@ function touchpoint.new(monSide)
 	for i = 1, x do
 		buttonInstance.clickMap[i] = {}
 	end
-	setmetatable(buttonInstance, {__index = ButtonManager})
+	setmetatable(buttonInstance, {__index = TouchPoint})
 	return buttonInstance
 end
 
