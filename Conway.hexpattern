@@ -1,10 +1,45 @@
 #include "./macros/Reading_and_Writing.hexpattern"
 #include "./macros/List_Manipulation.hexpattern"
 
+// companion script: pastebin get CXE2Qqff conway.lua
+
 {
-    Consideration: {
-        // delete wisp or leftover grid
-        Bookkeeper's Gambit: v
+    Consideration: { // wisp
+        // wait between steps to reduce flickering
+        Numerical Reflection: 3
+        Delay Wisp
+
+        // clear existing particles by hitting the particle limit with a line behind the plane
+        // coordinates: +x right, +y up, +z toward camera
+        Gemini Decomposition
+        Compass' Purification
+        
+        Gemini Decomposition
+        Vector Reflection -Z
+        Numerical Reflection: 7.984375 <SOUTH_EAST aqaaedawddwddweddq>
+        Multiplicative Distillation
+        Additive Distillation
+
+        Numerical Reflection: 2
+        Flock's Gambit
+
+        // 7 doublings should produce 20145 particles
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+        Gemini Decomposition
+        Combination Distillation
+
+        Particles
         
         // load new grid from link message, if any
         Recitation Reflection
@@ -24,29 +59,13 @@
         Single's Purification
         Muninn's Purification
         
-        // apply rules
-        Consideration: {
+        Consideration: { // for row in grid
+            Bookkeeper's Gambit: v--
             Undertaker's Gambit
             Toroidal Adjacency Gambit
             Rotation Gambit
 
-            Consideration: {
-                /*
-                e grid[i][j+1]
-                c grid[i][j-1]
-                a left+right
-                d grid[i][j]
-                b j
-                i
-                */
-                /*
-                a grid[i][j+1]
-                c grid[i][j-1]
-                e left+right
-                b grid[i][j]
-                d j
-                i
-                */
+            Consideration: { // for cell in row
                 Undertaker's Gambit
                 Toroidal Adjacency Gambit
                 Additive Distillation
@@ -103,19 +122,27 @@
                 Numerical Reflection: 0.5
                 Multiplicative Distillation
                 
-                // subtract (11/2, 11/2, 0) to center the grid on the wisp
-                Numerical Reflection: 5.5
+                // center grid on x/y axes and shift toward camera
+                Numerical Reflection: -5
                 Gemini Decomposition
-                Numerical Reflection: 0
+                Numerical Reflection: 1.0625
                 Vector Exaltation
-                Subtractive Distillation
+                Additive Distillation
+
+                // flip y axis
+                Vector Disintegration
+                Jester's Gambit
+                Numerical Reflection: -1
+                Multiplicative Distillation
+                Jester's Gambit
+                Vector Exaltation
                 
-                // add to wisp position
+                // translate grid to wisp position
                 Identity Reflection
                 Compass' Purification
                 Additive Distillation
                 
-                // draw particle!
+                // draw cell!
                 Prospector's Gambit
                 Augur's Purification
                 {
@@ -138,18 +165,23 @@
         Prospector's Gambit
         Abacus Purification
         Perfect Counter's Queue
-        
+
         Thoth's Gambit
         Huginn's Gambit
+        Bookkeeper's Gambit: v
     Consideration: }
 
     Mind's Reflection
     Compass' Purification
-
     Mind's Reflection
     Alidade's Purification
-    Numerical Reflection: 2
-    Multiplicative Distillation
+    Archer's Distillation
+
+    // center wisp on block edge, and move away from camera to hide particles
+    Numerical Reflection: 0.5
+    Numerical Reflection: 0.5
+    Numerical Reflection: -0.5
+    Vector Exaltation
     Additive Distillation
 
     Numerical Reflection: 100
