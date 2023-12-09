@@ -62,18 +62,18 @@
         Consideration: { // for row in grid
             Bookkeeper's Gambit: v--
             Undertaker's Gambit
-            Toroidal Adjacency Gambit
+            Toroidal Selection Gambit
             Rotation Gambit
 
             Consideration: { // for cell in row
                 Undertaker's Gambit
-                Toroidal Adjacency Gambit
+                Toroidal Selection Gambit
                 Additive Distillation
                 Additive Distillation
                 
                 Rotation Gambit II
                 Undertaker's Gambit
-                Toroidal Adjacency Gambit
+                Toroidal Selection Gambit
                 Additive Distillation
                 Additive Distillation
 
@@ -82,7 +82,7 @@
                 
                 Rotation Gambit II
                 Undertaker's Gambit
-                Toroidal Adjacency Gambit
+                Toroidal Selection Gambit
 
                 Numerical Reflection: 36
                 Swindler's Gambit // bdace
@@ -188,7 +188,7 @@
     Summon Cyclic Wisp
 }
 
-#define Toroidal Adjacency Gambit (nw qaeaqweeeee) = [any, ...], num -> any, any, any
+#define Toroidal Selection Gambit (nw qaeaqweeeee) = [any, ...], num -> any, any, any
 // data, i -> data[i-1], data[i], data[i+1]
 // wraps around at the edges
 {
