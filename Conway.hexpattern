@@ -1,0 +1,191 @@
+#include "./macros/Reading_and_Writing.hexpattern"
+#include "./macros/List_Manipulation.hexpattern"
+
+{
+    Consideration: {
+        // delete wisp or leftover grid
+        Bookkeeper's Gambit: v
+        
+        // load new grid from link message, if any
+        Recitation Reflection
+        Gemini Decomposition
+        Augur's Purification
+        {
+            Huginn's Gambit
+            Bookkeeper's Gambit: v
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+        
+        // default grid (can't be an empty list, PCQ breaks)
+        Numerical Reflection: 0
+        Single's Purification
+        Single's Purification
+        Muninn's Purification
+        
+        // apply rules
+        Consideration: {
+            Undertaker's Gambit
+            Toroidal Adjacency Gambit
+            Rotation Gambit
+
+            Consideration: {
+                /*
+                e grid[i][j+1]
+                c grid[i][j-1]
+                a left+right
+                d grid[i][j]
+                b j
+                i
+                */
+                /*
+                a grid[i][j+1]
+                c grid[i][j-1]
+                e left+right
+                b grid[i][j]
+                d j
+                i
+                */
+                Undertaker's Gambit
+                Toroidal Adjacency Gambit
+                Additive Distillation
+                Additive Distillation
+                
+                Rotation Gambit II
+                Undertaker's Gambit
+                Toroidal Adjacency Gambit
+                Additive Distillation
+                Additive Distillation
+
+                Rotation Gambit
+                Additive Distillation
+                
+                Rotation Gambit II
+                Undertaker's Gambit
+                Toroidal Adjacency Gambit
+
+                Numerical Reflection: 36
+                Swindler's Gambit // bdace
+                Additive Distillation
+                Additive Distillation
+                
+                // 0 or 1 neighbours (die)
+                Numerical Reflection: 0
+                Numerical Reflection: 0
+
+                // 2 neighbours (persist)
+                Numerical Reflection: 4
+                Fisherman's Gambit
+
+                // 3 neighbours (live)
+                Numerical Reflection: 1
+
+                // 4-8 neighbours (die)
+                Numerical Reflection: 0
+                Numerical Reflection: 5
+                Gemini Gambit
+
+                Numerical Reflection: 9
+                Flock's Gambit
+                Jester's Gambit
+                Selection Distillation
+
+                // (i, j, 0)
+                Rotation Gambit II
+                Numerical Reflection: 0
+                Vector Exaltation
+                
+                // max integer grid size in wisp ambit: 11
+                // max integer thothable 2D list: 22
+                // 11/22 = 0.5
+                // (dividing by 2 causes a mishap because of a hex bug (hexbug!))
+                Numerical Reflection: 0.5
+                Multiplicative Distillation
+                
+                // subtract (11/2, 11/2, 0) to center the grid on the wisp
+                Numerical Reflection: 5.5
+                Gemini Decomposition
+                Numerical Reflection: 0
+                Vector Exaltation
+                Subtractive Distillation
+                
+                // add to wisp position
+                Identity Reflection
+                Compass' Purification
+                Additive Distillation
+                
+                // draw particle!
+                Prospector's Gambit
+                Augur's Purification
+                {
+                    Particles
+                    Bookkeeper's Gambit: v
+                }
+                Flock's Disintegration
+                Augur's Exaltation
+                Hermes' Gambit
+            Consideration: }
+
+            Prospector's Gambit
+            Abacus Purification
+            Perfect Counter's Queue
+            
+            Thoth's Gambit
+            Bookkeeper's Gambit: vvvv-
+        Consideration: }
+        
+        Prospector's Gambit
+        Abacus Purification
+        Perfect Counter's Queue
+        
+        Thoth's Gambit
+        Huginn's Gambit
+    Consideration: }
+
+    Mind's Reflection
+    Compass' Purification
+
+    Mind's Reflection
+    Alidade's Purification
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    Additive Distillation
+
+    Numerical Reflection: 100
+    Summon Cyclic Wisp
+}
+
+#define Toroidal Adjacency Gambit (nw qaeaqweeeee) = [any, ...], num -> any, any, any
+// data, i -> data[i-1], data[i], data[i+1]
+// wraps around at the edges
+{
+    // data[(i - 1 + n) % n]
+    Dioscuri Gambit
+    Numerical Reflection: 1
+    Subtractive Distillation
+
+    Prospector's Gambit
+    Abacus Purification
+    Undertaker's Gambit
+    Additive Distillation
+
+    Jester's Gambit
+    Modulus Distillation
+    Selection Distillation
+
+    // data[i]
+    Rotation Gambit II
+    Dioscuri Gambit
+    Selection Distillation
+    
+    // data[(i + 1) % n]
+    Rotation Gambit II
+    Numerical Reflection: 1
+    Additive Distillation
+    
+    Prospector's Gambit
+    Abacus Purification
+    Modulus Distillation
+    Selection Distillation
+}
