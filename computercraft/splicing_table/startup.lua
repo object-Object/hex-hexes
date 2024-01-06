@@ -112,6 +112,20 @@ local function draw()
     drawPatterns()
 end
 
+local function pushAndSave()
+    pushUndoState()
+    draw()
+    save()
+    return true
+end
+
+local function applyAndSave()
+    applyUndoState()
+    draw()
+    save()
+    return true
+end
+
 ---@param sign 1 | -1
 ---@param minmax fun(number, number): number
 ---@param limit number
@@ -201,14 +215,11 @@ buttonGrid:add("nudge left", 3, 2, {}, function()
 
     data[selectEnd + 1] = tmp
 
-    pushUndoState()
-    draw()
-    save()
-    return true
+    return pushAndSave()
 end)
 
 buttonGrid:add("nudge right", 4, 2, {}, function()
-    if selectEnd >= #data then return false end
+    if selectEnd <= 0 or selectEnd >= #data then return false end
 
     local tmp = data[selectEnd + 1]
 
@@ -221,10 +232,7 @@ buttonGrid:add("nudge right", 4, 2, {}, function()
 
     data[selectStart - 1] = tmp
 
-    pushUndoState()
-    draw()
-    save()
-    return true
+    return pushAndSave()
 end)
 
 buttonGrid:add("delete", 5, 2, {}, function()
@@ -237,13 +245,18 @@ buttonGrid:add("delete", 5, 2, {}, function()
     selectStart = 0
     selectEnd = 0
 
-    pushUndoState()
-    draw()
-    save()
-    return true
+    return pushAndSave()
 end)
 
-buttonGrid:add("duplicate", 6, 2, {}, nil)
+buttonGrid:add("duplicate", 6, 2, {}, function()
+    if selectStart == 0 then return false end
+
+    for i=selectEnd, selectStart, -1 do
+        table.insert(data, selectEnd + 1, data[i])
+    end
+
+    return pushAndSave()
+end)
 
 -- clipboard row
 
@@ -276,19 +289,13 @@ buttonGrid:add("paste", 4, 3, {}, nil)
 buttonGrid:add("undo", 5, 3, {}, function()
     if undoDepth >= #undoStack - 1 then return false end
     undoDepth = undoDepth + 1
-    applyUndoState()
-    draw()
-    save()
-    return true
+    return applyAndSave()
 end)
 
 buttonGrid:add("redo", 6, 3, {}, function()
     if undoDepth <= 0 then return false end
     undoDepth = undoDepth - 1
-    applyUndoState()
-    draw()
-    save()
-    return true
+    return applyAndSave()
 end)
 
 -- main loop
