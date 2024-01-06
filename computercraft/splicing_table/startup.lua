@@ -139,19 +139,21 @@ buttonGrid:add("select all", 6, 2, {}, function()
     draw()
 end)
 
-local shift
+local shift, ctrl
+
 shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, function()
-    local button = t.buttonList[shift]
     isShiftHeld = not isShiftHeld
-    button.active = isShiftHeld
+    isCtrlHeld = false
+    t.buttonList[shift].active = isShiftHeld
+    t.buttonList[ctrl].active = isCtrlHeld
     t:draw()
 end)
 
-local ctrl
 ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, function()
-    local button = t.buttonList[ctrl]
+    isShiftHeld = false
     isCtrlHeld = not isCtrlHeld
-    button.active = isCtrlHeld
+    t.buttonList[shift].active = isShiftHeld
+    t.buttonList[ctrl].active = isCtrlHeld
     t:draw()
 end)
 
