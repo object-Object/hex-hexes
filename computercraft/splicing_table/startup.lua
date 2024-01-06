@@ -23,7 +23,10 @@ monitor.setTextScale(0.5)
 local data = mainPort.readIota()
 assert(type(data) == "table")
 
-local clipboard = clipboardPort.readIota()
+local clipboard
+if clipboardPort.hasFocus() then
+    clipboard = clipboardPort.readIota()
+end
 
 local viewIndex = 1
 
@@ -53,8 +56,8 @@ local undoStack = {}
 
 local function save()
     mainPort.writeIota(data)
-    if clipboardPort:hasFocus() then
-        clipboardPort.writeIota(data)
+    if clipboardPort:hasFocus() and clipboard then
+        clipboardPort.writeIota(clipboard)
     end
 end
 
@@ -282,7 +285,20 @@ ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, function()
     return false
 end)
 
-buttonGrid:add("cut", 2, 3, {}, nil)
+buttonGrid:add("cut", 2, 3, {}, function()
+    if selection == nil or clipboard == nil then return false end
+
+    clipboard = {}
+
+    for _=selection.left, selection.right do
+        local iota = table.remove(data, selection.left)
+        table.insert(clipboard, iota)
+    end
+
+    selection = nil
+
+    return pushAndSave()
+end)
 
 buttonGrid:add("copy", 3, 3, {}, nil)
 
@@ -312,17 +328,21 @@ while true do
     elseif event == "focus_inserted" or event == "new_iota" then
         if name == "top" then
             data = mainPort.readIota()
-
-            -- if we take out the focus to look at it, we might still want to be able to undo/redo
-            pushUndoState()
-
             viewIndex = 1
             selection = nil
-
             draw()
         else
             clipboard = clipboardPort.readIota()
-            pushUndoState()
+        end
+        pushUndoState()
+    elseif event == "focus_removed" then
+        if name == "top" then
+            data = {}
+            viewIndex = 1
+            selection = nil
+            draw()
+        else
+            clipboard = nil
         end
     end
 end
