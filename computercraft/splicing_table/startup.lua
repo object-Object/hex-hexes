@@ -109,7 +109,7 @@ local function moveView(sign, minmax, limit)
     local oldViewIndex = viewIndex
 
     if isCtrlHeld then
-        viewIndex = 1
+        viewIndex = limit
     else
         local offset = (isShiftHeld and 9 or 1) * sign
         viewIndex = minmax(viewIndex + offset, limit)
