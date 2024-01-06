@@ -23,6 +23,9 @@ local viewIndex = 1
 local selectStart = 0
 local selectEnd = 0
 
+local isShiftHeld = false
+local isCtrlHeld = false
+
 local buttonNames = {}
 
 local function drawPatterns()
@@ -32,7 +35,7 @@ local function drawPatterns()
 
         local name = buttonNames[i]
         t:setLabel(name, tostring(iotaIndex - 1))
-        
+
         local button = t.buttonList[name]
         if iotaIndex <= #data then
             local iota = data[iotaIndex]
@@ -81,53 +84,86 @@ for i=0, 8 do
     end)
 end
 
-local left = patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
+patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
     if viewIndex > 1 then
-        viewIndex = viewIndex - 1
+        if isCtrlHeld then
+            viewIndex = 1
+        else
+            local offset
+            if isShiftHeld then
+                offset = 9
+            else
+                offset = 1
+            end
+            viewIndex = math.max(viewIndex - offset, 1)
+        end
         draw()
     end
 end)
 
-local right = patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
-    if viewIndex < #data - 8 then
-        viewIndex = viewIndex + 1
+patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
+    local maxViewIndex = #data - 8
+    if viewIndex < maxViewIndex then
+        if isCtrlHeld then
+            viewIndex = maxViewIndex
+        else
+            local offset
+            if isShiftHeld then
+                offset = 9
+            else
+                offset = 1
+            end
+            viewIndex = math.min(viewIndex + offset, maxViewIndex)
+        end
         draw()
     end
 end)
 
-local nudgeLeft = buttonGrid:add("nudge left", 1, 2, {}, nil)
+buttonGrid:add("nudge left", 1, 2, {}, nil)
 
-local nudgeRight = buttonGrid:add("nudge right", 2, 2, {}, nil)
+buttonGrid:add("nudge right", 2, 2, {}, nil)
 
-local delete = buttonGrid:add("delete", 3, 2, {}, nil)
+buttonGrid:add("delete", 3, 2, {}, nil)
 
-local duplicate = buttonGrid:add("duplicate", 4, 2, {}, nil)
+buttonGrid:add("duplicate", 4, 2, {}, nil)
 
-local selectNone = buttonGrid:add("select none", 5, 2, {}, function()
+buttonGrid:add("select none", 5, 2, {}, function()
     selectStart = 0
     selectEnd = 0
     draw()
 end)
 
-local selectAll = buttonGrid:add("select all", 6, 2, {}, function()
+buttonGrid:add("select all", 6, 2, {}, function()
     selectStart = 1
     selectEnd = #data
     draw()
 end)
 
-local shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, nil)
+local shift
+shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, function()
+    local button = t.buttonList[shift]
+    isShiftHeld = not isShiftHeld
+    button.active = isShiftHeld
+    t:draw()
+end)
 
-local ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, nil)
+local ctrl
+ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, function()
+    local button = t.buttonList[ctrl]
+    isCtrlHeld = not isCtrlHeld
+    button.active = isCtrlHeld
+    t:draw()
+end)
 
-local cut = buttonGrid:add("cut", 2, 3, {}, nil)
+buttonGrid:add("cut", 2, 3, {}, nil)
 
-local copy = buttonGrid:add("copy", 3, 3, {}, nil)
+buttonGrid:add("copy", 3, 3, {}, nil)
 
-local paste = buttonGrid:add("paste", 4, 3, {}, nil)
+buttonGrid:add("paste", 4, 3, {}, nil)
 
-local undo = buttonGrid:add("undo", 5, 3, {}, nil)
+buttonGrid:add("undo", 5, 3, {}, nil)
 
-local redo = buttonGrid:add("redo", 6, 3, {}, nil)
+buttonGrid:add("redo", 6, 3, {}, nil)
 
 -- main loop
 
