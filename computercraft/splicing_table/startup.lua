@@ -27,8 +27,12 @@ local clipboard = clipboardPort.readIota()
 
 local viewIndex = 1
 
-local selectStart = 0
-local selectEnd = 0
+---@class Selection
+---@field left integer
+---@field right integer
+
+---@type Selection?
+local selection = nil
 
 local isShiftHeld = false
 local isCtrlHeld = false
@@ -36,11 +40,10 @@ local isCtrlHeld = false
 local buttonNames = {}
 
 ---@class UndoState
+---@field viewIndex integer
 ---@field data Iota
 ---@field clipboard Iota?
----@field viewIndex integer
----@field selectStart integer
----@field selectEnd integer
+---@field selection Selection
 
 local undoDepth = 0 -- from the top of the stack
 ---@type UndoState[]
@@ -65,22 +68,19 @@ local function pushUndoState()
     end
 
     table.insert(undoStack, {
+        viewIndex=viewIndex,
         data=deepcopy(data),
         clipboard=deepcopy(clipboard),
-        viewIndex=viewIndex,
-        selectStart=selectStart,
-        selectEnd=selectEnd,
+        selection=deepcopy(selection),
     })
 end
 
 local function applyUndoState()
     local undoState = undoStack[#undoStack - undoDepth]
-
-    data = undoState.data
-    clipboard = undoState.clipboard
     viewIndex = undoState.viewIndex
-    selectStart = undoState.selectStart
-    selectEnd = undoState.selectEnd
+    data = deepcopy(undoState.data)
+    clipboard = deepcopy(undoState.clipboard)
+    selection = deepcopy(undoState.selection)
 end
 
 local function drawPatterns()
@@ -89,12 +89,16 @@ local function drawPatterns()
         local iotaIndex = viewIndex + i
 
         local name = buttonNames[i]
-        t:setLabel(name, tostring(iotaIndex - 1))
+        if iotaIndex <= #data then
+            t:setLabel(name, tostring(iotaIndex - 1))
+        else
+            t:setLabel(name, "")
+        end
 
         local button = t.buttonList[name]
         if iotaIndex <= #data then
             local iota = data[iotaIndex]
-            if iotaIndex >= selectStart and iotaIndex <= selectEnd then
+            if selection and iotaIndex >= selection.left and iotaIndex <= selection.right then
                 iotas[i + 1] = {iota}
                 button.active = true
             else
@@ -159,19 +163,20 @@ local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 for i=0, 8 do
     buttonNames[i] = patternGrid:add(tostring(i), i + 2, 1, {}, function()
         local newSelect = viewIndex + i
-        if newSelect >= selectStart and newSelect <= selectEnd then
-            selectStart = 0
-            selectEnd = 0
-        elseif selectStart == 0 or selectStart ~= selectEnd then
-            selectStart = newSelect
-            selectEnd = selectStart
-        elseif newSelect < selectStart then
-            local tmp = selectStart
-            selectStart = newSelect
-            selectEnd = tmp
-        else
-            selectEnd = newSelect
+        if newSelect < 1 or newSelect > #data then
+            return false
         end
+
+        if selection and newSelect >= selection.left and newSelect <= selection.right then
+            selection = nil
+        elseif selection == nil or selection.left ~= selection.right then
+            selection = { left=newSelect, right=newSelect }
+        elseif newSelect < selection.left then
+            selection = { left=newSelect, right=selection.left }
+        else
+            selection.right = newSelect
+        end
+
         draw()
         return false
     end)
@@ -188,72 +193,69 @@ end)
 -- data row
 
 buttonGrid:add("select none", 1, 2, {}, function()
-    selectStart = 0
-    selectEnd = 0
+    selection = nil
     draw()
     return true
 end)
 
 buttonGrid:add("select all", 2, 2, {}, function()
-    selectStart = 1
-    selectEnd = #data
+    selection = { left=1, right=#data }
     draw()
     return true
 end)
 
 buttonGrid:add("nudge left", 3, 2, {}, function()
-    if selectStart <= 1 then return false end
+    if selection == nil or selection.left <= 1 then return false end
 
-    local tmp = data[selectStart - 1]
+    local tmp = data[selection.left - 1]
 
-    for i=selectStart, selectEnd do
+    for i=selection.left, selection.right do
         data[i - 1] = data[i]
     end
 
-    selectStart = selectStart - 1
-    selectEnd = selectEnd - 1
+    selection.left = selection.left - 1
+    selection.right = selection.right - 1
 
-    data[selectEnd + 1] = tmp
+    data[selection.right + 1] = tmp
 
     return pushAndSave()
 end)
 
 buttonGrid:add("nudge right", 4, 2, {}, function()
-    if selectEnd <= 0 or selectEnd >= #data then return false end
+    if selection == nil or selection.right >= #data then return false end
 
-    local tmp = data[selectEnd + 1]
+    local tmp = data[selection.right + 1]
 
-    for i=selectEnd, selectStart, -1 do
+    for i=selection.right, selection.left, -1 do
         data[i + 1] = data[i]
     end
 
-    selectStart = selectStart + 1
-    selectEnd = selectEnd + 1
+    selection.left = selection.left + 1
+    selection.right = selection.right + 1
 
-    data[selectStart - 1] = tmp
+    data[selection.left - 1] = tmp
 
     return pushAndSave()
 end)
 
 buttonGrid:add("duplicate", 5, 2, {}, function()
-    if selectStart == 0 then return false end
+    if selection == nil then return false end
 
-    for i=selectEnd, selectStart, -1 do
-        table.insert(data, selectEnd + 1, data[i])
+    for i=selection.right, selection.left, -1 do
+        table.insert(data, selection.right + 1, data[i])
     end
 
     return pushAndSave()
 end)
 
 buttonGrid:add("delete", 6, 2, {}, function()
-    if selectStart == 0 then return false end
+    if selection == nil then return false end
 
-    for i=selectStart, selectEnd do
-        table.remove(data, selectStart)
+    for _=selection.left, selection.right do
+        table.remove(data, selection.left)
     end
 
-    selectStart = 0
-    selectEnd = 0
+    selection = nil
 
     return pushAndSave()
 end)
@@ -315,8 +317,7 @@ while true do
             pushUndoState()
 
             viewIndex = 1
-            selectStart = 0
-            selectEnd = 0
+            selection = nil
 
             draw()
         else
