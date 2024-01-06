@@ -20,20 +20,27 @@ local viewIndex = 1
 local selectStart = 0
 local selectEnd = 0
 
+local buttonNames = {}
+
 local function drawPatterns()
     local iotas = {}
     for i=0, 6 do
         local iotaIndex = viewIndex + i
+        local name = buttonNames[i]
+
         if iotaIndex <= #data then
             local iota = data[iotaIndex]
             if iotaIndex >= selectStart and iotaIndex <= selectEnd then
                 iotas[i + 1] = {iota}
+                t.buttonList[name].active = true
             else
                 iotas[i + 1] = iota
+                t.buttonList[name].active = false
             end
         end
     end
     link.sendIota(0, iotas)
+    t:draw()
 end
 
 -- control panel setup
@@ -44,12 +51,20 @@ local buttonGrid  = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 -- buttons!
 
 for i=0, 6 do
-    patternGrid:add(tostring(i), i + 2, 1, {}, function()
+    buttonNames[i] = patternGrid:add(tostring(i), i + 2, 1, {}, function()
+        local newSelect = viewIndex + i
         if selectStart == 0 or selectStart ~= selectEnd then
-            selectStart = viewIndex + i
+            selectStart = newSelect
             selectEnd = selectStart
+        elseif newSelect == selectStart then
+            selectStart = 0
+            selectEnd = 0
+        elseif newSelect < selectStart then
+            local tmp = selectStart
+            selectStart = newSelect
+            selectEnd = tmp
         else
-            selectEnd = viewIndex + i
+            selectEnd = newSelect
         end
         drawPatterns()
     end)
