@@ -57,7 +57,7 @@ end
 -- control panel setup
 
 local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
-local buttonGrid  = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 
 -- buttons!
 
@@ -95,21 +95,39 @@ local right = patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function
     end
 end)
 
-local nudgeLeft  = buttonGrid:add("nudge left",  1, 2, {}, nil)
+local nudgeLeft = buttonGrid:add("nudge left", 1, 2, {}, nil)
+
 local nudgeRight = buttonGrid:add("nudge right", 2, 2, {}, nil)
-local delete     = buttonGrid:add("delete",      3, 2, {}, nil)
-local duplicate  = buttonGrid:add("duplicate",   4, 2, {}, nil)
-local selectNone = buttonGrid:add("select none", 5, 2, {}, nil)
-local selectAll  = buttonGrid:add("select all",  6, 2, {}, nil)
+
+local delete = buttonGrid:add("delete", 3, 2, {}, nil)
+
+local duplicate = buttonGrid:add("duplicate", 4, 2, {}, nil)
+
+local selectNone = buttonGrid:add("select none", 5, 2, {}, function()
+    selectStart = 0
+    selectEnd = 0
+    draw()
+end)
+
+local selectAll = buttonGrid:add("select all", 6, 2, {}, function()
+    selectStart = 1
+    selectEnd = #data
+    draw()
+end)
 
 local shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, nil)
-local ctrl  = buttonGrid:add("ctrl",  1, 3, {scaleY=0.4, alignY="bottom"}, nil)
 
-local cut   = buttonGrid:add("cut",   2, 3, {}, nil)
-local copy  = buttonGrid:add("copy",  3, 3, {}, nil)
+local ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, nil)
+
+local cut = buttonGrid:add("cut", 2, 3, {}, nil)
+
+local copy = buttonGrid:add("copy", 3, 3, {}, nil)
+
 local paste = buttonGrid:add("paste", 4, 3, {}, nil)
-local undo  = buttonGrid:add("undo",  5, 3, {}, nil)
-local redo  = buttonGrid:add("redo",  6, 3, {}, nil)
+
+local undo = buttonGrid:add("undo", 5, 3, {}, nil)
+
+local redo = buttonGrid:add("redo", 6, 3, {}, nil)
 
 -- main loop
 
