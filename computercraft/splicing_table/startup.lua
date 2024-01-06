@@ -84,39 +84,30 @@ for i=0, 8 do
     end)
 end
 
-patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
-    if viewIndex > 1 then
-        if isCtrlHeld then
-            viewIndex = 1
-        else
-            local offset
-            if isShiftHeld then
-                offset = 9
-            else
-                offset = 1
-            end
-            viewIndex = math.max(viewIndex - offset, 1)
-        end
+---@param sign 1 | -1
+---@param minmax fun(number, number): number
+---@param limit number
+local function moveView(sign, minmax, limit)
+    local oldViewIndex = viewIndex
+
+    if isCtrlHeld then
+        viewIndex = 1
+    else
+        local offset = (isShiftHeld and 9 or 1) * sign
+        viewIndex = minmax(viewIndex + offset, limit)
+    end
+
+    if oldViewIndex ~= viewIndex then
         draw()
     end
+end
+
+patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
+    moveView(-1, math.max, 1)
 end)
 
 patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
-    local maxViewIndex = #data - 8
-    if viewIndex < maxViewIndex then
-        if isCtrlHeld then
-            viewIndex = maxViewIndex
-        else
-            local offset
-            if isShiftHeld then
-                offset = 9
-            else
-                offset = 1
-            end
-            viewIndex = math.min(viewIndex + offset, maxViewIndex)
-        end
-        draw()
-    end
+    moveView(1, math.min, #data - 8)
 end)
 
 buttonGrid:add("nudge left", 1, 2, {}, nil)
