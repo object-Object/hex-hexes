@@ -140,6 +140,8 @@ local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 
 -- buttons!
 
+-- pattern row
+
 for i=0, 8 do
     buttonNames[i] = patternGrid:add(tostring(i), i + 2, 1, {}, function()
         local newSelect = viewIndex + i
@@ -169,7 +171,23 @@ patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
     return moveView(1, math.min, #data - 8)
 end)
 
-buttonGrid:add("nudge left", 1, 2, {}, function()
+-- data row
+
+buttonGrid:add("select none", 1, 2, {}, function()
+    selectStart = 0
+    selectEnd = 0
+    draw()
+    return true
+end)
+
+buttonGrid:add("select all", 2, 2, {}, function()
+    selectStart = 1
+    selectEnd = #data
+    draw()
+    return true
+end)
+
+buttonGrid:add("nudge left", 3, 2, {}, function()
     if selectStart <= 1 then return false end
 
     local tmp = data[selectStart - 1]
@@ -189,7 +207,7 @@ buttonGrid:add("nudge left", 1, 2, {}, function()
     return true
 end)
 
-buttonGrid:add("nudge right", 2, 2, {}, function()
+buttonGrid:add("nudge right", 4, 2, {}, function()
     if selectEnd >= #data then return false end
 
     local tmp = data[selectEnd + 1]
@@ -209,7 +227,7 @@ buttonGrid:add("nudge right", 2, 2, {}, function()
     return true
 end)
 
-buttonGrid:add("delete", 3, 2, {}, function()
+buttonGrid:add("delete", 5, 2, {}, function()
     if selectStart == 0 then return false end
 
     for i=selectStart, selectEnd do
@@ -225,21 +243,9 @@ buttonGrid:add("delete", 3, 2, {}, function()
     return true
 end)
 
-buttonGrid:add("duplicate", 4, 2, {}, nil)
+buttonGrid:add("duplicate", 6, 2, {}, nil)
 
-buttonGrid:add("select none", 5, 2, {}, function()
-    selectStart = 0
-    selectEnd = 0
-    draw()
-    return true
-end)
-
-buttonGrid:add("select all", 6, 2, {}, function()
-    selectStart = 1
-    selectEnd = #data
-    draw()
-    return true
-end)
+-- clipboard row
 
 local shift, ctrl
 
