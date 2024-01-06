@@ -98,14 +98,11 @@ local function drawPatterns()
         local iotaIndex = viewIndex + i
 
         local name = buttonNames[i]
+        local button = t.buttonList[name]
+
         if iotaIndex <= #data then
             t:setLabel(name, tostring(iotaIndex - 1))
-        else
-            t:setLabel(name, "")
-        end
 
-        local button = t.buttonList[name]
-        if iotaIndex <= #data then
             local iota = data[iotaIndex]
             if selection and iotaIndex >= selection.left and iotaIndex <= selection.right then
                 iotas[i + 1] = {iota}
@@ -114,6 +111,9 @@ local function drawPatterns()
                 iotas[i + 1] = iota
                 button.active = false
             end
+        else
+            t:setLabel(name, "")
+            button.active = false
         end
     end
     link.sendIota(0, iotas)
@@ -318,7 +318,26 @@ buttonGrid:add("copy", 3, 3, {}, function()
     return pushAndSave()
 end)
 
-buttonGrid:add("paste", 4, 3, {}, nil)
+buttonGrid:add("paste", 4, 3, {}, function()
+    if selection == nil or clipboard == nil then return false end
+
+    if isShiftHeld then
+        selection.left = selection.right + 1
+    else
+        -- overwrite selection
+        for _=selection.left, selection.right do
+            table.remove(data, selection.left)
+        end
+    end
+
+    for i=#clipboard, 1, -1 do
+        table.insert(data, selection.left, clipboard[i])
+    end
+
+    selection.right = selection.left + #clipboard - 1
+
+    return pushAndSave()
+end)
 
 buttonGrid:add("undo", 5, 3, {}, function()
     if undoDepth >= #undoStack - 1 then return false end
