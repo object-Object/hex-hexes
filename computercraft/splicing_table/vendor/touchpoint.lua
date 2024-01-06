@@ -237,6 +237,15 @@ local TouchPoint = {
 	end,
 
 	---@param self TouchPoint
+	---@param name buttonName
+	---@param newName buttonName
+	setLabel = function(self, name, newName)
+		local button = self.buttonList[name]
+		button.label, _ = setupLabel(button.xMax - button.xMin + 1, button.yMin, button.yMax, newName)
+		self:draw()
+	end,
+
+	---@param self TouchPoint
 	---@return Redirect
 	getMonitor = function(self)
 		return self.mon

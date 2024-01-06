@@ -8,6 +8,9 @@ local clipboardPort = peripheral.wrap("bottom") ---@cast clipboardPort FocalPort
 local link = peripheral.wrap("right")
 local t = touchpoint.new("left")
 
+local monitor = peripheral.wrap("left")
+monitor.setTextScale(0.5)
+
 assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil)
 
 -- state
@@ -26,16 +29,19 @@ local function drawPatterns()
     local iotas = {}
     for i=0, 6 do
         local iotaIndex = viewIndex + i
-        local name = buttonNames[i]
 
+        local name = buttonNames[i]
+        t:setLabel(name, tostring(iotaIndex - 1))
+        
+        local button = t.buttonList[name]
         if iotaIndex <= #data then
             local iota = data[iotaIndex]
             if iotaIndex >= selectStart and iotaIndex <= selectEnd then
                 iotas[i + 1] = {iota}
-                t.buttonList[name].active = true
+                button.active = true
             else
                 iotas[i + 1] = iota
-                t.buttonList[name].active = false
+                button.active = false
             end
         end
     end
@@ -43,9 +49,14 @@ local function drawPatterns()
     t:draw()
 end
 
+local function draw()
+    t:draw()
+    drawPatterns()
+end
+
 -- control panel setup
 
-local patternGrid = gridmanager.new(t, 9, 4, {padding=1, margin={top=1, bottom=-2}})
+local patternGrid = gridmanager.new(t, 9, 4, {padding=1, margin={top=1, bottom=-2, left=2}})
 local buttonGrid  = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 
 -- buttons!
@@ -66,21 +77,21 @@ for i=0, 6 do
         else
             selectEnd = newSelect
         end
-        drawPatterns()
+        draw()
     end)
 end
 
 local left = patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
     if viewIndex > 1 then
         viewIndex = viewIndex - 1
-        drawPatterns()
+        draw()
     end
 end)
 
 local right = patternGrid:add("right", 9, 1, {scaleX=0.6, scaleY=0.5}, function()
     if viewIndex < #data - 6 then
         viewIndex = viewIndex + 1
-        drawPatterns()
+        draw()
     end
 end)
 
@@ -102,10 +113,7 @@ local redo  = buttonGrid:add("redo",  6, 3, {}, nil)
 
 -- main loop
 
-
-
-t:draw()
-drawPatterns()
+draw()
 while true do
     local event, name = t:handleEvents(os.pullEvent())
     if event == "button_click" then
@@ -113,6 +121,10 @@ while true do
     elseif event == "focus_inserted" or event == "new_iota" then
         if name == "top" then
             data = mainPort.readIota()
+            viewIndex = 1
+            selectStart = 0
+            selectEnd = 0
+            draw()
         end
     end
 end
