@@ -1,9 +1,11 @@
 ---@meta
 
 ---@alias duckyPeripheralType
+---| focalLinkType
 ---| focalPortType
 
 ---@alias duckyPeripheral
+---| FocalLink
 ---| FocalPort
 
 ---@param peripheral duckyPeripheral

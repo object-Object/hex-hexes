@@ -3,15 +3,19 @@ local gridmanager = require("utils.gridmanager")
 
 -- peripherals
 
-local mainPort = peripheral.wrap("top") ---@cast mainPort FocalPort
-local clipboardPort = peripheral.wrap("bottom") ---@cast clipboardPort FocalPort
+local mainPort = peripheral.wrap("top")
+local clipboardPort = peripheral.wrap("bottom")
 local link = peripheral.wrap("right")
+local monitor = peripheral.wrap("left")
 local t = touchpoint.new("left")
 
-local monitor = peripheral.wrap("left")
-monitor.setTextScale(0.5)
+assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil and monitor ~= nil)
+---@cast mainPort FocalPort
+---@cast clipboardPort FocalPort
+---@cast link FocalLink
+---@cast monitor Monitor
 
-assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil)
+monitor.setTextScale(0.5)
 
 -- state
 
@@ -27,6 +31,8 @@ local isShiftHeld = false
 local isCtrlHeld = false
 
 local buttonNames = {}
+
+-- utils
 
 local function drawPatterns()
     local iotas = {}
@@ -57,6 +63,24 @@ local function draw()
     drawPatterns()
 end
 
+---@param sign 1 | -1
+---@param minmax fun(number, number): number
+---@param limit number
+local function moveView(sign, minmax, limit)
+    local oldViewIndex = viewIndex
+
+    if isCtrlHeld then
+        viewIndex = 1
+    else
+        local offset = (isShiftHeld and 9 or 1) * sign
+        viewIndex = minmax(viewIndex + offset, limit)
+    end
+
+    if oldViewIndex ~= viewIndex then
+        draw()
+    end
+end
+
 -- control panel setup
 
 local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
@@ -82,24 +106,6 @@ for i=0, 8 do
         end
         draw()
     end)
-end
-
----@param sign 1 | -1
----@param minmax fun(number, number): number
----@param limit number
-local function moveView(sign, minmax, limit)
-    local oldViewIndex = viewIndex
-
-    if isCtrlHeld then
-        viewIndex = 1
-    else
-        local offset = (isShiftHeld and 9 or 1) * sign
-        viewIndex = minmax(viewIndex + offset, limit)
-    end
-
-    if oldViewIndex ~= viewIndex then
-        draw()
-    end
 end
 
 patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
