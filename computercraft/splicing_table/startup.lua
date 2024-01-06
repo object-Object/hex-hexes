@@ -160,6 +160,20 @@ local function moveView(sign, minmax, limit)
     return false
 end
 
+local function isListIota(iota)
+    if type(iota) ~= "table" or iota.type ~= nil then
+        return false
+    end
+
+    for k, _ in pairs(iota) do
+        if type(k) ~= "number" then
+            return false
+        end
+    end
+
+    return true
+end
+
 -- control panel setup
 
 local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
@@ -330,11 +344,17 @@ buttonGrid:add("paste", 4, 3, {}, function()
         end
     end
 
-    for i=#clipboard, 1, -1 do
-        table.insert(data, selection.left, clipboard[i])
+    if not isCtrlHeld and isListIota(clipboard) then
+        -- flatten list
+        for i=#clipboard, 1, -1 do
+            table.insert(data, selection.left, clipboard[i])
+        end
+        selection.right = selection.left + #clipboard - 1
+    else
+        -- insert verbatim
+        table.insert(data, selection.left, clipboard)
+        selection.right = selection.left
     end
-
-    selection.right = selection.left + #clipboard - 1
 
     return pushAndSave()
 end)
