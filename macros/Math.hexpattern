@@ -62,7 +62,7 @@
     Division Distillation
 }
 
-#define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
+// #define Hadamard's Distillation (WEST awaqawa) = vec, vec -> vec
 // (AxBx, AyBy, AzBz)
 {
     Vector Disintegration
@@ -212,5 +212,53 @@
     Prospector's Gambit
     Additive Distillation
 
+    Augur's Exaltation
+}
+
+#define Inverse Tangent Distillation (WEST qdaqqqqqw) = num, num -> num
+// y, x -> atan2(y, x)
+{
+    Dioscuri Gambit
+    Numerical Reflection: 0
+    Minimus Distillation II
+    
+    Jester's Gambit
+    Augur's Purification
+    
+    Dioscuri Gambit
+    Negation Purification
+    Conjunction Distillation
+
+    Rotation Gambit II
+    Conjunction Distillation
+    
+    Numerical Reflection: 16
+    Swindler's Gambit
+
+    Length Purification
+    
+    Dioscuri Gambit
+    Numerical Reflection: 0
+    Vector Exaltation
+    Length Purification
+
+    Additive Distillation
+    
+    Rotation Gambit
+    {
+        Jester's Gambit
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    Division Distillation
+    Inverse Tangent Purification
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    
+    Arc's Reflection
+    Jester's Gambit
     Augur's Exaltation
 }
