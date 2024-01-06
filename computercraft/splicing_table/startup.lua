@@ -1,6 +1,7 @@
 local gridmanager = require("utils.gridmanager")
 local touchpoint = require("vendor.touchpoint")
 local deepcopy = require("vendor.deepcopy")
+local deepequals = require("vendor.deepequals")
 
 -- peripherals
 
@@ -46,7 +47,7 @@ local buttonNames = {}
 ---@field viewIndex integer
 ---@field data Iota
 ---@field clipboard Iota?
----@field selection Selection
+---@field selection Selection?
 
 local undoDepth = 0 -- from the top of the stack
 ---@type UndoState[]
@@ -70,12 +71,17 @@ local function pushUndoState()
         undoDepth = 0
     end
 
-    table.insert(undoStack, {
+    ---@type UndoState
+    local newState = {
         viewIndex=viewIndex,
         data=deepcopy(data),
         clipboard=deepcopy(clipboard),
         selection=deepcopy(selection),
-    })
+    }
+
+    if not deepequals(newState, undoStack[#undoStack]) then
+        table.insert(undoStack, newState)
+    end
 end
 
 local function applyUndoState()
@@ -300,7 +306,17 @@ buttonGrid:add("cut", 2, 3, {}, function()
     return pushAndSave()
 end)
 
-buttonGrid:add("copy", 3, 3, {}, nil)
+buttonGrid:add("copy", 3, 3, {}, function()
+    if selection == nil or clipboard == nil then return false end
+
+    clipboard = {}
+
+    for i=selection.left, selection.right do
+        table.insert(clipboard, data[i])
+    end
+
+    return pushAndSave()
+end)
 
 buttonGrid:add("paste", 4, 3, {}, nil)
 

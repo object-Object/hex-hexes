@@ -1,12 +1,10 @@
 -- https://github.com/OpenPrograms/Kilobyte-Programs/blob/6eb649e333/deepcopy/lib/deepcopy.lua
 
-local deepcopy
-
 ---@generic T: any
 ---@param inp T
 ---@param cache any?
 ---@return T
-deepcopy = function (inp, cache)
+local function deepcopy(inp, cache)
     cache = cache or {}
     local t = type(inp)
     if t == 'string' or t == 'number' or t == 'function' or t == 'boolean' or t == 'nil' then
