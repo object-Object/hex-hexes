@@ -22,6 +22,8 @@ monitor.setTextScale(0.5)
 local data = mainPort.readIota()
 assert(type(data) == "table")
 
+local clipboard = clipboardPort.readIota()
+
 local viewIndex = 1
 
 local selectStart = 0
@@ -32,7 +34,35 @@ local isCtrlHeld = false
 
 local buttonNames = {}
 
+---@class UndoState
+---@field data Iota
+---@field clipboard Iota?
+
+local undoDepth = 0 -- from the top of the stack
+---@type UndoState[]
+local undoStack = {}
+
 -- utils
+
+local function pushUndoState()
+    -- if we're down in the stack, pop everything above us
+    if undoDepth > 0 then
+        for _=1, undoDepth do
+            table.remove(undoStack)
+        end
+    end
+
+    table.insert(undoStack, {
+        data=data,
+        clipboard=clipboard,
+    })
+end
+
+local function applyUndoState()
+    local undoState = undoStack[#undoStack - undoDepth]
+    data = undoState.data
+    clipboard = undoState.clipboard
+end
 
 local function drawPatterns()
     local iotas = {}
@@ -160,13 +190,25 @@ buttonGrid:add("copy", 3, 3, {}, nil)
 
 buttonGrid:add("paste", 4, 3, {}, nil)
 
-buttonGrid:add("undo", 5, 3, {}, nil)
+buttonGrid:add("undo", 5, 3, {}, function()
+    if undoDepth < #undoStack - 1 then
+        undoDepth = undoDepth + 1
+        applyUndoState()
+    end
+end)
 
-buttonGrid:add("redo", 6, 3, {}, nil)
+buttonGrid:add("redo", 6, 3, {}, function()
+    if undoDepth > 0 then
+        undoDepth = undoDepth - 1
+        applyUndoState()
+    end
+end)
 
 -- main loop
 
+pushUndoState()
 draw()
+
 while true do
     local event, name = t:handleEvents(os.pullEvent())
     if event == "button_click" then
@@ -174,10 +216,18 @@ while true do
     elseif event == "focus_inserted" or event == "new_iota" then
         if name == "top" then
             data = mainPort.readIota()
+
+            undoStack = {}
+            pushUndoState()
+
             viewIndex = 1
             selectStart = 0
             selectEnd = 0
+
             draw()
+        else
+            clipboard = clipboardPort.readIota()
+            pushUndoState()
         end
     end
 end
