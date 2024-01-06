@@ -68,19 +68,19 @@ end
 ---@field activeText integer
 
 ---@class Button: ButtonOptions
----@field package func fun()?
----@field package xMin integer
----@field package yMin integer
----@field package xMax integer
----@field package yMax integer
----@field package active boolean
----@field package label string[]
+---@field func fun()?
+---@field xMin integer
+---@field yMin integer
+---@field xMax integer
+---@field yMax integer
+---@field active boolean
+---@field label string[]
 
 ---@class TouchPoint
----@field package side monSide
----@field package mon Redirect
----@field package buttonList { [string]: Button }
----@field package clickMap any
+---@field side monSide
+---@field mon Redirect
+---@field buttonList { [string]: Button }
+---@field clickMap any
 local TouchPoint = {
 	---@param self TouchPoint
 	draw = function(self)
@@ -148,6 +148,7 @@ local TouchPoint = {
 				self.clickMap[i][j] = name
 			end
 		end
+		return name
 	end,
 
 	---@param self TouchPoint
@@ -172,6 +173,16 @@ local TouchPoint = {
 			if event[1] == "button_click" then
 				self.buttonList[event[2]].func()
 			end
+		end
+	end,
+
+	---@param self TouchPoint
+	---@param name buttonName
+	clickButton = function(self, name)
+		self:flash(name)
+		local button = self.buttonList[name]
+		if button.func ~= nil then
+			button.func()
 		end
 	end,
 

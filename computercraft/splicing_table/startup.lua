@@ -1,39 +1,103 @@
 local touchpoint = require("vendor.touchpoint")
 local gridmanager = require("utils.gridmanager")
 
+-- peripherals
+
+local mainPort = peripheral.wrap("top") ---@cast mainPort FocalPort
+local clipboardPort = peripheral.wrap("bottom") ---@cast clipboardPort FocalPort
+local link = peripheral.wrap("right")
 local t = touchpoint.new("left")
 
-local patternGrid = gridmanager.new(t, 9, 4, {padding=1, margin={top=3, bottom=-2}})
-local buttonGrid  = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil)
 
-patternGrid:add("left",  nil, 1, 1, {scaleX=0.6, scaleY=0.5})
-patternGrid:add("right", nil, 9, 1, {scaleX=0.6, scaleY=0.5})
+-- state
 
-for i=2, 8 do
-    patternGrid:add(tostring(i), nil, i, 1)
+local data = mainPort.readIota()
+assert(type(data) == "table")
+
+local viewIndex = 1
+
+local selectStart = 0
+local selectEnd = 0
+
+local function drawPatterns()
+    local iotas = {}
+    for i=0, 6 do
+        local iotaIndex = viewIndex + i
+        if iotaIndex <= #data then
+            local iota = data[iotaIndex]
+            if iotaIndex >= selectStart and iotaIndex <= selectEnd then
+                iotas[i + 1] = {iota}
+            else
+                iotas[i + 1] = iota
+            end
+        end
+    end
+    link.sendIota(0, iotas)
 end
 
-buttonGrid:add("nudge left",  nil, 1, 2)
-buttonGrid:add("nudge right", nil, 2, 2)
-buttonGrid:add("delete",      nil, 3, 2)
-buttonGrid:add("duplicate",   nil, 4, 2)
-buttonGrid:add("select none", nil, 5, 2)
-buttonGrid:add("select all",  nil, 6, 2)
+-- control panel setup
 
-buttonGrid:add("shift", nil, 1, 3, {scaleY=0.4, alignY="top"})
-buttonGrid:add("ctrl",  nil, 1, 3, {scaleY=0.4, alignY="bottom"})
+local patternGrid = gridmanager.new(t, 9, 4, {padding=1, margin={top=1, bottom=-2}})
+local buttonGrid  = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 
-buttonGrid:add("cut",   nil, 2, 3)
-buttonGrid:add("copy",  nil, 3, 3)
-buttonGrid:add("paste", nil, 4, 3)
-buttonGrid:add("undo",  nil, 5, 3)
-buttonGrid:add("redo",  nil, 6, 3)
+-- buttons!
+
+for i=0, 6 do
+    patternGrid:add(tostring(i), i + 2, 1, {}, function()
+        if selectStart == 0 or selectStart ~= selectEnd then
+            selectStart = viewIndex + i
+            selectEnd = selectStart
+        else
+            selectEnd = viewIndex + i
+        end
+        drawPatterns()
+    end)
+end
+
+local left = patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
+    if viewIndex > 1 then
+        viewIndex = viewIndex - 1
+        drawPatterns()
+    end
+end)
+
+local right = patternGrid:add("right", 9, 1, {scaleX=0.6, scaleY=0.5}, function()
+    if viewIndex < #data - 6 then
+        viewIndex = viewIndex + 1
+        drawPatterns()
+    end
+end)
+
+local nudgeLeft  = buttonGrid:add("nudge left",  1, 2, {}, nil)
+local nudgeRight = buttonGrid:add("nudge right", 2, 2, {}, nil)
+local delete     = buttonGrid:add("delete",      3, 2, {}, nil)
+local duplicate  = buttonGrid:add("duplicate",   4, 2, {}, nil)
+local selectNone = buttonGrid:add("select none", 5, 2, {}, nil)
+local selectAll  = buttonGrid:add("select all",  6, 2, {}, nil)
+
+local shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, nil)
+local ctrl  = buttonGrid:add("ctrl",  1, 3, {scaleY=0.4, alignY="bottom"}, nil)
+
+local cut   = buttonGrid:add("cut",   2, 3, {}, nil)
+local copy  = buttonGrid:add("copy",  3, 3, {}, nil)
+local paste = buttonGrid:add("paste", 4, 3, {}, nil)
+local undo  = buttonGrid:add("undo",  5, 3, {}, nil)
+local redo  = buttonGrid:add("redo",  6, 3, {}, nil)
+
+-- main loop
+
 
 
 t:draw()
--- while true do
---     local event, name = t:handleEvents(os.pullEvent())
---     if event == "button_click" then
---         t:flash(name)
---     end
--- end
+drawPatterns()
+while true do
+    local event, name = t:handleEvents(os.pullEvent())
+    if event == "button_click" then
+        t:clickButton(name)
+    elseif event == "focus_inserted" or event == "new_iota" then
+        if name == "top" then
+            data = mainPort.readIota()
+        end
+    end
+end

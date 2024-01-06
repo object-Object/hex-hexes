@@ -126,10 +126,10 @@ local GridManager = {
     ---@param y integer
 	---@param func fun()?
 	---@param options GridButtonOptions?
-	add = function(self, name, func, x, y, options)
+	add = function(self, name, x, y, options, func)
         options = options or {}
         local xMin, yMin, xMax, yMax = self:pos(x, y, options)
-        self.t:add(name, func, xMin, yMin, xMax, yMax, options)
+        return self.t:add(name, func, xMin, yMin, xMax, yMax, options)
     end,
 
     ---@param self GridManager

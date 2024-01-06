@@ -3,7 +3,6 @@
 
 local pprint = require("cc.pretty").pretty_print
 
-local focalPort = peripheral.find("focal_port") ---@type FocalPort
 local monitor = peripheral.find("monitor") ---@type Monitor
 term.redirect(monitor)
 
@@ -496,6 +495,24 @@ local function RenderList(focus, drawScale, patternsPerLine)
     drawBuffer()
 end
 
+local function renderPattern(pattern, drawX, drawY, drawScale)
+    if type(pattern) == "table" then
+        if pattern.angles then
+            if pattern.type == "pattern" then
+                drawPattern(pattern, {drawX, drawY}, drawScale, nil)
+            else
+                drawPattern(pattern, {drawX, drawY}, drawScale, pattern.color)
+            end
+            table.insert(patternLocations, {drawX/2+.5, drawY/3+.5, pattern})
+        else
+            table.insert(stringBuffer, {drawX/2+.5, drawY/3+2+.5, pattern})
+        end
+    else
+        table.insert(stringBuffer, {drawX/2 - #pattern/2+.5, drawY/3+2+.5, pattern})
+    end
+    drawBuffer()
+end
+
 ---@param pattern TypedPatternIota|PatternIota
 ---@return string
 local function getPatternName(pattern)
@@ -545,85 +562,9 @@ local function drawFullHex(focus, noStringClear, drawScale)
     end
 end
 
-term.clear()
-local focus = focalPort.readIota()
-drawFullHex(focus)
+local hexrender = {}
 
-local function wait_for_redstone()
-    os.pullEvent("redstone")
-    drawFullHex(focus)
-end
+hexrender.renderPattern = renderPattern
+hexrender.flattenIotas = flattenIotas
 
-local function wait_for_focus()
-    os.pullEvent("focus_inserted")
-
-    focus = focalPort.readIota()
-    drawFullHex(focus)
-end
-
-local function wait_for_iota()
-    os.pullEvent("new_iota")
-
-    focus = focalPort.readIota()
-    drawFullHex(focus)
-end
-
-local function wait_for_touch()
-    local _, _, touch_x, touch_y = os.pullEvent("monitor_touch")
-    local closestPattern = {}
-    local closestDistance = 10000000
-    for _, pattern in pairs(patternLocations) do
-        local pattern_x = pattern[1]
-        local pattern_y = pattern[2]
-        local pattern_iota = pattern[3]
-        local distance = (pattern_x - touch_x)^2 + (pattern_y - touch_y)^2
-        if distance < closestDistance then
-            closestPattern = pattern_iota
-            closestDistance = distance
-        end
-    end
-
-    local indexString ---@type string
-    if closestPattern.index then
-        indexString = ""
-        for i = #closestPattern.index, 1, -1 do
-            indexString = indexString .. closestPattern.index[i] .. ":"
-        end
-        indexString = indexString:sub(1, -2)
-    else
-        indexString = "nil"
-    end
-
-    if closestPattern.type == "pattern" then
-        if closestPattern.index then
-            table.insert(stringBuffer, {1, 1, "Showing pattern at index: " .. indexString})
-            table.insert(stringBuffer, {1, 2, getPatternName(closestPattern)})
-        else
-            table.insert(stringBuffer, {1, 1, getPatternName(closestPattern)})
-        end
-
-        drawFullHex(closestPattern.data, true, 1)
-    elseif closestPattern.type == "listStart" or closestPattern.type == "listEnd" then
-        table.insert(stringBuffer, {1, 1, "Showing list at index: " .. indexString})
-        drawFullHex(closestPattern.data, true)
-    else
-        monitor.setTextScale(2)
-        -- term.clear()
-        term.setCursorPos(1, 1)
-        print("Showing "..closestPattern.type.." at index: " .. indexString)
-        pprint(closestPattern.data)
-    end
-
-    while true do
-        local e = {os.pullEvent()}
-        if e[1] == "monitor_touch" then
-            break
-        end
-    end
-    term.clear()
-    drawFullHex(focus)
-end
-
-while true do
-    parallel.waitForAny(wait_for_focus, wait_for_iota, wait_for_touch, wait_for_redstone)
-end
+return hexrender
