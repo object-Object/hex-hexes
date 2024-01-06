@@ -190,7 +190,23 @@ buttonGrid:add("nudge left", 1, 2, {}, function()
 end)
 
 buttonGrid:add("nudge right", 2, 2, {}, function()
-    return false
+    if selectEnd >= #data then return false end
+
+    local tmp = data[selectEnd + 1]
+
+    for i=selectEnd, selectStart, -1 do
+        data[i + 1] = data[i]
+    end
+
+    selectStart = selectStart + 1
+    selectEnd = selectEnd + 1
+
+    data[selectStart - 1] = tmp
+
+    pushUndoState()
+    draw()
+    save()
+    return true
 end)
 
 buttonGrid:add("delete", 3, 2, {}, function()
