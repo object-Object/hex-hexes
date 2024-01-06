@@ -124,7 +124,7 @@ local GridManager = {
 	---@param name buttonName
     ---@param x integer
     ---@param y integer
-	---@param func fun()?
+	---@param func (fun(): boolean)?
 	---@param options GridButtonOptions?
 	add = function(self, name, x, y, options, func)
         options = options or {}

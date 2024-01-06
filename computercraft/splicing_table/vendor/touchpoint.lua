@@ -68,7 +68,7 @@ end
 ---@field activeText integer
 
 ---@class Button: ButtonOptions
----@field func fun()?
+---@field func (fun(): boolean)?
 ---@field xMin integer
 ---@field yMin integer
 ---@field xMax integer
@@ -179,10 +179,9 @@ local TouchPoint = {
 	---@param self TouchPoint
 	---@param name buttonName
 	clickButton = function(self, name)
-		self:flash(name)
 		local button = self.buttonList[name]
-		if button.func ~= nil then
-			button.func()
+		if button.func == nil or button.func() then
+			self:flash(name)
 		end
 	end,
 

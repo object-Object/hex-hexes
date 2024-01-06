@@ -1,5 +1,6 @@
-local touchpoint = require("vendor.touchpoint")
 local gridmanager = require("utils.gridmanager")
+local touchpoint = require("vendor.touchpoint")
+local deepcopy = require("vendor.deepcopy")
 
 -- peripherals
 
@@ -44,17 +45,25 @@ local undoStack = {}
 
 -- utils
 
+local function save()
+    mainPort.writeIota(data)
+    if clipboardPort:hasFocus() then
+        clipboardPort.writeIota(data)
+    end
+end
+
 local function pushUndoState()
     -- if we're down in the stack, pop everything above us
     if undoDepth > 0 then
         for _=1, undoDepth do
             table.remove(undoStack)
         end
+        undoDepth = 0
     end
 
     table.insert(undoStack, {
-        data=data,
-        clipboard=clipboard,
+        data=deepcopy(data),
+        clipboard=deepcopy(clipboard),
     })
 end
 
@@ -108,7 +117,9 @@ local function moveView(sign, minmax, limit)
 
     if oldViewIndex ~= viewIndex then
         draw()
+        return true
     end
+    return false
 end
 
 -- control panel setup
@@ -135,22 +146,38 @@ for i=0, 8 do
             selectEnd = newSelect
         end
         draw()
+        return false
     end)
 end
 
 patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
-    moveView(-1, math.max, 1)
+    return moveView(-1, math.max, 1)
 end)
 
 patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
-    moveView(1, math.min, #data - 8)
+    return moveView(1, math.min, #data - 8)
 end)
 
 buttonGrid:add("nudge left", 1, 2, {}, nil)
 
 buttonGrid:add("nudge right", 2, 2, {}, nil)
 
-buttonGrid:add("delete", 3, 2, {}, nil)
+buttonGrid:add("delete", 3, 2, {}, function()
+    if selectStart == 0 then return false end
+
+    for i=selectStart, selectEnd do
+        table.remove(data, selectStart)
+    end
+
+    selectStart = 0
+    selectEnd = 0
+
+    pushUndoState()
+    draw()
+    save()
+
+    return true
+end)
 
 buttonGrid:add("duplicate", 4, 2, {}, nil)
 
@@ -158,12 +185,14 @@ buttonGrid:add("select none", 5, 2, {}, function()
     selectStart = 0
     selectEnd = 0
     draw()
+    return true
 end)
 
 buttonGrid:add("select all", 6, 2, {}, function()
     selectStart = 1
     selectEnd = #data
     draw()
+    return true
 end)
 
 local shift, ctrl
@@ -174,6 +203,7 @@ shift = buttonGrid:add("shift", 1, 3, {scaleY=0.4, alignY="top"}, function()
     t.buttonList[shift].active = isShiftHeld
     t.buttonList[ctrl].active = isCtrlHeld
     t:draw()
+    return false
 end)
 
 ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, function()
@@ -182,6 +212,7 @@ ctrl = buttonGrid:add("ctrl", 1, 3, {scaleY=0.4, alignY="bottom"}, function()
     t.buttonList[shift].active = isShiftHeld
     t.buttonList[ctrl].active = isCtrlHeld
     t:draw()
+    return false
 end)
 
 buttonGrid:add("cut", 2, 3, {}, nil)
@@ -191,17 +222,21 @@ buttonGrid:add("copy", 3, 3, {}, nil)
 buttonGrid:add("paste", 4, 3, {}, nil)
 
 buttonGrid:add("undo", 5, 3, {}, function()
-    if undoDepth < #undoStack - 1 then
-        undoDepth = undoDepth + 1
-        applyUndoState()
-    end
+    if undoDepth >= #undoStack - 1 then return false end
+    undoDepth = undoDepth + 1
+    applyUndoState()
+    draw()
+    save()
+    return true
 end)
 
 buttonGrid:add("redo", 6, 3, {}, function()
-    if undoDepth > 0 then
-        undoDepth = undoDepth - 1
-        applyUndoState()
-    end
+    if undoDepth <= 0 then return false end
+    undoDepth = undoDepth - 1
+    applyUndoState()
+    draw()
+    save()
+    return true
 end)
 
 -- main loop
@@ -217,7 +252,7 @@ while true do
         if name == "top" then
             data = mainPort.readIota()
 
-            undoStack = {}
+            -- if we take out the focus to look at it, we might still want to be able to undo/redo
             pushUndoState()
 
             viewIndex = 1
