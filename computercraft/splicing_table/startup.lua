@@ -235,7 +235,17 @@ buttonGrid:add("nudge right", 4, 2, {}, function()
     return pushAndSave()
 end)
 
-buttonGrid:add("delete", 5, 2, {}, function()
+buttonGrid:add("duplicate", 5, 2, {}, function()
+    if selectStart == 0 then return false end
+
+    for i=selectEnd, selectStart, -1 do
+        table.insert(data, selectEnd + 1, data[i])
+    end
+
+    return pushAndSave()
+end)
+
+buttonGrid:add("delete", 6, 2, {}, function()
     if selectStart == 0 then return false end
 
     for i=selectStart, selectEnd do
@@ -244,16 +254,6 @@ buttonGrid:add("delete", 5, 2, {}, function()
 
     selectStart = 0
     selectEnd = 0
-
-    return pushAndSave()
-end)
-
-buttonGrid:add("duplicate", 6, 2, {}, function()
-    if selectStart == 0 then return false end
-
-    for i=selectEnd, selectStart, -1 do
-        table.insert(data, selectEnd + 1, data[i])
-    end
 
     return pushAndSave()
 end)
