@@ -38,6 +38,9 @@ local buttonNames = {}
 ---@class UndoState
 ---@field data Iota
 ---@field clipboard Iota?
+---@field viewIndex integer
+---@field selectStart integer
+---@field selectEnd integer
 
 local undoDepth = 0 -- from the top of the stack
 ---@type UndoState[]
@@ -64,13 +67,20 @@ local function pushUndoState()
     table.insert(undoStack, {
         data=deepcopy(data),
         clipboard=deepcopy(clipboard),
+        viewIndex=viewIndex,
+        selectStart=selectStart,
+        selectEnd=selectEnd,
     })
 end
 
 local function applyUndoState()
     local undoState = undoStack[#undoStack - undoDepth]
+
     data = undoState.data
     clipboard = undoState.clipboard
+    viewIndex = undoState.viewIndex
+    selectStart = undoState.selectStart
+    selectEnd = undoState.selectEnd
 end
 
 local function drawPatterns()
@@ -105,6 +115,7 @@ end
 ---@param sign 1 | -1
 ---@param minmax fun(number, number): number
 ---@param limit number
+---@return boolean
 local function moveView(sign, minmax, limit)
     local oldViewIndex = viewIndex
 
@@ -158,9 +169,29 @@ patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
     return moveView(1, math.min, #data - 8)
 end)
 
-buttonGrid:add("nudge left", 1, 2, {}, nil)
+buttonGrid:add("nudge left", 1, 2, {}, function()
+    if selectStart <= 1 then return false end
 
-buttonGrid:add("nudge right", 2, 2, {}, nil)
+    local tmp = data[selectStart - 1]
+
+    for i=selectStart, selectEnd do
+        data[i - 1] = data[i]
+    end
+
+    selectStart = selectStart - 1
+    selectEnd = selectEnd - 1
+
+    data[selectEnd + 1] = tmp
+
+    pushUndoState()
+    draw()
+    save()
+    return true
+end)
+
+buttonGrid:add("nudge right", 2, 2, {}, function()
+    return false
+end)
 
 buttonGrid:add("delete", 3, 2, {}, function()
     if selectStart == 0 then return false end
@@ -175,7 +206,6 @@ buttonGrid:add("delete", 3, 2, {}, function()
     pushUndoState()
     draw()
     save()
-
     return true
 end)
 
