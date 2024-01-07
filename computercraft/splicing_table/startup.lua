@@ -222,12 +222,14 @@ end)
 -- data row
 
 buttonGrid:add("select none", 1, 2, {}, function()
+    if not selection then return false end
     selection = nil
     draw()
     return true
 end)
 
 buttonGrid:add("select all", 2, 2, {}, function()
+    if selection and selection.left == 1 and selection.right == #data then return false end
     selection = { left=1, right=#data }
     draw()
     return true
