@@ -25,6 +25,12 @@ assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil and monitor ~= n
 
 monitor.setTextScale(0.5)
 
+-- control panel setup
+
+local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
+local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+local moreGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}, hidden=true})
+
 -- state
 
 local data = mainPort.readIota()
@@ -213,10 +219,10 @@ end
 
 ---@param name string
 ---@return (PatternIota | string)[]
-local function createWatchpoint(name)
+local function createValueWatchpoint(name)
     --[[
         {
-            "WATCHPOINT="..name
+            "VALUE_WATCH="..name
         }
         Prospector's Gambit
         Integration Distillation
@@ -234,11 +240,61 @@ local function createWatchpoint(name)
     }
 end
 
--- control panel setup
 
-local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
-local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
-local moreGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}, hidden=true})
+---@param name string
+---@return (PatternIota | string)[]
+local function createStackWatchpoint(name)
+    --[[
+        Flock's Reflection
+        Flock's Gambit
+        Gemini Gambit
+        Integration Distillation
+        Flock's Disintegration
+        {
+            "STACK_WATCH="..name
+        }
+        Jester's Gambit
+        Integration Distillation
+        Reveal
+        Bookkeeper's Gambit: v
+    ]]
+    return {
+        { startDir="NORTH_WEST", angles="qwaeawqaeaqa" },
+        { startDir="SOUTH_WEST", angles="ewdqdwe" },
+        { startDir="EAST", angles="aadaa" },
+        { startDir="SOUTH_WEST", angles="edqde" },
+        { startDir="NORTH_WEST", angles="qwaeawq" },
+        { startDir="WEST", angles="qqq" },
+        "WATCHPOINT="..name,
+        { startDir="EAST", angles="eee" },
+        { startDir="EAST", angles="aawdd" },
+        { startDir="SOUTH_WEST", angles="edqde" },
+        { startDir="NORTH_EAST", angles="de" },
+        { startDir="SOUTH_EAST", angles="a" },
+    }
+end
+
+---@param createWatchpoint fun(string): any[]
+local function insertWatchpoint(buttonName, createWatchpoint)
+    if not selection then return false end
+
+    local button = t.buttonList[buttonName]
+    button.active = true
+    t:setLabel(buttonName, "enter name")
+
+    write("Enter watchpoint name: ")
+    local watchpointName = read() ---@cast watchpointName string
+
+    t:setLabel(buttonName, "watchpoint")
+    button.active = false
+
+    local watchpoint = createWatchpoint(watchpointName)
+    paste(watchpoint, true, true)
+
+    moreGrid:hide(false)
+    buttonGrid:show()
+    return false
+end
 
 -- buttons!
 
@@ -427,25 +483,12 @@ end)
 
 -- more!
 
-moreGrid:add("watchpoint", 6, 2, {}, function()
-    if not selection then return false end
+moreGrid:add("watch value", 5, 2, {}, function()
+    return insertWatchpoint("watch value", createValueWatchpoint)
+end)
 
-    local button = t.buttonList["watchpoint"]
-    button.active = true
-    t:setLabel("watchpoint", "enter name")
-
-    write("Enter watchpoint name: ")
-    local watchpointName = read() ---@cast watchpointName string
-
-    t:setLabel("watchpoint", "watchpoint")
-    button.active = false
-
-    local watchpoint = createWatchpoint(watchpointName)
-    paste(watchpoint, true, true)
-
-    moreGrid:hide(false)
-    buttonGrid:show()
-    return false
+moreGrid:add("watch stack", 6, 2, {}, function()
+    return insertWatchpoint("watch stack", createStackWatchpoint)
 end)
 
 -- main loop
