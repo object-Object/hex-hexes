@@ -177,7 +177,7 @@ end
 -- control panel setup
 
 local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
-local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+local buttonGrid =  gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
 
 -- buttons!
 
@@ -359,13 +359,13 @@ buttonGrid:add("paste", 4, 3, {}, function()
     return pushAndSave()
 end)
 
-buttonGrid:add("undo", 5, 3, {}, function()
+buttonGrid:add("undo", 5, 3, {scaleY=0.4, alignY="top"}, function()
     if undoDepth >= #undoStack - 1 then return false end
     undoDepth = undoDepth + 1
     return applyAndSave()
 end)
 
-buttonGrid:add("redo", 6, 3, {}, function()
+buttonGrid:add("redo", 5, 3, {scaleY=0.4, alignY="bottom"}, function()
     if undoDepth <= 0 then return false end
     undoDepth = undoDepth - 1
     return applyAndSave()
