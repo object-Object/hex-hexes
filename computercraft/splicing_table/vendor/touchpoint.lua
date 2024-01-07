@@ -62,10 +62,10 @@ end
 ---@alias monSide computerSide|"term"
 
 ---@class ButtonOptions
----@field inactiveColor integer
----@field activeColor integer
----@field inactiveText integer
----@field activeText integer
+---@field inactiveColor integer?
+---@field activeColor integer?
+---@field inactiveText integer?
+---@field activeText integer?
 
 ---@class Button: ButtonOptions
 ---@field func (fun(): boolean)?
@@ -81,6 +81,7 @@ end
 ---@field mon Redirect
 ---@field buttonList { [string]: Button }
 ---@field clickMap any
+---@field defaultOptions ButtonOptions
 local TouchPoint = {
 	---@param self TouchPoint
 	draw = function(self)
@@ -125,10 +126,10 @@ local TouchPoint = {
 			xMax = xMax,
 			yMax = yMax,
 			active = false,
-			inactiveColor = options.inactiveColor or colors.red,
-			activeColor = options.activeColor or colors.lime,
-			inactiveText = options.inactiveText or colors.black,
-			activeText = options.activeText or colors.black,
+			inactiveColor = options.inactiveColor or self.defaultOptions.inactiveColor,
+			activeColor = options.activeColor or self.defaultOptions.activeColor,
+			inactiveText = options.inactiveText or self.defaultOptions.inactiveText,
+			activeText = options.activeText or self.defaultOptions.activeText,
 			label = label,
 		}
 		for i = xMin, xMax do
@@ -254,13 +255,24 @@ local TouchPoint = {
 local touchpoint = {}
 
 ---@param monSide monSide
+---@param defaultOptions ButtonOptions?
 ---@return TouchPoint
-function touchpoint.new(monSide)
+function touchpoint.new(monSide, defaultOptions)
+	defaultOptions = defaultOptions or {}
+	local mon = monSide and peripheral.wrap(monSide) or term.current() ---@cast mon Redirect
+
+	---@type TouchPoint
 	local buttonInstance = {
 		side = monSide or "term",
-		mon = monSide and peripheral.wrap(monSide) or term.current(),
+		mon = mon,
 		buttonList = {},
 		clickMap = {},
+		defaultOptions = {
+			inactiveColor = defaultOptions.inactiveColor or colors.red,
+			activeColor = defaultOptions.activeColor or colors.lime,
+			inactiveText = defaultOptions.inactiveText or colors.black,
+			activeText = defaultOptions.activeText or colors.black,
+		},
 	}
 	local x, y = buttonInstance.mon.getSize()
 	for i = 1, x do

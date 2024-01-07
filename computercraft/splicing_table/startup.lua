@@ -9,7 +9,13 @@ local mainPort = peripheral.wrap("top")
 local clipboardPort = peripheral.wrap("bottom")
 local link = peripheral.wrap("right")
 local monitor = peripheral.wrap("left")
-local t = touchpoint.new("left")
+
+local t = touchpoint.new("left", {
+    activeColor = colors.purple,
+    activeText = colors.black,
+    inactiveColor = colors.magenta,
+    inactiveText = colors.black,
+})
 
 assert(mainPort ~= nil and clipboardPort ~= nil and link ~= nil and monitor ~= nil)
 ---@cast mainPort FocalPort
