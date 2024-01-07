@@ -45,6 +45,14 @@ local function getFullPadding(padding)
     end
 end
 
+---@class GridButton
+---@field xMin integer
+---@field yMin integer
+---@field xMax integer
+---@field yMax integer
+---@field func (fun(): boolean)?
+---@field options ButtonOptions
+
 ---@class AlignmentOptions
 ---@field scaleX number?
 ---@field scaleY number?
@@ -60,6 +68,8 @@ end
 ---@field package rows integer
 ---@field package padding FullPadding
 ---@field package margin FullPadding
+---@field package buttons { [string]: GridButton }
+---@field package hidden boolean
 
 ---@class GridManager: PartialGridManager
 ---@field package termX integer
@@ -129,6 +139,15 @@ local GridManager = {
 	add = function(self, name, x, y, options, func)
         options = options or {}
         local xMin, yMin, xMax, yMax = self:pos(x, y, options)
+        self.buttons[name] = {
+            xMin = xMin,
+            yMin = yMin,
+            xMax = xMax,
+            yMax = yMax,
+            func = func,
+            options = options,
+        }
+        if self.hidden then return name end
         return self.t:add(name, func, xMin, yMin, xMax, yMax, options)
     end,
 
@@ -145,6 +164,32 @@ local GridManager = {
         self.buttonX = self.fullButtonX - self.padding.left - self.padding.right
         self.buttonY = self.fullButtonY - self.padding.top - self.padding.bottom
     end,
+
+    ---@param self GridManager
+    ---@param draw boolean?
+    hide = function(self, draw)
+        if self.hidden then return end
+        self.hidden = true
+        for name, _ in pairs(self.buttons) do
+            self.t:remove(name)
+        end
+        if draw ~= false then
+            self.t:draw()
+        end
+    end,
+
+    ---@param self GridManager
+    ---@param draw boolean?
+    show = function(self, draw)
+        if not self.hidden then return end
+        self.hidden = false
+        for name, button in pairs(self.buttons) do
+            self.t:add(name, button.func, button.xMin, button.yMin, button.xMax, button.yMax, button.options)
+        end
+        if draw ~= false then
+            self.t:draw()
+        end
+    end,
 }
 
 local gridmanager = {}
@@ -152,6 +197,7 @@ local gridmanager = {}
 ---@class GridManagerOptions
 ---@field padding padding?
 ---@field margin padding?
+---@field hidden boolean?
 
 ---@param t TouchPoint
 ---@param columns integer
@@ -167,6 +213,8 @@ function gridmanager.new(t, columns, rows, options)
         rows=rows,
         padding=getFullPadding(options.padding),
         margin=getFullPadding(options.margin),
+        buttons={},
+        hidden=options.hidden or false,
     }
 
 	setmetatable(instance, {__index = GridManager})

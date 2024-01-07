@@ -107,7 +107,7 @@ local TouchPoint = {
 
 	---@param self TouchPoint
 	---@param name buttonName
-	---@param func fun()?
+	---@param func fun(boolean)?
 	---@param xMin integer
 	---@param yMin integer
 	---@param xMax integer

@@ -180,10 +180,65 @@ local function isListIota(iota)
     return true
 end
 
+---@param dataToPaste Iota?
+---@param insertRight boolean
+---@param flatten boolean
+---@return boolean
+local function paste(dataToPaste, insertRight, flatten)
+    if selection == nil or dataToPaste == nil then return false end
+
+    if insertRight then
+        selection.left = selection.right + 1
+    else
+        -- overwrite selection
+        for _=selection.left, selection.right do
+            table.remove(data, selection.left)
+        end
+    end
+
+    if flatten and isListIota(dataToPaste) then
+        -- flatten list
+        for i=#dataToPaste, 1, -1 do
+            table.insert(data, selection.left, dataToPaste[i])
+        end
+        selection.right = selection.left + #dataToPaste - 1
+    else
+        -- insert verbatim
+        table.insert(data, selection.left, dataToPaste)
+        selection.right = selection.left
+    end
+
+    return pushAndSave()
+end
+
+---@param name string
+---@return (PatternIota | string)[]
+local function createWatchpoint(name)
+    --[[
+        {
+            "WATCHPOINT="..name
+        }
+        Prospector's Gambit
+        Integration Distillation
+        Reveal
+        Bookkeeper's Gambit: v
+    ]]
+    return {
+        { startDir="WEST", angles="qqq" },
+        "WATCHPOINT="..name,
+        { startDir="EAST", angles="eee" },
+        { startDir="EAST", angles="aaedd" },
+        { startDir="SOUTH_WEST", angles="edqde" },
+        { startDir="NORTH_EAST", angles="de" },
+        { startDir="SOUTH_EAST", angles="a" },
+    }
+end
+
 -- control panel setup
 
 local patternGrid = gridmanager.new(t, 11, 4, {padding=1, margin={top=1, bottom=-2}})
-local buttonGrid =  gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+local buttonGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}})
+local moreGrid = gridmanager.new(t, 6, 3, {padding=1, margin={x=1}, hidden=true})
 
 -- buttons!
 
@@ -341,30 +396,7 @@ buttonGrid:add("copy", 3, 3, {}, function()
 end)
 
 buttonGrid:add("paste", 4, 3, {}, function()
-    if selection == nil or clipboard == nil then return false end
-
-    if isShiftHeld then
-        selection.left = selection.right + 1
-    else
-        -- overwrite selection
-        for _=selection.left, selection.right do
-            table.remove(data, selection.left)
-        end
-    end
-
-    if not isCtrlHeld and isListIota(clipboard) then
-        -- flatten list
-        for i=#clipboard, 1, -1 do
-            table.insert(data, selection.left, clipboard[i])
-        end
-        selection.right = selection.left + #clipboard - 1
-    else
-        -- insert verbatim
-        table.insert(data, selection.left, clipboard)
-        selection.right = selection.left
-    end
-
-    return pushAndSave()
+    return paste(clipboard, isShiftHeld, not isCtrlHeld)
 end)
 
 buttonGrid:add("undo", 5, 3, {scaleY=0.4, alignY="top"}, function()
@@ -377,6 +409,43 @@ buttonGrid:add("redo", 5, 3, {scaleY=0.4, alignY="bottom"}, function()
     if undoDepth <= 0 then return false end
     undoDepth = undoDepth - 1
     return applyAndSave()
+end)
+
+-- screens
+
+buttonGrid:add("more", 6, 3, {}, function()
+    buttonGrid:hide(false)
+    moreGrid:show()
+    return false
+end)
+
+moreGrid:add("less", 6, 3, {}, function() -- teehee
+    moreGrid:hide(false)
+    buttonGrid:show()
+    return false
+end)
+
+-- more!
+
+moreGrid:add("watchpoint", 6, 2, {}, function()
+    if not selection then return false end
+
+    local button = t.buttonList["watchpoint"]
+    button.active = true
+    t:setLabel("watchpoint", "enter name")
+
+    write("Enter watchpoint name: ")
+    local watchpointName = read() ---@cast watchpointName string
+
+    t:setLabel("watchpoint", "watchpoint")
+    button.active = false
+
+    local watchpoint = createWatchpoint(watchpointName)
+    paste(watchpoint, true, true)
+
+    moreGrid:hide(false)
+    buttonGrid:show()
+    return false
 end)
 
 -- main loop
