@@ -211,11 +211,11 @@ for i=0, 8 do
     end)
 end
 
-patternGrid:add("left", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
+patternGrid:add("<--", 1, 1, {scaleX=0.6, scaleY=0.5}, function()
     return moveView(-1, math.max, 1)
 end)
 
-patternGrid:add("right", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
+patternGrid:add("-->", 11, 1, {scaleX=0.6, scaleY=0.5}, function()
     return moveView(1, math.min, #data - 8)
 end)
 
