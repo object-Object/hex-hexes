@@ -1,0 +1,148 @@
+#define Encyclopedist's Exaltation (EAST aqqqqqeqaqqqqq) = int, int, vec -> any
+// address, heap size, heap location -> value
+// reads a value from an address in the heap
+{
+    Encyclopedist's Assistant
+    Chronicler's Purification
+    Jester's Gambit
+    Selection Distillation
+}
+
+#define Encyclopedist's Gambit (EAST deeeeeqqaqqqqq) = any, int, int, vec ->
+// value, address, heap size, heap location ->
+// writes a value to an address in the heap
+// preventing serde errors with nested lists is left as an exercise for the hexcaster
+{
+    Encyclopedist's Assistant
+    Undertaker's Gambit
+    Chronicler's Purification
+
+    // if the index is out of range, insert nulls to cover the difference
+    Dioscuri Gambit
+    Abacus Purification
+    Subtractive Distillation
+    Gemini Decomposition
+    Numerical Reflection: 0
+    Maximus Distillation II
+    {
+        // if false
+        Bookkeeper's Gambit: v
+        
+        // if true
+        Muninn's Reflection
+        Rotation Gambit II
+        
+        Numerical Reflection: 1
+        Additive Distillation
+        Gemini Decomposition
+        Huginn's Gambit
+        
+        Nullary Reflection
+        Jester's Gambit
+        Gemini Gambit
+        Muninn's Reflection
+        Flock's Gambit
+        Combination Distillation
+        
+        Jester's Gambit
+        Huginn's Gambit
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // write new value
+    Jester's Gambit
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Surgeon's Exaltation
+
+    Chronicler's Gambit
+}
+
+#define Encyclopedist's Gambit II (EAST deeeeeaeeeeedq) = any, int, int, vec ->
+// value, address, heap size, heap location ->
+// writes a value to an address in the heap
+// UNSAFE - will mishap if writing to an orphaned index (no adjacent iotas)
+{
+    Encyclopedist's Assistant
+    Undertaker's Gambit
+    Chronicler's Purification
+
+    Jester's Gambit
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Surgeon's Exaltation
+
+    Chronicler's Gambit
+}
+
+#define Encyclopedist's Assistant (NORTH_EAST eeqaqqqqqdqqqqqaqee) = int, int, vec -> int, entity
+// address, heap size, heap location -> index, focus
+// internal helper macro
+{
+    // index in focus
+    Jester's Gambit
+    Rotation Gambit
+    // max size of a focus
+    // technically each focus could store up to 1022 iotas
+    // but we don't have to deal with Shame if we use 1000
+    Numerical Reflection: 1000
+    Dioscuri Gambit
+    Modulus Distillation
+    Rotation Gambit II
+    
+    // index in heap
+    Undertaker's Gambit
+    Division Distillation
+    Floor Purification
+    Jester's Gambit
+    Modulus Distillation
+
+    // focus entity
+    Rotation Gambit
+    Cubic Index Distillation
+    Rotation Gambit
+    Additive Distillation
+    Entity Purification
+}
+
+#define Locate Heap (SOUTH_EAST qaqqqqqewdedqde) = int -> vec
+// heap size -> heap position
+// returns the position of a heap centered on the player's sentinel
+{
+    Locate Sentinel
+    Jester's Gambit
+    Numerical Reflection: 2
+    Division Distillation
+    Floor Purification
+    Subtractive Distillation
+}
+
+#define Cubic Index Distillation (EAST qaqqqqqdeee) = int, int -> vec
+// index, size -> coord
+// iterates x+, then z+, then y+
+{
+    // x
+    Dioscuri Gambit
+    Modulus Distillation
+    Rotation Gambit II
+    
+    // z
+    Dioscuri Gambit
+    Undertaker's Gambit
+    Division Distillation
+    Floor Purification
+    Jester's Gambit
+    Modulus Distillation
+    Rotation Gambit II
+    
+    // y
+    Gemini Decomposition
+    Multiplicative Distillation
+    Division Distillation
+    Floor Purification
+
+    Jester's Gambit
+    Vector Exaltation
+}
