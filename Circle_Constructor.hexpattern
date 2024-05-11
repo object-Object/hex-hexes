@@ -1,0 +1,78 @@
+{
+    Consideration: {
+        // increase the max speed over the first few iterations to save media
+        Speedometer's Reflection
+        Numerical Reflection: 0.5 // step
+        Additive Distillation
+        Gemini Decomposition
+        Numerical Reflection: 5 // target
+        Minimus Distillation II
+        {
+            Haste
+            Bookkeeper's Gambit: v
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // receive the next pattern
+        Recitation Reflection
+        Listen
+
+        Gemini Decomposition
+        Augur's Purification
+        {
+            Scribe's Gambit // write the pattern to the slates in the player's offhand
+            Charon's Gambit // skip this iteration if we didn't receive a pattern
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // get the next position to place a slate
+        // use the current position if possible; otherwise move one block in the player's look direction
+        Identity Reflection
+        Compass' Purification
+
+        Mind's Reflection
+        Alidade's Purification
+        Axial Purification
+
+        Prospector's Gambit
+        Sorter's Purification
+        Augur's Purification
+        {
+            Additive Distillation
+            Bookkeeper's Gambit: v
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // place a slate and move onto it
+        Gemini Decomposition
+        Place Block
+        Erase Item // workaround for bug that prevents overwriting slates
+
+        Pathfinder's Gambit
+        Wander
+    Consideration: }
+
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+
+    Dioscuri Gambit
+    Archer's Distillation
+    Rotation Gambit II
+    Architect's Distillation
+    Additive Distillation
+
+    Undertaker's Gambit
+    Numerical Reflection: 100
+    Summon Cyclic Wisp
+
+    Entity Purification: Wisp
+    Link
+}
