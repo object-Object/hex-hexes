@@ -262,3 +262,29 @@
     Jester's Gambit
     Augur's Exaltation
 }
+
+#define Gaussian Gambit (e) = -> num, num
+// Generates two independent random variables with a standard normal distribution.
+// https://en.wikipedia.org/wiki/Box-Muller_transform
+{
+    Numerical Reflection: -2
+    Entropy Reflection
+    Euler's Reflection
+    Logarithmic Distillation
+    Multiplicative Distillation
+    Numerical Reflection: 0.5
+    Power Distillation
+    
+    Numerical Reflection: 2
+    Arc's Reflection
+    Entropy Reflection
+    Multiplicative Distillation
+    Multiplicative Distillation
+    
+    Dioscuri Gambit
+    Sine Purification
+    Multiplicative Distillation
+    Rotation Gambit II
+    Cosine Purification
+    Multiplicative Distillation
+}
