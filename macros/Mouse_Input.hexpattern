@@ -95,7 +95,7 @@
     Hermes' Gambit
 }
 
-// demo hex (for genie lamp)
+// lamp demo
 {
     // get current vectors
     Mind's Reflection
@@ -134,9 +134,14 @@
     Particles
     
     // get mouse pos
+    // this uses embedding for easier iteration; you could also just use the macro directly
     Numerical Reflection: 16
     Swindler's Gambit
-    Mouse Input
+    {
+        Bookkeeper's Gambit: - <[Mouse Input]>
+    }
+    Flock's Disintegration
+    Hermes' Gambit
     
     // print mouse pos
     Dioscuri Gambit
@@ -173,6 +178,138 @@
 
     Numerical Reflection: 2
     Multiplicative Distillation
+
+    Mind's Reflection
+    Compass' Purification
+    Additive Distillation
+    Particles
+}
+
+// lamp demo with relative movement
+{
+    // get (and set, if necessary) accumulators and reference vectors
+    Genie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    {
+        // if truthy
+        Flock's Disintegration
+        
+        // if falsy
+        Bookkeeper's Gambit: v
+
+        Numerical Reflection: 0
+        Numerical Reflection: 0
+
+        Mind's Reflection
+        Alidade's Purification
+        Mind's Reflection
+        Theodolite Purification
+
+        Numerical Reflection: 4
+        Dioscuri Gambit II
+        Numerical Reflection: 4
+        Flock's Gambit
+        Genie Gambit
+    }
+    Speaker's Decomposition
+    Jester's Gambit
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // draw particle at reference point
+    Prospector's Gambit
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    Mind's Reflection
+    Compass' Purification
+    Additive Distillation
+    Particles
+
+    // get mouse offset
+    // this uses embedding for easier iteration; you could also just use the macro directly
+    Mind's Reflection
+    Alidade's Purification
+    Mind's Reflection
+    Theodolite Purification
+    {
+        Bookkeeper's Gambit: - <[Mouse Input]>
+    }
+    Flock's Disintegration
+    Hermes' Gambit
+
+    // continue if out of bounds
+    Gemini Decomposition
+    Nullary Reflection
+    Equality Distillation
+    {
+        Charon's Gambit
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // apply sensitivity
+    Numerical Reflection: 0
+    Vector Exaltation
+    Numerical Reflection: 0.5  // sensitivity
+    Multiplicative Distillation
+    
+    // check for dead zone
+    Gemini Decomposition
+    Length Purification
+
+    Numerical Reflection: 1  // 1 degree from reference
+    Numerical Reflection: 90
+    Division Distillation
+    Maximus Distillation
+
+    Jester's Gambit
+    Vector Reflection Zero
+    Augur's Exaltation
+    Vector Disintegration
+    Bookkeeper's Gambit: v
+
+    // add offset to mouse pos
+    Rotation Gambit
+    Additive Distillation
+    Rotation Gambit II
+    Additive Distillation
+    Jester's Gambit
+
+    // print mouse pos
+    Dioscuri Gambit
+    Numerical Reflection: 2
+    Flock's Gambit
+    Send Thought
+
+    // update saved mouse pos
+    Genie Reflection: Memory
+    Flock's Disintegration
+    Bookkeeper's Gambit: vv--
+    Numerical Reflection: 4
+    Dioscuri Gambit II
+    Numerical Reflection: 4
+    Flock's Gambit
+    Genie Gambit
+
+    // draw particle at mouse pos
+    Dioscuri Gambit
+    Division Distillation
+    
+    Numerical Reflection: 56  // edcba -> cdbea
+    Swindler's Gambit
+    
+    Multiplicative Distillation
+    Rotation Gambit II
+    Multiplicative Distillation
+    Additive Distillation
+
+    Jester's Gambit
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    Additive Distillation
 
     Mind's Reflection
     Compass' Purification

@@ -263,9 +263,29 @@
     Augur's Exaltation
 }
 
+#define Theta Distillation (NORTH_WEST awddeeeeeqa) = vec, vec -> num
+// u, v -> angle
+// Returns the unsigned angle between two vectors.
+{
+    // u * v
+    Dioscuri Gambit
+    Multiplicative Distillation
+    
+    // |u| * |v|
+    Rotation Gambit II
+    Length Purification
+    Jester's Gambit
+    Length Purification
+    Multiplicative Distillation
+    
+    // arccos((u * v) / (|u| * |v|))
+    Division Distillation
+    Inverse Cosine Purification
+}
+
 #define Theta Exaltation (NORTH_EAST dwaaqqqqqed) = vec, vec, vec -> num
 // u, v, n -> angle
-// returns the signed angle between two vectors, given the plane normal as a unit vector
+// Returns the signed angle between two vectors, given the plane normal as a unit vector.
 {
     // u x v
     Rotation Gambit II
