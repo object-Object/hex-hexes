@@ -1,0 +1,108 @@
+#include "./macros/Mouse_Input.hexpattern"
+#include "./macros/Math.hexpattern"
+#include "./addons/hexical.hexpattern"
+
+{
+    Macula Erasure
+
+    // if the lamp is stopping, don't write anything new to the macula
+    Finale Reflection
+    {
+        Charon's Gambit
+        Nullary Reflection
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+    Bookkeeper's Gambit: v
+
+    // get current look/up vectors
+    Mind's Reflection
+    Alidade's Purification
+    Mind's Reflection
+    Theodolite Purification
+
+    // get reference look/up vectors, and save them if necessary
+    Genie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    {
+        // if truthy
+        Flock's Disintegration
+        
+        // if falsy
+        Bookkeeper's Gambit: v
+        Dioscuri Gambit
+        Dioscuri Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Genie Gambit
+    }
+    Speaker's Decomposition
+    Jester's Gambit
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // get mouse pos
+    Numerical Reflection: 16
+    Swindler's Gambit
+    Mouse Input
+
+    // continue if out of bounds
+    Gemini Decomposition
+    Nullary Reflection
+    Equality Distillation
+    {
+        Charon's Gambit
+        Bookkeeper's Gambit: -
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // translate mouse pos to screen space
+    Numerical Reflection: -1
+    Multiplicative Distillation
+
+    Numerical Reflection: 0
+    Vector Exaltation
+    
+    Macula Gambit
+    Minimization Distillation
+    Numerical Reflection: 2
+    Division Distillation
+    Multiplicative Distillation
+    
+    Macula Gambit
+    Numerical Reflection: 2  // ensure cursor is drawn in front of buttons
+    Vector Exaltation
+    Numerical Reflection: 2
+    Division Distillation
+    Additive Distillation
+
+    // offset cursor so the center of the x is over the mouse pos
+    Gemini Decomposition
+    Numerical Reflection: -3
+    Numerical Reflection: -5
+    Numerical Reflection: 0
+    Vector Exaltation
+    Additive Distillation
+
+    // draw cursor
+    {
+        Bookkeeper's Gambit: -- <"x">
+    }
+    Flock's Disintegration
+    Calligrapher's Purification
+    Etch Visage
+
+    // {
+    //     <[[callback, text, left, top, right, bottom]]>
+    // }
+
+    // {
+
+    // }
+    // Jester's Gambit
+    // Thoth's Gambit
+}

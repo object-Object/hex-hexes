@@ -1,11 +1,5 @@
 #include "./Math.hexpattern"
-
-// hexical
-#define Theodolite Purification (EAST wqaa)
-#define Dioscuri Gambit II (EAST waadadaa)
-#define Genie Gambit (SOUTH_WEST qwddedqedeeeee)
-#define Genie Reflection: Memory (SOUTH_WEST qwddedqwaqqqqq)
-#define Send Thought (EAST qqqqwaqa)
+#include "../addons/hexical.hexpattern"
 
 #define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch
