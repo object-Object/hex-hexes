@@ -263,7 +263,7 @@
     Augur's Exaltation
 }
 
-#define Theta Distillation = vec, vec, vec -> num
+#define Theta Exaltation = vec, vec, vec -> num
 // u, v, n -> angle
 // returns the signed angle between two vectors, given the plane normal as a unit vector
 {
