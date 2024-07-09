@@ -21,6 +21,16 @@
             "args": ["./hexdecode/pattern_registry.pickle", "./hexdecode/en_us.json", "--highlight"],
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "type": "hexdebug",
+            "request": "attach",
+            "name": "HexDebug: Attach",
+            "port": 4444,
+            "stopOnEntry": true,
+            "stopOnExit": true,
+            "skipNonEvalFrames": true,
+            "indentWidth": 4
         }
     ]
 }

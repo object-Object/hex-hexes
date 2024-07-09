@@ -2,18 +2,24 @@
 
 // hexical
 #define Theodolite Purification
+#define Dioscuri Gambit II
 
-#define Get Relative Angles = vec, vec -> num, num
-// reference, current -> yaw, pitch
-// Given a reference and current direction, returns the current yaw and pitch relative to the reference.
-// Both inputs should be unit vectors, and the returned values are in radians.
+// FIXME:
+// - should be able to simplify the start of get relative
+// - pitch seems to be incorrect :(
+
+#define Get Relative Angles = vec, vec, vec, vec -> num, num
+// reference look, reference up, current look, current up -> yaw, pitch
+// Given reference and current look/up directions, returns the current yaw and pitch relative to the reference.
+// All inputs should be unit vectors, and the returned values are in radians.
+// Yaw increases right, and pitch increases down.
 {
-    // up vectors
-    Dioscuri Gambit
-    Prospector's Gambit
-    Theodolite Purification
-    Prospector's Gambit
-    Theodolite Purification
+    // move up vectors to top of stack, and copy look vectors
+    Numerical Reflection: 4
+    Dioscuri Gambit II
+    Bookkeeper's Gambit: v-v----
+    Rotation Gambit
+    Jester's Gambit
     
     // right vectors
     Rotation Gambit
@@ -22,9 +28,10 @@
     Jester's Gambit
     Division Distillation
     
-    // yaw (angle between reference right and current right)
+    // yaw (angle between current right and reference right)
     Gemini Decomposition
     Rotation Gambit
+    Jester's Gambit
     Vector Reflection +Y
     Theta Exaltation
     
@@ -47,29 +54,33 @@
     Theta Exaltation
 }
 
-#define Mouse Input = vec, vec -> (num, num) | null
-// reference, current -> x, y
-// Given a reference and current look direction, returns an x/y mouse position relative to the reference position.
+#define Mouse Input = vec, vec, vec, vec -> (num, num) | null
+// reference look, reference up, current look, current up -> x, y
+// Given reference and current look/up directions, returns an x/y mouse position relative to the reference position.
 // The position (0, 0) is at the reference, x increases when yawing right, and y increases when pitching up.
 // The coordinates range from -1 to 1, at -90 and 90 degrees from the reference respectively.
 // If the mouse goes out of bounds in either axis, a single null value is returned.
 {
-    // add null to bottom of stack for later
-    Nullary Reflection
-    Rotation Gambit II
-
     // bounds check (out of range if true)
-    // since we're checking for +/- 90 degrees, we can just do a dot product test
-    Dioscuri Gambit
+    // since we're checking for +/- 90 degrees, we can just do a dot product test on the up (or look) directions
+    Gemini Decomposition
+    Numerical Reflection: 3
+    Fisherman's Gambit II
+
     Multiplicative Distillation
     Numerical Reflection: 0
     Minimus Distillation
-    Rotation Gambit II
+    
+    Numerical Reflection: 96  // edcba -> aedcb
+    Swindler's Gambit
 
     // get scaled coordinates
     Get Relative Angles
+
+    Numerical Reflection: -1  // invert pitch
+    Multiplicative Distillation
     
-    Circle's Reflection
+    Circle's Reflection  // tau / 4 = 90 degrees
     Numerical Reflection: 4
     Division Distillation
     Undertaker's Gambit
@@ -81,9 +92,11 @@
 
     // return null if out of range
     Rotation Gambit
+    Nullary Reflection
+    Jester's Gambit
     {
-        Bookkeeper's Gambit: vv
-        Bookkeeper's Gambit: v--
+        Bookkeeper's Gambit: vv-
+        Bookkeeper's Gambit: v
     }
     Flock's Disintegration
     Augur's Exaltation
