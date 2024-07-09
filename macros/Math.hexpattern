@@ -263,6 +263,29 @@
     Augur's Exaltation
 }
 
+#define Theta Distillation = vec, vec, vec -> num
+// u, v, n -> angle
+// returns the signed angle between two vectors, given the plane normal as a unit vector
+{
+    // u x v
+    Rotation Gambit II
+    Dioscuri Gambit
+    Division Distillation
+
+    // u * v
+    Rotation Gambit II
+    Multiplicative Distillation
+
+    // (u x v) * n
+    Rotation Gambit II
+    Multiplicative Distillation
+
+    // atan2((u x v) * n, u * v)
+    Jester's Gambit
+    Inverse Tangent Distillation
+}
+
+
 #define Gaussian Gambit (e) = -> num, num
 // Generates two independent random variables with a standard normal distribution.
 // https://en.wikipedia.org/wiki/Box-Muller_transform

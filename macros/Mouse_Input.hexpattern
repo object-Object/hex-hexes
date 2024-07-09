@@ -1,0 +1,92 @@
+#include "./Math.hexpattern"
+
+// hexical
+#define Theodolite Purification
+#define Dioscuri Gambit II
+
+#define Get Relative Angles = vec, vec -> num, num
+// reference, current -> yaw, pitch
+// Given a reference and current direction, returns the current yaw and pitch relative to the reference.
+// Both inputs should be unit vectors, and the returned values are in radians.
+{
+    // up vectors
+    Dioscuri Gambit
+    Prospector's Gambit
+    Theodolite Purification
+    Prospector's Gambit
+    Theodolite Purification
+    
+    // right vectors
+    Rotation Gambit
+    Division Distillation
+    Rotation Gambit II
+    Jester's Gambit
+    Division Distillation
+    
+    // yaw (angle between reference right and current right)
+    Gemini Decomposition
+    Rotation Gambit
+    Vector Reflection +Y
+    Theta Distillation
+    
+    // rotate current look about y axis to cancel out yaw
+    Rotation Gambit
+    Prospector's Gambit
+    Numerical Reflection: -1
+    Multiplicative Distillation
+    Vector Reflection +Y
+    Jester's Gambit
+    Rotation Distillation
+    Jester's Gambit
+    Multiplication Distillation: Matrix
+
+    // pitch (angle between rotated current look and reference look)
+    Rotation Gambit
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Jester's Gambit
+    Theta Distillation
+}
+
+#define Mouse Input = vec, vec -> (num, num) | null
+// reference, current -> x, y
+// Given a reference and current look direction, returns an x/y mouse position relative to the reference position.
+// The position (0, 0) is at the reference, x increases when yawing right, and y increases when pitching up.
+// The coordinates range from -1 to 1, at -90 and 90 degrees from the reference respectively.
+// If the mouse goes out of bounds in either axis, a single null value is returned.
+{
+    // add null to bottom of stack for later
+    Nullary Reflection
+    Rotation Gambit II
+
+    // bounds check (out of range if true)
+    // since we're checking for +/- 90 degrees, we can just do a dot product test
+    Dioscuri Gambit
+    Multiplicative Distillation
+    Numerical Reflection: 0
+    Minimus Distillation
+    Rotation Gambit II
+
+    // get scaled coordinates
+    Get Relative Angles
+    
+    Circle's Reflection
+    Numerical Reflection: 4
+    Division Distillation
+    Undertaker's Gambit
+    
+    Division Distillation
+    Rotation Gambit II
+    Division Distillation
+    Jester's Gambit
+
+    // return null if out of range
+    Rotation Gambit
+    {
+        Bookkeeper's Gambit: vv
+        Bookkeeper's Gambit: v--
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+}
