@@ -134,14 +134,9 @@
     Particles
     
     // get mouse pos
-    // this uses embedding for easier iteration; you could also just use the macro directly
     Numerical Reflection: 16
     Swindler's Gambit
-    {
-        Bookkeeper's Gambit: - <[Mouse Input]>
-    }
-    Flock's Disintegration
-    Hermes' Gambit
+    Mouse Input
     
     // print mouse pos
     Dioscuri Gambit
@@ -227,16 +222,11 @@
     Particles
 
     // get mouse offset
-    // this uses embedding for easier iteration; you could also just use the macro directly
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
     Theodolite Purification
-    {
-        Bookkeeper's Gambit: - <[Mouse Input]>
-    }
-    Flock's Disintegration
-    Hermes' Gambit
+    Mouse Input
 
     // continue if out of bounds
     Gemini Decomposition
