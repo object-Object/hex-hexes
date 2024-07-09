@@ -26,7 +26,7 @@
     Gemini Decomposition
     Rotation Gambit
     Vector Reflection +Y
-    Theta Distillation
+    Theta Exaltation
     
     // rotate current look about y axis to cancel out yaw
     Rotation Gambit
@@ -44,7 +44,7 @@
     Numerical Reflection: 4
     Fisherman's Gambit
     Jester's Gambit
-    Theta Distillation
+    Theta Exaltation
 }
 
 #define Mouse Input = vec, vec -> (num, num) | null
