@@ -1,0 +1,93 @@
+#include "./macros/List_Manipulation.hexpattern"
+
+
+/*
+64x64x30
+*/
+
+{
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Alidade's Purification
+    Archer's Distillation
+
+    {
+        Numerical Reflection: 8 // 8x8 square
+        Get Position
+
+        Numerical Reflection: 8 // step 8 blocks at a time
+        Multiplicative Distillation
+        Additive Distillation
+
+        Gemini Decomposition
+        Summon Greater Sentinel
+        Destroy Liquid
+    }
+
+    Numerical Reflection: 8
+    Numerical Reflection: 8
+    Numerical Reflection: 5
+    Multiplicative Distillation
+    Multiplicative Distillation
+    Perfect Counter's Queue
+
+    Thoth's Gambit
+}
+
+#define Get Position (e) = int, int -> vec
+// i, size -> pos
+{
+    Dioscuri Gambit
+    Numerical Reflection: 2
+    Power Distillation
+    Division Distillation
+    Floor Purification
+    Rotation Gambit II
+    
+    Dioscuri Gambit
+    Division Distillation
+    Floor Purification
+    Numerical Reflection: 2
+    Modulus Distillation
+    Augur's Purification
+    
+    Rotation Gambit
+    Undertaker's Gambit
+
+    Gemini Decomposition
+    Numerical Reflection: -1
+    Multiplicative Distillation
+    Numerical Reflection: 1
+    Subtractive Distillation
+
+    Augur's Exaltation
+    Rotation Gambit II
+
+    Gemini Decomposition
+    Numerical Reflection: -1
+    Multiplicative Distillation
+    Numerical Reflection: 1
+    Subtractive Distillation
+
+    Numerical Reflection: 4
+    Fisherman's Gambit II
+    Numerical Reflection: 2
+    Modulus Distillation
+    Augur's Purification
+    Rotation Gambit II
+    
+    Augur's Exaltation
+
+    Prospector's Gambit
+    Division Distillation
+    Floor Purification
+    Prospector's Gambit
+    Modulus Distillation
+
+    Rotation Gambit II
+    Modulus Distillation
+
+    Rotation Gambit II
+    Vector Exaltation
+}

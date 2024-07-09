@@ -1,0 +1,30 @@
+{
+    "hex-casting.enabledMods": {
+        "Hex Casting": true,
+        "Hexal": true,
+        "MoreIotas": true,
+        "HexTweaks": false,
+        "HexKinetics": false,
+        "Hexbound": false,
+        "Mediaworks": false,
+        "Hex Gloop": false,
+        "Oneironaut": false,
+        "Hex Keys": false
+    },
+    "[python]": {
+        "editor.rulers": [88],
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "explicit"
+        },
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "ruff.organizeImports": true,
+    "ruff.lint.args": [
+        "--extend-ignore=I", // import sorting
+    ],
+}
