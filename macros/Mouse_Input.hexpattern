@@ -1,11 +1,11 @@
 #include "./Math.hexpattern"
 
 // hexical
-#define Theodolite Purification
-#define Dioscuri Gambit II
-#define Genie Gambit
-#define Genie Reflection: Memory
-#define Send Thought
+#define Theodolite Purification (EAST wqaa)
+#define Dioscuri Gambit II (EAST waadadaa)
+#define Genie Gambit (SOUTH_WEST qwddedqedeeeee)
+#define Genie Reflection: Memory (SOUTH_WEST qwddedqwaqqqqq)
+#define Send Thought (EAST qqqqwaqa)
 
 #define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch
@@ -46,7 +46,7 @@
     Theta Exaltation
 }
 
-#define Mouse Input = vec, vec, vec, vec -> (num, num) | (null, null)
+#define Mouse Input (NORTH_WEST awddeeeeeqaqqwq) = vec, vec, vec, vec -> (num, num) | (null, null)
 // reference look, reference up, current look, current up -> x, y
 // Given reference and current look/up directions, returns an x/y mouse position relative to the reference position.
 // The position (0, 0) is at the reference, x increases when yawing right, and y increases when pitching up.
