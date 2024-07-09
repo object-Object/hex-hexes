@@ -3,18 +3,16 @@
 // hexical
 #define Theodolite Purification
 #define Dioscuri Gambit II
+#define Genie Gambit
+#define Genie Reflection: Memory
+#define Send Thought
 
-#define Get Relative Angles = vec, vec, vec, vec -> num, num
+#define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch
 // Given reference and current look/up directions, returns the current yaw and pitch relative to the reference.
 // All inputs should be unit vectors, and the returned values are in radians.
 // Yaw increases right, and pitch increases down.
 {
-    /*
-    l_right
-    l
-    m_rot
-    */
     // right vectors
     Numerical Reflection: 4
     Dioscuri Gambit II
@@ -48,25 +46,17 @@
     Theta Exaltation
 }
 
-#define Mouse Input = vec, vec, vec, vec -> (num, num) | null
+#define Mouse Input = vec, vec, vec, vec -> (num, num) | (null, null)
 // reference look, reference up, current look, current up -> x, y
 // Given reference and current look/up directions, returns an x/y mouse position relative to the reference position.
 // The position (0, 0) is at the reference, x increases when yawing right, and y increases when pitching up.
 // The coordinates range from -1 to 1, at -90 and 90 degrees from the reference respectively.
-// If the mouse goes out of bounds in either axis, a single null value is returned.
+// If the mouse goes out of bounds in either axis, null is returned for both values.
 {
-    // bounds check (out of range if true)
-    // since we're checking for +/- 90 degrees, we can just do a dot product test on the up (or look) directions
-    Gemini Decomposition
-    Numerical Reflection: 3
-    Fisherman's Gambit II
-
-    Multiplicative Distillation
-    Numerical Reflection: 0
-    Minimus Distillation
-    
-    Numerical Reflection: 96  // edcba -> aedcb
-    Swindler's Gambit
+    // duplicate look vectors to use for bounds check later
+    Numerical Reflection: 4
+    Dioscuri Gambit II
+    Bookkeeper's Gambit: v-v----
 
     // get scaled coordinates
     Get Relative Angles
@@ -77,22 +67,79 @@
     Circle's Reflection  // tau / 4 = 90 degrees
     Numerical Reflection: 4
     Division Distillation
+
     Undertaker's Gambit
-    
     Division Distillation
     Rotation Gambit II
     Division Distillation
-    Jester's Gambit
 
-    // return null if out of range
-    Rotation Gambit
+    // bounds check
+    // since we're restricting each axis to +/- 90 degrees, we can just do a dot product test
+    Numerical Reflection: 22  // dcba -> abdc
+    Swindler's Gambit
+    
+    Multiplicative Distillation
+    Numerical Reflection: 0
+    Minimus Distillation
+    
+    // return null if out of bounds
     Nullary Reflection
-    Jester's Gambit
+    Nullary Reflection
+    Rotation Gambit
     {
-        Bookkeeper's Gambit: vv-
-        Bookkeeper's Gambit: v
+        Bookkeeper's Gambit: vv--
+        Bookkeeper's Gambit: vv
     }
     Flock's Disintegration
     Augur's Exaltation
     Hermes' Gambit
+}
+
+// demo hex (for genie lamp)
+{
+    // get current vectors
+    Mind's Reflection
+    Alidade's Purification
+    Mind's Reflection
+    Theodolite Purification
+
+    // get reference vectors, and save them if necessary
+    Genie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    {
+        // if truthy
+        Flock's Disintegration
+        
+        // if falsy
+        Bookkeeper's Gambit: v
+        Dioscuri Gambit
+        Dioscuri Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Genie Gambit
+    }
+    Speaker's Decomposition
+    Jester's Gambit
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // draw particle at reference point
+    Prospector's Gambit
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    Mind's Reflection
+    Compass' Purification
+    Additive Distillation
+    Particles
+    
+    // get mouse pos
+    Numerical Reflection: 16
+    Swindler's Gambit
+    Mouse Input
+    
+    // print mouse pos
+    Numerical Reflection: 2
+    Flock's Gambit
+    Send Thought
 }
