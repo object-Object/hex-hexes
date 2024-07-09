@@ -4,42 +4,36 @@
 #define Theodolite Purification
 #define Dioscuri Gambit II
 
-// FIXME:
-// - should be able to simplify the start of get relative
-// - pitch seems to be incorrect :(
-
 #define Get Relative Angles = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch
 // Given reference and current look/up directions, returns the current yaw and pitch relative to the reference.
 // All inputs should be unit vectors, and the returned values are in radians.
 // Yaw increases right, and pitch increases down.
 {
-    // move up vectors to top of stack, and copy look vectors
+    /*
+    l_right
+    l
+    m_rot
+    */
+    // right vectors
     Numerical Reflection: 4
     Dioscuri Gambit II
     Bookkeeper's Gambit: v-v----
-    Rotation Gambit
-    Jester's Gambit
-    
-    // right vectors
-    Rotation Gambit
     Division Distillation
     Rotation Gambit II
-    Jester's Gambit
     Division Distillation
     
     // yaw (angle between current right and reference right)
     Gemini Decomposition
     Rotation Gambit
-    Jester's Gambit
-    Vector Reflection +Y
+    Vector Reflection -Y
     Theta Exaltation
     
     // rotate current look about y axis to cancel out yaw
+    // note: yaw is positive clockwise, but rotations are positive counterclockwise
+    // so we don't need to negate the pitch for this
     Rotation Gambit
     Prospector's Gambit
-    Numerical Reflection: -1
-    Multiplicative Distillation
     Vector Reflection +Y
     Jester's Gambit
     Rotation Distillation
