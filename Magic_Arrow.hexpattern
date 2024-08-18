@@ -7,17 +7,18 @@
 - max linear speed: 14 blocks/tick (to avoid outrunning the sentinel)
 - max turning speed: probably around 1-2 rotations per second (or 18-36 degrees/tick)
 - for turning, use Impulse if |target - current|^2 < 0.75, else use Rotate II
-- arch memory: [matrix, arrow]
+- arch memory: [speed, matrix, arrow]
 - genie memory: reference look, reference up
 - store arrow direction as a rotation matrix from (1, 0, 0) to avoid rotation issues when pointing straight up
 - set initial direction to the player's look vector
+- only affect the arrow in the arch lamp to avoid order of operations issues wrt. gravity
 */
 
 // arch lamp
 // cancels out gravity and keeps sentinel on arrow
 {
     // either splat the list in memory or just keep null on the stack
-    // we don't need to use the rotation matrix in the arch lamp
+    // we only need the lower iotas if managing an arrow
     Archgenie Reflection: Memory
     Gemini Decomposition
     Augur's Purification
@@ -48,11 +49,17 @@
         Augur's Exaltation
         Hermes' Gambit
 
-        // negate 0.05 b/t gravity
-        Gemini Decomposition
-        Vector Reflection +Y
-        Numerical Reflection: 20
-        Division Distillation
+        // update the arrow's velocity
+        Jester's Gambit
+        Vector Reflection +X
+        Multiplication Distillation: Matrix
+        Rotation Gambit
+        Multiplicative Distillation
+
+        Prospector's Gambit
+        Undertaker's Gambit
+        Pace Purification
+        Subtractive Distillation
         Impulse
         
         // get the furthest distance the arrow could be from the sentinel by the next tick
@@ -86,6 +93,9 @@
     // else
     // try to find an arrow to manage
     {
+        // initial arrow speed
+        Numerical Reflection: 0
+
         // get the initial rotation matrix, based on the basis vectors of the player's head
         // so the arrow starts by moving in the player's look direction
         Mind's Reflection
@@ -119,7 +129,7 @@
                 Summon Greater Sentinel
 
                 // then save it to memory and stop looking
-                Numerical Reflection: 2
+                Numerical Reflection: 3
                 Flock's Gambit
                 Archgenie Gambit
                 Janus' Gambit
@@ -162,6 +172,12 @@
 
     Gemini Decomposition
     Augur's Purification
+
+    // also skip if it's the finale, to avoid double-casting on the same tick
+    Finale Reflection
+    Negation Purification
+    Conjunction Distillation
+
     {
         Bookkeeper's Gambit: -
         Charon's Gambit
@@ -172,17 +188,10 @@
 
     // linear acceleration
 
-    // get acceleration vector
-    Dioscuri Gambit
-    Jester's Gambit
-    Vector Reflection +X
-    Multiplication Distillation: Matrix
+    // get current speed
+    Rotation Gambit
+    Gemini Decomposition
 
-    // get current arrow speed
-    Prospector's Gambit
-    Pace Purification
-    Length Purification
-    
     // get acceleration based on player crouch
     Mind's Reflection
     Stadiometer's Purification
@@ -198,41 +207,24 @@
 
     // clamp new speed between 0 and 14 blocks/tick so it can't outrun the sentinel
     Additive Distillation
-    
     Numerical Reflection: 0
     Maximization Distillation
     Numerical Reflection: 14
     Minimization Distillation
 
-    // get impulse vector
-    Multiplicative Distillation
-    Prospector's Gambit
-    Pace Purification
-    Subtractive Distillation
-
-    // re-apply gravity to avoid weird interactions with the arch lamp
-    Vector Reflection -Y
-    Numerical Reflection: 20
-    Division Distillation
-    Additive Distillation
-
-    // apply acceleration to arrow if telepathy is enabled
+    // keep or discard the new speed depending if telepathy is in use
+    Jester's Gambit
     Telepathic Reflection
     Augur's Purification
-    {
-        Impulse
-        Bookkeeper's Gambit: vv
-    }
-    Flock's Disintegration
+    Rotation Gambit II
     Augur's Exaltation
-    Hermes' Gambit
 
-    // print arrow speed
-    Undertaker's Gambit  // so that the rotation matrix ends up on top
-    Pace Purification
-    Length Purification
+    // print new speed and put it back at the bottom of the stack
+    Gemini Decomposition
     Send Thought
-    
+    Rotation Gambit II
+    Jester's Gambit  // put the matrix on top
+
     // turning
 
     // get current vectors
@@ -301,7 +293,7 @@
     Augur's Exaltation
     Hermes' Gambit
     
-    // draw line from reference to show mouse input
+    // draw particles at reference and mouse input
     Gemini Decomposition
     Vector Disintegration
     Bookkeeper's Gambit: v
@@ -329,12 +321,11 @@
     Undertaker's Gambit
     Additive Distillation
     
-    Numerical Reflection: 2
-    Flock's Gambit
+    Particles
     Particles
 
     // check if in dead zone (<1 degree from reference)
-    Dioscuri Gambit
+    Gemini Decomposition
     Length Purification
     Numerical Reflection: 1
     Numerical Reflection: 45
@@ -371,46 +362,14 @@
         Jester's Gambit
         Multiplication Distillation: Matrix
         Multiplication Distillation: Matrix
-
-        // save updated matrix to arch memory
-        Dioscuri Gambit
-        Numerical Reflection: 2
-        Flock's Gambit
-        Archgenie Gambit
     }
     Speaker's Decomposition
     Augur's Exaltation
     Hermes' Gambit
-    
-    // get current and desired arrow velocity
-    Vector Reflection +X
-    Multiplication Distillation: Matrix
-    Prospector's Gambit
-    Pace Purification
-    Undertaker's Gambit
-    Length Purification
-    Multiplicative Distillation
-    
-    // get required impulse
-    Undertaker's Gambit
+
+    // save updated values to arch memory
     Jester's Gambit
-    Subtractive Distillation
-    
-    // use impulse or rotate ii (whichever is cheaper) to rotate the arrow's velocity
-    Gemini Decomposition
-    Length Purification
-    Numerical Reflection: 2
-    Power Distillation
-    Numerical Reflection: 0.75
-    Maximus Distillation
-    {
-        Bookkeeper's Gambit: v
-        Rotate II
-    }
-    {
-        Bookkeeper's Gambit: v-
-        Impulse
-    }
-    Augur's Exaltation
-    Hermes' Gambit
+    Numerical Reflection: 3
+    Flock's Gambit
+    Archgenie Gambit
 }
