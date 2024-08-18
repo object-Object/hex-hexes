@@ -96,8 +96,42 @@
     Calligrapher's Purification
     Etch Visage
 
+    /*
+    element list formats
+
+    notes:
+    - probably make a dynamic visage element or something, similar to the speck ones
+    - autocalculate text button size?
+
+    element:
+    [type, ...]
+    - type: integer enum specifying the button type
+
+    text:
+    [0, text, x, y]
+    - text: moreiotas string to be displayed as the button text
+    - x/y: macula space coordinates of the center of the text
+
+    text button:
+    [1, callback, text, left, top, right, bottom]
+    - callback: list of patterns to be executed on click
+    - text: moreiotas string to be displayed as the button text
+    - left/top/right/bottom: macula space coordinates of the button bounds
+
+    speck:
+    [2, spawner, x, y]
+    - spawner: list of patterns to spawn a speck, with this signature: position -> speck entity
+    - x/y: macula space coordinates of the center of the speck
+
+    speck button:
+    [3, callback, spawner, left, top, right, bottom]
+    - callback: list of patterns to be executed on click
+    - spawner: list of patterns to spawn a speck, with this signature: position -> speck entity
+    - left/top/right/bottom: macula space coordinates of the button bounds
+    */
+
     // {
-    //     <[[callback, text, left, top, right, bottom]]>
+    //     <[elements]>
     // }
 
     // {

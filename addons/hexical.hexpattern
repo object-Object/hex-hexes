@@ -7,3 +7,8 @@
 
 #define Telepathic Reflection (EAST wqqadaw) = -> null/number
 #define Send Thought (EAST qqqqwaqa) = any ->
+
+#define Archgenie Gambit (NORTH_EAST qaqwddedqedeeeee) = any ->
+#define Archgenie Reflection: Memory (NORTH_EAST qaqwddedqwaqqqqq) = -> any
+
+#define Janus' Gambit (SOUTH_WEST aadee)

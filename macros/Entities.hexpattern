@@ -1,0 +1,28 @@
+#define Detect Stuck Arrow (EAST weqqqqqaq) = entity -> bool
+// entity -> bool
+// Returns true if the entity is moving toward a solid block less than 1 block away.
+// Assumes the given entity is an arrow.
+{
+    // get the block the arrow is moving towards (if any)
+    Gemini Decomposition
+    Compass' Purification II
+    Gemini Decomposition
+    Rotation Gambit
+    Pace Purification
+    Archer's Distillation
+    
+    // if archer returned null, use a position 2 blocks away from the arrow so the check returns false
+    Dioscuri Gambit
+    Nullary Reflection
+    Inequality Distillation
+    Rotation Gambit II
+    Numerical Reflection: 2
+    Additive Distillation
+    Augur's Exaltation
+
+    // check if the arrow is about to hit a block
+    Subtractive Distillation
+    Length Purification
+    Numerical Reflection: 1
+    Minimus Distillation
+}

@@ -1,0 +1,416 @@
+#include "./addons/hexical.hexpattern"
+#include "./macros/Entities.hexpattern"
+#include "./macros/Math.hexpattern"
+#include "./macros/Mouse_Input.hexpattern"
+
+/*
+- max linear speed: 14 blocks/tick (to avoid outrunning the sentinel)
+- max turning speed: probably around 1-2 rotations per second (or 18-36 degrees/tick)
+- for turning, use Impulse if |target - current|^2 < 0.75, else use Rotate II
+- arch memory: [matrix, arrow]
+- genie memory: reference look, reference up
+- store arrow direction as a rotation matrix from (1, 0, 0) to avoid rotation issues when pointing straight up
+- set initial direction to the player's look vector
+*/
+
+// arch lamp
+// cancels out gravity and keeps sentinel on arrow
+{
+    // either splat the list in memory or just keep null on the stack
+    // we don't need to use the rotation matrix in the arch lamp
+    Archgenie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    Jester's Gambit
+    Nullary Reflection
+    Single's Purification
+    Augur's Exaltation
+    Flock's Disintegration
+
+    Gemini Decomposition
+    Augur's Purification
+
+    // if an arrow is being managed
+    {
+        // stop managing the arrow if it hit a block
+        Gemini Decomposition
+        Detect Stuck Arrow
+        {
+            // if false (not stuck)
+            Bookkeeper's Gambit: -
+
+            // if true (stuck)
+            Nullary Reflection
+            Archgenie Gambit
+            Janus' Gambit
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // negate 0.05 b/t gravity
+        Gemini Decomposition
+        Vector Reflection +Y
+        Numerical Reflection: 20
+        Division Distillation
+        Impulse
+        
+        // get the furthest distance the arrow could be from the sentinel by the next tick
+        Gemini Decomposition
+        Compass' Purification II
+
+        Gemini Decomposition
+        Locate Sentinel
+        Subtractive Distillation
+        Length Purification
+        
+        Rotation Gambit
+        Pace Purification
+        Length Purification
+
+        Additive Distillation
+
+        // move the sentinel if the arrow could get out of range before the next execution
+        // note: the maximum arrow speed is 14 blocks/tick
+        Numerical Reflection: 15
+        Minimus Distillation
+        {
+            Bookkeeper's Gambit: -
+            Summon Greater Sentinel
+        }
+        Flock's Disintegration
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+
+    // else
+    // try to find an arrow to manage
+    {
+        // get the initial rotation matrix, based on the basis vectors of the player's head
+        // so the arrow starts by moving in the player's look direction
+        Mind's Reflection
+        Alidade's Purification
+        Mind's Reflection
+        Theodolite Purification
+        Dioscuri Gambit
+        Division Distillation
+        Sprawling Distillation
+        Sprawling Distillation
+
+        // arrow filter loop
+        {
+            Gemini Decomposition
+            Detect Stuck Arrow
+            {
+                // if the arrow is stuck, skip it and keep checking other arrows
+                Bookkeeper's Gambit: -
+
+                // otherwise, cancel its motion
+                Gemini Decomposition
+                Gemini Decomposition
+                Pace Purification
+                Numerical Reflection: -1
+                Multiplicative Distillation
+                Impulse
+
+                // summon a sentinel on it
+                Gemini Decomposition
+                Compass' Purification II
+                Summon Greater Sentinel
+
+                // then save it to memory and stop looking
+                Numerical Reflection: 2
+                Flock's Gambit
+                Archgenie Gambit
+                Janus' Gambit
+            }
+            Speaker's Decomposition
+            Jester's Gambit
+            Augur's Exaltation
+            Hermes' Gambit
+        }
+
+        // select all nearby arrows
+        {
+            Bookkeeper's Gambit: -- <entitytype: arrow>
+        }
+        Flock's Disintegration
+        Mind's Reflection
+        Compass' Purification
+        Numerical Reflection: 15.75
+        Zone Exaltation: Type
+
+        Thoth's Gambit
+    }
+
+    Augur's Exaltation
+    Hermes' Gambit
+}
+
+// genie lamp
+// allows active player control of arrow movement while in use
+{
+    // skip this cast if there is no arrow being managed by the arch lamp, or if the arrow is null
+    Archgenie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    Jester's Gambit
+    Nullary Reflection
+    Single's Purification
+    Augur's Exaltation
+    Flock's Disintegration
+
+    Gemini Decomposition
+    Augur's Purification
+    {
+        Bookkeeper's Gambit: -
+        Charon's Gambit
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // linear acceleration
+
+    // get acceleration vector
+    Dioscuri Gambit
+    Jester's Gambit
+    Vector Reflection +X
+    Multiplication Distillation: Matrix
+
+    // get current arrow speed
+    Prospector's Gambit
+    Pace Purification
+    Length Purification
+    
+    // get acceleration based on player crouch
+    Mind's Reflection
+    Stadiometer's Purification
+    Numerical Reflection: 1.5
+    Maximus Distillation
+
+    Numerical Reflection: 1
+    Numerical Reflection: -1
+    Augur's Exaltation
+
+    Numerical Reflection: 30  // inverse linear acceleration (eg. 10 -> 1/10 b/t^2)
+    Division Distillation
+
+    // clamp new speed between 0 and 14 blocks/tick so it can't outrun the sentinel
+    Additive Distillation
+    
+    Numerical Reflection: 0
+    Maximization Distillation
+    Numerical Reflection: 14
+    Minimization Distillation
+
+    // get impulse vector
+    Multiplicative Distillation
+    Prospector's Gambit
+    Pace Purification
+    Subtractive Distillation
+
+    // re-apply gravity to avoid weird interactions with the arch lamp
+    Vector Reflection -Y
+    Numerical Reflection: 20
+    Division Distillation
+    Additive Distillation
+
+    // apply acceleration to arrow if telepathy is enabled
+    Telepathic Reflection
+    Augur's Purification
+    {
+        Impulse
+        Bookkeeper's Gambit: vv
+    }
+    Flock's Disintegration
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // print arrow speed
+    Undertaker's Gambit  // so that the rotation matrix ends up on top
+    Pace Purification
+    Length Purification
+    Send Thought
+    
+    // turning
+
+    // get current vectors
+    Mind's Reflection
+    Alidade's Purification
+    Mind's Reflection
+    Theodolite Purification
+
+    // get reference vectors, and save them if necessary
+    Genie Reflection: Memory
+    Gemini Decomposition
+    Augur's Purification
+    {
+        // if truthy
+        Flock's Disintegration
+        
+        // if falsy
+        Bookkeeper's Gambit: v
+        Dioscuri Gambit
+        Dioscuri Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Genie Gambit
+    }
+    Speaker's Decomposition
+    Jester's Gambit
+    Augur's Exaltation
+    Hermes' Gambit
+    
+    // get raw mouse input (in radians)
+    Numerical Reflection: 16
+    Swindler's Gambit
+    Get Relative Angles
+    Numerical Reflection: -1  // invert y value
+    Multiplicative Distillation
+    Numerical Reflection: 0
+    Vector Exaltation
+
+    // skip scaling if the mouse input is the zero vector, to avoid mishaps
+    Gemini Decomposition
+    Augur's Purification
+    {
+        // if nullish
+        Bookkeeper's Gambit: -
+
+        // else
+        // scale to 45 degrees = 1 unit
+        Circle's Reflection
+        Numerical Reflection: 8
+        Division Distillation
+        Division Distillation
+
+        // clamp to at most 1 unit from reference
+        Gemini Decomposition
+        Length Purification
+        Dioscuri Gambit
+        Division Distillation
+
+        Jester's Gambit
+        Numerical Reflection: 1
+        Minimus Distillation
+        Rotation Gambit II
+        Augur's Exaltation
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+    
+    // draw line from reference to show mouse input
+    Gemini Decomposition
+    Vector Disintegration
+    Bookkeeper's Gambit: v
+
+    Genie Reflection: Memory
+    Flock's Disintegration
+    Dioscuri Gambit
+    Division Distillation
+    
+    Numerical Reflection: 52  // ceadb
+    Swindler's Gambit
+    
+    Multiplicative Distillation
+    Rotation Gambit II
+    Multiplicative Distillation
+    Additive Distillation
+    
+    Jester's Gambit
+    Numerical Reflection: 2
+    Multiplicative Distillation
+    Mind's Reflection
+    Compass' Purification
+    Additive Distillation
+    
+    Undertaker's Gambit
+    Additive Distillation
+    
+    Numerical Reflection: 2
+    Flock's Gambit
+    Particles
+
+    // check if in dead zone (<1 degree from reference)
+    Dioscuri Gambit
+    Length Purification
+    Numerical Reflection: 1
+    Numerical Reflection: 45
+    Division Distillation
+    Maximus Distillation
+    {
+        // if in dead zone, discard the mouse input
+        Bookkeeper's Gambit: v
+
+        // else
+        // apply maximum turning speed and convert back to radians
+        Circle's Reflection
+        Numerical Reflection: 10  // inverse revolutions per tick (eg. 20 -> 1/20 rev/t, or 1 rev/s)
+        Division Distillation
+        Multiplicative Distillation
+        Vector Disintegration
+        Bookkeeper's Gambit: v
+
+        // get yaw matrix
+        Rotation Gambit II
+        Vector Reflection -Y  // positive input rotates right (clockwise)
+        Jester's Gambit
+        Rotation Distillation
+        
+        // get pitch matrix
+        Rotation Gambit II
+        Gemini Decomposition
+        Vector Reflection +Z  // positive input rotates up (counterclockwise)
+        Multiplication Distillation: Matrix
+        Rotation Gambit
+        Rotation Distillation
+
+        // apply rotations to arrow matrix
+        Jester's Gambit
+        Multiplication Distillation: Matrix
+        Multiplication Distillation: Matrix
+
+        // save updated matrix to arch memory
+        Dioscuri Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+        Archgenie Gambit
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+    
+    // get current and desired arrow velocity
+    Vector Reflection +X
+    Multiplication Distillation: Matrix
+    Prospector's Gambit
+    Pace Purification
+    Undertaker's Gambit
+    Length Purification
+    Multiplicative Distillation
+    
+    // get required impulse
+    Undertaker's Gambit
+    Jester's Gambit
+    Subtractive Distillation
+    
+    // use impulse or rotate ii (whichever is cheaper) to rotate the arrow's velocity
+    Gemini Decomposition
+    Length Purification
+    Numerical Reflection: 2
+    Power Distillation
+    Numerical Reflection: 0.75
+    Maximus Distillation
+    {
+        Bookkeeper's Gambit: v
+        Rotate II
+    }
+    {
+        Bookkeeper's Gambit: v-
+        Impulse
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+}
