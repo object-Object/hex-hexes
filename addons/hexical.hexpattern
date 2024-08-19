@@ -12,3 +12,9 @@
 #define Archgenie Reflection: Memory (NORTH_EAST qaqwddedqwaqqqqq) = -> any
 
 #define Janus' Gambit (SOUTH_WEST aadee)
+
+#define Move Speck = speck entity, vector ->
+#define Dismiss Speck = speck entity ->
+
+#define Conjure Mesh = vector -> entity
+#define Weave Mesh = entity, list of vectors ->

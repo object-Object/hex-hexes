@@ -172,12 +172,6 @@
 
     Gemini Decomposition
     Augur's Purification
-
-    // also skip if it's the finale, to avoid double-casting on the same tick
-    Finale Reflection
-    Negation Purification
-    Conjunction Distillation
-
     {
         Bookkeeper's Gambit: -
         Charon's Gambit
@@ -244,8 +238,18 @@
         // if falsy
         Bookkeeper's Gambit: v
         Dioscuri Gambit
-        Dioscuri Gambit
+
+        Prospector's Gambit
         Numerical Reflection: 2
+        Multiplicative Distillation
+        Mind's Reflection
+        Compass' Purification
+        Additive Distillation
+        Conjure Mesh
+
+        Numerical Reflection: 3
+        Dioscuri Gambit II
+        Numerical Reflection: 3
         Flock's Gambit
         Genie Gambit
     }
@@ -253,6 +257,7 @@
     Jester's Gambit
     Augur's Exaltation
     Hermes' Gambit
+    Bookkeeper's Gambit: v
     
     // get raw mouse input (in radians)
     Numerical Reflection: 16
@@ -292,39 +297,6 @@
     Speaker's Decomposition
     Augur's Exaltation
     Hermes' Gambit
-    
-    // draw particles at reference and mouse input
-    Gemini Decomposition
-    Vector Disintegration
-    Bookkeeper's Gambit: v
-
-    Genie Reflection: Memory
-    Flock's Disintegration
-    Dioscuri Gambit
-    Division Distillation
-    
-    Numerical Reflection: 52  // ceadb
-    Swindler's Gambit
-    
-    Multiplicative Distillation
-    Rotation Gambit II
-    Multiplicative Distillation
-    Additive Distillation
-    
-    Jester's Gambit
-    Numerical Reflection: 3
-    Multiplicative Distillation
-    Mind's Reflection
-    Compass' Purification
-    Additive Distillation
-    
-    Undertaker's Gambit
-    Particles
-
-    Numerical Reflection: 2
-    Multiplicative Distillation
-    Additive Distillation
-    Particles
 
     // check if in dead zone (<2 degrees from reference)
     Gemini Decomposition
@@ -355,7 +327,7 @@
         // get pitch matrix
         Rotation Gambit II
         Gemini Decomposition
-        Vector Reflection -Z  // positive input rotates down (clockwise)
+        Vector Reflection +Z  // positive input rotates up (counterclockwise)
         Multiplication Distillation: Matrix
         Rotation Gambit
         Rotation Distillation
@@ -369,9 +341,47 @@
     Augur's Exaltation
     Hermes' Gambit
 
-    // save updated values to arch memory
+    // get mesh and reference look
+    Genie Reflection: Memory
+    Flock's Disintegration
+    Bookkeeper's Gambit: v-
+
+    Finale Reflection
+    {
+        // if this is the finale, just remove the mesh
+        Dismiss Speck
+
+        // otherwise
+        // move mesh to reference point, and draw a particle there
+        Gemini Decomposition
+        Rotation Gambit
+        Numerical Reflection: 2
+        Multiplicative Distillation
+        Mind's Reflection
+        Compass' Purification
+        Additive Distillation
+        Gemini Decomposition
+        Particles
+        Move Speck
+
+        // update the mesh with the new orientation
+        Prospector's Gambit
+        {
+            Bookkeeper's Gambit: -- <mesh matrix>
+        }
+        Flock's Disintegration
+        Multiplication Distillation: Matrix
+        Restoration Purification
+        Weave Mesh
+
+        // save the updated values to arch memory
+        Jester's Gambit
+        Numerical Reflection: 3
+        Flock's Gambit
+        Archgenie Gambit
+    }
+    Speaker's Decomposition
     Jester's Gambit
-    Numerical Reflection: 3
-    Flock's Gambit
-    Archgenie Gambit
+    Augur's Exaltation
+    Hermes' Gambit
 }
