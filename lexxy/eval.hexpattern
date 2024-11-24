@@ -1,0 +1,114 @@
+#include "../types/hexcasting.hexpattern"
+#include "./parse.hexpattern"
+
+#define Evaluate Lexxy = list -> any
+// program -> return
+{
+    // parse program into AST
+    // embed for easier editing
+    {
+        <Parse Lexxy>
+    }
+    Flock's Disintegration
+    Hermes' Gambit
+
+    // ravenmind: [env, ...]
+    // innermost to outermost scope
+
+    // standard env
+    // [key, value, ...]
+    {
+        Additive Distillation
+        Additive Distillation
+    }
+    Single's Purification
+    Huginn's Gambit
+
+    // #define eval = eval, x -> ret
+    Consideration: {
+        {
+            <pattern type>
+            <number type>
+            <list type>
+        }
+        Prospector's Gambit
+        Classifier's Purification
+        Locator's Distillation
+        
+        {
+            // pattern
+            // look up variable in environment
+            {
+                // get key index
+                Gemini Decomposition
+                Rotation Gambit
+                Locator's Distillation
+                
+                // if variable found, add 1 to get the index of the value
+                // otherwise add 0 so we get null on lookup
+                Gemini Decomposition
+                Numerical Reflection: -1
+                Maximus Distillation
+                Numerical Reflection: 1
+                Numerical Reflection: 0
+                Augur's Exaltation
+                Additive Distillation
+                
+                // get value
+                Selection Distillation
+                
+                // break if not null
+                Gemini Decomposition
+                Nullary Reflection
+                Equality Distillation
+                {
+                    Charon's Gambit
+                }
+                Speaker's Decomposition
+                Augur's Exaltation
+                Hermes' Gambit
+            }
+            Muninn's Reflection
+            Thoth's Gambit
+            Derivation Decomposition
+            Bookkeeper's Gambit: vv-
+        }
+        {
+            // number
+            // return x
+        }
+        {
+            // list (procedure)
+            
+            // TODO: if, define, quote, lambda
+
+            // evaluate everything in the list
+            {
+                Flock's Reflection
+                Flock's Gambit
+                Derivation Decomposition
+                Jester's Gambit
+                Derivation Decomposition
+                Bookkeeper's Gambit: v-
+                Undertaker's Gambit
+                Hermes' Gambit
+            }
+            Jester's Gambit
+            Thoth's Gambit
+            
+            // call the procedure
+            Speaker's Decomposition
+            Integration Distillation
+            Flock's Disintegration
+            Hermes' Gambit
+        }
+        Numerical Reflection: 3
+        Flock's Gambit
+        Jester's Gambit
+        Selection Distillation
+        Hermes' Gambit
+        Bookkeeper's Gambit: v-
+    Consideration: }
+    Undertaker's Gambit
+    Hermes' Gambit
+}

@@ -1,6 +1,6 @@
 #include "./macros/Mouse_Input.hexpattern"
 #include "./macros/Math.hexpattern"
-#include "./addons/hexical.hexpattern"
+#include "./types/hexical.hexpattern"
 
 {
     Macula Erasure

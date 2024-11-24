@@ -1,5 +1,5 @@
 #include "./Math.hexpattern"
-#include "../addons/hexical.hexpattern"
+#include "../types/hexical.hexpattern"
 
 #define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch

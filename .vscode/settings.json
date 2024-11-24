@@ -27,4 +27,8 @@
     "ruff.lint.args": [
         "--extend-ignore=I", // import sorting
     ],
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }

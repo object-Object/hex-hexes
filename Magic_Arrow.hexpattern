@@ -1,4 +1,4 @@
-#include "./addons/hexical.hexpattern"
+#include "./types/hexical.hexpattern"
 #include "./macros/Entities.hexpattern"
 #include "./macros/Math.hexpattern"
 #include "./macros/Mouse_Input.hexpattern"

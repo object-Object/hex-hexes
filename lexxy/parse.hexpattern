@@ -1,0 +1,142 @@
+#include "../types/hexcasting.hexpattern"
+
+#define Parse Lexxy = list -> list
+// program -> AST
+{
+    // #define parse_next = -> token
+    Consideration: {
+        // pop next token
+        Muninn's Reflection
+        Speaker's Decomposition
+        Speaker's Decomposition
+        Rotation Gambit II
+        Speaker's Distillation
+        Huginn's Gambit
+        
+        // match token
+        {
+            {
+            }
+        }
+        Nullary Reflection
+        Speaker's Distillation
+
+        Prospector's Gambit
+        Locator's Distillation
+        Numerical Reflection: 1
+        Additive Distillation
+        
+        // default
+        {
+            // get the angle signature of the pattern
+            Gemini Decomposition
+            Scrivener's Purification
+            Spacing Reflection
+            Separation Distillation
+            Derivation Decomposition
+            Bookkeeper's Gambit: v-
+            
+            // check if it's a number
+            // TODO: currently the arguments for Discoverer's Distillation are reversed
+            // see: https://github.com/Talia-12/MoreIotas/issues/31
+            {
+                <"aqaa">
+                <"dedd">
+            }
+            Flock's Disintegration
+
+            Rotation Gambit
+            Undertaker's Gambit
+            Locator's Distillation
+            Numerical Reflection: 0
+            Equality Distillation
+
+            Rotation Gambit II
+            Locator's Distillation
+            Numerical Reflection: 0
+            Equality Distillation
+
+            Disjunction Distillation
+            
+            // if it's a number, evaluate it; otherwise leave it as a pattern (ie. symbol)
+            {
+                Hermes' Gambit
+            }
+            Vacant Reflection
+            Augur's Exaltation
+            Hermes' Gambit
+        }
+        // case null
+        {
+            <"Syntax error: unexpected EOF">
+        }
+        // case {
+        {
+            Bookkeeper's Gambit: v
+            Vacant Reflection
+            Muninn's Reflection
+            Numerical Reflection: 2 // parse_list
+            Selection Distillation
+            Hermes' Gambit
+        }
+        // case }
+        {
+            <"Syntax error: unexpected )">
+        }
+        Numerical Reflection: 4
+        Flock's Gambit
+        Jester's Gambit
+        Selection Distillation
+        Hermes' Gambit
+    Consideration: }
+    Undertaker's Gambit
+
+    // #define parse_list = list -> list
+    {
+        // while tokens[0] != ")"
+        Muninn's Reflection
+        Numerical Reflection: 0
+        Selection Distillation
+        Numerical Reflection: 0
+        Selection Distillation
+        {
+            {
+            }
+        }
+        Numerical Reflection: 1
+        Selection Distillation
+        Inequality Distillation
+        
+        // loop body
+        Muninn's Reflection
+        Flock's Disintegration
+        Bookkeeper's Gambit: v--
+        {
+            // L.append(parse_next())
+            Integration Distillation
+        }
+        Jester's Gambit
+        Additive Distillation
+        Additive Distillation
+
+        {
+            // after loop
+            // tokens.pop(0)
+            Muninn's Reflection
+            Speaker's Decomposition
+            Speaker's Decomposition
+            Bookkeeper's Gambit: v
+            Speaker's Distillation
+            Huginn's Gambit
+        }
+
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+
+    Numerical Reflection: 3
+    Flock's Gambit
+    Huginn's Gambit
+
+    Hermes' Gambit
+}
