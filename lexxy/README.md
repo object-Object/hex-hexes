@@ -6,11 +6,7 @@ Reference: https://norvig.com/lispy.html
 
 ## Types
 
-| Scheme     | Lex              |
-| ---------- | ---------------- |
-| symbol     | pattern          |
-| number     | number           |
-| atom       | symbol \| number |
-| list       | list             |
-| expression | atom \| list     |
-| env        | list             |
+- Symbols are represented by patterns.
+- Lists are lists.
+- Everything else is treated as a constant, ie. evaluating it returns itself.
+  - Number patterns are evaluated while parsing, so all number patterns are replaced with number iotas before evaluation starts.
