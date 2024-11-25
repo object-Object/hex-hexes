@@ -18,8 +18,56 @@
     // standard env
     // [key, value, ...]
     {
+        // constants
+
+        True Reflection
+        <true>
+        
+        False Reflection
+        <false>
+
+        Nullary Reflection
+        <null>
+
+        // existing patterns
+
         Additive Distillation
         Additive Distillation
+
+        Subtractive Distillation
+        Subtractive Distillation
+
+        Multiplicative Distillation
+        Multiplicative Distillation
+
+        Division Distillation
+        Division Distillation
+
+        Equality Distillation
+        Equality Distillation
+        
+        Inequality Distillation
+        Inequality Distillation
+
+        Maximus Distillation
+        Maximus Distillation
+
+        Maximus Distillation II
+        Maximus Distillation II
+        
+        Minimus Distillation
+        Minimus Distillation
+
+        Minimus Distillation II
+        Minimus Distillation II
+
+        Reveal
+        Reveal
+
+        // built-in functions
+
+        Hermes' Gambit
+        <Lexxy Function: Do>
     }
     Single's Purification
     Huginn's Gambit
@@ -28,13 +76,18 @@
     Consideration: {
         {
             <pattern type>
-            <number type>
             <list type>
         }
         Prospector's Gambit
         Classifier's Purification
         Locator's Distillation
+        Numerical Reflection: 1
+        Additive Distillation
         
+        {
+            // constant
+            // return x
+        }
         {
             // pattern
             // look up variable in environment
@@ -74,32 +127,119 @@
             Bookkeeper's Gambit: vv-
         }
         {
-            // number
-            // return x
-        }
-        {
-            // list (procedure)
-            
-            // TODO: if, define, quote, lambda
+            // list
 
-            // evaluate everything in the list
+            // execute builtins if necessary, else execute procedure
             {
-                Flock's Reflection
-                Flock's Gambit
-                Derivation Decomposition
+                <WEST qqqa> // quote (consideration without the last segment)
+                Augur's Exaltation // if
+                Huginn's Gambit // define
+                Brigh's Gambit // lambda
+            }
+            Prospector's Gambit
+            Numerical Reflection: 0
+            Selection Distillation
+            Locator's Distillation
+            Numerical Reflection: 1
+            Additive Distillation
+
+            // procedure
+            {
+                // evaluate everything in the list
+                {
+                    Flock's Reflection
+                    Flock's Gambit
+                    Derivation Decomposition
+                    Jester's Gambit
+                    Derivation Decomposition
+                    Bookkeeper's Gambit: v-
+                    Undertaker's Gambit
+                    Hermes' Gambit
+                }
                 Jester's Gambit
+                Thoth's Gambit
+                
+                // call the procedure within thoth so it gets its own stack (for varargs)
+                Speaker's Decomposition
+                Integration Distillation
+                Single's Purification
+                {
+                    Flock's Reflection
+                    Flock's Gambit
+                    Derivation Decomposition
+                    Bookkeeper's Gambit: v-
+                    Flock's Disintegration
+                    Hermes' Gambit
+                }
+                Jester's Gambit
+                Thoth's Gambit
                 Derivation Decomposition
                 Bookkeeper's Gambit: v-
+            }
+            // quote
+            {
+                // return list[1]
+                Numerical Reflection: 1
+                Selection Distillation
+            }
+            // if
+            {
+                Flock's Disintegration
+                Bookkeeper's Gambit: v---
+
+                // evaluate condition
+                Rotation Gambit
+                Numerical Reflection: 3
+                Fisherman's Gambit II
                 Undertaker's Gambit
                 Hermes' Gambit
+                
+                // evaluate whichever case we chose
+                Augur's Purification
+                Rotation Gambit II
+                Augur's Exaltation
+                Prospector's Gambit
+                Hermes' Gambit
+                
+                // push null in place of eval for later, since we just popped it
+                Nullary Reflection
+                Jester's Gambit
             }
+            // define
+            {
+                Flock's Disintegration
+                Bookkeeper's Gambit: v--
+                
+                // evaluate value
+                Numerical Reflection: 2
+                Fisherman's Gambit II
+                Undertaker's Gambit
+                Hermes' Gambit
+
+                // add symbol to env
+                // TODO: this is inefficient if the symbol already exists - we should overwrite in that case
+                Numerical Reflection: 2
+                Flock's Gambit
+
+                Muninn's Reflection
+                Speaker's Decomposition
+                Rotation Gambit
+                Jester's Gambit
+                Additive Distillation
+                Speaker's Distillation
+                Huginn's Gambit
+
+                // return null
+                Nullary Reflection
+            }
+            // lambda
+            {
+
+            }
+            Numerical Reflection: 5
+            Flock's Gambit
             Jester's Gambit
-            Thoth's Gambit
-            
-            // call the procedure
-            Speaker's Decomposition
-            Integration Distillation
-            Flock's Disintegration
+            Selection Distillation
             Hermes' Gambit
         }
         Numerical Reflection: 3
