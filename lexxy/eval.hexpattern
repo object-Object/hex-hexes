@@ -12,7 +12,7 @@
     Flock's Disintegration
     Hermes' Gambit
 
-    // ravenmind: [env, ...]
+    // ravenmind: [[env, ...], eval]
     // innermost to outermost scope
 
     // standard env
@@ -29,40 +29,35 @@
         Nullary Reflection
         <null>
 
-        // existing patterns
+        Arc's Reflection
+        <pi>
 
-        Additive Distillation
-        Additive Distillation
+        Circle's Reflection
+        <tau>
 
-        Subtractive Distillation
-        Subtractive Distillation
+        Euler's Reflection
+        <e>
 
-        Multiplicative Distillation
-        Multiplicative Distillation
+        Vector Reflection +X
+        <(1, 0, 0)>
 
-        Division Distillation
-        Division Distillation
+        Vector Reflection +Y
+        <(0, 1, 0)>
 
-        Equality Distillation
-        Equality Distillation
-        
-        Inequality Distillation
-        Inequality Distillation
+        Vector Reflection +Z
+        <(0, 0, 1)>
 
-        Maximus Distillation
-        Maximus Distillation
+        Vector Reflection -X
+        <(-1, 0, 0)>
 
-        Maximus Distillation II
-        Maximus Distillation II
-        
-        Minimus Distillation
-        Minimus Distillation
+        Vector Reflection -Y
+        <(0, -1, 0)>
 
-        Minimus Distillation II
-        Minimus Distillation II
+        Vector Reflection -Z
+        <(0, 0, -1)>
 
-        Reveal
-        Reveal
+        Vector Reflection Zero
+        <(0, 0, 0)>
 
         // built-in functions
 
@@ -70,7 +65,6 @@
         <Lexxy Function: Do>
     }
     Single's Purification
-    Huginn's Gambit
 
     // #define eval = eval, x -> ret
     Consideration: {
@@ -92,36 +86,34 @@
             // pattern
             // look up variable in environment
             {
-                // get key index
-                Gemini Decomposition
-                Rotation Gambit
+                // get index of key
+                Dioscuri Gambit
+                Jester's Gambit
                 Locator's Distillation
                 
-                // if variable found, add 1 to get the index of the value
-                // otherwise add 0 so we get null on lookup
-                Gemini Decomposition
-                Numerical Reflection: -1
-                Maximus Distillation
+                // get value from next index after key
+                Undertaker's Gambit
                 Numerical Reflection: 1
-                Numerical Reflection: 0
-                Augur's Exaltation
                 Additive Distillation
-                
-                // get value
                 Selection Distillation
                 
-                // break if not null
-                Gemini Decomposition
-                Nullary Reflection
-                Equality Distillation
+                // break if the key was found
+                // otherwise leave the key at the top of the stack
+                // (mostly so we don't have to embed every pattern in the standard env)
+                Jester's Gambit
+                Numerical Reflection: -1
+                Maximus Distillation
                 {
                     Charon's Gambit
+                    Bookkeeper's Gambit: v
                 }
-                Speaker's Decomposition
+                Flock's Disintegration
                 Augur's Exaltation
                 Hermes' Gambit
             }
             Muninn's Reflection
+            Numerical Reflection: 0
+            Selection Distillation
             Thoth's Gambit
             Derivation Decomposition
             Bookkeeper's Gambit: vv-
@@ -150,10 +142,11 @@
                     Flock's Reflection
                     Flock's Gambit
                     Derivation Decomposition
-                    Jester's Gambit
-                    Derivation Decomposition
                     Bookkeeper's Gambit: v-
-                    Undertaker's Gambit
+                    
+                    Muninn's Reflection
+                    Numerical Reflection: 1
+                    Selection Distillation
                     Hermes' Gambit
                 }
                 Jester's Gambit
@@ -189,21 +182,19 @@
 
                 // evaluate condition
                 Rotation Gambit
-                Numerical Reflection: 3
-                Fisherman's Gambit II
-                Undertaker's Gambit
+                Muninn's Reflection
+                Numerical Reflection: 1
+                Selection Distillation
                 Hermes' Gambit
                 
                 // evaluate whichever case we chose
                 Augur's Purification
                 Rotation Gambit II
                 Augur's Exaltation
-                Prospector's Gambit
+                Muninn's Reflection
+                Numerical Reflection: 1
+                Selection Distillation
                 Hermes' Gambit
-                
-                // push null in place of eval for later, since we just popped it
-                Nullary Reflection
-                Jester's Gambit
             }
             // define
             {
@@ -211,9 +202,9 @@
                 Bookkeeper's Gambit: v--
                 
                 // evaluate value
-                Numerical Reflection: 2
-                Fisherman's Gambit II
-                Undertaker's Gambit
+                Muninn's Reflection
+                Numerical Reflection: 1
+                Selection Distillation
                 Hermes' Gambit
 
                 // add symbol to env
@@ -223,9 +214,14 @@
 
                 Muninn's Reflection
                 Speaker's Decomposition
-                Rotation Gambit
+                Speaker's Decomposition
+
+                Numerical Reflection: 3
+                Fisherman's Gambit
                 Jester's Gambit
                 Additive Distillation
+
+                Speaker's Distillation
                 Speaker's Distillation
                 Huginn's Gambit
 
@@ -247,8 +243,12 @@
         Jester's Gambit
         Selection Distillation
         Hermes' Gambit
-        Bookkeeper's Gambit: v-
     Consideration: }
+
     Undertaker's Gambit
+    Numerical Reflection: 2
+    Flock's Gambit
+    Huginn's Gambit
+    
     Hermes' Gambit
 }
