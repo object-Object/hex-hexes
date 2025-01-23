@@ -1,4 +1,6 @@
 #include "./types/hexcellular.hexpattern"
+#include "./types/hexical.hexpattern"
+#include "./macros/Greatest_Blink.hexpattern"
 
 // evocation teleporter
 {
@@ -38,10 +40,6 @@
         Gate's Closing
     }
     {
-        /*
-        coords
-        lookup
-        */
         // convert coordinates to numbers
         Bookkeeper's Gambit: v
         Jester's Gambit
@@ -78,11 +76,12 @@
             Mind's Reflection
             Compass' Purification II
             Reveal
-            Subtractive Distillation
+            Bookkeeper's Gambit: v
             
-            Greater Teleport
+            Greatest Blink
+            Janus' Gambit
         }
-        Vacant Reflection
+        Speaker's Decomposition
         Augur's Exaltation
         Hermes' Gambit
         
