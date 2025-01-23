@@ -1,0 +1,2 @@
+#define Enqueue = list, number, any ->
+#define Program Purification = any -> null/list of patterns

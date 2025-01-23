@@ -1,0 +1,52 @@
+#include "../types/hexcassettes.hexpattern"
+
+#define QUINIO = list, number, any ->
+// enqueues a pattern list as a quine
+{
+    Dioscuri Gambit
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Numerical Reflection: 3
+    Flock's Gambit
+
+    {
+        {
+            Bookkeeper's Gambit: - // self
+            Bookkeeper's Gambit: - // ticks, name, inner code
+        }
+        Flock's Disintegration
+        Flock's Disintegration
+        
+        {
+            <Sehkmet's Gambit: 0>
+        }
+        Undertaker's Gambit
+        Jester's Gambit
+        Additive Distillation
+        Jester's Gambit
+        Thoth's Gambit
+        Bookkeeper's Gambit: v
+        
+        // embed self
+        Rotation Gambit
+        Numerical Reflection: 1
+        Prospector's Gambit
+        Surgeon's Exaltation
+
+        Rotation Gambit II
+        Enqueue
+    }
+
+    // embed data
+    Numerical Reflection: 2
+    Rotation Gambit
+    Surgeon's Exaltation
+
+    // embed self
+    Numerical Reflection: 1
+    Prospector's Gambit
+    Surgeon's Exaltation
+
+    Rotation Gambit II
+    Enqueue
+}
