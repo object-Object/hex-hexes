@@ -18,3 +18,5 @@
 
 #define Conjure Mesh = vector -> entity
 #define Weave Mesh = entity, list of vectors ->
+
+#define Greater Blink = vector ->

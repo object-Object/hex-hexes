@@ -1,0 +1,91 @@
+#include "../types/hexical.hexpattern"
+#include "../types/hexcasting.hexpattern"
+
+#define Greatest Blink = vector ->
+// world coordinates ->
+{
+    // get change of basis matrix where +x is right, +y is up from head, +z is forward
+    // then transpose it to get the rotation matrix from world space to greater blink space
+    Mind's Reflection
+    Alidade's Purification
+    Mind's Reflection
+    Theodolite Purification
+    Dioscuri Gambit
+    Division Distillation
+
+    Rotation Gambit II
+    Jester's Gambit
+    Sprawling Distillation
+    Sprawling Distillation
+    Retrograde Purification
+
+    // get maximum safe blink distance: 128 - |head - foot|
+    // TODO: remove the offset when gblink is fixed
+    Numerical Reflection: 128
+    Mind's Reflection
+    Compass' Purification
+    Mind's Reflection
+    Compass' Purification II
+    Subtractive Distillation
+    Length Purification
+    Subtractive Distillation
+
+    Rotation Gambit
+
+    // set up thoth loop to iterate (total distance // max blink distance) times
+    Dioscuri Gambit
+    Mind's Reflection
+    Compass' Purification II
+    Subtractive Distillation
+    Length Purification
+    
+    Jester's Gambit
+    Division Distillation
+    Ceiling Purification
+    
+    Gemini Decomposition
+    Gemini Gambit
+    Gemini Decomposition
+    Flock's Gambit
+
+    {
+        Bookkeeper's Gambit: v
+
+        // vector from feet to target
+        Mind's Reflection
+        Compass' Purification II
+        Subtractive Distillation
+        
+        // normalize
+        Gemini Decomposition
+        Length Purification
+        Undertaker's Gambit
+        Division Distillation
+        Rotation Gambit II
+        
+        // min(distance, max safe distance) * direction
+        Dioscuri Gambit
+        Minimus Distillation
+        Rotation Gambit II
+        Augur's Exaltation
+        Multiplicative Distillation
+        
+        // offset down by (head - foot)
+        // TODO: remove when gblink is fixed
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Compass' Purification II
+        Subtractive Distillation
+        Subtractive Distillation
+        
+        // convert to greater blink space
+        Multiplicative Distillation
+        Restoration Purification
+        
+        Greater Blink
+    }
+    Jester's Gambit
+    Thoth's Gambit
+    Bookkeeper's Gambit: vvvv
+}

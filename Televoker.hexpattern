@@ -1,0 +1,95 @@
+#include "./types/hexcellular.hexpattern"
+
+// evocation teleporter
+{
+    Whisper Reflection
+    False Reflection
+    Case Distillation
+    
+    // check gates
+    {
+        <property iota: [name, gate, ...]>
+    }
+    Flock's Disintegration
+    Observation Purification
+    Dioscuri Gambit
+    Jester's Gambit
+    Locator's Distillation
+
+    Gemini Decomposition
+    Numerical Reflection: -1
+    Maximus Distillation
+    {
+        // teleport to gate
+        Bookkeeper's Gambit: v--
+        Numerical Reflection: 1
+        Additive Distillation
+        Selection Distillation
+        
+        Gemini Decomposition
+        Mind's Reflection
+        Gate's Opening
+        
+        Mind's Reflection
+        Compass' Purification II
+        Reveal
+        Bookkeeper's Gambit: v
+        
+        Gate's Closing
+    }
+    {
+        /*
+        coords
+        lookup
+        */
+        // convert coordinates to numbers
+        Bookkeeper's Gambit: v
+        Jester's Gambit
+        Spacing Reflection
+        Separation Distillation
+        {
+            <Sekhmet's Gambit: ->
+            Input Purification
+        }
+        Jester's Gambit
+        Thoth's Gambit
+        
+        // remove nulls
+        Nullary Reflection
+        Integration Distillation
+        Nullary Reflection
+        Single's Purification
+        Exclusion Distillation
+
+        // convert to vector
+        Gemini Decomposition
+        Length Purification
+        Numerical Reflection: 3
+        Equality Distillation
+        {
+            // if false
+            Bookkeeper's Gambit: v
+            
+            // if true
+            Bookkeeper's Gambit: v-
+            Flock's Disintegration
+            Vector Exaltation
+            
+            Mind's Reflection
+            Compass' Purification II
+            Reveal
+            Subtractive Distillation
+            
+            Greater Teleport
+        }
+        Vacant Reflection
+        Augur's Exaltation
+        Hermes' Gambit
+        
+        // if the coordinates were invalid, print the list of gates instead
+        Reveal
+        Bookkeeper's Gambit: v
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+}
