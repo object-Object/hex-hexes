@@ -1,0 +1,56 @@
+#include "../types/hexcasting.hexpattern"
+
+/*
+The behavior of:
+
+    f
+    Stackful Call/CC
+
+should be equvialent to:
+
+    backup entire stack
+    f
+    Iris' Gambit
+    restore entire stack below the top value
+
+for example:
+
+    0
+    {
+        1
+        2
+        rotate
+        hermes
+    }
+    Stackful Call/CC
+    Reveal // 2
+    v
+    Reveal // 0
+*/
+
+#define Stackful Call/CC = list -> many
+{
+    {
+        Iris' Gambit
+    }
+    Jester's Gambit
+    Single's Purification
+    Thoth's Gambit
+    Derivation Decomposition
+    Bookkeeper's Gambit: v-
+}
+
+#define Stackful Call/CC II = list -> many
+{
+    {
+        Iris' Gambit
+        Numerical Reflection: 2
+        Flock's Gambit
+    }
+    Jester's Gambit
+    Single's Purification
+    Thoth's Gambit
+    Derivation Decomposition
+    Bookkeeper's Gambit: v-
+    Flock's Disintegration
+}
