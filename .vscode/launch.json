@@ -33,7 +33,7 @@
             "type": "hexdebug",
             "request": "attach",
             "name": "HexDebug: Attach",
-            "port": 44444,
+            "port": 4444,
             "stopOnEntry": true,
             "stopOnExit": true,
             "skipNonEvalFrames": true,
