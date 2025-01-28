@@ -25,7 +25,15 @@
         {
             // mark all items near the target position
             {
-                Gate's Opening
+                Dioscuri Gambit
+                Marked Distillation
+                {
+                    Bookkeeper's Gambit: vv
+                    Gate's Opening
+                }
+                Flock's Disintegration
+                Augur's Exaltation
+                Hermes' Gambit
             }
             Jester's Gambit
             Numerical Reflection: 8 // magnet radius
@@ -117,8 +125,6 @@
                 
                 Vacant Reflection
                 {
-                    Bookkeeper's Gambit: v
-                    Gate's Closing
                     Janus' Gambit
                 }
                 Augur's Exaltation
@@ -133,10 +139,11 @@
                     Bookkeeper's Gambit: v-
                     Dioscuri Gambit
                     Marked Distillation
-                    Vacant Reflection
                     {
+                        Bookkeeper's Gambit: vv
                         Gate's Opening
                     }
+                    Flock's Disintegration
                     Augur's Exaltation
                     Hermes' Gambit
                 }
@@ -176,10 +183,6 @@
         Rotation Gambit
         Single's Purification
         Thoth's Gambit
-        Bookkeeper's Gambit: vv
-        
-        // slurp
-        Gate's Closing
     Consideration: }
 
     // cast it in a cassette to remove particles, which apparently cause lots of lag too
