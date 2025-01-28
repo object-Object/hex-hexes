@@ -1,0 +1,192 @@
+#include "./types/hexical.hexpattern"
+#include "./types/hexcassettes.hexpattern"
+#include "./types/hexcasting.hexpattern"
+
+{
+    Consideration: {
+        // item magnet gate
+        {
+            <entity anchored gate>
+        }
+        Flock's Disintegration
+
+        // targeted block
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Archer's Distillation
+
+        // if not holding telepathy, do an item magnet around the target instead
+        Telepathic Reflection
+        Numerical Reflection: -1
+        Maximus Distillation
+        Vacant Reflection
+        {
+            // mark all items near the target position
+            {
+                Gate's Opening
+            }
+            Jester's Gambit
+            Numerical Reflection: 8 // magnet radius
+            Zone Distillation: Item
+            Thoth's Gambit
+            Bookkeeper's Gambit: v
+            
+            // close the gate if anything was marked
+            Gemini Decomposition
+            Length Purification
+            Numerical Reflection: 0
+            Maximus Distillation
+            {
+                Gate's Closing
+            }
+            Vacant Reflection
+            Augur's Exaltation
+            Hermes' Gambit
+
+            Janus' Gambit
+        }
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // target type
+        Gemini Decomposition
+        Sorter's Purification
+
+        // break first block
+        Prospector's Gambit
+        Gemini Decomposition
+        Break Block
+        
+        // mark items to be slurped
+        {
+            Bookkeeper's Gambit: vv-
+            Gate's Opening
+        }
+        Jester's Gambit
+        Numerical Reflection: 0.75
+        Zone Distillation: Item
+        Thoth's Gambit
+
+        // increment broken count
+        Soroban Reflection
+        Bookkeeper's Gambit: vv
+
+        // main loop
+        Consideration: {
+            // get adjacent blocks
+            Consideration: {
+                // pos + offset
+                Additive Distillation
+                
+                // check ambit
+                Gemini Decomposition
+                Mind's Reflection
+                Compass' Purification
+                Subtractive Distillation
+                Length Purification
+                Numerical Reflection: 32
+                Minimus Distillation
+                
+                Vacant Reflection
+                {
+                    <Sekhmet's Gambit: 0>
+                    Atalanta's Gambit
+                }
+                Augur's Exaltation
+                Hermes' Gambit
+
+                // check type
+                Undertaker's Gambit
+                Sorter's Purification
+                Equality Distillation
+                
+                Vacant Reflection
+                {
+                    <Sekhmet's Gambit: 0>
+                    Atalanta's Gambit
+                }
+                Augur's Exaltation
+                Hermes' Gambit
+
+                // increment broken count, and stop if reached limit
+                Soroban Reflection
+                Numerical Reflection: 64
+                Minimus Distillation
+                
+                Vacant Reflection
+                {
+                    Bookkeeper's Gambit: v
+                    Gate's Closing
+                    Janus' Gambit
+                }
+                Augur's Exaltation
+                Hermes' Gambit
+
+                // break block
+                Gemini Decomposition
+                Break Block
+                
+                // mark items to be slurped
+                {
+                    Bookkeeper's Gambit: v-
+                    Dioscuri Gambit
+                    Marked Distillation
+                    Vacant Reflection
+                    {
+                        Gate's Opening
+                    }
+                    Augur's Exaltation
+                    Hermes' Gambit
+                }
+                Prospector's Gambit
+                Numerical Reflection: 0.75
+                Zone Distillation: Item
+                Thoth's Gambit
+                Bookkeeper's Gambit: v-v
+            Consideration: }
+            {
+                // adjacent offsets
+                <[(-1, -1, -1), ..., (1, 1, 1)]>
+            }
+            Flock's Disintegration
+            Thoth's Gambit
+
+            // enqueue filtered adjacent blocks
+            {
+                Speaker's Decomposition
+                Gemini Decomposition
+                Nullary Reflection
+                Inequality Distillation
+                {
+                    Pollux's Gambit
+                    Charon's Gambit
+                }
+                Flock's Disintegration
+                Augur's Exaltation
+                Hermes' Gambit
+                
+                // TODO: remove when miyucomics/hexical#45 is fixed
+                Bookkeeper's Gambit: v
+            }
+            Sisyphus' Gambit
+            <Sekhmet's Gambit: 0> // not strictly necessary, but we don't need the thoth accumulator for anything
+        Consideration: }
+        Rotation Gambit
+        Single's Purification
+        Thoth's Gambit
+        Bookkeeper's Gambit: vv
+        
+        // slurp
+        Gate's Closing
+    Consideration: }
+
+    // cast it in a cassette to remove particles, which apparently cause lots of lag too
+    Numerical Reflection: 0
+    {
+        <"Veinminer">
+    }
+    Flock's Disintegration
+    Enqueue
+}
