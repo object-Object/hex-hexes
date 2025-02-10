@@ -1,0 +1,30 @@
+#include "./types/hexcasting.hexpattern"
+
+{
+    Vacant Reflection
+    Iris' Gambit
+
+    // quine body
+    Numerical Reflection: 0
+    Reveal
+    Bookkeeper's Gambit: v
+    
+    {
+        {
+            Bookkeeper's Gambit: v-
+            {
+                Jester's Gambit
+                Hermes' Gambit
+            }
+            Iris' Gambit
+        }
+        Jester's Gambit
+        Single's Purification
+        Thoth's Gambit
+
+        Bookkeeper's Gambit: v
+        Gemini Decomposition
+        Hermes' Gambit
+    }
+    Iris' Gambit
+}
