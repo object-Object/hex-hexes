@@ -1,0 +1,315 @@
+#include "./macros/Math.hexpattern"
+#include "./macros/Mouse_Input_II.hexpattern"
+#include "./types/hexcasting.hexpattern"
+#include "./types/hexcassettes.hexpattern"
+#include "./types/hexical.hexpattern"
+
+{
+    {
+        <button hexes>
+        <button icons>
+        <label>
+    }
+    Flock's Disintegration
+    
+    // check if the menu is running yet
+    Gemini Decomposition
+    Program Purification II
+    Nullary Reflection
+    Equality Distillation
+    Consideration: { // menu is not open - create it
+        Bookkeeper's Gambit: v--
+
+        // quine
+        Consideration: {
+            // persistent ravenmind data
+            {
+                /* [
+                    label,
+                    self,
+                    specks,
+                    close menu speck,
+                    selected index,
+                    reference matrix,
+                ] */
+                Bookkeeper's Gambit: -
+            }
+            Flock's Disintegration
+            Gemini Decomposition
+            Huginn's Gambit
+            
+            Flock's Disintegration
+            Bookkeeper's Gambit: vv--v-
+
+            /* update speck positions */
+            
+            // get menu center
+            Numerical Reflection: 3
+            Dioscuri Gambit II
+
+            Vector Reflection +X
+            Numerical Reflection: 2 // menu distance from player
+            Multiplicative Distillation
+            
+            Multiplicative Distillation
+            Restoration Purification
+            
+            Mind's Reflection
+            Compass' Purification
+            Additive Distillation
+            
+            // update position of close button
+            Undertaker's Gambit
+            Move Speck
+
+            // update positions of radial buttons
+            Prospector's Gambit
+            Length Purification
+            Circle's Reflection
+            Jester's Gambit
+            Division Distillation
+            Rotation Gambit II
+            Soroban Gambit
+
+            {
+                // rotation matrix
+                // (index * tau / len(specks)) radians around the +x axis
+                Rotation Gambit
+                Soroban Reflection
+                Multiplicative Distillation
+                Vector Reflection +X
+                Jester's Gambit
+                Rotation Distillation
+                
+                // speck offset in head space
+                Vector Reflection +Y
+                Numerical Reflection: 0.5 // blocks
+                Multiplicative Distillation
+                Multiplicative Distillation
+                Restoration Purification
+                
+                // convert to world space and add to center
+                Numerical Reflection: 3
+                Fisherman's Gambit
+                Jester's Gambit
+                Multiplicative Distillation
+                Restoration Purification
+                
+                Rotation Gambit
+                Additive Distillation
+                
+                Move Speck
+            }
+            Rotation Gambit
+            Thoth's Gambit
+            Bookkeeper's Gambit: vvv
+
+            /* update selected button */
+            
+            // get mouse input
+            Mind's Reflection
+            Basis Purification
+            Get Relative Angles
+            
+            // invert pitch and convert to vector in degrees
+            Numerical Reflection: -1
+            Multiplicative Distillation
+            Numerical Reflection: 0
+            Vector Exaltation
+
+            Numerical Reflection: 360
+            Circle's Reflection
+            Division Distillation
+            Multiplicative Distillation
+            
+            // get selected button
+            // both branches return an index between -1 and len(buttons), where -1 is the close button
+            Gemini Decomposition
+            Length Purification
+            Numerical Reflection: 6 // degrees from origin
+            Maximus Distillation
+            { // mouse is away from the origin, figure out which radial button is selected
+                // angle between +y (straight up) and the mouse input, increasing clockwise
+                Vector Reflection +Y
+                Jester's Gambit
+                Vector Reflection -Z
+                Theta Exaltation
+                
+                // radians per button
+                Circle's Reflection
+                Numerical Reflection: 3
+                Fisherman's Gambit II
+                Length Purification
+                Division Distillation
+                
+                // offset angle clockwise by half of a button
+                Undertaker's Gambit
+                Numerical Reflection: 2
+                Division Distillation
+                Additive Distillation
+                
+                // normalize to [0, tau)
+                Circle's Reflection
+                Additive Distillation
+                Circle's Reflection
+                Modulus Distillation
+                
+                // get button index
+                Jester's Gambit
+                Division Distillation
+                Floor Purification
+            }
+            { // mouse is near the origin, select the close menu button
+                Bookkeeper's Gambit: v
+                Numerical Reflection: -1
+            }
+            Augur's Exaltation
+            Hermes' Gambit
+
+            // put the close button at the start, and initialize the soroban to -1
+            Rotation Gambit II
+            Speaker's Distillation
+            Soroban Gambit
+            Soroban Reflection II
+            Bookkeeper's Gambit: v
+
+            // resize the specks to show which is selected
+            {
+                Jester's Gambit
+                Soroban Reflection
+                Equality Distillation
+                Numerical Reflection: 0.5 // size if selected
+                Numerical Reflection: 0.375 // size otherwise
+                Augur's Exaltation
+                Resize Speck
+            }
+            Jester's Gambit
+            Thoth's Gambit
+            Bookkeeper's Gambit: v
+            
+            // update index in ravenmind
+            Muninn's Reflection
+            Numerical Reflection: 4
+            Rotation Gambit
+            Surgeon's Exaltation
+            Huginn's Gambit
+
+            /* enqueue next iteration */
+
+            // get self and label
+            Muninn's Reflection
+            Numerical Reflection: 0
+            Numerical Reflection: 2
+            Selection Exaltation
+            Flock's Disintegration
+            
+            // embed ravenmind into self
+            Numerical Reflection: 1
+            Muninn's Reflection
+            Surgeon's Exaltation
+            
+            // QUINIO
+            Numerical Reflection: 1 // delay between iterations
+            Rotation Gambit
+            Enqueue
+        Consideration: }
+        Gemini Decomposition
+        Huginn's Gambit
+
+        // specks
+        {
+            <Sekhmet's Gambit: 1>
+
+            // position (doesn't really matter, since the quine updates it each tick)
+            Mind's Reflection
+            Compass' Purification II
+
+            // rotation (opposite the player's initial look vector)
+            Mind's Reflection
+            Alidade's Purification
+            Numerical Reflection: -1
+            Multiplicative Distillation
+
+            Conjure Speck
+        }
+
+        Numerical Reflection: 3
+        Fisherman's Gambit
+        {
+            <"close menu" icon>
+        }
+        Flock's Disintegration
+        Speaker's Distillation
+
+        Thoth's Gambit
+
+        // close menu speck
+        Speaker's Decomposition
+
+        // default selected index (-1 closes the menu)
+        Numerical Reflection: -1
+        
+        // reference matrix
+        Mind's Reflection
+        Basis Purification
+        
+        // launch menu
+        Numerical Reflection: 6
+        Flock's Gambit
+        
+        Muninn's Reflection
+        Numerical Reflection: 1
+        Rotation Gambit
+        Surgeon's Exaltation
+        
+        Hermes' Gambit
+    Consideration: }
+    Consideration: { // menu is already open - close it and select an option
+        // store the hexes in the ravenmind so we don't hit the stack limit :(
+        Bookkeeper's Gambit: v-
+        Jester's Gambit
+        Huginn's Gambit
+
+        // get quine code and stop the cassette
+        Gemini Decomposition
+        Program Purification
+        Jester's Gambit
+        Dequeue
+        
+        // get ravenmind
+        Numerical Reflection: 1
+        Selection Distillation
+
+        // dismiss the specks
+        {
+            Dismiss Speck
+        }
+
+        Prospector's Gambit
+        Numerical Reflection: 2 // specks
+        Numerical Reflection: 4 // close menu speck + 1
+        Selection Exaltation
+        Flock's Disintegration
+        Speaker's Distillation
+        
+        Thoth's Gambit
+        Bookkeeper's Gambit: v
+
+        // get selected hex
+        Numerical Reflection: 4 // selected index
+        Selection Distillation
+        Muninn's Reflection
+        Jester's Gambit
+        Selection Distillation
+        
+        // execute if non-null
+        Gemini Decomposition
+        Augur's Purification
+        Jester's Gambit
+        Vacant Reflection
+        Augur's Exaltation
+        Hermes' Gambit
+    Consideration: }
+    Augur's Exaltation
+    Hermes' Gambit
+}

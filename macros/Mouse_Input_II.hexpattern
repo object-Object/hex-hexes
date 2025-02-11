@@ -1,0 +1,43 @@
+#include "./Math.hexpattern"
+
+// like Mouse Input, but for 1.20, and takes matrices as input
+
+#define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = mat, mat -> num, num
+// reference basis, current basis -> yaw, pitch
+// Given reference and current change of basis matrices, returns the current yaw and pitch relative to the reference.
+// All inputs should be unit vectors, and the returned values are in radians.
+// Basis vectors should be +x forward, +y up, +z right.
+// Yaw increases right, and pitch increases down.
+{
+    // forward and right vectors
+    Sprawling Distillation
+    Restoration Purification
+    Flock's Disintegration
+    Bookkeeper's Gambit: v--v-
+    Rotation Gambit
+    
+    // yaw (angle between current right and reference right, on -y axis)
+    Gemini Decomposition
+    Rotation Gambit
+    Vector Reflection -Y
+    Theta Exaltation
+    
+    // rotate current forward about y axis to cancel out yaw
+    // note: yaw is positive clockwise, but rotations are positive counterclockwise
+    // so we don't need to negate the pitch for this
+    Rotation Gambit
+    Prospector's Gambit
+    Vector Reflection +Y
+    Jester's Gambit
+    Rotation Distillation
+    Jester's Gambit
+    Multiplicative Distillation
+    Restoration Purification
+
+    // pitch (angle between rotated current forward and reference forward, on reference right axis)
+    Rotation Gambit
+    Numerical Reflection: 3
+    Fisherman's Gambit
+    Jester's Gambit
+    Theta Exaltation
+}

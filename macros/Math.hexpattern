@@ -1,5 +1,6 @@
 #include "./Reading_and_Writing.hexpattern"
 #include "./List_Manipulation.hexpattern"
+#include "../types/hexical.hexpattern"
 
 #define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
 {
@@ -330,4 +331,19 @@
     Rotation Gambit II
     Cosine Purification
     Multiplicative Distillation
+}
+
+#define Basis Purification (SOUTH_EAST dwwdqdwwdawa) = entity -> mat
+// returns a change of basis matrix for the entity's head
+// where +x is the entity's look direction, +y is up from their head, and +z is to their right
+{
+    Gemini Decomposition
+    Alidade's Purification
+    Jester's Gambit
+    Theodolite Purification
+    
+    Dioscuri Gambit
+    Division Distillation
+    Sprawling Distillation
+    Sprawling Distillation
 }

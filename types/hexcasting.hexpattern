@@ -5,4 +5,7 @@
 #define Ritualist's Gambit II = vec, num, any ->
 
 #define Iris' Gambit = [pattern] | pattern -> many
+
 #define Derivation Decomposition = list -> list, any
+
+#define Inverse Tangent Purification II = num, num -> num

@@ -16,7 +16,9 @@
 #define Pollux's Gambit = any ->
 #define Atalanta's Gambit
 
+#define Conjure Speck = any, vector, vector -> entity
 #define Move Speck = speck entity, vector ->
+#define Resize Speck = speck entity, number ->
 #define Dismiss Speck = speck entity ->
 
 #define Conjure Mesh = vector -> entity
