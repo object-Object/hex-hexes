@@ -19,9 +19,9 @@
     Sprawling Distillation
     Retrograde Purification
 
-    // get maximum safe blink distance: 128 - |head - foot|
-    // TODO: remove the offset when gblink is fixed
+    // get maximum safe blink distance
     Numerical Reflection: 128
+    /* (only for hexical 1.5.0 and below)
     Mind's Reflection
     Compass' Purification
     Mind's Reflection
@@ -29,6 +29,7 @@
     Subtractive Distillation
     Length Purification
     Subtractive Distillation
+    */
 
     Rotation Gambit
 
@@ -71,13 +72,14 @@
         Multiplicative Distillation
         
         // offset down by (head - foot)
-        // TODO: remove when gblink is fixed
+        /* (only for hexical 1.5.0 and below)
         Mind's Reflection
         Compass' Purification
         Mind's Reflection
         Compass' Purification II
         Subtractive Distillation
         Subtractive Distillation
+        */
         
         // convert to greater blink space
         Multiplicative Distillation
