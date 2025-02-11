@@ -7,7 +7,7 @@
 {
     {
         <button hexes>
-        <button icons>
+        <[...button icons, close icon]>
         <label>
     }
     Flock's Disintegration
@@ -50,6 +50,12 @@
             Vector Reflection +X
             Numerical Reflection: 2 // menu distance from player
             Multiplicative Distillation
+
+            // FIXME: hack - offset down to account for non-pattern specks being in the wrong place :/
+            Vector Reflection -Y
+            Numerical Reflection: 11
+            Division Distillation
+            Additive Distillation
             
             Multiplicative Distillation
             Restoration Purification
@@ -232,19 +238,12 @@
 
             Conjure Speck
         }
-
         Numerical Reflection: 3
         Fisherman's Gambit
-        {
-            <"close menu" icon>
-        }
-        Flock's Disintegration
-        Speaker's Distillation
-
         Thoth's Gambit
 
         // close menu speck
-        Speaker's Decomposition
+        Derivation Decomposition
 
         // default selected index (-1 closes the menu)
         Numerical Reflection: -1
@@ -279,25 +278,24 @@
         // get ravenmind
         Numerical Reflection: 1
         Selection Distillation
-
+        
+        // get specks, close menu speck, and selected index
+        Numerical Reflection: 2
+        Numerical Reflection: 5
+        Selection Exaltation
+        Flock's Disintegration
+        
         // dismiss the specks
+        Rotation Gambit II
+        Speaker's Distillation
         {
             Dismiss Speck
         }
-
-        Prospector's Gambit
-        Numerical Reflection: 2 // specks
-        Numerical Reflection: 4 // close menu speck + 1
-        Selection Exaltation
-        Flock's Disintegration
-        Speaker's Distillation
-        
+        Jester's Gambit
         Thoth's Gambit
         Bookkeeper's Gambit: v
 
         // get selected hex
-        Numerical Reflection: 4 // selected index
-        Selection Distillation
         Muninn's Reflection
         Jester's Gambit
         Selection Distillation
