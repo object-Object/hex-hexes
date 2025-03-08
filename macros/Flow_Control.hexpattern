@@ -1,3 +1,5 @@
+#include "../types/hexcasting.hexpattern"
+
 #define Conditional Continue (SOUTH_WEST aqdeedd) = bool ->
 {
     {
@@ -21,3 +23,29 @@
     Augur's Exaltation
     Hermes' Gambit
 }
+
+#define List to Continuation = list -> jump
+{
+    {
+        <Jump>
+    }
+    Flock's Disintegration
+    Iris' Gambit
+}
+
+// draw in staff grid to create jump iota
+{
+    {
+        Charon's Gambit
+    }
+    Flock's Disintegration
+    Iris' Gambit
+
+    {
+        Iris' Gambit
+    }
+    Rotation Gambit
+    Additive Distillation
+    Hermes' Gambit
+}
+Hermes' Gambit

@@ -1,5 +1,6 @@
 #include "./Reading_and_Writing.hexpattern"
 #include "./List_Manipulation.hexpattern"
+#include "../types/hexcasting.hexpattern"
 #include "../types/hexical.hexpattern"
 
 #define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
@@ -346,4 +347,27 @@
     Division Distillation
     Sprawling Distillation
     Sprawling Distillation
+}
+
+#define Bitflag Purification = list -> num
+{
+    Soroban Gambit
+
+    {
+        <Sekhmet's Gambit: 1>
+        Length Purification
+
+        Numerical Reflection: 2
+        Soroban Reflection
+        Power Distillation
+        
+        Multiplicative Distillation
+    }
+    Jester's Gambit
+    Retrograde Purification
+    Thoth's Gambit
+
+    Running Sum Purification
+    Derivation Decomposition
+    Bookkeeper's Gambit: v-
 }

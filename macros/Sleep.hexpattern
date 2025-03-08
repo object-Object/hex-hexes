@@ -1,0 +1,49 @@
+#include "../types/hexcasting.hexpattern"
+#include "../types/hexcassettes.hexpattern"
+#include "../types/hexical.hexpattern"
+
+#define Sleep = num ->
+// ticks ->
+{
+    Muninn's Reflection
+
+    {
+        {
+            Single's Purification
+            Jester's Gambit
+            Nullary Reflection // label
+            Enqueue
+            Janus' Gambit
+        }
+        Iris' Gambit
+    }
+    Rotation Gambit
+    Single's Purification
+    Thoth's Gambit
+
+    Bookkeeper's Gambit: v
+    Huginn's Gambit
+}
+
+#define Sleep II = num, any ->
+// ticks, label ->
+{
+    Muninn's Reflection
+    Rotation Gambit II
+
+    {
+        {
+            Single's Purification
+            Rotation Gambit II
+            Enqueue
+            Janus' Gambit
+        }
+        Iris' Gambit
+    }
+    Jester's Gambit
+    Single's Purification
+    Thoth's Gambit
+
+    Bookkeeper's Gambit: vv
+    Huginn's Gambit
+}
