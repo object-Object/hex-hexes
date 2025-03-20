@@ -137,7 +137,7 @@ if __name__ == "__main__":
         a_data.append([])
         v_data.append([])
         for i in x:
-            a, v = solve(X=i, Y=j)
+            a, v = solve(X=float(i), Y=float(j))
             a_data[-1].append(a * 360 / math.tau)
             v_data[-1].append(v)
 
