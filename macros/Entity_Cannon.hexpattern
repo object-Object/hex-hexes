@@ -1,0 +1,403 @@
+#include "../types/hexcasting.hexpattern"
+#include "../types/hexical.hexpattern"
+#include "./Math.hexpattern"
+#include "./Sleep.hexpattern"
+
+#define Launch Entity = entity, vec ->
+// entity, target position ->
+{
+    Jester's Gambit
+
+    // parameter lookup table
+    // [d_x, d_y, g, k, after]
+    // https://github.com/OrHy3/MinecraftMotionTools/blob/afe7b6fdecccdca6427dd1d43a2a8538b2dc1ad2/README.md
+    {
+        // default (living entity)
+        <[0.09, 0.02, 0.08, 0, true]>
+
+        <entity type: item>
+        <[0.02, 0.02, 0.04, 1, true]>
+        
+        <entity type: falling block>
+        <[0.02, 0.02, 0.04, 1, true]>
+        
+        <entity type: primed tnt>
+        <[0.02, 0.02, 0.04, 1, true]>
+
+        <entity type: egg>
+        <[0.01, 0.01, 0.03, 0, false]>
+
+        <entity type: snowball>
+        <[0.01, 0.01, 0.03, 0, false]>
+
+        <entity type: ender pearl>
+        <[0.01, 0.01, 0.03, 0, false]>
+
+        <entity type: potion>
+        <[0.01, 0.01, 0.05, 0, false]>
+
+        <entity type: xp bottle>
+        <[0.01, 0.01, 0.07, 0, false]>
+
+        <entity type: xp orb>
+        <[0.02, 0.02, 0.03, 1, true]>
+
+        <entity type: fishing bobber>
+        <[0.08, 0.08, 0.03, 1, true]>
+
+        <entity type: llama spit>
+        <[0.01, 0.01, 0.06, 0, false]>
+
+        <entity type: arrow>
+        <[0.01, 0.01, 0.05, 0, false]>
+
+        <entity type: trident>
+        <[0.01, 0.01, 0.05, 0, false]>
+    }
+    Dioscuri Gambit
+    Jester's Gambit
+    Physician's Purification
+    Locator's Distillation
+    Numerical Reflection: 1
+    Additive Distillation
+    Selection Distillation
+    
+    // special case for living entities with slow falling
+    Prospector's Gambit
+    {
+        <identifier: slow falling>
+    }
+    Flock's Disintegration
+    Clearance Distillation
+    Augur's Purification
+    {
+        <[0.09, 0.02, 0.01, 0, true]>
+    }
+    Flock's Disintegration
+    Rotation Gambit
+    Augur's Exaltation
+
+    // set entity motion to (0, g, 0) so it's not touching the ground on the next tick
+    Dioscuri Gambit
+    Numerical Reflection: 2
+    Selection Distillation
+    Vector Reflection +Y
+    Multiplicative Distillation
+    
+    Prospector's Gambit
+    Pace Purification
+    Subtractive Distillation
+    Impulse
+
+    // wait for 1 tick, using the entity as the cassette label
+    Numerical Reflection: 1
+    Numerical Reflection: 2
+    Fisherman's Gambit II
+    Sleep II
+
+    // get horizontal/vertical offsets (x/y)
+    Rotation Gambit II
+    Undertaker's Gambit
+    Compass' Purification II
+    Subtractive Distillation
+    
+    // y offset
+    Vector Reflection +Y
+    Prospector's Gambit
+    Power Distillation
+    Gemini Decomposition
+    Length Purification
+    
+    // x offset and direction
+    Rotation Gambit II
+    Subtractive Distillation
+    Gemini Decomposition
+    Length Purification
+    Undertaker's Gambit
+    Division Distillation
+    
+    // v_x, v_y
+    Rotation Gambit II
+    Jester's Gambit
+    Numerical Reflection: 4
+    Fisherman's Gambit
+    Flock's Disintegration
+    Solve Trajectory
+    
+    // final launch vector
+    Vector Reflection +Y
+    Multiplicative Distillation
+    Rotation Gambit II
+    Multiplicative Distillation
+    Additive Distillation
+    
+    // launch the entity
+    // note: this should use a linear impulse macro if you want to use this in survival
+    Prospector's Gambit
+    Pace Purification
+    Subtractive Distillation
+    Impulse
+}
+
+#define Solve Trajectory = num, num, num, num, num, num, bool -> num, num
+// x, y, d_x, d_y, g, k, after -> v_x, v_y
+{
+    // if after: g *= 1 - d_y, k /= 1 - d_y
+    {
+        Numerical Reflection: 1
+        Numerical Reflection: 3
+        Fisherman's Gambit II
+        Subtractive Distillation
+        
+        Undertaker's Gambit
+        Division Distillation
+        Rotation Gambit II
+        Multiplicative Distillation
+        Jester's Gambit
+    }
+    Vacant Reflection
+    Augur's Exaltation
+    Hermes' Gambit
+
+    Numerical Reflection: 6
+    Flock's Gambit
+    Muninn's Reflection
+    Jester's Gambit
+    Huginn's Gambit // [x, y, d_x, d_y, g, k]
+    
+    // vy_vx = v_x -> v_y
+    {
+        /*
+        t = (
+            log(1 - (d_x * x / v_x))
+            / log(1 - d_x)
+        )
+        */
+
+        // log(1 - d_x)
+        Muninn's Reflection
+        Flock's Disintegration
+        Bookkeeper's Gambit: v-vvv
+        
+        Numerical Reflection: 1
+        Prospector's Gambit
+        Subtractive Distillation
+        Euler's Reflection
+        Logarithmic Distillation
+        
+        // log(1 - (d_x * x / v_x))
+        Rotation Gambit II
+        Multiplicative Distillation
+        Rotation Gambit
+        Division Distillation
+
+        Numerical Reflection: 1
+        Jester's Gambit
+        Subtractive Distillation
+        
+        Euler's Reflection
+        Logarithmic Distillation
+
+        // t
+        Jester's Gambit
+        Division Distillation
+
+        /* 
+        v_y = -(
+            (t * g * (d_y * k + 1) + d_y * y)
+            / ((1 - d_y)^t - 1)
+            + g / d_y
+        )
+        */
+
+        // g / d_y
+        Muninn's Reflection
+        Flock's Disintegration
+        Bookkeeper's Gambit: v-v---
+        
+        Rotation Gambit II
+        Jester's Gambit
+        Dioscuri Gambit
+        Division Distillation
+        
+        // (1 - d_y)^t - 1
+        Rotation Gambit II
+        Numerical Reflection: 1
+        Prospector's Gambit
+        Subtractive Distillation
+        
+        Numerical Reflection: 6
+        Fisherman's Gambit II
+        Power Distillation
+        
+        Numerical Reflection: 1
+        Subtractive Distillation
+        
+        // (t * g * (d_y * k + 1) + d_y * y)
+        Rotation Gambit II
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Prospector's Gambit
+        Multiplicative Distillation
+        
+        Rotation Gambit II
+        Numerical Reflection: 5
+        Fisherman's Gambit
+        Multiplicative Distillation
+        Numerical Reflection: 1
+        Additive Distillation
+        
+        Multiplicative Distillation
+        Numerical Reflection: 4
+        Fisherman's Gambit
+        Multiplicative Distillation
+        
+        Additive Distillation
+        
+        // v_y
+        Jester's Gambit
+        Division Distillation
+        Additive Distillation
+        Numerical Reflection: -1
+        Multiplicative Distillation
+
+        Rotation Gambit
+        Huginn's Gambit
+    }
+
+    // cost = v_x -> cost
+    {
+        // v_x^2
+        Gemini Decomposition
+        Numerical Reflection: 2
+        Power Distillation
+        
+        // v_y^2
+        Jester's Gambit
+    }
+    Prospector's Gambit
+    Additive Distillation
+    {
+        Numerical Reflection: 2
+        Power Distillation
+        
+        // sqrt(v_x^2 + v_y^2)
+        Additive Distillation
+        Numerical Reflection: 0.5
+        Power Distillation
+    }
+
+    // asymptote = d_x * x
+    Muninn's Reflection
+    Flock's Disintegration
+    Bookkeeper's Gambit: v-vvv
+    
+    Prospector's Gambit
+    Multiplicative Distillation
+
+    // tolerance    
+    Numerical Reflection: 1
+    Numerical Reflection: 100
+    Division Distillation
+
+    // a = asymptote + tolerance
+    Undertaker's Gambit
+    Additive Distillation
+    
+    // b = a + max(10, x)
+    Rotation Gambit
+    Numerical Reflection: 10
+    Maximization Distillation
+    Prospector's Gambit
+    Additive Distillation
+    
+    // v_x
+    Rotation Gambit
+    Golden Section Search
+    
+    // v_y
+    Gemini Decomposition
+    Rotation Gambit
+    Hermes' Gambit
+}
+
+#define Golden Section Search = list, num, num, num -> num
+// f, a, b, tolerance -> minimum
+{
+    Rotation Gambit II
+    
+    {
+        Numerical Reflection: -4
+        Fisherman's Gambit
+    }
+    Iris' Gambit
+
+    // if tolerance < b - a, continue looping
+    // else stop
+    Numerical Reflection: 3
+    Dioscuri Gambit II
+    Jester's Gambit
+    Subtractive Distillation
+    Undertaker's Gambit
+    Minimus Distillation
+
+    {
+        // step = (b - a) * invphi
+        Numerical Reflection: 5
+        Numerical Reflection: 0.5
+        Power Distillation
+        Numerical Reflection: 1
+        Subtractive Distillation
+        Numerical Reflection: 2
+        Division Distillation
+        Multiplicative Distillation
+        
+        // c = b - step
+        Dioscuri Gambit
+        Subtractive Distillation
+        
+        // d = a + step
+        Jester's Gambit
+        Numerical Reflection: 3
+        Fisherman's Gambit II
+        Additive Distillation
+        
+        // f(d)
+        Dioscuri Gambit
+        Numerical Reflection: 7
+        Fisherman's Gambit II
+        Undertaker's Gambit
+        Hermes' Gambit
+        
+        // f(c)
+        Rotation Gambit II
+        Hermes' Gambit
+        
+        // if f(d) > f(c), b = d
+        // else a = c
+        Maximus Distillation
+        {
+            Bookkeeper's Gambit: vv-
+        }
+        {
+            Bookkeeper's Gambit: v--v
+            Jester's Gambit
+        }
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+    Numerical Reflection: 7 // jump
+    Fisherman's Gambit II
+    Integration Distillation
+    
+    {
+        // return (b + a) / 2
+        Bookkeeper's Gambit: v--vvv
+        Additive Distillation
+        Numerical Reflection: 2
+        Division Distillation
+    }
+
+    Augur's Exaltation
+    Hermes' Gambit
+}

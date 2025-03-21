@@ -29,3 +29,5 @@
 #define Soroban Reflection = -> number
 #define Soroban Reflection II = -> number
 #define Soroban Gambit
+
+#define Clearance Distillation = entity, identifier -> number
