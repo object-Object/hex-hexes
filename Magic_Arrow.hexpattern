@@ -1,4 +1,3 @@
-#include "./types/hexical.hexpattern"
 #include "./macros/Entities.hexpattern"
 #include "./macros/Math.hexpattern"
 #include "./macros/Mouse_Input.hexpattern"
@@ -101,7 +100,7 @@
         Mind's Reflection
         Alidade's Purification
         Mind's Reflection
-        Theodolite Purification
+        Theodolite's Purification
         Dioscuri Gambit
         Division Distillation
         Sprawling Distillation
@@ -225,7 +224,7 @@
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
-    Theodolite Purification
+    Theodolite's Purification
 
     // get reference vectors, and save them if necessary
     Genie Reflection: Memory

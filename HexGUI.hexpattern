@@ -1,6 +1,5 @@
 #include "./macros/Mouse_Input.hexpattern"
 #include "./macros/Math.hexpattern"
-#include "./types/hexical.hexpattern"
 
 {
     Macula Erasure
@@ -20,7 +19,7 @@
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
-    Theodolite Purification
+    Theodolite's Purification
 
     // get reference look/up vectors, and save them if necessary
     Genie Reflection: Memory

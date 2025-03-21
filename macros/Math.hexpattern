@@ -1,7 +1,6 @@
 #include "./Reading_and_Writing.hexpattern"
 #include "./List_Manipulation.hexpattern"
 #include "../types/hexcasting.hexpattern"
-#include "../types/hexical.hexpattern"
 
 #define Minimization Distillation (SOUTH_WEST qaa) = num, num -> num
 {
@@ -341,7 +340,7 @@
     Gemini Decomposition
     Alidade's Purification
     Jester's Gambit
-    Theodolite Purification
+    Theodolite's Purification
     
     Dioscuri Gambit
     Division Distillation

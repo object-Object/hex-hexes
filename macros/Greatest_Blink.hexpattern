@@ -1,4 +1,3 @@
-#include "../types/hexical.hexpattern"
 #include "../types/hexcasting.hexpattern"
 
 #define Greatest Blink = vector ->
@@ -9,7 +8,7 @@
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
-    Theodolite Purification
+    Theodolite's Purification
     Dioscuri Gambit
     Division Distillation
 

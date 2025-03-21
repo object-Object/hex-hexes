@@ -1,5 +1,4 @@
 #include "../types/hexcasting.hexpattern"
-#include "../types/hexical.hexpattern"
 #include "./Math.hexpattern"
 #include "./Sleep.hexpattern"
 

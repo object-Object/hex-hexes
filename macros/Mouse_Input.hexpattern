@@ -1,5 +1,4 @@
 #include "./Math.hexpattern"
-#include "../types/hexical.hexpattern"
 
 #define Get Relative Angles (NORTH_EAST dwaaqqqqqedeewe) = vec, vec, vec, vec -> num, num
 // reference look, reference up, current look, current up -> yaw, pitch
@@ -95,7 +94,7 @@
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
-    Theodolite Purification
+    Theodolite's Purification
 
     // get reference vectors, and save them if necessary
     Genie Reflection: Memory
@@ -193,7 +192,7 @@
         Mind's Reflection
         Alidade's Purification
         Mind's Reflection
-        Theodolite Purification
+        Theodolite's Purification
 
         Numerical Reflection: 4
         Dioscuri Gambit II
@@ -219,7 +218,7 @@
     Mind's Reflection
     Alidade's Purification
     Mind's Reflection
-    Theodolite Purification
+    Theodolite's Purification
     Mouse Input
 
     // continue if out of bounds
