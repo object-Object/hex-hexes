@@ -141,6 +141,7 @@
 
 #define Solve Trajectory = num, num, num, num, num, num, bool -> num, num
 // x, y, d_x, d_y, g, k, after -> v_x, v_y
+// https://www.desmos.com/calculator/r9mm2uqpdp
 {
     // if after: g *= 1 - d_y, k /= 1 - d_y
     {
