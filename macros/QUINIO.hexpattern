@@ -1,5 +1,3 @@
-#include "../types/hexcassettes.hexpattern"
-
 #define QUINIO = list, number, any ->
 // enqueues a pattern list as a quine
 {

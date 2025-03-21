@@ -1,7 +1,6 @@
 #include "./macros/Math.hexpattern"
 #include "./macros/Mouse_Input_II.hexpattern"
 #include "./types/hexcasting.hexpattern"
-#include "./types/hexcassettes.hexpattern"
 #include "./types/hexical.hexpattern"
 
 {

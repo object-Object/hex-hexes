@@ -1,4 +1,0 @@
-#define Enqueue = list, number, any ->
-#define Dequeue = any ->
-#define Program Purification = any -> null/list of patterns
-#define Program Purification II = any -> null/number
