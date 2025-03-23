@@ -35,6 +35,12 @@
         <entity type: potion>
         <[0.01, 0.01, 0.05, 0, false]>
 
+        <entity type: arrow>
+        <[0.01, 0.01, 0.05, 0, false]>
+
+        <entity type: trident>
+        <[0.01, 0.01, 0.05, 0, false]>
+
         <entity type: xp bottle>
         <[0.01, 0.01, 0.07, 0, false]>
 
@@ -46,12 +52,6 @@
 
         <entity type: llama spit>
         <[0.01, 0.01, 0.06, 0, false]>
-
-        <entity type: arrow>
-        <[0.01, 0.01, 0.05, 0, false]>
-
-        <entity type: trident>
-        <[0.01, 0.01, 0.05, 0, false]>
     }
     Dioscuri Gambit
     Jester's Gambit
@@ -63,18 +63,31 @@
     
     // special case for living entities with slow falling
     Prospector's Gambit
-    {
-        <identifier: slow falling>
-    }
-    Flock's Disintegration
-    Clearance Distillation
+    Compass' Purification
+    Entity Purification: Living
+    Gemini Decomposition
     Augur's Purification
     {
-        <[0.09, 0.02, 0.01, 0, true]>
+        // living entity - check if it has slow falling
+        {
+            <identifier: slow falling>
+        }
+        Flock's Disintegration
+        Clearance Distillation
+        Augur's Purification
+        {
+            <[0.09, 0.02, 0.01, 0, true]>
+        }
+        Flock's Disintegration
+        Rotation Gambit
+        Augur's Exaltation
     }
-    Flock's Disintegration
-    Rotation Gambit
+    {
+        // not living entity - drop the null
+        Bookkeeper's Gambit: v
+    }
     Augur's Exaltation
+    Hermes' Gambit
 
     // set entity motion to (0, g, 0) so it's not touching the ground on the next tick
     Dioscuri Gambit
@@ -166,7 +179,7 @@
     Huginn's Gambit // [x, y, d_x, d_y, g, k]
     
     // vy_vx = v_x -> v_y
-    {
+    Consideration: {
         /*
         t = (
             log(1 - (d_x * x / v_x))
@@ -260,10 +273,7 @@
         Additive Distillation
         Numerical Reflection: -1
         Multiplicative Distillation
-
-        Rotation Gambit
-        Huginn's Gambit
-    }
+    Consideration: }
 
     // cost = v_x -> cost
     {
@@ -286,6 +296,7 @@
         Numerical Reflection: 0.5
         Power Distillation
     }
+    Additive Distillation
 
     // asymptote = d_x * x
     Muninn's Reflection
@@ -319,6 +330,9 @@
     Gemini Decomposition
     Rotation Gambit
     Hermes' Gambit
+
+    Rotation Gambit
+    Huginn's Gambit
 }
 
 #define Golden Section Search = list, num, num, num -> num
