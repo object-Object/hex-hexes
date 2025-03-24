@@ -1,6 +1,56 @@
 #include "../types/hexcasting.hexpattern"
+#include "../types/hexical.hexpattern"
 #include "./Math.hexpattern"
 #include "./Sleep.hexpattern"
+
+// example CAD usage demo
+{
+    {
+        Bookkeeper's Gambit: - // target position
+    }
+    Flock's Disintegration
+
+    Stealthy Reflection
+    Numerical Reflection: 0
+    Minimus Distillation
+    {
+        // not sneaking; launch targeted entity to saved position
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Scout's Distillation
+
+        Jester's Gambit
+        Launch Entity
+    }
+    {
+        // sneaking; update saved position
+        Bookkeeper's Gambit: v
+        
+        Scribe's Reflection
+        Numerical Reflection: 1 // embedding index
+        
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        
+        Dioscuri Gambit
+        Archer's Distillation
+        Rotation Gambit II
+        Architect's Distillation
+        
+        Numerical Reflection: 2
+        Division Distillation
+        Additive Distillation
+        
+        Surgeon's Exaltation
+        Scribe's Gambit
+    }
+    Augur's Exaltation
+    Hermes' Gambit
+}
 
 #define Launch Entity = entity, vec ->
 // entity, target position ->
@@ -89,11 +139,13 @@
     Augur's Exaltation
     Hermes' Gambit
 
-    // set entity motion to (0, g, 0) so it's not touching the ground on the next tick
+    // set entity motion to (0, 2*g, 0) so it's not touching the ground on the next tick
     Dioscuri Gambit
     Numerical Reflection: 2
     Selection Distillation
     Vector Reflection +Y
+    Multiplicative Distillation
+    Numerical Reflection: 2
     Multiplicative Distillation
     
     Prospector's Gambit
@@ -306,10 +358,10 @@
     Prospector's Gambit
     Multiplicative Distillation
 
-    // tolerance    
-    Numerical Reflection: 1
-    Numerical Reflection: 100
-    Division Distillation
+    // tolerance
+    Numerical Reflection: 10
+    Numerical Reflection: -3
+    Power Distillation
 
     // a = asymptote + tolerance
     Undertaker's Gambit

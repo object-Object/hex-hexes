@@ -1,2 +1,4 @@
 #define Pollux's Gambit = any ->
 #define Atalanta's Gambit
+
+#define Stealthy Reflection (NORTH_WEST wede) = -> number
