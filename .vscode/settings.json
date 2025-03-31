@@ -17,18 +17,16 @@
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.codeActionsOnSave": {
             "source.organizeImports.ruff": "explicit"
-        },
+        }
     },
     "python.languageServer": "Pylance",
     "python.analysis.diagnosticMode": "workspace",
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
     "ruff.organizeImports": true,
-    "ruff.lint.args": [
-        "--extend-ignore=I", // import sorting
-    ],
+    "ruff.lint.ignore": ["I"], // import sorting
     "[markdown]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+    }
 }
