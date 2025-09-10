@@ -49,3 +49,91 @@
     Hermes' Gambit
 }
 Hermes' Gambit
+
+#define OnceCell = -> Call[(any ->) | (-> any)]
+{
+    {
+        Vacant Reflection
+        Arke's Gambit
+    }
+
+    Cognitohazard Reflection
+    Integration Distillation
+
+    {
+        {
+            Bookkeeper's Gambit: -
+        }
+        Flock's Disintegration
+        
+        Gemini Decomposition
+        Observation Purification
+        Nullary Reflection
+        Equality Distillation
+        {
+            Observation Purification
+
+            Jester's Gambit
+            Schrödinger's Gambit
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+
+    Numerical Reflection: 1
+    Schrödinger's Reflection
+    Surgeon's Exaltation
+
+    Additive Distillation
+    Thetis' Gambit
+}
+
+#define Create Protected Property = -> property, Call[any ->]
+/// -> reader, writer
+{
+    Schrödinger's Reflection
+    
+    Gemini Decomposition
+    Schrödinger's Purification
+
+    {
+        Vacant Reflection
+        Arke's Gambit
+        // cognitohazard
+        {
+            // property
+            // truename
+        }
+    }
+    Flock's Disintegration
+    
+    Cognitohazard Reflection
+    Rotation Gambit II
+    
+    Mind's Reflection
+
+    Numerical Reflection: 7
+    Fisherman's Gambit
+
+    Rotation Gambit
+    Numerical Reflection: 7
+    Flock's Gambit
+    {
+        Flock's Disintegration
+        
+        Mind's Reflection
+        Equality Distillation
+        {
+            Bookkeeper's Gambit: vv
+
+            Jester's Gambit
+            Schrödinger's Gambit
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+    }
+    Additive Distillation
+    Thetis' Gambit
+}
