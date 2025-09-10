@@ -9,8 +9,7 @@
         {
             Single's Purification
             Jester's Gambit
-            Nullary Reflection // label
-            Enqueue
+            Enqueue // two-argument variant
             Janus' Gambit
         }
         Iris' Gambit
@@ -33,7 +32,7 @@
         {
             Single's Purification
             Rotation Gambit II
-            Enqueue
+            Enqueue // three-argument variant
             Janus' Gambit
         }
         Iris' Gambit
