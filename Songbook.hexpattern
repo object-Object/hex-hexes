@@ -1,4 +1,6 @@
 // cassette-based spellbook
+// note: initialize the page labels and pages props with the same list of nulls (arbitrary size >= 1)
+
 {
     // cassette
     {
@@ -18,10 +20,9 @@
         Rotation Gambit
         Augur's Exaltation
 
-        // delta scroll (+ve up)
+        // delta scroll (+ve down)
         Rolling Reflection
-        Gemini Decomposition
-        Rotation Gambit
+        Undertaker's Gambit
         Subtractive Distillation
 
         // check if delta is non-zero...
@@ -56,10 +57,11 @@
             Rotation Gambit
             Observation Purification
 
-            // index = min(index, len(labels))
-            // this allows the index to be out of range by 1, for inserting new pages
+            // index = min(index, len(labels) - 1)
             Undertaker's Gambit
             Length Purification
+            Numerical Reflection: 1
+            Subtractive Distillation
 
             Dioscuri Gambit
             Minimus Distillation
@@ -69,11 +71,14 @@
             // get and display new label
             Undertaker's Gambit
             Selection Distillation
+
             Prospector's Gambit
+            Numerical Reflection: 1 // display pages from 1 instead of 0
+            Additive Distillation
 
             {
-                <label: ")">
-                <label: " (">
+                <text: ")">
+                <text: " (">
             }
             Flock's Disintegration
 
@@ -95,7 +100,7 @@
         Prospector's Gambit
         Reading Purification (text)
         {
-            <label: "Songbook: ">
+            <text: "Songbook: ">
         }
         Flock's Disintegration
         Jester's Gambit
@@ -143,7 +148,7 @@
             // check label prefix
             Selection Exaltation
             {
-                <label: "Songbook: ">
+                <text: "Songbook: ">
             }
             Flock's Disintegration
             Equality Distillation
@@ -184,10 +189,6 @@
     }
     Iris' Gambit
 
-    // TODO: add functions to insert/clear pages
-    // for now, just drop the quine
-    Bookkeeper's Gambit: v-
-
     // parse the index in the label
     Numerical Reflection: 10
     Prospector's Gambit
@@ -196,11 +197,175 @@
     Scrivener's Purification
     Input Purification
 
-    // execute the selected page
+    // extract the page labels prop from the quine
+    Jester's Gambit
+    Numerical Reflection: 2
+    Selection Distillation
+
+    // pages prop
     {
         <property: pages>
     }
     Flock's Disintegration
+
+    // check for page editing
+    // if we're sneaking and holding telepathy, pop the top of the stack, then:
+    //   scribe's reflection: read the current page, and push it to the stack
+    //   scribe's gambit:     pop the top of the stack, and write it to the current page
+    //   name item:           pop the top of the stack, and write it to the label of the current page
+    //   garbage:             execute the current page
+    //   any other iota:      push the iota back to the stack, then execute the current page
+    Stealthy Reflection
+    Numerical Reflection: 0
+    Maximus Distillation II
+    Telepathic Reflection
+    Numerical Reflection: 0
+    Maximus Distillation II
+    Conjunction Distillation
+    {
+        // if not editing
+        // drop the page labels prop
+        Bookkeeper's Gambit: v-
+
+        // if editing
+        // peek the top of the stack
+        {
+            <Garbage>
+            Scribe's Reflection
+            Scribe's Gambit
+            Name Item
+        }
+        Grokking Reflection
+        Huginn's Gambit // in case the iota is very large, don't have multiple copies on the stack at once
+        Muninn's Reflection
+        Locator's Distillation
+        Numerical Reflection: 1
+        Additive Distillation
+
+        {
+            // any other iota
+            // push the iota back to stack, then execute the current page
+            Bookkeeper's Gambit: v-
+            Muninn's Reflection
+            Grokking Gambit
+        }
+        {
+            // garbage
+            // just execute the current page
+            Bookkeeper's Gambit: v-
+        }
+        {
+            // scribe's reflection
+            // read and push the current page
+            Bookkeeper's Gambit: v-
+
+            Observation Purification
+            Jester's Gambit
+            Selection Distillation
+            Grokking Gambit
+
+            Hallucinate Click
+            Janus' Gambit
+        }
+        {
+            // scribe's gambit
+            // pop and write the current page
+
+            // read pages
+            Gemini Decomposition
+            Gemini Decomposition
+            Observation Purification
+
+            // write current page
+            Numerical Reflection: 4
+            Fisherman's Gambit II
+            Grokking Reflection
+            Surgeon's Exaltation
+            Schrödinger's Gambit
+
+            // if the page label is null, change it to "Untitled" to show that the page has something in it
+            Rotation Gambit II
+            Dioscuri Gambit
+            Gemini Decomposition
+            Observation Purification
+            Rotation Gambit
+            
+            Dioscuri Gambit
+            Selection Distillation
+            Nullary Reflection
+            Equality Distillation
+            {
+                // if not null
+                Bookkeeper's Gambit: vvv
+
+                // if null
+                {
+                    <text: "Untitled">
+                }
+                Flock's Disintegration
+                Surgeon's Exaltation
+                Schrödinger's Gambit
+            }
+            Speaker's Decomposition
+            Augur's Exaltation
+            Hermes' Gambit
+
+            // if we wrote to the last page, insert another one
+            Rotation Gambit II
+            Prospector's Gambit
+            Observation Purification
+            Length Purification
+            Numerical Reflection: 1
+            Subtractive Distillation
+            Equality Distillation
+            {
+                // pages
+                Gemini Decomposition
+                Observation Purification
+                Nullary Reflection
+                Integration Distillation
+                Schrödinger's Gambit
+
+                // page labels
+                Gemini Decomposition
+                Observation Purification
+                Nullary Reflection
+                Integration Distillation
+                Schrödinger's Gambit
+            }
+            Vacant Reflection
+            Augur's Exaltation
+            Hermes' Gambit
+
+            Hallucinate Click
+            Janus' Gambit
+        }
+        {
+            // name item
+            // pop and write the current page label
+            Bookkeeper's Gambit: v
+
+            Gemini Decomposition
+            Observation Purification
+            Rotation Gambit
+            Grokking Reflection
+            Surgeon's Exaltation
+            Schrödinger's Gambit
+
+            Hallucinate Click
+            Janus' Gambit
+        }
+        Numerical Reflection: 5
+        Flock's Gambit
+        Jester's Gambit
+        Selection Distillation
+        Hermes' Gambit
+    }
+    Speaker's Decomposition
+    Augur's Exaltation
+    Hermes' Gambit
+
+    // execute the selected page
     Observation Purification
     Jester's Gambit
     Selection Distillation
