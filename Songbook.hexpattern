@@ -1,0 +1,211 @@
+// cassette-based spellbook
+{
+    // cassette
+    {
+        {
+            Bookkeeper's Gambit: - <quine>
+            <property: page labels>
+            <[page index, previous scroll]>
+        }
+        Flock's Disintegration
+        Flock's Disintegration
+
+        // if we just started holding telepathy, change the previous scroll to 0
+        Telepathic Reflection
+        Numerical Reflection: 0
+        Equality Distillation
+        Numerical Reflection: 0
+        Rotation Gambit
+        Augur's Exaltation
+
+        // delta scroll (+ve up)
+        Rolling Reflection
+        Gemini Decomposition
+        Rotation Gambit
+        Subtractive Distillation
+
+        // check if delta is non-zero...
+        Gemini Decomposition
+        Numerical Reflection: 0
+        Inequality Distillation
+
+        // and if we're holding telepathy
+        Telepathic Reflection
+        Numerical Reflection: 0
+        Maximus Distillation II
+        Conjunction Distillation
+
+        {
+            // if not scrolling
+            // drop delta and property, but keep the new scroll value
+            Bookkeeper's Gambit: v--v
+
+            // if scrolling
+            // index += delta
+            Rotation Gambit
+            Additive Distillation
+
+            // index = max(index, 0)
+            Numerical Reflection: 0
+            Dioscuri Gambit
+            Maximus Distillation
+            Rotation Gambit II
+            Augur's Exaltation
+
+            // read labels
+            Rotation Gambit
+            Observation Purification
+
+            // index = min(index, len(labels))
+            // this allows the index to be out of range by 1, for inserting new pages
+            Undertaker's Gambit
+            Length Purification
+
+            Dioscuri Gambit
+            Minimus Distillation
+            Rotation Gambit II
+            Augur's Exaltation
+
+            // get and display new label
+            Undertaker's Gambit
+            Selection Distillation
+            Prospector's Gambit
+
+            {
+                <label: ")">
+                <label: " (">
+            }
+            Flock's Disintegration
+
+            Rotation Gambit II
+            Numerical Reflection: 4
+            Flock's Gambit
+            Collage Purification
+
+            Send Thought
+
+            // put index and delta back into original order
+            Jester's Gambit
+        }
+        Speaker's Decomposition
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // insert the index into the label, to send it to the CAD
+        Prospector's Gambit
+        Reading Purification (text)
+        {
+            <label: "Songbook: ">
+        }
+        Flock's Disintegration
+        Jester's Gambit
+        Additive Distillation
+
+        Numerical Reflection: -3
+        Fisherman's Gambit
+
+        // insert new index and delta into quine
+        Numerical Reflection: 2
+        Flock's Gambit
+        Numerical Reflection: 3
+        Jester's Gambit
+        Surgeon's Exaltation
+
+        // quineify the quine and enqueue the next cast
+        Numerical Reflection: 1
+        Prospector's Gambit
+        Surgeon's Exaltation
+
+        Numerical Reflection: 1
+        Rotation Gambit
+        Enqueue
+    }
+    Numerical Reflection: 1
+    Prospector's Gambit
+    Surgeon's Exaltation
+
+    // check if the cassette is running
+    {
+        {
+            Gemini Decomposition
+            Numerical Reflection: 0
+
+            // min(len(label), 10)
+            Prospector's Gambit
+            Length Purification
+            Numerical Reflection: 10
+            
+            Dioscuri Gambit
+            Minimus Distillation
+            Rotation Gambit II
+            Augur's Exaltation
+            
+            // check label prefix
+            Selection Exaltation
+            {
+                <label: "Songbook: ">
+            }
+            Flock's Disintegration
+            Equality Distillation
+            {
+                // cassette is running, jump out
+                Jester's Gambit
+                Hermes' Gambit
+            }
+            Vacant Reflection
+            Augur's Exaltation
+            Hermes' Gambit
+        }
+        Operating Reflection
+        Thoth's Gambit
+        Bookkeeper's Gambit: vv
+
+        // if we reached this point, the cassette isn't running
+        // if we're looking at an entity, try to recharge with it
+        // otherwise, start the cassette
+        Mind's Reflection
+        Compass' Purification
+        Mind's Reflection
+        Alidade's Purification
+        Scout's Distillation
+        
+        Undertaker's Gambit
+        Augur's Purification
+        {
+            Jester's Gambit
+            Recharge Item
+        }
+        Rotation Gambit
+        Augur's Exaltation
+        Hermes' Gambit
+
+        // don't continue out of iris
+        Janus' Gambit
+    }
+    Iris' Gambit
+
+    // TODO: add functions to insert/clear pages
+    // for now, just drop the quine
+    Bookkeeper's Gambit: v-
+
+    // parse the index in the label
+    Numerical Reflection: 10
+    Prospector's Gambit
+    Length Purification
+    Selection Exaltation
+    Scrivener's Purification
+    Input Purification
+
+    // execute the selected page
+    {
+        <property: pages>
+    }
+    Flock's Disintegration
+    Observation Purification
+    Jester's Gambit
+    Selection Distillation
+    Hermes' Gambit
+}
+
+#define Program Distillation [hexcassettes:inspect] = player, text -> boolean
+#define Operating Reflection [hexcassettes:busy] = -> list of text iotas
