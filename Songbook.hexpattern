@@ -1,7 +1,5 @@
-// cassette-based spellbook
-// note: initialize the page labels and pages props with the same list of nulls (arbitrary size >= 1)
-
 #define Create Songbook = -> songbook
+/// An early-game spellbook in a cassette.
 {
     // create new storage props
     Schrödinger's Reflection
