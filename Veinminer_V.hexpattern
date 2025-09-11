@@ -70,6 +70,20 @@
         Gemini Decomposition
         Sorter's Purification
 
+        // don't break budding amethyst
+        {
+            <type: budding amethyst>
+        }
+        Flock's Disintegration
+        Prospector's Gambit
+        Equality Distillation
+        {
+            Janus' Gambit
+        }
+        Vacant Reflection
+        Augur's Exaltation
+        Hermes' Gambit
+
         // break first block
         Prospector's Gambit
         Gemini Decomposition
@@ -181,9 +195,6 @@
                 Flock's Disintegration
                 Augur's Exaltation
                 Hermes' Gambit
-                
-                // TODO: remove when miyucomics/hexical#45 is fixed
-                Bookkeeper's Gambit: v
             }
             Sisyphus' Gambit
             <Sekhmet's Gambit: 0> // not strictly necessary, but we don't need the thoth accumulator for anything
@@ -194,10 +205,6 @@
     Consideration: }
 
     // cast it in a cassette to remove particles, which apparently cause lots of lag too
-    Numerical Reflection: 0
-    {
-        <"Veinminer">
-    }
-    Flock's Disintegration
+    Numerical Reflection: 1
     Enqueue
 }
