@@ -9,7 +9,7 @@
     // start with 16 empty pages
     Nullary Reflection
     Numerical Reflection: 16
-    Gemini Decomposition
+    Gemini Gambit
     Numerical Reflection: 16
     Flock's Gambit
 
@@ -30,7 +30,7 @@
             {
                 Bookkeeper's Gambit: - // quine
                 Bookkeeper's Gambit: - // property: page labels
-                <[page index, previous scroll]>
+                <[0, 0]> // page index, previous scroll
             }
             Flock's Disintegration
             Flock's Disintegration
@@ -186,7 +186,7 @@
             }
             Operating Reflection
             Thoth's Gambit
-            Bookkeeper's Gambit: vv
+            Bookkeeper's Gambit: v-vv
 
             // if we reached this point, the cassette isn't running
             // if we're looking at an entity, try to recharge with it
