@@ -403,5 +403,5 @@
     Surgeon's Exaltation
 }
 
-#define Program Distillation [hexcassettes:inspect] = player, text -> boolean
-#define Operating Reflection [hexcassettes:busy] = -> list of text iotas
+#define Operating Reflection (EAST qeqwqwqwqwqeqaweqqqqqaww) [hexcassettes:busy] = -> list of text iotas
+/// Pushes a list of the labels of all my busy Cassettes.
