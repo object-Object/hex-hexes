@@ -250,28 +250,22 @@
             // if editing
             // peek the top of the stack
             {
-                <Garbage>
                 Scribe's Reflection
                 Scribe's Gambit
                 Name Item
             }
             Grokking Reflection
-            Huginn's Gambit // in case the iota is very large, don't have multiple copies on the stack at once
-            Muninn's Reflection
+            Bookkeeper's Gambit: v
+            Derivation Decomposition
+            Bookkeeper's Gambit: v-
+
             Locator's Distillation
             Numerical Reflection: 1
             Additive Distillation
 
             {
                 // any other iota
-                // push the iota back to stack, then execute the current page
-                Bookkeeper's Gambit: v-
-                Muninn's Reflection
-                Grokking Gambit
-            }
-            {
-                // garbage
-                // just execute the current page
+                // execute the current page
                 Bookkeeper's Gambit: v-
             }
             {
@@ -282,6 +276,14 @@
                 Observation Purification
                 Jester's Gambit
                 Selection Distillation
+
+                Grokking Reflection
+                Jester's Gambit
+                Derivation Decomposition
+                Bookkeeper's Gambit: v
+                Rotation Gambit
+                Integration Distillation
+                Jester's Gambit
                 Grokking Gambit
 
                 Hallucinate Click
@@ -299,7 +301,16 @@
                 // write current page
                 Numerical Reflection: 4
                 Fisherman's Gambit II
+
                 Grokking Reflection
+                Jester's Gambit
+                Derivation Decomposition
+                Bookkeeper's Gambit: v
+                Derivation Decomposition
+                Rotation Gambit II
+                Jester's Gambit
+                Grokking Gambit
+
                 Surgeon's Exaltation
                 Schrödinger's Gambit
 
@@ -368,14 +379,23 @@
                 Gemini Decomposition
                 Observation Purification
                 Rotation Gambit
+                
                 Grokking Reflection
+                Jester's Gambit
+                Derivation Decomposition
+                Bookkeeper's Gambit: v
+                Derivation Decomposition
+                Rotation Gambit II
+                Jester's Gambit
+                Grokking Gambit
+
                 Surgeon's Exaltation
                 Schrödinger's Gambit
 
                 Hallucinate Click
                 Janus' Gambit
             }
-            Numerical Reflection: 5
+            Numerical Reflection: 4
             Flock's Gambit
             Jester's Gambit
             Selection Distillation
