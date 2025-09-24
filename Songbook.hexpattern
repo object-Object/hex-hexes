@@ -253,6 +253,7 @@
                 Scribe's Reflection
                 Scribe's Gambit
                 Name Item
+                Erase Item
             }
             Grokking Reflection
             Bookkeeper's Gambit: v
@@ -395,7 +396,37 @@
                 Hallucinate Click
                 Janus' Gambit
             }
-            Numerical Reflection: 4
+            {
+                // erase item
+                // clear the current page
+                Rotation Gambit
+                Huginn's Gambit
+
+                Gemini Decomposition
+                Observation Purification
+                Muninn's Reflection
+                Nullary Reflection
+                Surgeon's Exaltation
+                Schrödinger's Gambit
+
+                Gemini Decomposition
+                Observation Purification
+                Muninn's Reflection
+                Nullary Reflection
+                Surgeon's Exaltation
+                Schrödinger's Gambit
+
+                Grokking Reflection
+                Jester's Gambit
+                Derivation Decomposition
+                Bookkeeper's Gambit: v
+                Jester's Gambit
+                Grokking Gambit
+
+                Hallucinate Click
+                Janus' Gambit
+            }
+            Numerical Reflection: 5
             Flock's Gambit
             Jester's Gambit
             Selection Distillation
